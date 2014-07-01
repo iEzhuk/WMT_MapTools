@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Project ID="Arma3">
+	<Package ID="WMT">
+		<Container ID="Main">
+			<Key ID="STR_WMT_MainMenu">
+				<Original>Main menu</Original>
+				<Russian>Главное меню</Russian>
+			</Key>
+			<Key ID="STR_WMT_Options">
+				<Original>Options</Original>
+				<Russian>Настройки</Russian>
+			</Key>
+			<Key ID="STR_WMT_FeedBack">
+				<Original>Feedback</Original>
+				<Russian>Связь с админом</Russian>
+			</Key>
+			<Key ID="STR_WMT_AdminPanel">
+				<Original>Admin panel</Original>
+				<Russian>Админская</Russian>
+			</Key>
+			<Key ID="STR_WMT_MaxDistance">
+				<Original>Maximum</Original>
+				<Russian>Максимум</Russian>
+			</Key>
+			<Key ID="STR_WMT_Close">
+				<Original>Close</Original>
+				<Russian>Закрыть</Russian>
+			</Key>
+			<Key ID="STR_WMT_Close">
+				<Original>Close</Original>
+				<Russian>Закрыть</Russian>
+			</Key>
+			<Key ID="STR_WMT_Announcement">
+				<Original>Announcement</Original>
+				<Russian>Объявление</Russian>
+			</Key>
+			<Key ID="STR_WMT_EndMission">
+				<Original>End mission</Original>
+				<Russian>Прервать миссию</Russian>
+			</Key>
+			<Key ID="STR_WMT_EmptyTextField">
+				<Original>Empty text field</Original>
+				<Russian>Пусто текстовое поле</Russian>
+			</Key>
+			<Key ID="STR_WMT_NoAdmin">
+				<Original>Admin is not in game</Original>
+				<Russian>Админ не в игре</Russian>
+			</Key>
+			<Key ID="STR_WMT_GameAdmin">
+				<Original>Game admin:</Original>
+				<Russian>Игровой администратор:</Russian>
+			</Key>
+			<Key ID="STR_WMT_Send">
+				<Original>Send</Original>
+				<Russian>Отправить</Russian>
+			</Key>
+			<Key ID="STR_WMT_DisableTI">
+				<Original>Terminal view is disable</Original>
+				<Russian>Тепловизор отключен</Russian>
+			</Key>
+			<Key ID="STR_WMT_Win">
+				<Original>Victory</Original>
+				<Russian>Победа</Russian>
+			</Key>
+			<Key ID="STR_WMT_Lose">
+				<Original>Defeat</Original>
+				<Russian>Победа</Russian>
+			</Key>
+			<Key ID="STR_WMT_EndMissionByAdmin">
+				<Original>Admin interrupted the mission</Original>
+				<Russian>Адмистратор прервал миссию</Russian>
+			</Key>
+			<Key ID="STR_WMT_ViewDistance">
+				<Original>Veiw distance</Original>
+				<Russian>Дальность видимости</Russian>
+			</Key>			
+			<Key ID="STR_WMT_ViewDistance_Desc">
+				<Original>Max veiw distance</Original>
+				<Russian>Максимальная дальность видимости</Russian>
+			</Key>
+			<Key ID="STR_WMT_TI">
+				<Original>Terminal image</Original>
+				<Russian>Тепловизор</Russian>
+			</Key>			
+			<Key ID="STR_WMT_TI_Enable">
+				<Original>Default settings</Original>
+				<Russian>Стандартные настройки</Russian>
+			</Key>	
+			<Key ID="STR_WMT_TI_DisableInVehicle">
+				<Original>Disable in vehicles</Original>
+				<Russian>Отключен в технике</Russian>
+			</Key>	
+			<Key ID="STR_WMT_TI_Disable">
+				<Original>Disable</Original>
+				<Russian>Отключен</Russian>
+			</Key>
+			<Key ID="STR_Vehicles">
+				<Original>Vehicles</Original>
+				<Russian>Техника</Russian>
+			</Key>
+			<Key ID="STR_Squads">
+				<Original>Squads</Original>
+				<Russian>Отряды</Russian>
+			</Key>
+			<Key ID="STR_Killer">
+				<Original>Killer</Original>
+				<Russian>Убийца</Russian>
+			</Key>
+			<Key ID="STR_Kills">
+				<Original>Kills</Original>
+				<Russian>Убиства</Russian>
+			</Key>
+			<Key ID="STR_Unknow">
+				<Original>Unknow</Original>
+				<Russian>Неизвестно</Russian>
+			</Key>
+			<Key ID="STR_Suicide">
+				<Original>You killed yourself</Original>
+				<Russian>Вы убили сами себя</Russian>
+			</Key>
+			<Key ID="STR_Ally">
+				<Original>ally</Original>
+				<Russian>союзник</Russian>
+			</Key>
+			<Key ID="STR_MissionTime">
+				<Original>Mission time (min)</Original>
+				<Russian>Время на миссию (мин)</Russian>
+			</Key>
+			<Key ID="STR_WinnerSide">
+				<Original>Winner side</Original>
+				<Russian>Фракция</Russian>
+			</Key>
+			<Key ID="STR_WinnerSide_Desc">
+				<Original>Side that win after end time</Original>
+				<Russian>Фракция, которая побеждает после окончания времени</Russian>
+			</Key>
+			<Key ID="STR_Nobody">
+				<Original>No one</Original>
+				<Russian>Никто</Russian>
+			</Key>
+			<Key ID="STR_West">
+				<Original>West</Original>
+				<Russian>Запад</Russian>
+			</Key>
+			<Key ID="STR_East">
+				<Original>East</Original>
+				<Russian>Восток</Russian>
+			</Key>
+			<Key ID="STR_Resistance">
+				<Original>Resistance</Original>
+				<Russian>Независимые</Russian>
+			</Key>
+			<Key ID="STR_Civilian">
+				<Original>Civilian</Original>
+				<Russian>Гражданские</Russian>
+			</Key>
+			<Key ID="STR_Message">
+				<Original>Message</Original>
+				<Russian>Сообщение</Russian>
+			</Key>
+			</Key ID="STR_Message_Desc">
+				<Original>Message about end of mission</Original>
+				<Russian>Сообщение о окончании миссии</Russian>
+			</Key>
+			</Key ID="STR_PrepareTime">
+				<Original>Prepire time (min)</Original>
+				<Russian>Время на подготовку (мин)</Russian>
+			</Key>
+			</Key ID="STR_StartZone">
+				<Original>Size of start zone (m)</Original>
+				<Russian>Размер стартовой зоны (м)</Russian>
+			</Key>
+			</Key ID="STR_RemoveBots">
+				<Original>Remove bots (min)</Original>
+				<Russian>Удаление ботов (мин)</Russian>
+			</Key>
+			</Key ID="STR_RemoveBots">
+				<Original>Remove bots (min)</Original>
+				<Russian>Удаление ботов (мин)</Russian>
+			</Key>
+			</Key ID="STR_RemoveMarkers">
+				<Original>Remove markers (min)</Original>
+				<Russian>Удаление маркеров (мин)</Russian>
+			</Key>
+		</Container>
+	</Package>
+</Project>
