@@ -28,14 +28,14 @@ if(count WMT_Local_Killer > 0) then {
 	if(_killerName != WMT_Local_PlayerName) then {
 		_text = _text + _killerName;
 		if(_killerSide == WMT_Local_PlayerSide) then {
-			_text = _text + format [" (%1)", localize "STR_Ally"];
+			_text = _text + format [" (%1)", localize "STR_WMT_Ally"];
 		};
 	} else {
-		_text = _text + format ["%1", localize "STR_Suicide"];
+		_text = _text + format ["%1", localize "STR_WMT_Suicide"];
 	};
 
 } else {
-	_text = _text + format ["%1", localize "STR_Unknow"];
+	_text = _text + format ["%1", localize "STR_WMT_Unknow"];
 };
 
 _text = _text + "<br/>";
@@ -43,13 +43,13 @@ _text = _text + "<br/>";
 {
 	if(_x select 2 == 1 ) then { 
 		if(Local_PlayerSide == _x select 1) then {
-			_text = _text + format ["+ %1 <t color='#c7861b'>(%2)</t><br/>", _x select 0, localize "STR_TEAMMATE"];
+			_text = _text + format ["+ %1 <t color='#c7861b'>(%2)</t><br/>", _x select 0, localize "STR_WMT_TEAMMATE"];
 		}else{
 			_text = _text + format ["+ %1<br/>", _x select 0];
 		};
 	}else{
 		if(Local_PlayerSide == _x select 1) then {
-			_text = _text + format ["%1 <t color='#c7861b'>(%2)</t><br/>", _x select 0, localize "STR_TEAMMATE"];
+			_text = _text + format ["%1 <t color='#c7861b'>(%2)</t><br/>", _x select 0, localize "STR_WMT_TEAMMATE"];
 		}else{
 			_text = _text + format ["%1<br/>", _x select 0];
 		};

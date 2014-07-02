@@ -30,4 +30,4 @@ PR(_text) = "";
 	}
 } foreach allgroups;
 
-["diary",localize "STR_Squads", _text] call WMT_fnc_CreateDiaryRecord;
+["diary",localize "STR_WMT_Squads", _text] call WMT_fnc_CreateDiaryRecord;

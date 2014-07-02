@@ -41,7 +41,7 @@ class RscOptions {
 			y = 0.305;
 			w = 0.6;
 			h = 0.04;
-			text = $STR_GUI_DV_Options;
+			text = $STR_WMT_Options;
 		};
 	};
 	class controls {
@@ -51,7 +51,7 @@ class RscOptions {
 			y = 0.36;
 			w = 0.4;
 			h = 0.04;
-			text = $STR_GUI_DV_Foot;
+			text = $STR_WMT_OnFoot;
 		};
 		class Slider_Foot : RscXSliderH_ext {
 			idc = IDC_OPTIONS_FOOT_SLIDER;
@@ -77,7 +77,7 @@ class RscOptions {
 			y = 0.44;
 			w = 0.4;
 			h = 0.04;
-			text = $STR_GUI_DV_LanVehicle;
+			text = $STR_WMT_InLandVehicle;
 		};
 		class Slider_LandVehicle : RscXSliderH_ext {
 			idc = IDC_OPTIONS_VEH_SLIDER;
@@ -101,7 +101,7 @@ class RscOptions {
 			y = 0.52;
 			w = 0.4;
 			h = 0.04;
-			text = $STR_GUI_DV_Air;
+			text = $STR_WMT_InAirVehicle;
 		};
 		class Slider_Air : RscXSliderH_ext {
 			idc = IDC_OPTIONS_AIR_SLIDER;
@@ -125,7 +125,7 @@ class RscOptions {
 			y = 0.60;
 			w = 0.4;
 			h = 0.04;
-			text = $STR_GUI_DV_Ship;
+			text = $STR_WNT_OnShip;
 		};
 		class Slider_Water : RscXSliderH_ext {
 			idc = IDC_OPTIONS_SHIP_SLIDER;
@@ -149,7 +149,7 @@ class RscOptions {
 			y = 0.68;
 			w = 0.4;
 			h = 0.04;
-			text = $STR_GUI_DV_Spectator;
+			text = $STR_WMT_Spectator;
 		};
 		class Slider_Spectator : RscXSliderH_ext {
 			idc = IDC_OPTIONS_SPECT_SLIDER;

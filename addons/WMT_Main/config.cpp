@@ -27,7 +27,7 @@ class CfgFactionClasses
 {
 	class WMT
 	{
-		displayName = "Map tools";
+		displayName = "WMT";
 		priority = 13;
 		side = 7;
 	};

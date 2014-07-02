@@ -57,4 +57,4 @@ for "_i" from 0 to ((count _vehsName)-1) do
 	_text = _text + "<br/>";
 };
 
-["diary",localize "STR_Vehicles", _text] call WMT_fnc_CreateDiaryRecord;
+["diary",localize "STR_WMT_Vehicles", _text] call WMT_fnc_CreateDiaryRecord;

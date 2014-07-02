@@ -26,9 +26,25 @@
 				<Original>Close</Original>
 				<Russian>Закрыть</Russian>
 			</Key>
-			<Key ID="STR_WMT_Close">
-				<Original>Close</Original>
-				<Russian>Закрыть</Russian>
+			<Key ID="STR_WMT_OnFoot">
+				<Original>On Foot</Original>
+				<Russian>Пешком</Russian>
+			</Key>
+			<Key ID="STR_WMT_InLandVehicle">
+				<Original>In a land vehicle</Original>
+				<Russian>В наземной технике</Russian>
+			</Key>
+			<Key ID="STR_WMT_InAirVehicle">
+				<Original>In a air vehicle</Original>
+				<Russian>В воздушной технике</Russian>
+			</Key>
+			<Key ID="STR_WNT_OnShip">
+				<Original>On a ship</Original>
+				<Russian>На лодке</Russian>
+			</Key>
+			<Key ID="STR_WMT_Spectator">
+				<Original>Spectator</Original>
+				<Russian>Спектатор</Russian>
 			</Key>
 			<Key ID="STR_WMT_Announcement">
 				<Original>Announcement</Original>
@@ -94,91 +110,91 @@
 				<Original>Disable</Original>
 				<Russian>Отключен</Russian>
 			</Key>
-			<Key ID="STR_Vehicles">
+			<Key ID="STR_WMT_NameTag">
+				<Original>Name tag</Original>
+				<Russian>Подсветка имени</Russian>
+			</Key>
+			<Key ID="STR_WMT_Vehicles">
 				<Original>Vehicles</Original>
 				<Russian>Техника</Russian>
 			</Key>
-			<Key ID="STR_Squads">
+			<Key ID="STR_WMT_Squads">
 				<Original>Squads</Original>
 				<Russian>Отряды</Russian>
 			</Key>
-			<Key ID="STR_Killer">
+			<Key ID="STR_WMT_Killer">
 				<Original>Killer</Original>
 				<Russian>Убийца</Russian>
 			</Key>
-			<Key ID="STR_Kills">
+			<Key ID="STR_WMT_Kills">
 				<Original>Kills</Original>
 				<Russian>Убиства</Russian>
 			</Key>
-			<Key ID="STR_Unknow">
+			<Key ID="STR_WMT_Unknow">
 				<Original>Unknow</Original>
 				<Russian>Неизвестно</Russian>
 			</Key>
-			<Key ID="STR_Suicide">
+			<Key ID="STR_WMT_Suicide">
 				<Original>You killed yourself</Original>
 				<Russian>Вы убили сами себя</Russian>
 			</Key>
-			<Key ID="STR_Ally">
+			<Key ID="STR_WMT_Ally">
 				<Original>ally</Original>
 				<Russian>союзник</Russian>
 			</Key>
-			<Key ID="STR_MissionTime">
+			<Key ID="STR_WMT_MissionTime">
 				<Original>Mission time (min)</Original>
 				<Russian>Время на миссию (мин)</Russian>
 			</Key>
-			<Key ID="STR_WinnerSide">
+			<Key ID="STR_WMT_WinnerSide">
 				<Original>Winner side</Original>
 				<Russian>Фракция</Russian>
 			</Key>
-			<Key ID="STR_WinnerSide_Desc">
+			<Key ID="STR_WMT_WinnerSide_Desc">
 				<Original>Side that win after end time</Original>
 				<Russian>Фракция, которая побеждает после окончания времени</Russian>
 			</Key>
-			<Key ID="STR_Nobody">
+			<Key ID="STR_WMT_Nobody">
 				<Original>No one</Original>
 				<Russian>Никто</Russian>
 			</Key>
-			<Key ID="STR_West">
+			<Key ID="STR_WMT_West">
 				<Original>West</Original>
 				<Russian>Запад</Russian>
 			</Key>
-			<Key ID="STR_East">
+			<Key ID="STR_WMT_East">
 				<Original>East</Original>
 				<Russian>Восток</Russian>
 			</Key>
-			<Key ID="STR_Resistance">
+			<Key ID="STR_WMT_Resistance">
 				<Original>Resistance</Original>
 				<Russian>Независимые</Russian>
 			</Key>
-			<Key ID="STR_Civilian">
+			<Key ID="STR_WMT_Civilian">
 				<Original>Civilian</Original>
 				<Russian>Гражданские</Russian>
 			</Key>
-			<Key ID="STR_Message">
+			<Key ID="STR_WMT_Message">
 				<Original>Message</Original>
 				<Russian>Сообщение</Russian>
 			</Key>
-			</Key ID="STR_Message_Desc">
+			<Key ID="STR_WMT_Message_Desc">
 				<Original>Message about end of mission</Original>
 				<Russian>Сообщение о окончании миссии</Russian>
 			</Key>
-			</Key ID="STR_PrepareTime">
-				<Original>Prepire time (min)</Original>
+			<Key ID="STR_WMT_PrepareTime">
+				<Original>Prepare time (min)</Original>
 				<Russian>Время на подготовку (мин)</Russian>
 			</Key>
-			</Key ID="STR_StartZone">
+			<Key ID="STR_WMT_StartZone">
 				<Original>Size of start zone (m)</Original>
 				<Russian>Размер стартовой зоны (м)</Russian>
 			</Key>
-			</Key ID="STR_RemoveBots">
+			<Key ID="STR_WMT_RemoveBots">
 				<Original>Remove bots (min)</Original>
 				<Russian>Удаление ботов (мин)</Russian>
 			</Key>
-			</Key ID="STR_RemoveBots">
-				<Original>Remove bots (min)</Original>
-				<Russian>Удаление ботов (мин)</Russian>
-			</Key>
-			</Key ID="STR_RemoveMarkers">
+			<Key ID="STR_WMT_RemoveMarkers">
 				<Original>Remove markers (min)</Original>
 				<Russian>Удаление маркеров (мин)</Russian>
 			</Key>
