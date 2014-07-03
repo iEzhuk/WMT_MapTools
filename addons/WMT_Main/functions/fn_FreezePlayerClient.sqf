@@ -2,9 +2,11 @@
 _freeztime = [_this, 0, 60] call BIS_fnc_param;
 _distance = [_this, 1, 150] call BIS_fnc_param;
 _maxdistance = _distance + 20;
-waitUntil {player == player and time > 0};
+
 _startpos = getpos player;
 _mrk = ["PlayerFreeze",_startpos,"","ColorGreen","EMPTY",[_distance, _distance],"ELLIPSE",0,"Solid"] call WMT_fnc_CreateLocalMarker;
+waitUntil{sleep 0.4; time > 0};
+
 _uav_term = ["B_UavTerminal","O_UavTerminal","I_UavTerminal"];
 enableEngineArtillery false;
 while {WMT_pub_frzState < 3} do {

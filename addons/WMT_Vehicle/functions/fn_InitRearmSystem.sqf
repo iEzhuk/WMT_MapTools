@@ -26,7 +26,8 @@ if (isNil "wmt_ammoCargoVehs") then {
 
 waitUntil {time > 0};
 {
-	if (getAmmoCargo _x > 0) then {
+	_ammoCargo = getAmmoCargo _x ;
+	if (_ammoCargo > 0 and _ammoCargo < 2) then {
 		wmt_ammoCargoVehs set [count wmt_ammoCargoVehs, _x];
 		_x setAmmoCargo 0;
 	};
@@ -45,7 +46,7 @@ Func_Reammo_cond = {
 	private ["_res","_obj","_repairVeh"];
 	_obj = cursorTarget;
 	_res = false;
-	if(!wog_mt_mutexAction) then
+	if(!WMT_mutexAction) then
 	{
 		if(!(isNull _obj)) then 
 		{
@@ -80,16 +81,16 @@ Func_Reammo = {
 	if(isNull _veh)exitWith{};
 	if(!(_veh isKindOf "LandVehicle" || _veh isKindOf  "Air" || _veh isKindOf "Ship"))exitWith{};
 
-	wog_mt_mutexAction = true;
+	WMT_mutexAction = true;
 	_reammoTime_left = _veh getVariable["VH_ReammoTime_left",[0,0]];
 	_reammoTime_left = if(time - (_reammoTime_left select 1) < CLEARTIME)then{(_reammoTime_left select 0)}else{0};
 	_startTime = time;
 	_startPos  = getPos player;
 	_totalTime = REAMMOTIME;
 
-	while{ (time-(_startTime-_reammoTime_left))<_totalTime && wog_mt_mutexAction} do {
+	while{ (time-(_startTime-_reammoTime_left))<_totalTime && WMT_mutexAction} do {
 		if( !(alive player) || (speed _veh > 0.5) || (speed _ammoVeh > 0.5) || (_startPos distance (getPos player))>0.3) then {
-			wog_mt_mutexAction = false;
+			WMT_mutexAction = false;
 		}else{
 			 (format [ "%1 %2", (localize "STR_REARM_TIMELEFT"), [_totalTime - (time-(_startTime-_reammoTime_left)), "MM:SS"] call BIS_fnc_secondsToString ] ) call WMT_fnc_NotifyText;
 			player playMove "AinvPknlMstpSlayWrflDnon_medic";
@@ -97,7 +98,7 @@ Func_Reammo = {
 		};
 	};
 
-	if(wog_mt_mutexAction)then 
+	if(WMT_mutexAction)then 
 	{
 		//finished rearm
 		//[BIS_fnc_MP, [[_veh], "Func_Common_Rearm"],_veh] call Func_Common_Spawn;
@@ -105,7 +106,7 @@ Func_Reammo = {
 		[ [ [_veh], {_this call WMT_fnc_RearmVehicle;} ],"bis_fnc_spawn",_veh] call bis_fnc_mp;
 
 		_veh setVariable ["VH_ReammoTime_left",[0,0],true];
-		wog_mt_mutexAction = false;
+		WMT_mutexAction = false;
 		(localize "STR_COMPLETED_REAMMO") call WMT_fnc_NotifyText; 
 	}else{
 		//repair was cancel

@@ -20,7 +20,7 @@ class CfgFunctions
 	{
 		class Vehicle
 		{
-			file="wog_mt_vehicle\functions";		
+			file="WMT_Vehicle\functions";		
 			class VehicleInit
 			{
 				postInit = 1;
@@ -100,6 +100,7 @@ class CfgVehicles
 	};
 
 	class O_Soldier_base_F;
+	class O_Soldier_Urban_base;
 	class O_engineer_U_F : O_Soldier_base_F 
 	{
 		engineer = 0;

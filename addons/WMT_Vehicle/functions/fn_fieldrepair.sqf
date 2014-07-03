@@ -21,9 +21,9 @@
 zlt_repair_loop = [_this, 0, false] call BIS_fnc_param;
 
 
-wog_mt_repairEnabled = true;
-wog_mt_fullRepairClasses = [];
-wog_mt_fullRepairEnabled = false;
+WMT_repairEnabled = true;
+WMT_fullRepairClasses = [];
+WMT_fullRepairEnabled = false;
 
 if (isServer) then {
 	[] spawn {
@@ -41,11 +41,11 @@ if (isServer) then {
 	};
 };
 
-wog_mt_hardFieldRepairParts = ["HitEngine", "HitLTrack","HitRTrack"];
-wog_mt_fieldRepairHps = ["HitLFWheel","HitLBWheel","HitLMWheel","HitLF2Wheel","HitRFWheel","HitRBWheel","HitRMWheel","HitRF2Wheel"] + wog_mt_hardFieldRepairParts;
+WMT_hardFieldRepairParts = ["HitEngine", "HitLTrack","HitRTrack"];
+WMT_fieldRepairHps = ["HitLFWheel","HitLBWheel","HitLMWheel","HitLF2Wheel","HitRFWheel","HitRBWheel","HitRMWheel","HitRF2Wheel"] + WMT_hardFieldRepairParts;
 
-//wog_mt_fieldRepairHps = ["HitLFWheel","HitLBWheel","HitLMWheel","HitLF2Wheel","HitRFWheel","HitRBWheel","HitRMWheel","HitRF2Wheel" ,"HitEngine", "HitLTrack","HitRTrack"] + ["HitFuel","HitAvionics","HitVRotor","HitHRotor"];
-//wog_mt_hardFieldRepairParts = ["HitEngine", "HitLTrack","HitRTrack"] + ["HitFuel","HitAvionics","HitHRotor"];
+//WMT_fieldRepairHps = ["HitLFWheel","HitLBWheel","HitLMWheel","HitLF2Wheel","HitRFWheel","HitRBWheel","HitRMWheel","HitRF2Wheel" ,"HitEngine", "HitLTrack","HitRTrack"] + ["HitFuel","HitAvionics","HitVRotor","HitHRotor"];
+//WMT_hardFieldRepairParts = ["HitEngine", "HitLTrack","HitRTrack"] + ["HitFuel","HitAvionics","HitHRotor"];
 
 zlt_fnc_partrepair = {
 	private "_veh";
@@ -55,14 +55,14 @@ zlt_fnc_partrepair = {
 		_dmg = (_veh getHitPointDamage _x);
 		if (not isNil {_dmg}) then {
 			if ( _dmg > 0.64 ) then {
-				if (_x in wog_mt_hardFieldRepairParts) then {
+				if (_x in WMT_hardFieldRepairParts) then {
 					_veh setHitPointDamage [_x,0.64];
 				} else {
 					_veh setHitPointDamage [_x,0];
 				};
 			};
 		};
-	} foreach wog_mt_fieldRepairHps; 
+	} foreach WMT_fieldRepairHps; 
 };
 
 zlt_fnc_fullrepair = {
@@ -73,7 +73,7 @@ zlt_fnc_fullrepair = {
 
 if (isDedicated) exitWith {};
 waitUntil {player == player};
-wog_mt_mutexAction = false;
+WMT_mutexAction = false;
 
 zlt_frpr_getPartsRepairTime = {
 	private ["_veh","_vehtype","_flag"];
@@ -84,9 +84,9 @@ zlt_frpr_getPartsRepairTime = {
 		_cdmg = _veh getHitPointDamage (_x);
 		if (not isNil {_cdmg} ) then {
 			diag_log str ["REPAIR ", _x, _cdmg];
-			if (_cdmg > 0.64) exitWith {_rprTime = _rprTime + ( if (_x in wog_mt_hardFieldRepairParts) then {DEFAULT_FIELDREPAIR_EACH_HARDPART_TIME} else {DEFAULT_FIELDREPAIR_EACH_PART_TIME}); };
+			if (_cdmg > 0.64) exitWith {_rprTime = _rprTime + ( if (_x in WMT_hardFieldRepairParts) then {DEFAULT_FIELDREPAIR_EACH_HARDPART_TIME} else {DEFAULT_FIELDREPAIR_EACH_PART_TIME}); };
 		};
-	}  forEach wog_mt_fieldRepairHps;
+	}  forEach WMT_fieldRepairHps;
 	_rprTime;
 };
 
@@ -116,21 +116,21 @@ zlt_prc_repairvehicle = {
 	private ["_veh"];
 	_veh = (nearestObjects [player,["LandVehicle","Air","Ship"], 7]) select 0;
 	if (isNil {_veh}) exitWith {};
-	if (wog_mt_mutexAction) exitWith {
+	if (WMT_mutexAction) exitWith {
 		localize("STR_ANOTHER_ACTION") call WMT_fnc_NotifyText;
 	};
 	if (not alive player or (player distance _veh) > 7 or (vehicle player != player) or speed _veh > 3) exitWith {localize("STR_REPAIR_CONDITIONS") call WMT_fnc_NotifyText;};
 	_hastk = [] call zlt_fnc_hastk;
 	if ( _hastk == 0 ) exitWith {localize("STR_NEED_TOOLKIT") call WMT_fnc_NotifyText;};
 	_repairFinished = false;
-	wog_mt_mutexAction = true;  
+	WMT_mutexAction = true;  
 	_lastPlayerState = animationState player;
 //	player playActionNow "medicStartRightSide";
 //	sleep 0.5;
 	_maxlength = _veh getVariable["zlt_longrepair",[_veh] call zlt_frpr_getPartsRepairTime];
 	_vehname = getText ( configFile >> "CfgVehicles" >> typeOf(_veh) >> "displayName");
 	_length = _maxlength;
-	while {alive player and (player distance _veh) < 7 and (vehicle player == player) and speed _veh < 3 and not _repairFinished and wog_mt_mutexAction} do {		
+	while {alive player and (player distance _veh) < 7 and (vehicle player == player) and speed _veh < 3 and not _repairFinished and WMT_mutexAction} do {		
 	//	diag_log ("ANIM STATE = "+str(animationState player));	
 		(format[localize ("STR_REPAIR_MSG_STRING"), _length, _vehname] ) call WMT_fnc_NotifyText;
 		if (_length <= 0) then {_repairFinished = true;};
@@ -153,7 +153,7 @@ zlt_prc_repairvehicle = {
 		localize("STR_REPAIR_INTERRUPTED") call WMT_fnc_NotifyText;
 		_veh setVariable["zlt_longrepair",_length, true];
 	};
-	wog_mt_mutexAction = false;  
+	WMT_mutexAction = false;  
 	player playActionNow "medicstop";
 };
 
@@ -165,11 +165,11 @@ zlt_fnc_heavyRepair = {
 	{ if ( alive _x and {_x getVariable ["zlt_repair_cargo", -1] > -0.5} ) then {_truck = _x;}; } foreach _objs;
 	if (isNull _truck) exitWith { localize("STR_NO_REPAIR_TRUCK") call WMT_fnc_NotifyText;};
 
-	_canRepair = [_veh, wog_mt_fullRepairClasses] call WMT_fnc_CheckKindOfArray;
+	_canRepair = [_veh, WMT_fullRepairClasses] call WMT_fnc_CheckKindOfArray;
 	if (not _canRepair) exitWith { localize("STR_NO_ENOGH_SKILLS") call WMT_fnc_NotifyText;};
 	 
 	
-	if (wog_mt_mutexAction) exitWith {
+	if (WMT_mutexAction) exitWith {
 		localize("STR_ANOTHER_ACTION") call WMT_fnc_NotifyText;
 	};
 	if (_truck getVariable ["zlt_repair_cargo", 0] <= 0) then {
@@ -179,11 +179,11 @@ zlt_fnc_heavyRepair = {
 	
 	
 	_repairFinished = false;
-	wog_mt_mutexAction = true;	
+	WMT_mutexAction = true;	
 	_maxlength = _veh getVariable["zlt_longrepairTruck",DEFAULT_FULLREPAIR_LENGTH];
 	_vehname = getText ( configFile >> "CfgVehicles" >> typeOf(_veh) >> "displayName");
 	_length = _maxlength;
-	while { player distance _veh < 7 and alive player and alive _truck and alive _veh and vehicle player == player and speed _veh <= 3 and speed _truck <=3 and not _repairFinished and wog_mt_mutexAction and _veh distance _truck <= DISTANCE_TO_REPAIRVEHICLE } do {			
+	while { player distance _veh < 7 and alive player and alive _truck and alive _veh and vehicle player == player and speed _veh <= 3 and speed _truck <=3 and not _repairFinished and WMT_mutexAction and _veh distance _truck <= DISTANCE_TO_REPAIRVEHICLE } do {			
 		(format[localize("STR_REPAIR_MSG_STRING"), _length, _vehname] ) call WMT_fnc_NotifyText;
 		if (_length <= 0) then {_repairFinished = true;};
 		_length = _length - 1;
@@ -202,21 +202,21 @@ zlt_fnc_heavyRepair = {
 		localize("STR_REPAIR_INTERRUPTED") call WMT_fnc_NotifyText;
 		_veh setVariable["zlt_longrepairTruck",_length, true];
 	};
-	wog_mt_mutexAction = false;  
+	WMT_mutexAction = false;  
 	player playActionNow "medicstop";	
 };
 
 
 _playerClass= toUpper (typeof player);
 
-wog_mt_fullRepairClasses = [];
-wog_mt_fullRepairEnabled = false;
+WMT_fullRepairClasses = [];
+WMT_fullRepairEnabled = false;
 
 switch ( true ) do {
-	case (_playerClass in ["B_CREW_F","I_CREW_F","O_CREW_F"]) : {wog_mt_fullRepairClasses = ["Car","Tank","Ship"];wog_mt_fullRepairEnabled = true; };
-	case (_playerClass in ["O_ENGINEER_F","B_ENGINEER_F","I_ENGINEER_F","B_SOLDIER_REPAIR_F","I_SOLDIER_REPAIR_F","O_SOLDIER_REPAIR_F","B_G_ENGINEER_F"]) : {wog_mt_fullRepairClasses = ["Car","Tank","Ship","Air"];wog_mt_fullRepairEnabled = true; };
-	case (_playerClass in ["O_PILOT_F","B_PILOT_F","I_PILOT_F","O_HELICREW_F","I_HELICREW_F","B_HELICREW_F","O_HELIPILOT_F","B_HELIPILOT_F","I_HELIPILOT_F"]) : {wog_mt_fullRepairClasses = ["Car","Tank","Ship","Air"];wog_mt_fullRepairEnabled = true; };
-	case (_playerClass in ["O_SOLDIER_UAV_F","I_SOLDIER_UAV_F","B_SOLDIER_UAV_F"]) : {wog_mt_fullRepairClasses = ["UGV_01_base_F","UAV_01_base_F","UAV_02_base_F"];wog_mt_fullRepairEnabled = true; };
+	case (_playerClass in ["B_CREW_F","I_CREW_F","O_CREW_F"]) : {WMT_fullRepairClasses = ["Car","Tank","Ship"];WMT_fullRepairEnabled = true; };
+	case (_playerClass in ["O_ENGINEER_F","B_ENGINEER_F","I_ENGINEER_F","B_SOLDIER_REPAIR_F","I_SOLDIER_REPAIR_F","O_SOLDIER_REPAIR_F","B_G_ENGINEER_F"]) : {WMT_fullRepairClasses = ["Car","Tank","Ship","Air"];WMT_fullRepairEnabled = true; };
+	case (_playerClass in ["O_PILOT_F","B_PILOT_F","I_PILOT_F","O_HELICREW_F","I_HELICREW_F","B_HELICREW_F","O_HELIPILOT_F","B_HELIPILOT_F","I_HELIPILOT_F"]) : {WMT_fullRepairClasses = ["Car","Tank","Ship","Air"];WMT_fullRepairEnabled = true; };
+	case (_playerClass in ["O_SOLDIER_UAV_F","I_SOLDIER_UAV_F","B_SOLDIER_UAV_F"]) : {WMT_fullRepairClasses = ["UGV_01_base_F","UAV_01_base_F","UAV_02_base_F"];WMT_fullRepairEnabled = true; };
 
 
 
@@ -224,11 +224,11 @@ switch ( true ) do {
 
 
 if (isNil "zlt_cancelActionId") then {
-zlt_cancelActionId = player addAction["<t color='#0000ff'>"+localize("STR_CANCEL_ACTION")+"</t>", {wog_mt_mutexAction = false}, [], 10, false, true, '',' wog_mt_mutexAction  '];
+zlt_cancelActionId = player addAction["<t color='#0000ff'>"+localize("STR_CANCEL_ACTION")+"</t>", {WMT_mutexAction = false}, [], 10, false, true, '',' WMT_mutexAction  '];
 	
-	player addAction["<t color='#ff0000'>"+localize ("STR_FIELD_REPAIR")+"</t>", zlt_prc_repairvehicle, [], -1, false, true, '','(not isNull cursorTarget) and {alive player} and {(player distance cursortarget) <= 7} and {(vehicle player == player)} and {speed cursortarget < 3} and {not wog_mt_mutexAction} and {alive cursortarget} and {cursortarget call WMT_fnc_vehicleIsDamaged}'];
-	if (wog_mt_fullRepairEnabled) then {
-		player addAction["<t color='#ff0000'>"+localize ("STR_SERIOUS_REPAIR")+ "</t>", zlt_fnc_heavyRepair, [], -1, false, true, '','(not isNull cursorTarget) and {vehicle player == player} and {player distance cursortarget <= 7 and damage cursortarget != 0} and {alive player and alive cursortarget} and {speed cursortarget < 3} and {not wog_mt_mutexAction}'];
+	player addAction["<t color='#ff0000'>"+localize ("STR_FIELD_REPAIR")+"</t>", zlt_prc_repairvehicle, [], -1, false, true, '','(not isNull cursorTarget) and {alive player} and {(player distance cursortarget) <= 7} and {(vehicle player == player)} and {speed cursortarget < 3} and {not WMT_mutexAction} and {alive cursortarget} and {cursortarget call WMT_fnc_vehicleIsDamaged}'];
+	if (WMT_fullRepairEnabled) then {
+		player addAction["<t color='#ff0000'>"+localize ("STR_SERIOUS_REPAIR")+ "</t>", zlt_fnc_heavyRepair, [], -1, false, true, '','(not isNull cursorTarget) and {vehicle player == player} and {player distance cursortarget <= 7 and damage cursortarget != 0} and {alive player and alive cursortarget} and {speed cursortarget < 3} and {not WMT_mutexAction}'];
 	};
 	/* TODO
 	player createDiarySubject [STR_SCRIPTS_NAME,STR_SCRIPTS_NAME];
@@ -238,11 +238,11 @@ zlt_cancelActionId = player addAction["<t color='#0000ff'>"+localize("STR_CANCEL
 };
 
 player addEventHandler ["Respawn", {
-	zlt_cancelActionId = player addAction["<t color='#0000ff'>"+localize("STR_CANCEL_ACTION")+"</t>", {wog_mt_mutexAction = false}, [], 10, false, true, '',' wog_mt_mutexAction  '];
+	zlt_cancelActionId = player addAction["<t color='#0000ff'>"+localize("STR_CANCEL_ACTION")+"</t>", {WMT_mutexAction = false}, [], 10, false, true, '',' WMT_mutexAction  '];
 	
-	player addAction["<t color='#ff0000'>"+localize ("STR_FIELD_REPAIR")+"</t>", zlt_prc_repairvehicle, [], -1, false, true, '','(not isNull cursorTarget) and {alive player} and {(player distance cursortarget) <= 7} and {(vehicle player == player)} and {speed cursortarget < 3} and {not wog_mt_mutexAction} and {alive cursortarget} and {cursortarget call WMT_fnc_vehicleIsDamaged}'];
-	if (wog_mt_fullRepairEnabled) then {
-		player addAction["<t color='#ff0000'>"+localize ("STR_SERIOUS_REPAIR")+ "</t>", zlt_fnc_heavyRepair, [], -1, false, true, '','(not isNull cursorTarget) and {vehicle player == player} and {player distance cursortarget <= 7 and damage cursortarget != 0} and {alive player and alive cursortarget} and {speed cursortarget < 3} and {not wog_mt_mutexAction}'];
+	player addAction["<t color='#ff0000'>"+localize ("STR_FIELD_REPAIR")+"</t>", zlt_prc_repairvehicle, [], -1, false, true, '','(not isNull cursorTarget) and {alive player} and {(player distance cursortarget) <= 7} and {(vehicle player == player)} and {speed cursortarget < 3} and {not WMT_mutexAction} and {alive cursortarget} and {cursortarget call WMT_fnc_vehicleIsDamaged}'];
+	if (WMT_fullRepairEnabled) then {
+		player addAction["<t color='#ff0000'>"+localize ("STR_SERIOUS_REPAIR")+ "</t>", zlt_fnc_heavyRepair, [], -1, false, true, '','(not isNull cursorTarget) and {vehicle player == player} and {player distance cursortarget <= 7 and damage cursortarget != 0} and {alive player and alive cursortarget} and {speed cursortarget < 3} and {not WMT_mutexAction}'];
 	};
 }];
 

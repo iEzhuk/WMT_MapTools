@@ -24,11 +24,11 @@ zlt_fnc_pushboat = {
 	_withcrew = (count crew _veh != 0);
 	if (_withcrew) exitwith {titleText [localize("STR_BOAT_ERR"),"PLAIN",1];};
 	
-	wog_mt_mutexAction = true;  
+	WMT_mutexAction = true;  
 	
 	_unit playActionNow "PutDown";
 	sleep 1.;
-	if (not wog_mt_mutexAction) exitWith {};
+	if (not WMT_mutexAction) exitWith {};
 	_dir = direction _unit;
 	_veh setOwner (owner _unit); _veh setVelocity [(sin _dir)*_spd, (cos _dir)*_spd, 0]; 
 	
@@ -43,17 +43,17 @@ zlt_fnc_pushboat = {
 		_this setvelocity [(_vel select 0) * 0.1, (_vel select 1) * 0.1, (_vel select 2) * 0.1 ];
 	};
 	
-	wog_mt_mutexAction = false;  
+	WMT_mutexAction = false;  
 };
 
 
-wog_mt_mutexAction = false; 
+WMT_mutexAction = false; 
 
 
-player addAction ["<t color='#FF9900'>"+localize('STR_PUSH_BOAT')+"</t>",zlt_fnc_pushboat,[],-1,false,false,"",'vehicle player == player and {not isNull cursorTarget} and {cursorTarget isKindOf "Ship"} and {player distance cursorTarget < 8} and {not wog_mt_mutexAction}'];  
+player addAction ["<t color='#FF9900'>"+localize('STR_PUSH_BOAT')+"</t>",zlt_fnc_pushboat,[],-1,false,false,"",'vehicle player == player and {not isNull cursorTarget} and {cursorTarget isKindOf "Ship"} and {player distance cursorTarget < 8} and {not WMT_mutexAction}'];  
 
 player addEventHandler ["Respawn", {
-	player addAction ["<t color='#FF9900'>"+localize('STR_PUSH_BOAT')+"</t>",zlt_fnc_pushboat,[],-1,false,false,"",'vehicle player == player and {not isNull cursorTarget} and {cursorTarget isKindOf "Ship"} and {player distance cursorTarget < 8} and {not wog_mt_mutexAction}'];  
+	player addAction ["<t color='#FF9900'>"+localize('STR_PUSH_BOAT')+"</t>",zlt_fnc_pushboat,[],-1,false,false,"",'vehicle player == player and {not isNull cursorTarget} and {cursorTarget isKindOf "Ship"} and {player distance cursorTarget < 8} and {not WMT_mutexAction}'];  
 }];
 
 

@@ -8,6 +8,6 @@
 		Add list of squads and players to briefing 
 
 */
-if (isNil "wog_mt_repairEnabled" or {wog_mt_repairEnabled == true}) then {
+if (isNil "WMT_repairEnabled" or {WMT_repairEnabled == true}) then {
 	[] spawn WMT_fnc_fieldrepair;
 };
