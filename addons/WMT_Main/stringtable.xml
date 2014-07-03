@@ -95,7 +95,7 @@
 				<Russian>Максимальная дальность видимости</Russian>
 			</Key>
 			<Key ID="STR_WMT_TI">
-				<Original>Terminal image</Original>
+				<Original>Thermal Image</Original>
 				<Russian>Тепловизор</Russian>
 			</Key>			
 			<Key ID="STR_WMT_TI_Enable">
@@ -222,9 +222,10 @@
 				<Original>Start!</Original>
 				<Russian>Старт!</Russian>
 			</Key>	
-
-
-
+			<Key ID="STR_WMT_EndTime">
+				<Original>End time</Original>
+				<Russian>Время вышло</Russian>
+			</Key>
 		</Container>
 	</Package>
 </Project>

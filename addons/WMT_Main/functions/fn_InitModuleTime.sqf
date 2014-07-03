@@ -7,7 +7,7 @@
  	Description:
 		Initialize time module
 */
-#include "defines.sqf"
+#define PR(x) private ['x']; x
 
 PR(_logic) = [_this,0,objNull,[objNull]] call BIS_fnc_param;
 PR(_units) = [_this,1,[],[[]]] call BIS_fnc_param;
@@ -15,34 +15,28 @@ PR(_activated) = [_this,2,true,[true]] call BIS_fnc_param;
 
 
 if(_activated) then {
-	//================================================
-	//					SERVER
-	//================================================
-	if(isServer) then {
-		[_logic] spawn {
-			PR(_logic) = _this select 0;
-			PR(_missionTime) 		= _logic getVariable "MissionTime";
-			PR(_winnerByTime) 		= [sideLogic,WEST,EAST,RESISTANCE,CIVILIAN] select (_logic getVariable "WinnerByTime");
-			PR(_winnerText) 		= _logic getVariable "WinnerByTimeText";
-			PR(_prepareTime) 		= _logic getVariable "PrepareTime";
-			PR(_removeBotsTime) 	= _logic getVariable "RemoveBots";
-
-			[_prepareTime] call WMT_fnc_PrepareTime_server;
-			[_missionTime,_winnerByTime,_winnerText] call WMT_fnc_EndMissionByTime;
-		};
-	}; 
-
-
-	//================================================
-	//					CLIENT
-	//================================================
-	if(!isDedicated) then {
-		[_logic] spawn {
-			PR(_logic) = _this select 0;
-			PR(_prepareTime) = _logic getVariable "PrepareTime";
-			PR(_startZone) 	 = _logic getVariable "StartZone";
-
-			[_prepareTime,_startZone] call WMT_fnc_PrepareTime_client;
-		};
+	// mission time 
+	if(isNil "wmt_param_MissionTime") then {
+		wmt_param_TI = _logic getVariable "MissionTime";
+	};
+	// winner by end of time 
+	if(isNil "wmt_param_WinnerByTime") then {
+		wmt_param_WinnerByTime = _logic getVariable "WinnerByTime";
+	};	
+	// message 
+	if(isNil "wmt_param_WinnerByTimeText") then {
+		wmt_param_WinnerByTimeText = _logic getVariable "WinnerByTimeText";
+	};	
+	// prepare time  
+	if(isNil "wmt_param_PrepareTime") then {
+		wmt_param_PrepareTime = _logic getVariable "PrepareTime";
+	};
+		// prepare time  
+	if(isNil "wmt_param_StartZone") then {
+		wmt_param_StartZone = _logic getVariable "StartZone";
+	};
+	// time to remove bots
+	if(isNil "wmt_param_RemoveBots") then {
+		wmt_param_RemoveBots = _logic getVariable "RemoveBots";
 	};
 };

@@ -5,11 +5,10 @@
 		Ezhuk
 
  	Description:
-		Show player tags
+		Show player tag with name
 
 	Parameters:
-		0 - STRING: Type
-		1 - ARRAY: Arguments
+		ARRAY: from dialog handler 
  	
  	Returns:
 		BOOL: for standart handlers 
@@ -31,8 +30,8 @@ while { true } do {
 			if(player != _unit) then {
 				if(side _unit == WMT_Local_PlayerSide) then {
 					if(alive _unit) then {
-						if(!(["Error:", name _unit] call BIS_fnc_inString)) then {
-							if(_unit distance player < 10) then {
+						if(_unit distance player < 10) then {
+							if(!(["Error:", name _unit] call BIS_fnc_inString)) then {
 								_text = format [ "<t color='#b1f240' shadow=2>%1</t>", name _unit];
 							};
 						};

@@ -62,28 +62,28 @@ switch (_event) do
 	};
 	case "update": {
 		PR(_dialog) = uiNamespace getVariable "WMT_Dialog_Menu";
-		(_dialog displayCtrl IDC_OPTIONS_FOOT_VAR) ctrlSetText str(WMT_Param_ViewDistance min (WMT_Options_ViewDistance select 0));
-		(_dialog displayCtrl IDC_OPTIONS_VEH_VAR) ctrlSetText str(WMT_Param_ViewDistance min (WMT_Options_ViewDistance select 1));
-		(_dialog displayCtrl IDC_OPTIONS_AIR_VAR) ctrlSetText str(WMT_Param_ViewDistance min (WMT_Options_ViewDistance select 2));
-		(_dialog displayCtrl IDC_OPTIONS_SHIP_VAR) ctrlSetText str(WMT_Param_ViewDistance min (WMT_Options_ViewDistance select 3));
+		(_dialog displayCtrl IDC_OPTIONS_FOOT_VAR) ctrlSetText str(wmt_param_ViewDistance min (WMT_Options_ViewDistance select 0));
+		(_dialog displayCtrl IDC_OPTIONS_VEH_VAR) ctrlSetText str(wmt_param_ViewDistance min (WMT_Options_ViewDistance select 1));
+		(_dialog displayCtrl IDC_OPTIONS_AIR_VAR) ctrlSetText str(wmt_param_ViewDistance min (WMT_Options_ViewDistance select 2));
+		(_dialog displayCtrl IDC_OPTIONS_SHIP_VAR) ctrlSetText str(wmt_param_ViewDistance min (WMT_Options_ViewDistance select 3));
 		(_dialog displayCtrl IDC_OPTIONS_SPECT_VAR) ctrlSetText str(MAX_DISTANCE min (WMT_Options_ViewDistance select 4));
 
 
 		(_dialog displayCtrl IDC_OPTIONS_FOOT_SLIDER) sliderSetSpeed [100,100];
-		(_dialog displayCtrl IDC_OPTIONS_FOOT_SLIDER) slidersetRange [100,WMT_Param_ViewDistance];
-		(_dialog displayCtrl IDC_OPTIONS_FOOT_SLIDER) sliderSetPosition (WMT_Param_ViewDistance min (WMT_Options_ViewDistance select 0));
+		(_dialog displayCtrl IDC_OPTIONS_FOOT_SLIDER) slidersetRange [100,wmt_param_ViewDistance];
+		(_dialog displayCtrl IDC_OPTIONS_FOOT_SLIDER) sliderSetPosition (wmt_param_ViewDistance min (WMT_Options_ViewDistance select 0));
 
 		(_dialog displayCtrl IDC_OPTIONS_VEH_SLIDER) sliderSetSpeed [100,100];
-		(_dialog displayCtrl IDC_OPTIONS_VEH_SLIDER) slidersetRange [100,WMT_Param_ViewDistance];
-		(_dialog displayCtrl IDC_OPTIONS_VEH_SLIDER) sliderSetPosition (WMT_Param_ViewDistance min (WMT_Options_ViewDistance select 1));
+		(_dialog displayCtrl IDC_OPTIONS_VEH_SLIDER) slidersetRange [100,wmt_param_ViewDistance];
+		(_dialog displayCtrl IDC_OPTIONS_VEH_SLIDER) sliderSetPosition (wmt_param_ViewDistance min (WMT_Options_ViewDistance select 1));
 
 		(_dialog displayCtrl IDC_OPTIONS_AIR_SLIDER) sliderSetSpeed [100,100];
-		(_dialog displayCtrl IDC_OPTIONS_AIR_SLIDER) slidersetRange [100,WMT_Param_ViewDistance];
-		(_dialog displayCtrl IDC_OPTIONS_AIR_SLIDER) sliderSetPosition (WMT_Param_ViewDistance min (WMT_Options_ViewDistance select 2));
+		(_dialog displayCtrl IDC_OPTIONS_AIR_SLIDER) slidersetRange [100,wmt_param_ViewDistance];
+		(_dialog displayCtrl IDC_OPTIONS_AIR_SLIDER) sliderSetPosition (wmt_param_ViewDistance min (WMT_Options_ViewDistance select 2));
 
 		(_dialog displayCtrl IDC_OPTIONS_SHIP_SLIDER) sliderSetSpeed [100,100];
-		(_dialog displayCtrl IDC_OPTIONS_SHIP_SLIDER) slidersetRange [100,WMT_Param_ViewDistance];
-		(_dialog displayCtrl IDC_OPTIONS_SHIP_SLIDER) sliderSetPosition (WMT_Param_ViewDistance min (WMT_Options_ViewDistance select 3));
+		(_dialog displayCtrl IDC_OPTIONS_SHIP_SLIDER) slidersetRange [100,wmt_param_ViewDistance];
+		(_dialog displayCtrl IDC_OPTIONS_SHIP_SLIDER) sliderSetPosition (wmt_param_ViewDistance min (WMT_Options_ViewDistance select 3));
 
 		(_dialog displayCtrl IDC_OPTIONS_SPECT_SLIDER) sliderSetSpeed [100,100];
 		(_dialog displayCtrl IDC_OPTIONS_SPECT_SLIDER) slidersetRange [100,MAX_DISTANCE];
@@ -109,7 +109,7 @@ switch (_event) do
 
 		while{true} do {
 			_spectator = uiNamespace getVariable "WMT_DisaplaySpectator";
-			_maxDist = if(isNil "_spectator")then{WMT_Param_ViewDistance}else{MAX_DISTANCE};
+			_maxDist = if(isNil "_spectator")then{wmt_param_ViewDistance}else{MAX_DISTANCE};
 
 			_dist = _maxDist min (WMT_Options_ViewDistance select ([] call _fnc_state));
 

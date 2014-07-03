@@ -5,29 +5,29 @@ class CfgFunctions
 		class Main
 		{
 			file = "WMT_Main\functions";
-			class init{
+			class Init{
 				postInit = 1;
 			};
-			class announcement{};
-			class briefingSquads{};
-			class briefingVehicles{};
-			class createDiaryRecord{};
-			class createLocalMarker{};
-			class disableTI{};
-			class endMission{};
-			class endMissionByTime{};
-			class handlerAdminPanel{};
-			class handlerFeedback{};
-			class handlerMenu{};
-			class handlerOptions{};
-			class initModuleMain{};
-			class initModuleTime{};
-			class keyDown{};
-			class nameTag{};
-			class prepareTime_client{};
-			class prepareTime_server{};
-			class showStatistic{};
-			class spotMarkers{};
+			class Announcement{};
+			class BriefingSquads{};
+			class BriefingVehicles{};
+			class CreateDiaryRecord{};
+			class CreateLocalMarker{};
+			class DisableTI{};
+			class EndMission{};
+			class EndMissionByTime{};
+			class HandlerAdminPanel{};
+			class HandlerFeedback{};
+			class HandlerMenu{};
+			class HandlerOptions{};
+			class InitModuleMain{};
+			class InitModuleTime{};
+			class KeyDown{};
+			class NameTag{};
+			class PrepareTime_client{};
+			class PrepareTime_server{};
+			class ShowStatistic{};
+			class SpotMarkers{};
 			class CreateTrigger{};
 			class FreezeVoteWait{};
 			class FreezeVehicle{};
@@ -36,7 +36,6 @@ class CfgFunctions
 			class FreezeGrenadeClient{};
 			class FreezePlayerClient{};
 			class FreezeUI{};
-	
 		};
 	};
 };
