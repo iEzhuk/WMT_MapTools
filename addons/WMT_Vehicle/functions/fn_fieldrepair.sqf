@@ -72,7 +72,7 @@ zlt_fnc_fullrepair = {
 };
 
 if (isDedicated) exitWith {};
-waitUntil {player == player};
+waitUntil {sleep 0.23; player == player};
 WMT_mutexAction = false;
 
 zlt_frpr_getPartsRepairTime = {

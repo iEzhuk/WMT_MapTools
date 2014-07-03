@@ -1,6 +1,6 @@
 
 if (isDedicated) exitWith {};
-waitUntil{!(isNull (findDisplay 46))};
+waitUntil{sleep 0.36; !(isNull (findDisplay 46))};
 
 Func_KeyHandler_ShowCrew = {
 	private ["_rsc","_veh","_text","_control"];

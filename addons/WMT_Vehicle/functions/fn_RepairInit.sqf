@@ -9,5 +9,5 @@
 
 */
 if (isNil "WMT_repairEnabled" or {WMT_repairEnabled == true}) then {
-	[] spawn WMT_fnc_fieldrepair;
+	[] call WMT_fnc_fieldrepair;
 };

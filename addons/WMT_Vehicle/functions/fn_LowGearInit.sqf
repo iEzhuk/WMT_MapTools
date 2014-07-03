@@ -11,9 +11,8 @@
 /*
 	Low gear action
 */
-if (isDedicated) exitwith {};
-
-waitUntil {!(isNull (findDisplay 46))};
+if (isDedicated) exitWith {};
+waitUntil {sleep 0.42; !(isNull (findDisplay 46))};
 (findDisplay 46) displayAddEventHandler ["KeyDown",
 {_key =_this select 1;
 if(_key in actionKeys "carForward" or _key in actionKeys "carForward" or _key in actionKeys "carFastForward" or _key in actionKeys "carSlowForward")  then {wmt_carforward = true;};

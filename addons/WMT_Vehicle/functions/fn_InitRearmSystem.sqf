@@ -17,6 +17,7 @@
 #define CLEARTIME 300
 
 if(isDedicated) exitWith {};
+waitUntil {sleep 0.23; player == player};
 if(true && (!(["engineer" ,str(typeOf player)] call BIS_fnc_inString) && !(["crew" ,str(typeOf player)] call BIS_fnc_inString) && !(["pilot",str(typeOf player)] call BIS_fnc_inString))) exitWith {};
 // Player is crewman or pilot
 
@@ -24,7 +25,7 @@ if (isNil "wmt_ammoCargoVehs") then {
 	wmt_ammoCargoVehs = [];
 };
 
-waitUntil {time > 0};
+waitUntil {sleep 0.41;time > 0};
 {
 	_ammoCargo = getAmmoCargo _x ;
 	if (_ammoCargo > 0 and _ammoCargo < 2) then {
@@ -42,7 +43,7 @@ wmt_fnc_GetNearestAmmoSource = {
 	_res
 };
 
-Func_Reammo_cond = {
+wmt_fnc_ReammoCond = {
 	private ["_res","_obj","_repairVeh"];
 	_obj = cursorTarget;
 	_res = false;
@@ -67,7 +68,7 @@ Func_Reammo_cond = {
 	_res
 };
 
-Func_Reammo = {
+wmt_fnc_Reammo = {
 	private ["_repairVeh","_veh","_vehType","_damagedParts","_reammoTime_left","_startTime","_startPos","_totalTime"];
 	_veh 			 = cursorTarget;
 	_vehType 		 = typeOf _veh;
@@ -114,6 +115,6 @@ Func_Reammo = {
 	};
 };
 
-player addAction[ format ["<t color='#ff0000'>%1</t>", (localize "STR_ACTION_REAMMO") ] , Func_Reammo, [], 1, false, false, '','[] call Func_Reammo_cond'];
+player addAction[ format ["<t color='#ff0000'>%1</t>", (localize "STR_ACTION_REAMMO") ] , wmt_fnc_Reammo, [], 1, false, false, '','[] call wmt_fnc_ReammoCond'];
 
 

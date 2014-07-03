@@ -13,7 +13,7 @@
 
 
 if (isDedicated) exitWith {};
-waitUntil {player == player};
+waitUntil { sleep 0.47; player == player};
 
 WMT_drag = false;
 

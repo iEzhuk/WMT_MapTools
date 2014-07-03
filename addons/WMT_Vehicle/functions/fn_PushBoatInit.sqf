@@ -10,7 +10,8 @@
 */
 
 
-if (isDedicated) exitwith {};
+if (isDedicated) exitWith {};
+waitUntil {sleep 0.39; player == player};
 
 private ["_veh"];
 _veh = [_this, 0, objNull] call BIS_fnc_param;
