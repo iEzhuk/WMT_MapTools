@@ -13,7 +13,6 @@
 	waitUntil {sleep 0.75; time > 0};
 
 	while {WMT_pub_frzState < 3} do {
-		_engineon = false;
 		_time3 = round(WMT_pub_frzTimeLeft);
 		_sec = 0;
 		if (WMT_pub_frzState == 2) then {
@@ -25,11 +24,7 @@
 		_infoStr1 = format ["<t size='0.6' color='%2'>%1</t>", [0 max (_sec min _time3),"MM:SS"] call BIS_fnc_secondsToString, if (_sec >= 30 ) then {"#cccccc"} else {"#ff0000"}];
 		[_infoStr1, 0,safeZoneY+0.01,1.5,0,0,3] spawn bis_fnc_dynamicText;
 
-		if (!_engineon and {player == driver vehicle player} and { (0 max (_sec min _time3)) < 10}) then {
-			 player action ["engineOn", vehicle player];
-			_engineon = true;
-		};
-		
+
 		if (count WMT_pub_frzVoteWait != 0 or count WMT_pub_frzVoteStart != 0) then {
 			_infoStr5 = format ["<t size='0.4' color='#aaaaaa'>"+localize "STR_WMT_FreezeVoteStartCaption"+" %1<br/>"+localize "STR_WMT_FreezeVoteWaitCaption"+" %2<br/></t>",
 			[WMT_pub_frzVoteStart] call WMT_fnc_ArrayToString, [WMT_pub_frzVoteWait] call WMT_fnc_ArrayToString ];

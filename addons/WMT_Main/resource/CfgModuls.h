@@ -93,11 +93,11 @@ class CfgVehicles
 				typeName = "NUMBER";
 				class values
 				{
-					class Empty	{name = "$STR_WMT_Nobody"; value = 0; default = 1;};
+					class Empty	{name = "$STR_WMT_Nobody"; value = 4; default = 1;};
+					class East 	{name = "$STR_WMT_East"; value = 0;};
 					class West	{name = "$STR_WMT_West"; value = 1;};
-					class East 	{name = "$STR_WMT_East"; value = 2;};
-					class Guer 	{name = "$STR_WMT_Resistance"; value = 3;};
-					class Civ 	{name = "$STR_WMT_Civilian"; value = 4;};
+					class Guer 	{name = "$STR_WMT_Resistance"; value = 2;};
+					class Civ 	{name = "$STR_WMT_Civilian"; value = 3;};
 				};
 			};
 			class WinnerByTimeText 

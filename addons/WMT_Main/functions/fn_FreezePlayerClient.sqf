@@ -13,7 +13,7 @@ _uav_term = ["B_UavTerminal","O_UavTerminal","I_UavTerminal"];
 enableEngineArtillery false;
 
 PR(_vehs) = [];
-{ _evh = _x addEventHandler ["Fired",{if (WMT_pub_frzState < 3) then { deleteVehicle (_this select 6); };}];
+{ PR(_evh) = _x addEventHandler ["Fired",{if (WMT_pub_frzState < 3) then { deleteVehicle (_this select 6); };}];
 	_x setVariable ["frz_evh", _evh];
 	_vehs = _vehs + [_x];
 } foreach vehicles;
