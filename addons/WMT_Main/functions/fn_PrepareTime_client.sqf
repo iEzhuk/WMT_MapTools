@@ -38,7 +38,6 @@ if (WMT_pub_frzState == 0 and _freeztime > 0) then {
 
 if (WMT_pub_frzState >= 3) exitWith {};
 
-[_freeztime] spawn WMT_fnc_FreezeGrenadeClient;
 [_freeztime, _distance] spawn WMT_fnc_FreezePlayerClient;
 [_freeztime] spawn WMT_fnc_FreezeUI;	
 

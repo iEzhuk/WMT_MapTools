@@ -1,14 +1,23 @@
 // by Zealot
+#include "defines.sqf"
+
 _freeztime = [_this, 0, 60] call BIS_fnc_param;
 _distance = [_this, 1, 150] call BIS_fnc_param;
 _maxdistance = _distance + 20;
 
-_startpos = getpos player;
-_mrk = ["PlayerFreeze",_startpos,"","ColorGreen","EMPTY",[_distance, _distance],"ELLIPSE",0,"Solid"] call WMT_fnc_CreateLocalMarker;
+PR(_startpos) = getpos player;
+PR(_mrk) = ["PlayerFreeze",_startpos,"","ColorGreen","EMPTY",[_distance, _distance],"ELLIPSE",0,"Solid"] call WMT_fnc_CreateLocalMarker;
 waitUntil{sleep 0.4; time > 0};
-
+PR(_freezeGrenadeHandler) = player addEventHandler ["Fired", { if (WMT_pub_frzState < 3) then { deleteVehicle (_this select 6);};}]; 
 _uav_term = ["B_UavTerminal","O_UavTerminal","I_UavTerminal"];
 enableEngineArtillery false;
+
+PR(_vehs) = [];
+{ _evh = _x addEventHandler ["Fired",{if (WMT_pub_frzState < 3) then { deleteVehicle (_this select 6); };}];
+	_x setVariable ["frz_evh", _evh];
+	_vehs = _vehs + [_x];
+} foreach vehicles;
+
 while {WMT_pub_frzState < 3} do {
 	_dist = player distance _startpos;
 	if ( _dist > _distance and _dist < _maxdistance ) then {
@@ -36,3 +45,11 @@ if ( (_uav_term select 0) in _aitems or (_uav_term select 1) in _aitems or (_uav
 };
 
 deleteMarkerLocal _mrk;
+player removeEventHandler ["Fired",_freezeGrenadeHandler];
+{
+
+	_evh = _x getVariable "frz_evh";
+	if (!isNil "_evh") then {
+		_x removeEventHandler ["Fired", _evh];
+	};
+} foreach _vehs;

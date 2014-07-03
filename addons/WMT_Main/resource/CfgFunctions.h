@@ -33,7 +33,6 @@ class CfgFunctions
 			class FreezeVehicle{};
 			class FreezeVoteStart{};
 			class ArrayToString{};
-			class FreezeGrenadeClient{};
 			class FreezePlayerClient{};
 			class FreezeUI{};
 		};
