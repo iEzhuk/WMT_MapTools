@@ -21,11 +21,11 @@ if(_activated) then {
 	if(isServer) then {
 		[_logic] spawn {
 			PR(_logic) = _this select 0;
-			PR(_missionTime) 		= _logic getVariable "MissionTime";
+			PR(_missionTime) 		= 0 max _logic getVariable "MissionTime";
 			PR(_winnerByTime) 		= [sideLogic,WEST,EAST,RESISTANCE,CIVILIAN] select (_logic getVariable "WinnerByTime");
 			PR(_winnerText) 		= _logic getVariable "WinnerByTimeText";
-			PR(_prepareTime) 		= _logic getVariable "PrepareTime";
-			PR(_removeBotsTime) 	= _logic getVariable "RemoveBots";
+			PR(_prepareTime) 		= 0 max _logic getVariable "PrepareTime";
+			PR(_removeBotsTime) 	= 0 max _logic getVariable "RemoveBots";
 
 			[_prepareTime] call WMT_fnc_PrepareTime_server;
 			[_missionTime,_winnerByTime,_winnerText] call WMT_fnc_EndMissionByTime;
@@ -39,8 +39,8 @@ if(_activated) then {
 	if(!isDedicated) then {
 		[_logic] spawn {
 			PR(_logic) = _this select 0;
-			PR(_prepareTime) = _logic getVariable "PrepareTime";
-			PR(_startZone) 	 = _logic getVariable "StartZone";
+			PR(_prepareTime) = 0 max _logic getVariable "PrepareTime";
+			PR(_startZone) 	 = 5 max _logic getVariable "StartZone";
 
 			[_prepareTime,_startZone] call WMT_fnc_PrepareTime_client;
 		};
