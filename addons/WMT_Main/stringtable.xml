@@ -95,7 +95,7 @@
 				<Russian>Максимальная дальность видимости</Russian>
 			</Key>
 			<Key ID="STR_WMT_TI">
-				<Original>Terminal image</Original>
+				<Original>Thermal Image</Original>
 				<Russian>Тепловизор</Russian>
 			</Key>			
 			<Key ID="STR_WMT_TI_Enable">
@@ -193,6 +193,10 @@
 			<Key ID="STR_WMT_RemoveBots">
 				<Original>Remove bots (min)</Original>
 				<Russian>Удаление ботов (мин)</Russian>
+			</Key>
+			<Key ID="STR_WMT_EndTime">
+				<Original>End time</Original>
+				<Russian>Время вышло</Russian>
 			</Key>
 		</Container>
 	</Package>

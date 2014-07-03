@@ -5,7 +5,7 @@
 		Ezhuk
 
  	Description:
-		Disable terminal image
+		Disable thermal image
 
 	Parameters:
 		0 - STRING: Type
