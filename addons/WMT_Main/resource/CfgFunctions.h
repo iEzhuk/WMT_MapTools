@@ -28,6 +28,15 @@ class CfgFunctions
 			class prepareTime_server{};
 			class showStatistic{};
 			class spotMarkers{};
+			class CreateTrigger{};
+			class FreezeVoteWait{};
+			class FreezeVehicle{};
+			class FreezeVoteStart{};
+			class ArrayToString{};
+			class FreezeGrenadeClient{};
+			class FreezePlayerClient{};
+			class FreezeUI{};
+	
 		};
 	};
 };

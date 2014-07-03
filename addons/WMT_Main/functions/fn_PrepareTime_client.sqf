@@ -2,7 +2,7 @@
  	Name: WMT_fnc_PrepareTime_client
  	
  	Author(s):
-		Ezhuk
+		Zealot
 
  	Description:
 		Server part of prepare time - immobilaze vehicles, timer.
@@ -17,80 +17,50 @@
 */
 #include "defines.sqf"
 
-PR(_func_checkPos) = {
-	private ["_dist"];
-	_dist = player distance _startPos;
+_freeztime = (_this select 0)*60;
+_distance = _this select 1;
 
-	if(_dist > _zone) then {
-		_text = "Stop";
-		[format ["<t size='1' color='#bb0202'>%1</t>",_text], 0,0.1,3,0,0,28] spawn bis_fnc_dynamicText;
-	};
-	if(_dist - _zone > 20) then {
-		player setPosATL _startPos;
-	};
+
+waitUntil {not isNull player};
+
+if (isNil "WMT_pub_frzState") then { WMT_pub_frzState = 0; };
+if (isNil "WMT_pub_frzVoteWait") then { WMT_pub_frzVoteWait = []; };
+if (isNil "WMT_pub_frzVoteStart") then { WMT_pub_frzVoteStart = []; };
+if (isNil "WMT_pub_frzTimeLeftForced") then { WMT_pub_frzTimeLeftForced = 30; };
+if (isNil "WMT_pub_frzTimeLeft") then { WMT_pub_frzTimeLeft = _freeztime; };
+
+
+if (_freeztime ==0 ) then { WMT_pub_frzState = 3; };
+
+if (WMT_pub_frzState == 0 and _freeztime > 0) then {
+	WMT_pub_frzState = 1;
 };
 
-PR(_func_checkUAV) = {
- 	{
-	 	if( _x in assigneditems player) then
-	 	{
-			player unassignitem _x;
-		};
-	} foreach _uav_term;
-};
+if (WMT_pub_frzState >= 3) exitWith {};
 
+[_freeztime] spawn WMT_fnc_FreezeGrenadeClient;
+[_freeztime, _distance] spawn WMT_fnc_FreezePlayerClient;
+[_freeztime] spawn WMT_fnc_FreezeUI;	
 
-PR(_duration) = (_this select 0)*60; 
-PR(_zone) = _this select 1;
-PR(_timeToRemoveMarkers) = (_this select 2)*60;
-
-PR(_startPos) = getPosATL player;
-PR(_marker) = ["WMT_PlayerStartPos",_startPos,"","ColorGreen","EMPTY",[_zone, _zone],"ELLIPSE",0,"Solid"] call WMT_fnc_CreateLocalMarker;
-PR(_markerPool) = [] call WMT_fnc_SpotMarkers;
-
-if(_duration > 0) then {
-	"WMT_Global_prepareTime_vehicleFuel" addPublicVariableEventHandler { ((_this select 1) select 0) setFuel ((_this select 1) select 1) };
-
-	if(isNil "WMT_Global_FreezeTime_Left") then {
-		WMT_Global_FreezeTime_Left = _duration;
-	};
-
-	PR(_uav_term) = ["B_UavTerminal","O_UavTerminal","I_UavTerminal"];
-
-	PR(_firedHendler) = player addEventHandler ["Fired", {deleteVehicle (_this select 6)}];
-	PR(_vehFierHandler) = [];
-
-	{
-		if((_x distance _startPos) < (_zone + 40)) then {
-			_vehFierHandler = _vehFierHandler + [[_x,(_x addEventHandler ["Fired",{deleteVehicle (_this select 6)}])]];
-		};
+PR(_vehs) = [];
+if (not isDedicated) then {
+	waitUntil {sleep 0.3; player == player};
+	{ _evh = _x addEventHandler ["Fired",{
+		if (WMT_pub_frzState < 3) then {
+			deleteVehicle (_this select 6);
+		};}];
+		_x setVariable ["frz_evh", _evh];
+		_vehs = _vehs + [_x];
 	} foreach vehicles;
-
-	enableEngineArtillery false;
-
-	//==========================================================================================
-	//										TIMER
-	//==========================================================================================
-	while {WMT_Global_FreezeTime_Left>0} do {
-		[_startPos] call _func_checkPos;
-		[] call _func_checkUAV;
-		sleep 0.3;
-	};
-	//==========================================================================================
-
-	enableEngineArtillery true;
-
-	//remove fire handlers
-	{(_x select 0) removeEventHandler ["Fired", (_x select 1)];} foreach _vehFierHandler;
-	player removeEventHandler ["Fired", _firedHendler];
-
-	// assign uav terminal 
-	{if(_x in items player)then{player assignitem _x;};} foreach _uav_term;
 };
+waitUntil {sleep 0.9; WMT_pub_frzState >= 3};
+if (not isDedicated) then {
+	{
 
-// Sleep to wait end of briefing without prepare time
-sleep 0.1;
+		_evh = _x getVariable "frz_evh";
+		if (!isNil "_evh") then {
+			_x removeEventHandler ["Fired", _evh];
+		};
+	} foreach _vehs;
 
-// Start 
-deleteMarkerLocal _marker;
-{deleteMarkerLocal _x;} foreach _markerPool;
+};

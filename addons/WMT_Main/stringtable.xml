@@ -194,6 +194,37 @@
 				<Original>Remove bots (min)</Original>
 				<Russian>Удаление ботов (мин)</Russian>
 			</Key>
+			<Key ID="STR_WMT_FreezeZoneFlee">
+				<Original>You are trying to leave freeze zone! Please stop!</Original>
+				<Russian>Вы выходитe из зоны подготовки! Остановитесь немедленно!</Russian>
+			</Key>
+			<Key ID="STR_WMT_FreezeUAVTerminal">
+				<Original>UAV will be available after the game starts!</Original>
+				<Russian>UAV терминал будет доступен после старта игры!</Russian>
+			</Key>
+			<Key ID="STR_WMT_FreezeVoteStart">
+				<Original>My team is ready!</Original>
+				<Russian>Старт игры</Russian>
+			</Key>
+			<Key ID="STR_WMT_FreezeVoteWait">
+				<Original>My team is not ready!</Original>
+				<Russian>Отложить старт</Russian>
+			</Key>	
+			<Key ID="STR_WMT_FreezeVoteStartCaption">
+				<Original>Teams ready: </Original>
+				<Russian>За старт игры: </Russian>
+			</Key>			
+			<Key ID="STR_WMT_FreezeVoteWaitCaption">
+				<Original>Teams are not ready: </Original>
+				<Russian>За продолжение подготовки: </Russian>
+			</Key>
+			<Key ID="STR_WMT_FreezeStart">
+				<Original>Start!</Original>
+				<Russian>Старт!</Russian>
+			</Key>	
+
+
+
 		</Container>
 	</Package>
 </Project>

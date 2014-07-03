@@ -2,7 +2,7 @@
  	Name: WMT_fnc_PrepareTime_server
  	
  	Author(s):
-		Ezhuk
+		Zealot
 
  	Description:
 		Client part for prepare time
@@ -15,68 +15,40 @@
 */
 #include "defines.sqf"
 
-PR(_duration) = (_this select 0)*60; 
+_freeztime = (_this select 0)*60;
 
-if(_duration > 0) then {
-	WMT_Global_FreezeTime_Left 	= _duration;
-	WMT_Global_Vote_StartGame   = [];
-	WMT_Global_Vote_NoStartGame = [];
-	publicVariable "WMT_Global_FreezeTime_Left";
-	publicVariable "WMT_Global_Vote_StartGame";
-	publicVariable "WMT_Global_Vote_NoStartGame";
-	
-	PR(_vehs) = [];
-	{
-		private ["_fuel"];
-		if (local _x) then {
-			_fuel = fuel _x;
-			if (_fuel > 0) then {
-				_vehs set [count _vehs, [_x,_fuel]];
-				_x setFuel 0;
-			};
-		};
-	} forEach (vehicles);
+waituntil {!isnil "bis_fnc_init"};
 
-	sleep 1;
+if (isNil "WMT_pub_frzState") then { WMT_pub_frzState = 0; };
+if (isNil "WMT_pub_frzVoteWait") then { WMT_pub_frzVoteWait = []; };
+if (isNil "WMT_pub_frzVoteStart") then { WMT_pub_frzVoteStart = []; };
+if (isNil "WMT_pub_frzTimeLeftForced") then { WMT_pub_frzTimeLeftForced = 30; };
+if (isNil "WMT_pub_frzTimeLeft") then { WMT_pub_frzTimeLeft = _freeztime; };
 
-	// get Time after end of briefing
-	PR(_start) = diag_tickTime;
-	PR(_endDef) = _start + _duration;
-	PR(_end) = _endDef;
+if (_freeztime ==0 ) then { WMT_pub_frzState = 3; };
 
-	sleep 5;
-	//==========================================================================================
-	//										TIMER
-	//==========================================================================================
-	while {WMT_Global_FreezeTime_Left>0} do {
-		if((count WMT_Global_Vote_StartGame)>0 && (count WMT_Global_Vote_NoStartGame)==0) then {
-			if(_end==_endDef && diag_tickTime+FAST_START<_endDef) then {
-				_end = diag_tickTime + FAST_START;  
-			};
-		}else{
-			if(_end != _endDef) then {
-				_end = _endDef;
-			};	
-		};
-
-		WMT_Global_FreezeTime_Left = ceil(_end - diag_tickTime);
-		
-		if(WMT_Global_FreezeTime_Left<0) then {
-			WMT_Global_FreezeTime_Left = 0;
-		};
-
-		publicVariable "WMT_Global_FreezeTime_Left";
-		sleep 0.9;
-	};
-	//==========================================================================================
-
-	{
-		_veh  = _x select 0;
-		_fuel = _x select 1;
-		_veh  setFuel _fuel;
-
-		WMT_Global_prepareTime_vehicleFuel = [_veh,_fuel];
-		owner(_veh) publicVariableClient "WMT_Global_prepareTime_vehicleFuel";
-	} forEach _vehs;
-
+if (WMT_pub_frzState == 0 and _freeztime > 0) then {
+	WMT_pub_frzState = 1;
 };
+
+if (WMT_pub_frzState >= 3) exitWith {};
+
+[_freeztime] spawn WMT_fnc_FreezeVehicle;
+
+waitUntil {sleep 0.75;time > 0};
+while {WMT_pub_frzState < 3} do
+{
+	if (WMT_pub_frzTimeLeft <= 0 or WMT_pub_frzTimeLeftForced <= 0) then {WMT_pub_frzState = 3; publicVariable "WMT_pub_frzState";};
+	if (WMT_pub_frzState==2) then {WMT_pub_frzTimeLeftForced = WMT_pub_frzTimeLeftForced - 1};
+	if (round(WMT_pub_frzTimeLeftForced) % 5 == 0) then {publicVariable "WMT_pub_frzTimeLeftForced";};
+	
+	if (count WMT_pub_frzVoteStart != 0 and count WMT_pub_frzVoteWait == 0 ) then {
+		if (WMT_pub_frzState < 3) then { 	WMT_pub_frzState = 2; 	publicVariable "WMT_pub_frzState";	};
+	} else {
+		if (WMT_pub_frzState == 2) then { 	WMT_pub_frzState = 1;	publicVariable "WMT_pub_frzState"; };
+	};
+	sleep 1;
+	WMT_pub_frzTimeLeft = WMT_pub_frzTimeLeft - 1;
+	if (round(WMT_pub_frzTimeLeft) % 10 == 0) then {publicVariable "WMT_pub_frzTimeLeft";};
+};	
+
