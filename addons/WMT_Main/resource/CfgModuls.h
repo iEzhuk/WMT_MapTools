@@ -55,6 +55,13 @@ class CfgVehicles
 					class Enable		{name = "$STR_WMT_TI_Enable"; value = 1; default = 1;};
 				};
 			};
+			class HeavyLossesCoeff
+			{
+				displayName = "$STR_WMT_HeavyLossesCoeff";
+				description = "";
+				typeName = "NUMBER";
+				defaultValue = 0.1;
+			};			
 		};
 	};
 //=======================================================================================
@@ -121,6 +128,7 @@ class CfgVehicles
 				typeName = "NUMBER";
 				defaultValue = 0;
 			};
+
 		};
 	};
 };

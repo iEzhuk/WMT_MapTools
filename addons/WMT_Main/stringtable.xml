@@ -226,6 +226,15 @@
 				<Original>End time</Original>
 				<Russian>Время вышло</Russian>
 			</Key>
+			<Key ID="STR_WMT_HeavyLossesCoeff">
+				<Original>Fraction of heavy losses</Original>
+				<Russian>Доля тяжелых потерь</Russian>
+			</Key>
+			<Key ID="STR_WMT_HLSWinLoseMSG">
+				<Original>%1 Win. Their enemies suffered heavy losses!</Original>
+				<Russian>%1 победили. Их противники понесли тяжелые потери и были вынуждены отступить!</Russian>
+			</Key>			
+	
 		</Container>
 	</Package>
 </Project>

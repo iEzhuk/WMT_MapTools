@@ -42,6 +42,10 @@ if(isNil "wmt_param_RemoveBots") then {
 	wmt_param_RemoveBots = getNumber (MissionConfigFile >> "WMT_Params" >> "RemoveBots");
 };
 
+if(isNil "wmt_param_HeavyLossesCoeff") then {
+	wmt_param_HeavyLossesCoeff = getNumber (MissionConfigFile >> "WMT_Params" >> "HeavyLossesCoeff");
+};
+
 // Check variables 
 wmt_param_ViewDistance = 10 max wmt_param_ViewDistance;
 wmt_param_TI = 0 max (2 min wmt_param_TI);
@@ -50,6 +54,7 @@ wmt_param_MissionTime = 0 max wmt_param_MissionTime;
 wmt_param_PrepareTime = 0 max wmt_param_PrepareTime;
 wmt_param_StartZone = 10 max wmt_param_StartZone;
 wmt_param_RemoveBots = 0 max wmt_param_RemoveBots;
+wmt_param_HeavyLossesCoeff = 0.01 max wmt_param_HeavyLossesCoeff;
 
 //================================================
 //					SERVER
@@ -61,6 +66,7 @@ if(isServer || isDedicated) then {
 		if(wmt_param_MissionTime>0) then {
 			[wmt_param_MissionTime,wmt_param_WinnerByTime,wmt_param_WinnerByTimeText] call WMT_fnc_EndMissionByTime;
 		};
+		[wmt_param_HeavyLossesCoeff, wmt_param_PrepareTime] call WMT_fnc_HeavyLossesCheck;
 	};
 
 }; 
