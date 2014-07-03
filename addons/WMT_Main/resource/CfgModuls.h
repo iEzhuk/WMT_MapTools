@@ -18,8 +18,8 @@ class CfgVehicles
 		author = "Ezhuk";
 		displayName = "Main";
 		category = "WMT";
-
 		function = "WMT_fnc_initModuleMain";
+		icon = "\WMT_main\pic\main.paa"
 		functionPriority = 1;
 		isGlobal = 1;
 		isTriggerActivated = 0;
