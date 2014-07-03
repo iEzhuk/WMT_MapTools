@@ -115,14 +115,7 @@ class CfgVehicles
 				displayName = "$STR_WMT_RemoveBots";
 				description = "";
 				typeName = "NUMBER";
-				defaultValue = 1;
-			};
-			class RemoveSpotMarker
-			{
-				displayName = "$STR_WMT_RemoveMarkers";
-				description = "$STR_WMT_RemoveMarkers_Desc";
-				typeName = "NUMBER";
-				defaultValue = 1;
+				defaultValue = 0;
 			};
 		};
 	};

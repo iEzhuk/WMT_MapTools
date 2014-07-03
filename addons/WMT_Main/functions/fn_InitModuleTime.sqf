@@ -41,7 +41,6 @@ if(_activated) then {
 			PR(_logic) = _this select 0;
 			PR(_prepareTime) = _logic getVariable "PrepareTime";
 			PR(_startZone) 	 = _logic getVariable "StartZone";
-			PR(_removeSpotMarkerTime) = _logic getVariable "RemoveSpotMarker";
 
 			[_prepareTime,_startZone] call WMT_fnc_PrepareTime_client;
 		};

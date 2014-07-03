@@ -194,10 +194,6 @@
 				<Original>Remove bots (min)</Original>
 				<Russian>Удаление ботов (мин)</Russian>
 			</Key>
-			<Key ID="STR_WMT_RemoveMarkers">
-				<Original>Remove markers (min)</Original>
-				<Russian>Удаление маркеров (мин)</Russian>
-			</Key>
 		</Container>
 	</Package>
 </Project>

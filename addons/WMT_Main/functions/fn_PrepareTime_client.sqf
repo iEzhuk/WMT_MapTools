@@ -93,8 +93,4 @@ sleep 0.1;
 
 // Start 
 deleteMarkerLocal _marker;
-
-[_timeToRemoveMarkers,_markerPool] spawn {
-	sleep (_this select 0);
-	{deleteMarkerLocal _x;} foreach (_this select 1);
-};
+{deleteMarkerLocal _x;} foreach _markerPool;
