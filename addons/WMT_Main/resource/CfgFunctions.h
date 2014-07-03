@@ -35,6 +35,7 @@ class CfgFunctions
 			class ArrayToString{};
 			class FreezePlayerClient{};
 			class FreezeUI{};
+			class HeavyLossesCheck{};
 		};
 	};
 };

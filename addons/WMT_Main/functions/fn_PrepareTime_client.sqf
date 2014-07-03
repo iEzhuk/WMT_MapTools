@@ -41,25 +41,4 @@ if (WMT_pub_frzState >= 3) exitWith {};
 [_freeztime, _distance] spawn WMT_fnc_FreezePlayerClient;
 [_freeztime] spawn WMT_fnc_FreezeUI;	
 
-PR(_vehs) = [];
-if (not isDedicated) then {
-	waitUntil {sleep 0.3; player == player};
-	{ _evh = _x addEventHandler ["Fired",{
-		if (WMT_pub_frzState < 3) then {
-			deleteVehicle (_this select 6);
-		};}];
-		_x setVariable ["frz_evh", _evh];
-		_vehs = _vehs + [_x];
-	} foreach vehicles;
-};
-waitUntil {sleep 0.9; WMT_pub_frzState >= 3};
-if (not isDedicated) then {
-	{
 
-		_evh = _x getVariable "frz_evh";
-		if (!isNil "_evh") then {
-			_x removeEventHandler ["Fired", _evh];
-		};
-	} foreach _vehs;
-
-};
