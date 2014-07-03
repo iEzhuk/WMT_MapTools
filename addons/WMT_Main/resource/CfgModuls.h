@@ -63,6 +63,7 @@ class CfgVehicles
 		displayName = "Time";
 		category = "WMT";
 		function = "WMT_fnc_initModuleTime";
+		icon = "\WMT_main\pic\time.paa"
 		functionPriority = 1;
 		isGlobal = 1;
 		isTriggerActivated = 0;
