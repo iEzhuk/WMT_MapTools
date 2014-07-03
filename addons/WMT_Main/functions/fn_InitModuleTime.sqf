@@ -21,7 +21,7 @@ if(_activated) then {
 	};
 	// winner by end of time 
 	if(isNil "wmt_param_WinnerByTime") then {
-		wmt_param_WinnerByTime = _logic getVariable "WinnerByTime";
+		wmt_param_WinnerByTime = [sideLogic,WEST,EAST,RESISTANCE,CIVILIAN] select (_logic getVariable "WinnerByTime");
 	};	
 	// message 
 	if(isNil "wmt_param_WinnerByTimeText") then {
