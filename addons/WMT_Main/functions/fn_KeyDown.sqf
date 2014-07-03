@@ -25,10 +25,6 @@ PR(_denyaction) = false;
 
 switch (_key) do
 {
-	case (KEY_0):
-	{
-		// vote for start game
-	};
 	case (KEY_HOME):
 	{
 		PR(_dialog) = uiNamespace getVariable "WMT_Dialog_Menu";
