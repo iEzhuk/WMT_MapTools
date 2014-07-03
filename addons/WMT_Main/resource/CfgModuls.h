@@ -52,7 +52,7 @@ class CfgVehicles
 				class values
 				{
 					class Disable 		{name = "$STR_WMT_TI_Disable"; value = 0;};
-					class Enable		{name = "$STR_WMT_TI_Enable"; value = 1;} default = 1;;
+					class Enable		{name = "$STR_WMT_TI_Enable"; value = 1; default = 1;};
 				};
 			};
 		};
