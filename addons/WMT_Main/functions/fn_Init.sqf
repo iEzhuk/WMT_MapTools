@@ -87,6 +87,7 @@ wmt_param_ShowEnemyVehiclesInNotes = 0 max (1 min wmt_param_ShowEnemyVehiclesInN
 //================================================
 if(isServer || isDedicated) then {
 	[] spawn {
+		[] spawn WMT_fnc_DefaultFreqsServer;
 		["vehicle", [(wmt_param_TI==1)]] call WMT_fnc_DisableTI;
 		[wmt_param_PrepareTime] call WMT_fnc_PrepareTime_server;
 		if(wmt_param_MissionTime>0) then {
@@ -157,9 +158,10 @@ if(hasInterface) then {
 		[] spawn {
 			PR(_markerPool) = [] call WMT_fnc_SpotMarkers;
 			sleep 0.1;
-			waitUntil{sleep 1; WMT_pub_frzState>=3};
+			waitUntil{sleep 1.05; WMT_pub_frzState>=3};
 			sleep 30;
 			{deleteMarkerLocal _x;} foreach _markerPool;
 		};
+		[] spawn WMT_fnc_DefaultFreqsClient;
 	};
 };

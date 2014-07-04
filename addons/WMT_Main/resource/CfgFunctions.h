@@ -37,6 +37,9 @@ class CfgFunctions
 			class FreezePlayerClient{};
 			class FreezeUI{};
 			class HeavyLossesCheck{};
+			class LongGroupNameToShort{};
+			class DefaultFreqsClient{};
+			class DefaultFreqsServer{};
 		};
 	};
 };
