@@ -34,7 +34,9 @@ switch (_key) do
 	};
 	case (KEY_END):
 	{
-		call WMT_fnc_ShowStatistic;
+		if(!isNil "WMT_Local_MissionEnd" || count WMT_Local_Killer > 0) then {
+			call WMT_fnc_ShowStatistic;
+		};
 	};
 };
 

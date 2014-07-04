@@ -24,6 +24,7 @@ class CfgFunctions
 			class InitModuleTime{};
 			class KeyDown{};
 			class NameTag{};
+			class PlayerKilled{};
 			class PrepareTime_client{};
 			class PrepareTime_server{};
 			class ShowStatistic{};

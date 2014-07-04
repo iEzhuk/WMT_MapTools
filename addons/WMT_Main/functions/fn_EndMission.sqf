@@ -18,8 +18,8 @@
 */
 #include "defines.sqf"
 
-if(! isNil "wmt_missionEnd") exitWith {diag_log "WARNING!!! WMT_fnc_EndMission - multiple call";};
-wmt_missionEnd = true; 
+if(!isNil "WMT_Local_MissionEnd") exitWith {diag_log "WARNING!!! WMT_Local_MissionEnd - multiple call";};
+WMT_Local_MissionEnd = true; 
 
 if(count _this == 2) then {
 	PR(_winner) = _this select 0;

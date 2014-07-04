@@ -15,9 +15,6 @@
 */
 #include "defines.sqf"
 
-WMT_Local_Killer = [];
-WMT_Local_Kills = [];
-
 PR(_text) = "";
 _text = _text + format ["<t color='#c7861b'>%1</t>:<br/>",localize "STR_Killer"];
 
@@ -33,7 +30,6 @@ if(count WMT_Local_Killer > 0) then {
 	} else {
 		_text = _text + format ["%1", localize "STR_WMT_Suicide"];
 	};
-
 } else {
 	_text = _text + format ["%1", localize "STR_WMT_Unknow"];
 };

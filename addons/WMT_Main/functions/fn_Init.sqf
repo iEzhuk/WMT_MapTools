@@ -80,6 +80,8 @@ if(hasInterface) then {
 		waitUntil{alive player};
 		waitUntil{local player};
 
+		WMT_Local_Killer = [];
+		WMT_Local_Kills = [];
 		WMT_Local_PlayerName = name player;
 		WMT_Local_PlayerSide = side player;
 
@@ -112,9 +114,12 @@ if(hasInterface) then {
 			(findDisplay 46) displayAddEventHandler ["KeyDown", "_this call WMT_fnc_KeyDown"];
 		};
 
+		player addEventHandler ["killed", "_this spawn WMT_fnc_PlayerKilled"];
+
 		// Public variable handlers 
 		"WMT_Global_EndMission" addPublicVariableEventHandler { (_this select 1) call WMT_fnc_EndMission };
 		"WMT_Global_Announcement" addPublicVariableEventHandler { (_this select 1) call WMT_fnc_Announcement };
+		"WMT_Global_AddKills" addPublicVariableEventHandler { WMT_Local_Kills=WMT_Local_Kills+(_this select 1) };
 
 		// briefing
 		[] call WMT_fnc_BriefingVehicles;
