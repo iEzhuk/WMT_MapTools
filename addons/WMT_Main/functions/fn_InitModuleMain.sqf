@@ -27,8 +27,12 @@ if(_activated) then {
 	if(isNil "wmt_param_NameTag") then {
 		wmt_param_NameTag = _logic getVariable "NameTag";
 	};
-	if(isNil "HeavyLossesCoeff") then {
+	if(isNil "wmt_param_HeavyLossesCoeff") then {
 		wmt_param_HeavyLossesCoeff = _logic getVariable "HeavyLossesCoeff";
 	};
+	if(isNil "wmt_param_ShowEnemyVehiclesInNotes") then {
+		wmt_param_ShowEnemyVehiclesInNotes = _logic getVariable "ShowEnemyVehiclesInNotes";
+	};
+	
 
 };

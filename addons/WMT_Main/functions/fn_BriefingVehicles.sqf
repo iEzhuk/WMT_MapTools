@@ -13,16 +13,26 @@
 		Nothing 
 */
 
-#define PR(x) private ['x']; x
+#include "defines.sqf"
+
+PARAM(_showEnemyVehs, 0, 0);
 
 PR(_text) = "";
 PR(_vehsName) = [];
 PR(_vehsCount) = [];
+
+//Enemy vehicles
+PR(_enemyText) = "";
+PR(_enemyVehsName) = [];
+PR(_enemyVehsCount) = [];
+
+
 {
 	if(!(_x isKindOf "Strategic") && !(_x isKindOf "Thing"))then
 	{
 		PR(_nearestUnit) = nearestObject [_x, "Man"];
 		PR(_show) = false;
+		PR(_showAsEnemy) = false;
 		if(_x getVariable ["WMT_side",sideLogic] == side player) then
 		{
 			_show = true;
@@ -33,9 +43,12 @@ PR(_vehsCount) = [];
 				if( side player == side _nearestUnit) then
 				{
 					_show = true;
+				} else {
+					_showAsEnemy = true;
 				};
 			};
 		};
+
 		if(_show) then
 		{
 			PR(_veh) = getText (configFile >> "CfgVehicles" >> typeOf _x >> "Displayname");
@@ -48,8 +61,31 @@ PR(_vehsCount) = [];
 				_vehsCount set [count _vehsCount,   1 ];
 			};
 		};
+		if(_showAsEnemy) then
+		{
+			PR(_veh) = getText (configFile >> "CfgVehicles" >> typeOf _x >> "Displayname");
+			PR(_i) = _enemyVehsName find _veh;
+
+			if(_i >= 0)then{
+				_enemyVehsCount set [_i,(_enemyVehsCount select _i) + 1 ];
+			}else{
+				_enemyVehsName  set [count _enemyVehsName , _veh];
+				_enemyVehsCount set [count _enemyVehsCount,   1 ];
+			};
+		};		
 	};
 }forEach vehicles;
+
+if (_showEnemyVehs == 1) then {
+	for "_i" from 0 to ((count _enemyVehsName)-1) do
+	{
+		_enemyText = _enemyText + format ["<font color='#c7861b'>%1</font> - %2",_enemyVehsCount select _i,_enemyVehsName select _i];
+		_enemyText = _enemyText + "<br/>";
+	};
+
+	["diary",localize "STR_WMT_EnemyVehicles", _enemyText] call WMT_fnc_CreateDiaryRecord;
+};
+
 
 for "_i" from 0 to ((count _vehsName)-1) do
 {
@@ -58,3 +94,5 @@ for "_i" from 0 to ((count _vehsName)-1) do
 };
 
 ["diary",localize "STR_WMT_Vehicles", _text] call WMT_fnc_CreateDiaryRecord;
+
+

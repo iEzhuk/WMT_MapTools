@@ -45,6 +45,11 @@ if(isNil "wmt_param_RemoveBots") then {
 if(isNil "wmt_param_HeavyLossesCoeff") then {
 	wmt_param_HeavyLossesCoeff = getNumber (MissionConfigFile >> "WMT_Params" >> "HeavyLossesCoeff");
 };
+if(isNil "wmt_param_ShowEnemyVehiclesInNotes") then {
+	wmt_param_ShowEnemyVehiclesInNotes = getNumber (MissionConfigFile >> "WMT_Params" >> "ShowEnemyVehiclesInNotes");
+};
+
+
 
 // Check variables 
 wmt_param_ViewDistance = 10 max wmt_param_ViewDistance;
@@ -55,6 +60,7 @@ wmt_param_PrepareTime = 0 max wmt_param_PrepareTime;
 wmt_param_StartZone = 10 max wmt_param_StartZone;
 wmt_param_RemoveBots = 0 max wmt_param_RemoveBots;
 wmt_param_HeavyLossesCoeff = 0.01 max wmt_param_HeavyLossesCoeff;
+wmt_param_ShowEnemyVehiclesInNotes = 0 max (1 min wmt_param_ShowEnemyVehiclesInNotes);
 
 //================================================
 //					SERVER
@@ -122,7 +128,7 @@ if(hasInterface) then {
 		"WMT_Global_AddKills" addPublicVariableEventHandler { WMT_Local_Kills=WMT_Local_Kills+(_this select 1) };
 
 		// briefing
-		[] call WMT_fnc_BriefingVehicles;
+		[wmt_param_ShowEnemyVehiclesInNotes] call WMT_fnc_BriefingVehicles;
 		[] call WMT_fnc_BriefingSquads;
 
 		[wmt_param_PrepareTime,wmt_param_StartZone] spawn WMT_fnc_PrepareTime_client;

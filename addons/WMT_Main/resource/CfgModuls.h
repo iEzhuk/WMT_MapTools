@@ -61,7 +61,18 @@ class CfgVehicles
 				description = "";
 				typeName = "NUMBER";
 				defaultValue = 0.1;
-			};			
+			};
+			class ShowEnemyVehiclesInNotes
+			{
+				displayName = "$STR_WMT_ShowEnemyVehsNotes";
+				description = "";
+				typeName = "NUMBER";
+				class values
+				{
+					class Disable 		{name = "$STR_WMT_TI_Disable"; value = 0; default = 0;};
+					class Enable		{name = "$STR_WMT_TI_Enable"; value = 1; };
+				};
+			};	
 		};
 	};
 //=======================================================================================

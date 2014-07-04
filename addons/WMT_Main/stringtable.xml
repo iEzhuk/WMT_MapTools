@@ -233,7 +233,16 @@
 			<Key ID="STR_WMT_HLSWinLoseMSG">
 				<Original>%1 Win. Their enemies suffered heavy losses!</Original>
 				<Russian>%1 победили. Их противники понесли тяжелые потери и были вынуждены отступить!</Russian>
-			</Key>			
+			</Key>
+			<Key ID="STR_WMT_ShowEnemyVehsNotes">
+				<Original>Show enemy vehicles in game briefing notes</Original>
+				<Russian>Показывать вражескую технику в заметках</Russian>
+			</Key>	
+			<Key ID="STR_WMT_EnemyVehicles">
+				<Original>Enemy vehicles</Original>
+				<Russian>Техника противника</Russian>
+			</Key>				
+
 	
 		</Container>
 	</Package>
