@@ -10,13 +10,21 @@
 #include "defines.sqf"
 
 if(isNil "wmt_param_ViewDistance") then {
-	wmt_param_ViewDistance = getNumber (MissionConfigFile >> "WMT_Params" >> "ViewDistance");
+	if(isNumber (MissionConfigFile >> "WMT_Params" >> "ViewDistance")) then {
+		wmt_param_ViewDistance = getNumber (MissionConfigFile >> "WMT_Params" >> "ViewDistance");
+	} else {
+		wmt_param_ViewDistance = 2500;
+	};
 };
 if(isNil "wmt_param_TI") then {
 	wmt_param_TI = getNumber (MissionConfigFile >> "WMT_Params" >> "EnableTI");
 };
 if(isNil "wmt_param_NameTag") then {
-	wmt_param_NameTag = getNumber (MissionConfigFile >> "WMT_Params" >> "WinnerByTime");
+	if(isNumber (MissionConfigFile >> "WMT_Params" >> "WinnerByTime")) then {
+		wmt_param_NameTag = getNumber (MissionConfigFile >> "WMT_Params" >> "WinnerByTime");
+	} else {
+		wmt_param_NameTag = 1;
+	}
 };
 if(isNil "wmt_param_MissionTime") then {
 	wmt_param_MissionTime = getNumber (MissionConfigFile >> "WMT_Params" >> "MissionTime");
@@ -30,20 +38,32 @@ if(isNil "wmt_param_WinnerByTime") then {
 	};
 };
 if(isNil "wmt_param_WinnerByTimeText") then {
-	wmt_param_WinnerByTimeText = getText (MissionConfigFile >> "WMT_Params" >> "MessageOfEnd");
+	if(isText (MissionConfigFile >> "WMT_Params" >> "MessageOfEnd")) then {
+		wmt_param_WinnerByTimeText = getText (MissionConfigFile >> "WMT_Params" >> "MessageOfEnd");
+	} else {
+		wmt_param_WinnerByTimeText = localize "STR_WMT_EndTime";
+	};
 };	
 if(isNil "wmt_param_PrepareTime") then {
 	wmt_param_PrepareTime = getNumber (MissionConfigFile >> "WMT_Params" >> "PrepareTime");
 };
 if(isNil "wmt_param_StartZone") then {
-	wmt_param_StartZone = getNumber (MissionConfigFile >> "WMT_Params" >> "StartZone");
+	if(isNumber (MissionConfigFile >> "WMT_Params" >> "StartZone")) then {
+		wmt_param_StartZone = getNumber (MissionConfigFile >> "WMT_Params" >> "StartZone");
+	} else {
+		wmt_param_StartZone = 100;
+	};
 };
 if(isNil "wmt_param_RemoveBots") then {
 	wmt_param_RemoveBots = getNumber (MissionConfigFile >> "WMT_Params" >> "RemoveBots");
 };
 
 if(isNil "wmt_param_HeavyLossesCoeff") then {
-	wmt_param_HeavyLossesCoeff = getNumber (MissionConfigFile >> "WMT_Params" >> "HeavyLossesCoeff");
+	if(isNumber (MissionConfigFile >> "WMT_Params" >> "StartZone")) then {
+		wmt_param_HeavyLossesCoeff = getNumber (MissionConfigFile >> "WMT_Params" >> "HeavyLossesCoeff");
+	} else {
+		wmt_param_HeavyLossesCoeff = 0.1;
+	};
 };
 if(isNil "wmt_param_ShowEnemyVehiclesInNotes") then {
 	wmt_param_ShowEnemyVehiclesInNotes = getNumber (MissionConfigFile >> "WMT_Params" >> "ShowEnemyVehiclesInNotes");
