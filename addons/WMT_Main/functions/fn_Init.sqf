@@ -59,7 +59,7 @@ if(isNil "wmt_param_RemoveBots") then {
 };
 
 if(isNil "wmt_param_HeavyLossesCoeff") then {
-	if(isNumber (MissionConfigFile >> "WMT_Params" >> "StartZone")) then {
+	if(isNumber (MissionConfigFile >> "WMT_Params" >> "HeavyLossesCoeff")) then {
 		wmt_param_HeavyLossesCoeff = getNumber (MissionConfigFile >> "WMT_Params" >> "HeavyLossesCoeff");
 	} else {
 		wmt_param_HeavyLossesCoeff = 0.1;
