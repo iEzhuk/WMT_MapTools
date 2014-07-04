@@ -126,5 +126,14 @@ if(hasInterface) then {
 		[] call WMT_fnc_BriefingSquads;
 
 		[wmt_param_PrepareTime,wmt_param_StartZone] spawn WMT_fnc_PrepareTime_client;
+		
+		// Draw markers on start position vehicles and groups
+		[] spawn {
+			PR(_markerPool) = [] call WMT_fnc_SpotMarkers;
+			sleep 0.1;
+			waitUntil{sleep 1; WMT_pub_frzState>=3};
+			sleep 30;
+			{deleteMarkerLocal _x;} foreach _markerPool;
+		};
 	};
 };
