@@ -66,22 +66,11 @@ DBGMSG("S2")
 DBGMSG("S3")
 
 
-
-//waitUntil { not isNil "TF_server_addon_version" or time > 10};
-
-DBGMSG("S3.5")
-
-/*if (isNil "TF_MAX_CHANNELS") then {
-	call compile preprocessFileLineNumbers "\task_force_radio\common.sqf";
-};*/
-
-
-[] spawn {
-	
-	waitUntil{not isNil "TF_MAX_CHANNELS"};
-	DBGMSG("TF INIT");
-
+if (isNil "TF_MAX_CHANNELS") then {
+	call compile preprocessFileLineNumbers "\task_force_radio\functions\common.sqf";
 };
+
+
 
 call TFAR_fnc_processGroupFrequencySettings;
 
