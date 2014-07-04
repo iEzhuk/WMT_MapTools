@@ -18,6 +18,18 @@
 PR(_side) = side player;
 PR(_markersPool) = [];
 
+
+PR(_longGroupToShort) = {
+	PR(_longGr) = _this;
+	PR(_arr) = [_longGr, " -"] call BIS_fnc_splitString;
+	PR(_shortGr) = _longGr;
+	if (count _arr >= 2) then {
+		PR(_frstLttr) = [_arr select 0, 0, 0] call BIS_fnc_trimString;
+		_shortGr = _frstLttr + (_arr select 1) + "-" + (_arr select 2);
+	};
+	_shortGr;
+};
+
 // Vehicles
 {
 	if(!(_x isKindOf "Strategic") && !(_x isKindOf "Thing")) then
@@ -44,13 +56,19 @@ PR(_markersPool) = [];
 	};
 }forEach vehicles;
 
+
 // Squads
 {
 	PR(_leader) = leader _x;
 	PR(_pos) = getPos _leader;
 
+
 	if( (side _leader) == _side) then {
-		PR(_text) = format ["%1 %2", groupID _x , if(isPLayer _leader)then{name _leader}else {""}];
+		PR(_playersGr) = 0;
+		{
+			if (isPlayer _x) then {_playersGr=_playersGr+1;};
+		} foreach units _x;
+		PR(_text) = format ["%1 %2:%3", (groupID _x) call _longGroupToShort, if(isPLayer _leader)then{name _leader}else {""},_playersGr];
 		PR(_markerName) = format ["WMT_PrepareTime_%1_%2",_text,count _markersPool];
 		PR(_marker) = [_markerName,getPos _leader,_text,([side _leader, true] call BIS_fnc_sidecolor),"mil_dot",[1, 1],"ICON",0,"Solid"] call WMT_fnc_CreateLocalMarker;
 
