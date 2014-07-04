@@ -70,6 +70,11 @@ if(isNil "wmt_param_ShowEnemyVehiclesInNotes") then {
 };
 
 
+if(isNil "wmt_param_GenerateFrequencies") then {
+	wmt_param_GenerateFrequencies =  getNumber (MissionConfigFile >> "WMT_Params" >> "GenerateFrequencies");
+};
+
+
 
 // Check variables 
 wmt_param_ViewDistance = 10 max wmt_param_ViewDistance;
@@ -81,13 +86,14 @@ wmt_param_StartZone = 10 max wmt_param_StartZone;
 wmt_param_RemoveBots = 0 max wmt_param_RemoveBots;
 wmt_param_HeavyLossesCoeff = 0.01 max wmt_param_HeavyLossesCoeff;
 wmt_param_ShowEnemyVehiclesInNotes = 0 max (1 min wmt_param_ShowEnemyVehiclesInNotes);
+wmt_param_GenerateFrequencies = 0 max (1 min wmt_param_GenerateFrequencies);
 
 //================================================
 //					SERVER
 //================================================
 if(isServer || isDedicated) then {
 	[] spawn {
-		[] spawn WMT_fnc_DefaultFreqsServer;
+		if (wmt_param_GenerateFrequencies == 1) then {[] spawn WMT_fnc_DefaultFreqsServer;};
 		["vehicle", [(wmt_param_TI==1)]] call WMT_fnc_DisableTI;
 		[wmt_param_PrepareTime] call WMT_fnc_PrepareTime_server;
 		if(wmt_param_MissionTime>0) then {
@@ -162,6 +168,6 @@ if(hasInterface) then {
 			sleep 30;
 			{deleteMarkerLocal _x;} foreach _markerPool;
 		};
-		[] spawn WMT_fnc_DefaultFreqsClient;
+		if (wmt_param_GenerateFrequencies == 1) then {[] spawn WMT_fnc_DefaultFreqsClient;};
 	};
 };

@@ -33,6 +33,11 @@ if(_activated) then {
 	if(isNil "wmt_param_ShowEnemyVehiclesInNotes") then {
 		wmt_param_ShowEnemyVehiclesInNotes = _logic getVariable "ShowEnemyVehiclesInNotes";
 	};
+	if(isNil "wmt_param_GenerateFrequencies") then {
+		wmt_param_GenerateFrequencies = _logic getVariable "GenerateFrequencies";
+	};
+	
+
 	
 
 };

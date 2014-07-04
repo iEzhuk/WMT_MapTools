@@ -250,12 +250,14 @@
 				<Original>%1 MHz (Aux: %2 MHz, %3 MHz)</Original>
 				<Russian>%1 MHz (Резерв: %2 MHz, %3 MHz)</Russian>
 			</Key>
-
 			<Key ID="STR_WMT_FREQ_HDR">
 				<Original>Frequencies</Original>
 				<Russian>Частоты</Russian>
 			</Key>	
-	
+			<Key ID="STR_WMT_MOD_GENFREQS">
+				<Original>Generate frequencies</Original>
+				<Russian>Генерировать частоты</Russian>
+			</Key>			
 		</Container>
 	</Package>
 </Project>

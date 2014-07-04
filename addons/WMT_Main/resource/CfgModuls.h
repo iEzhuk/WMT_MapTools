@@ -72,7 +72,19 @@ class CfgVehicles
 					class Disable 		{name = "$STR_WMT_TI_Disable"; value = 0; default = 0;};
 					class Enable		{name = "$STR_WMT_TI_Enable"; value = 1; };
 				};
-			};	
+			};
+			class GenerateFrequencies
+			{
+				displayName = "$STR_WMT_MOD_GENFREQS";
+				description = "";
+				typeName = "NUMBER";
+				class values
+				{
+					class Disable 		{name = "$STR_WMT_TI_Disable"; value = 0; default = 0;};
+					class Enable		{name = "$STR_WMT_TI_Enable"; value = 1; };
+				};
+			};				
+			
 		};
 	};
 //=======================================================================================
