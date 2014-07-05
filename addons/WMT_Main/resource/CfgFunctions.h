@@ -40,6 +40,7 @@ class CfgFunctions
 			class LongGroupNameToShort{};
 			class DefaultFreqsClient{};
 			class DefaultFreqsServer{};
+			class ZoneCaptured{};
 		};
 	};
 };
