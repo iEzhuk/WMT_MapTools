@@ -6,7 +6,7 @@
 		Zealot
 
  	Description:
-		Anouncement from admin panel 
+		Show notification to user when zone is captured 
 	
 	Parameters:
 		SIDE - side which is captured the zone
