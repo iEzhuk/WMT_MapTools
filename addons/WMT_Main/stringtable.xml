@@ -70,6 +70,14 @@
 				<Original>Send</Original>
 				<Russian>Отправить</Russian>
 			</Key>
+			<Key ID="STR_WMT_Enable">
+				<Original>Enable</Original>
+				<Russian>Включено</Russian>
+			</Key>
+			<Key ID="STR_WMT_Disable">
+				<Original>Disable</Original>
+				<Russian>Отключен</Russian>
+			</Key>
 			<Key ID="STR_WMT_DisableTI">
 				<Original>Terminal view is disable</Original>
 				<Russian>Тепловизор отключен</Russian>
@@ -109,6 +117,11 @@
 			<Key ID="STR_WMT_TI_Disable">
 				<Original>Disable</Original>
 				<Russian>Отключен</Russian>
+			</Key>
+			
+			<Key ID="STR_WMT_DisableAI">
+				<Original>Disable AI</Original>
+				<Russian>Отключение ИИ</Russian>
 			</Key>
 			<Key ID="STR_WMT_NameTag">
 				<Original>Name tag</Original>
@@ -243,12 +256,12 @@
 				<Russian>Техника противника</Russian>
 			</Key>
 			<Key ID="STR_WMT_FREQ_LR">
-				<Original>LR %1 MHz (Aux: %2 MHz, %3 MHz)</Original>
-				<Russian>ДВ %1 MHz (Резерв: %2 MHz, %3 MHz)</Russian>
+				<Original>LR %1 MHz (Aux: %2, %3 MHz)</Original>
+				<Russian>ДВ %1 MHz (Резерв: %2, %3 MHz)</Russian>
 			</Key>
 			<Key ID="STR_WMT_FREQ_SR">
-				<Original>%1 MHz (Aux: %2 MHz, %3 MHz)</Original>
-				<Russian>%1 MHz (Резерв: %2 MHz, %3 MHz)</Russian>
+				<Original>%1 MHz (Aux: %2, %3 MHz)</Original>
+				<Russian>%1 MHz (Резерв: %2, %3 MHz)</Russian>
 			</Key>
 			<Key ID="STR_WMT_FREQ_HDR">
 				<Original>Frequencies</Original>

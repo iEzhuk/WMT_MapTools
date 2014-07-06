@@ -57,7 +57,6 @@ if(isNil "wmt_param_StartZone") then {
 if(isNil "wmt_param_RemoveBots") then {
 	wmt_param_RemoveBots = getNumber (MissionConfigFile >> "WMT_Params" >> "RemoveBots");
 };
-
 if(isNil "wmt_param_HeavyLossesCoeff") then {
 	if(isNumber (MissionConfigFile >> "WMT_Params" >> "HeavyLossesCoeff")) then {
 		wmt_param_HeavyLossesCoeff = getNumber (MissionConfigFile >> "WMT_Params" >> "HeavyLossesCoeff");
@@ -68,12 +67,16 @@ if(isNil "wmt_param_HeavyLossesCoeff") then {
 if(isNil "wmt_param_ShowEnemyVehiclesInNotes") then {
 	wmt_param_ShowEnemyVehiclesInNotes = getNumber (MissionConfigFile >> "WMT_Params" >> "ShowEnemyVehiclesInNotes");
 };
-
-
 if(isNil "wmt_param_GenerateFrequencies") then {
 	wmt_param_GenerateFrequencies =  getNumber (MissionConfigFile >> "WMT_Params" >> "GenerateFrequencies");
 };
-
+if(isNil "wmt_param_DisableAI") then {
+	if(isNumber (MissionConfigFile >> "WMT_Params" >> "StartZone")) then {
+		wmt_param_DisableAI = getNumber (MissionConfigFile >> "WMT_Params" >> "DisableAI");
+	} else {
+		wmt_param_DisableAI = 1;
+	};
+};
 
 
 // Check variables 
@@ -87,6 +90,11 @@ wmt_param_RemoveBots = 0 max wmt_param_RemoveBots;
 wmt_param_HeavyLossesCoeff = 0.01 max wmt_param_HeavyLossesCoeff;
 wmt_param_ShowEnemyVehiclesInNotes = 0 max (1 min wmt_param_ShowEnemyVehiclesInNotes);
 wmt_param_GenerateFrequencies = 0 max (1 min wmt_param_GenerateFrequencies);
+
+//================================================
+//					ALL
+//================================================
+[] call WMT_fnc_DisableAI;
 
 //================================================
 //					SERVER

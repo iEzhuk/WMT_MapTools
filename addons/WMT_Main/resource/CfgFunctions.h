@@ -41,6 +41,7 @@ class CfgFunctions
 			class DefaultFreqsClient{};
 			class DefaultFreqsServer{};
 			class ZoneCaptured{};
+			class DisableAI{};
 		};
 	};
 };

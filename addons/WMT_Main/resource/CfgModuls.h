@@ -51,8 +51,8 @@ class CfgVehicles
 				typeName = "NUMBER";
 				class values
 				{
-					class Disable 		{name = "$STR_WMT_TI_Disable"; value = 0;};
-					class Enable		{name = "$STR_WMT_TI_Enable"; value = 1; default = 1;};
+					class Disable 		{name = "$STR_WMT_Disable"; value = 0;};
+					class Enable		{name = "$STR_WMT_Enable"; value = 1; default = 1;};
 				};
 			};
 			class HeavyLossesCoeff
@@ -69,8 +69,8 @@ class CfgVehicles
 				typeName = "NUMBER";
 				class values
 				{
-					class Disable 		{name = "$STR_WMT_TI_Disable"; value = 0; default = 0;};
-					class Enable		{name = "$STR_WMT_TI_Enable"; value = 1; };
+					class Disable 		{name = "$STR_WMT_Disable"; value = 0; default = 1;};
+					class Enable		{name = "$STR_WMT_Enable"; value = 1; };
 				};
 			};
 			class GenerateFrequencies
@@ -80,11 +80,21 @@ class CfgVehicles
 				typeName = "NUMBER";
 				class values
 				{
-					class Disable 		{name = "$STR_WMT_TI_Disable"; value = 0; default = 0;};
-					class Enable		{name = "$STR_WMT_TI_Enable"; value = 1; };
+					class Disable 		{name = "$STR_WMT_Disable"; value = 0; default = 1;};
+					class Enable		{name = "$STR_WMT_Enable"; value = 1; };
 				};
-			};				
-			
+			};	
+			class DisableAI
+			{
+				displayName = "$STR_WMT_DisableAI";
+				description = "";
+				typeName = "NUMBER";
+				class values
+				{
+					class Disable 		{name = "$STR_WMT_Disable"; value = 0;};
+					class Enable		{name = "$STR_WMT_Enable"; value = 1; default = 1;};
+				};
+			};					
 		};
 	};
 //=======================================================================================
