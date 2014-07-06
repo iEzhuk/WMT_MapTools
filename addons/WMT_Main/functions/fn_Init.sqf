@@ -102,15 +102,14 @@ wmt_param_GenerateFrequencies = 0 max (1 min wmt_param_GenerateFrequencies);
 if(isServer || isDedicated) then {
 	[] spawn {
 		if (wmt_param_GenerateFrequencies == 1) then {[] spawn WMT_fnc_DefaultFreqsServer;};
+		if (wmt_param_RemoveBots > 0 ) then {[wmt_param_RemoveBots*60] spawn WMT_fnc_RemoveBots;};
+		
 		["vehicle", [(wmt_param_TI==1)]] call WMT_fnc_DisableTI;
 		[wmt_param_PrepareTime] call WMT_fnc_PrepareTime_server;
 		if(wmt_param_MissionTime>0) then {
-			[wmt_param_MissionTime,wmt_param_WinnerByTime,wmt_param_WinnerByTimeText] call WMT_fnc_EndMissionByTime;
+			[wmt_param_MissionTime,wmt_param_WinnerByTime,wmt_param_WinnerByTimeText] spawn WMT_fnc_EndMissionByTime;
 		};
-		[wmt_param_HeavyLossesCoeff, wmt_param_PrepareTime] call WMT_fnc_HeavyLossesCheck;
-		if (wmt_param_RemoveBots > 0 ) then {
-			[wmt_param_RemoveBots*60] spawn WMT_fnc_RemoveBots; 
-		};
+		[wmt_param_HeavyLossesCoeff, wmt_param_PrepareTime] spawn WMT_fnc_HeavyLossesCheck;
 	};
 }; 
 
