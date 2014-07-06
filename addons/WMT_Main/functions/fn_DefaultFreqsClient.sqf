@@ -9,9 +9,9 @@ tf_same_sw_frequencies_for_side = false;
 tf_same_lr_frequencies_for_side = true;	
 
 if (playerside == civilian) exitwith {};
-DBGMSG("TestTest2.5");
+DBGMSG("C1");
 waitUntil {!isNil "wmt_global_freqList" or time > 10};
-DBGMSG("TestTest2");
+DBGMSG("C2");
 
 PR(_sideToColor) = {
 	switch(_this select 0) do {
