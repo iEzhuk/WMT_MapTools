@@ -26,4 +26,4 @@
 	_x allowFleeing 0;
 	_x disableConversation true;
 	_x setVariable ["BIS_noCoreConversations", false];
-}forEach allUnits;
+}forEach playableUnits;

@@ -1,3 +1,18 @@
+/*
+ 	Name: WMT_fnc_CreateTrigger
+ 	
+ 	Author(s):
+		Zealot
+
+ 	Description:
+		Create trigger
+	
+	Parameters:
+		TBD 	
+
+ 	Returns:
+		Trigger
+*/
 
 private ["_pos","_isrectangle","_dir","_size","_tb","_timeout","_by","_type","_condition","_activation","_deactivation","_vehicle"];	
 _tb = [_this, 0, false ] call BIS_fnc_param;
