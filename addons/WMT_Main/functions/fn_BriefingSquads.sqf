@@ -18,7 +18,9 @@
 PR(_text) = "";
 {
 	if (side leader _x == side player and (leader _x) in playableUnits) then {
-		_text = _text + format ["<font color='#c7861b'>%1:</font><br/>", groupID _x];
+		PR(_markerName) = format ["WMT_PrepareTime_%1_%2", side _x, groupId _x];
+
+		_text = _text + format ["<font color='#c7861b'><marker name='%2'>%1:</marker></font><br/>", groupID _x, _markerName];
 		{
 			_text = _text + getText (configFile >> "CfgVehicles" >> format["%1",typeOf _x] >> "Displayname")+ ":  ";
 			if(isPlayer _x) then {
@@ -31,3 +33,5 @@ PR(_text) = "";
 } foreach allgroups;
 
 ["diary",localize "STR_WMT_Squads", _text] call WMT_fnc_CreateDiaryRecord;
+
+

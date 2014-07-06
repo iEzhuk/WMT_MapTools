@@ -52,13 +52,13 @@ PR(_markersPool) = [];
 	PR(_pos) = getPos _leader;
 
 
-	if( (side _leader) == _side) then {
+	if( (side _leader) == _side and _leader in playableUnits) then {
 		PR(_playersGr) = 0;
 		{
 			if (isPlayer _x) then {_playersGr=_playersGr+1;};
 		} foreach units _x;
 		PR(_text) = format ["%1 %2:%3", (groupID _x) call wmt_fnc_LongGroupNameToShort, if(isPLayer _leader)then{name _leader}else {""},_playersGr];
-		PR(_markerName) = format ["WMT_PrepareTime_%1_%2",_text,count _markersPool];
+		PR(_markerName) = format ["WMT_PrepareTime_%1_%2", side _x, groupId _x];
 		PR(_marker) = [_markerName,getPos _leader,_text,([side _leader, true] call BIS_fnc_sidecolor),"mil_dot",[1, 1],"ICON",0,"Solid"] call WMT_fnc_CreateLocalMarker;
 
 		_markersPool set [count _markersPool, _marker];

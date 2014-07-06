@@ -44,14 +44,14 @@ PR(_printFrq) = {
 
 	switch ( typename (_str select 0)) do {
 		case ( typename east) : {
-			_txt = "<font>" + format[localize "STR_WMT_FREQ_LR",_arrFrq select 0, _arrFrq select 1,_arrFrq select 2] + "</font><br/>";
+			_txt = "<font>" + format[localize "STR_WMT_FREQ_LR",_arrFrq select 0, _arrFrq select 1,_arrFrq select 2] + "</font><br/><br/>";
 		 };
 		case ( typename grpnull) : {
 			PR(_leader) = leader (_str select 0);
 			PR(_tcolor) = [side (_str select 0)] call _sideToColor;
 			_txt = format["<font color='%3'>%1 %2</font><br/>", (groupid(_str select 0)) call wmt_fnc_LongGroupNameToShort, if(isPLayer _leader)then{name _leader}else {""}, _tcolor ];
 			_txt = _txt + format[localize "STR_WMT_FREQ_SR", _arrFrq select 0,_arrFrq select 1,_arrFrq select 2] +
-				"<br/>";
+				"<br/><br/>";
 		};
 	};
 	_txt;
