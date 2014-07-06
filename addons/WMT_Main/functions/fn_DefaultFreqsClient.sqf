@@ -13,6 +13,14 @@ DBGMSG("TestTest2.5");
 waitUntil {!isNil "wmt_global_freqList" or time > 10};
 DBGMSG("TestTest2");
 
+PR(_sideToColor) = {
+	switch(_this select 0) do {
+		case WEST:{"#288cf0"};
+		case EAST:{"#cd2e2e"};
+		case RESISTANCE:{"#2bed2b"};
+		default{"#ececec"};
+	};
+};
 
 PR(_spawnSetLrChannel) = {
 	if (leader group player == player) then {
@@ -40,12 +48,11 @@ PR(_printFrq) = {
 		 };
 		case ( typename grpnull) : {
 			PR(_leader) = leader (_str select 0);
-			PR(_tcolor) = [side (_str select 0)] call bis_fnc_sidecolor call BIS_fnc_colorRGBtoHTML ;
+			PR(_tcolor) = [side (_str select 0)] call _sideToColor;
+			systemChat _tcolor;
 			_txt = format["<font color='%3'>%1 %2</font><br/>", (groupid(_str select 0)) call wmt_fnc_LongGroupNameToShort, if(isPLayer _leader)then{name _leader}else {""}, _tcolor ];
-
-			_txt = _txt + format ["<font color='%1'>",_tcolor] +
-				format[localize "STR_WMT_FREQ_SR", _arrFrq select 0,_arrFrq select 1,_arrFrq select 2] +
-				"</font><br/>";
+			_txt = _txt + format[localize "STR_WMT_FREQ_SR", _arrFrq select 0,_arrFrq select 1,_arrFrq select 2] +
+				"<br/>";
 		};
 	};
 	_txt;

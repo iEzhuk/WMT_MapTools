@@ -1,4 +1,18 @@
-// by Zealot
+/*
+ 	Name: WMT_fnc_DefaultFreqsServer
+ 	
+ 	Author(s):
+		Zealot
+
+ 	Description:
+		Generate frequences
+	
+	Parameters:
+		Nothing
+ 	
+ 	Returns:
+		Nothing
+*/
 #include "defines.sqf"
 
 if (not isClass (configFile >> "CfgPatches" >> "task_force_radio_items")) exitwith {diag_log "DefaultFreqServer TF radio not initialized"};
