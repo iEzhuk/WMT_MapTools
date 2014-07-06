@@ -43,6 +43,7 @@ class CfgFunctions
 			class ZoneCaptured{};
 			class DisableAI{};
 			class BoundingBoxMarker{};
+			class RemoveBots{};
 		};
 	};
 };
