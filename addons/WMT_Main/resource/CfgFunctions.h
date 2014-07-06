@@ -42,6 +42,7 @@ class CfgFunctions
 			class DefaultFreqsServer{};
 			class ZoneCaptured{};
 			class DisableAI{};
+			class BoundingBoxMarker{};
 		};
 	};
 };
