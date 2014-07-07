@@ -44,6 +44,7 @@ class CfgFunctions
 			class DisableAI{};
 			class BoundingBoxMarker{};
 			class RemoveBots{};
+			class RatingControl{};
 		};
 	};
 };

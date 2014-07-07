@@ -146,10 +146,7 @@ if(hasInterface) then {
 			IDD_NAMETAG cutRsc ["RscNameTag","PLAIN"];
 		};
 
-		// Add rating to disable change side to ENEMY 
-		if(rating player < 100000) then {
-			[] spawn {sleep 1;player addRating 500000;};
-		};
+		[] spwan WMT_fnc_RatingControl;
 
 		[] spawn {
 			waitUntil {!(isNull (findDisplay 46))};
