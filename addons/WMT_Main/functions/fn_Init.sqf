@@ -146,7 +146,7 @@ if(hasInterface) then {
 			IDD_NAMETAG cutRsc ["RscNameTag","PLAIN"];
 		};
 
-		[] spwan WMT_fnc_RatingControl;
+		[] spawn WMT_fnc_RatingControl;
 
 		[] spawn {
 			waitUntil {!(isNull (findDisplay 46))};
