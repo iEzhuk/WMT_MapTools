@@ -16,7 +16,7 @@ class CfgPatches
 		requiredVersion = 1.0;
 		requiredAddons[] = {};
 		author[] = {"Ezhuk","Zealot"};
-		authorUrl = "http://www.hia3.com";
+		authorUrl = "https://github.com/iEzhuk/WOG3_MapTools";
 		version = 0.1.0;
 		versionStr = "0.1.0";
 		versionAr[] = {0,1,0};	
