@@ -1,7 +1,7 @@
 #define IDD_NAMETAG 		59100
 #define IDC_NAMETAG_TEXT 	59101
 
-class RscNameTag
+class RscWMTNameTag
 {
 	idd			= IDD_NAMETAG;
 	fadeout		= 0;

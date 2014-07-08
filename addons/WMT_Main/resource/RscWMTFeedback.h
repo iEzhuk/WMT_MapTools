@@ -6,7 +6,7 @@
 #define IDC_FEEDBACK_ADMINNAME 	63004
 #define IDC_FEEDBACK_SEND	 	63005
 
-class RscFeedback {
+class RscWMTFeedback {
 	movingEnable = 1;
 	idd = IDD_FEEDBACK;
 	onLoad = "['init',_this] call WMT_fnc_HandlerFeedback";
@@ -60,7 +60,7 @@ class RscFeedback {
 			text = "";
 			colorText[] = {0.85,0.57,0.11,1};
 		};
-		class Button_Send : RscButton_ext {
+		class Button_Send : RscWMTButton_ext {
 			idc = IDC_FEEDBACK_SEND;
 			x = 0.0;
 			y = 0.535;
@@ -68,7 +68,7 @@ class RscFeedback {
 			action = "['send',_this] call WMT_fnc_HandlerFeedback";
 		};
 
-		class Button_Close : RscButton_ext {
+		class Button_Close : RscWMTButton_ext {
 			idc = IDC_FEEDBACK_CLOSE;
 			x = 0.44;
 			y = 0.535;

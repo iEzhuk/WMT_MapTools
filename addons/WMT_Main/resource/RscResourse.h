@@ -3,7 +3,7 @@ class RscButtonMenu;
 class RscText;
 class RscEdit;
 
-class RscButtonMenu_ext: RscButtonMenu {
+class RscWMTButtonMenu_ext: RscButtonMenu {
 	w = 0.3;
 	h = 0.1;
 	color[] = {0.543, 0.5742, 0.4102, 1.0};
@@ -36,7 +36,7 @@ class RscButtonMenu_ext: RscButtonMenu {
 	};
 };
 
-class RscText_ext {
+class RscWMTText_ext {
 	type = 0;
 	h = 0.037;
 	w = 0.3;
@@ -47,7 +47,7 @@ class RscText_ext {
 	colorBackground[] = {0, 0, 0, 0};
 };
 
-class RscXSliderH_ext {
+class RscWMTXSliderH_ext {
 	idc = -1;
 	type = 43;
 	style = 0x400  + 0x10;
@@ -64,7 +64,7 @@ class RscXSliderH_ext {
 	thumb = "\A3\ui_f\data\gui\cfg\slider\thumb_ca.paa";
 };
 
-class RscButton_ext: RscButton{
+class RscWMTButton_ext: RscButton{
 	type = 1;
 	colorDisabled[] = 
 	{

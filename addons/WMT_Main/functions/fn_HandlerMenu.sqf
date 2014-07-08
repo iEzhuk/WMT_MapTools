@@ -35,14 +35,14 @@ switch (_event) do
 	};
 	case "options": {
 		closeDialog 0;
-		createDialog "RscOptions";
+		createDialog "RscWMTOptions";
 	};
 	case "admin": {
 		closeDialog 0;
 		if(serverCommandAvailable('#kick')) then {
-			createDialog "RscAdminPanel";
+			createDialog "RscWMTAdminPanel";
 		}else{
-			createDialog "RscFeedback";
+			createDialog "RscWMTFeedback";
 		};
 	};
 

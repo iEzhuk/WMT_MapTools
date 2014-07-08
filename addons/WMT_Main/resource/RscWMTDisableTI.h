@@ -1,7 +1,7 @@
 #define IDD_DISABLETI		59000
 #define IDD_DISABLETI_TEXT	59001
 
-class RscDisableTI
+class RscWMTDisableTI
 {
 	idd			= IDD_DISABLETI;
 	fadeout		= 0;

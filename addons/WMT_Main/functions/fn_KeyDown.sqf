@@ -29,7 +29,7 @@ switch (_key) do
 	{
 		PR(_dialog) = uiNamespace getVariable "WMT_Dialog_Menu";
 		if(isNil "_dialog") then {
-			createDialog "RscMainMenu";
+			createDialog "RscWMTMainMenu";
 		};
 	};
 	case (KEY_END):

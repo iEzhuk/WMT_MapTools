@@ -138,12 +138,12 @@ if(hasInterface) then {
 
 		// Disable TI with using RscTitle 
 		if(wmt_param_TI == 2) then {
-			IDD_DISABLETI cutRsc ["RscDisableTI","PLAIN"];
+			IDD_DISABLETI cutRsc ["RscWMTDisableTI","PLAIN"];
 		};
 
 		// Show tag with name for near unit
 		if(wmt_param_NameTag>0) then {
-			IDD_NAMETAG cutRsc ["RscNameTag","PLAIN"];
+			IDD_NAMETAG cutRsc ["RscWMTNameTag","PLAIN"];
 		};
 
 		[] spawn WMT_fnc_RatingControl;

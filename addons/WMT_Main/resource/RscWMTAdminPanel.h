@@ -4,7 +4,7 @@
 #define IDD_ADMINPANEL_ANNOUNCEMENT 62003
 #define IDD_ADMINPANEL_ENDMISSION 	62004
 
-class RscAdminPanel {
+class RscWMTAdminPanel {
 	movingEnable = 1;
 	idd = IDD_ADMINPANEL;
 	onLoad = "['init',_this] call WMT_fnc_HandlerAdminPanel";
@@ -41,7 +41,7 @@ class RscAdminPanel {
 			h = 0.05;
 			text = "";
 		};
-		class Button_Announcement : RscButton_ext {
+		class Button_Announcement : RscWMTButton_ext {
 			idc = IDD_ADMINPANEL_ANNOUNCEMENT;
 			x = 0.0;
 			y = 0.445;
@@ -49,7 +49,7 @@ class RscAdminPanel {
 			text = $STR_WMT_Announcement;
 			action = "['announcement',_this] call WMT_fnc_HandlerAdminPanel";
 		};
-		class Button_EndMission : RscButton_ext {
+		class Button_EndMission : RscWMTButton_ext {
 			idc = IDD_ADMINPANEL_ENDMISSION;
 			x = 0.24;
 			y = 0.445;
@@ -57,7 +57,7 @@ class RscAdminPanel {
 			text = $STR_WMT_EndMission;
 			action = "['endMission',_this] call WMT_fnc_HandlerAdminPanel";
 		};
-		class Button_Close : RscButton_ext {
+		class Button_Close : RscWMTButton_ext {
 			idc = IDD_ADMINPANEL_CLOSE;
 			x = 0.48;
 			y = 0.445;

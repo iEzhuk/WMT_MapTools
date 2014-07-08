@@ -17,7 +17,7 @@
 #define IDC_OPTIONS_MAX				17090
 #define IDC_OPTIONS_CLOSE 			17091 
 
-class RscOptions {
+class RscWMTOptions {
 	movingEnable = 1;
 	idd = IDD_OPTIONS_OPTIONS;
 	onLoad = "['init',_this] call WMT_fnc_HandlerOptions";
@@ -53,7 +53,7 @@ class RscOptions {
 			h = 0.04;
 			text = $STR_WMT_OnFoot;
 		};
-		class Slider_Foot : RscXSliderH_ext {
+		class Slider_Foot : RscWMTXSliderH_ext {
 			idc = IDC_OPTIONS_FOOT_SLIDER;
 			x = 0.05;
 			y = 0.4;
@@ -79,7 +79,7 @@ class RscOptions {
 			h = 0.04;
 			text = $STR_WMT_InLandVehicle;
 		};
-		class Slider_LandVehicle : RscXSliderH_ext {
+		class Slider_LandVehicle : RscWMTXSliderH_ext {
 			idc = IDC_OPTIONS_VEH_SLIDER;
 			x = 0.05;
 			y = 0.48;
@@ -103,7 +103,7 @@ class RscOptions {
 			h = 0.04;
 			text = $STR_WMT_InAirVehicle;
 		};
-		class Slider_Air : RscXSliderH_ext {
+		class Slider_Air : RscWMTXSliderH_ext {
 			idc = IDC_OPTIONS_AIR_SLIDER;
 			x = 0.05;
 			y = 0.56;
@@ -127,7 +127,7 @@ class RscOptions {
 			h = 0.04;
 			text = $STR_WNT_OnShip;
 		};
-		class Slider_Water : RscXSliderH_ext {
+		class Slider_Water : RscWMTXSliderH_ext {
 			idc = IDC_OPTIONS_SHIP_SLIDER;
 			x = 0.05;
 			y = 0.64;
@@ -151,7 +151,7 @@ class RscOptions {
 			h = 0.04;
 			text = $STR_WMT_Spectator;
 		};
-		class Slider_Spectator : RscXSliderH_ext {
+		class Slider_Spectator : RscWMTXSliderH_ext {
 			idc = IDC_OPTIONS_SPECT_SLIDER;
 			x = 0.05;
 			y = 0.72;
@@ -167,14 +167,14 @@ class RscOptions {
 			h = 0.04;
 			text = "";
 		};
-		class ButtonMaxDistance : RscButton_ext {
+		class ButtonMaxDistance : RscWMTButton_ext {
 			idc = IDC_OPTIONS_MAX;
 			x = 0.0;
 			y = 0.785;
 			text = $STR_WMT_MaxDistance;
 			action = "['max'] call WMT_fnc_HandlerOptions";
 		};
-		class ButtonClose : RscButton_ext {
+		class ButtonClose : RscWMTButton_ext {
 			idc = IDC_OPTIONS_CLOSE;
 			x = 0.44;
 			y = 0.785;

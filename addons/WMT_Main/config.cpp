@@ -1,10 +1,10 @@
 #include "resource\RscResourse.h"
 #include "resource\CfgModuls.h"
 #include "resource\CfgFunctions.h"
-#include "resource\RscMainMenu.h"
-#include "resource\RscOptions.h"
-#include "resource\RscAdminPanel.h"
-#include "resource\RscFeedback.h"
+#include "resource\RscWMTMainMenu.h"
+#include "resource\RscWMTOptions.h"
+#include "resource\RscWMTAdminPanel.h"
+#include "resource\RscWMTFeedback.h"
 
 
 class CfgPatches 
@@ -34,6 +34,6 @@ class CfgFactionClasses
 };
 
 class RscTitles {
-	#include "resource\RscDisableTI.h"
-	#include "resource\RscNameTag.h"
+	#include "resource\RscWMTDisableTI.h"
+	#include "resource\RscWMTNameTag.h"
 };
