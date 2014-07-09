@@ -5,7 +5,7 @@
 		Zealot
 
  	Description:
-		Client part for prepare time
+		Server part for prepare time
 
 	Parameters:
 		0 - time 

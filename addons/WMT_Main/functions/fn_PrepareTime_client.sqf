@@ -5,7 +5,7 @@
 		Zealot
 
  	Description:
-		Server part of prepare time - immobilaze vehicles, timer.
+		Client part of prepare time 
 
 	Parameters:
 		0 - time 
@@ -17,8 +17,8 @@
 */
 #include "defines.sqf"
 
-_freeztime = (_this select 0)*60;
-_distance = _this select 1;
+PR(_freeztime) = (_this select 0)*60;
+PR(_distance) = _this select 1;
 
 
 waitUntil {not isNull player};
