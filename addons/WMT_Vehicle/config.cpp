@@ -23,9 +23,10 @@ class CfgFunctions
 		{
 			file="WMT_Vehicle\functions";		
 			class PushBoat{};
+			class PartRepair{};
+			class FieldRepairVehicle{};
+			class FullRepair{};
 			class StaticWpnDrag{};
-			class RepairInit{};
-			class fieldrepair{};
 			class CheckKindOfArray{};
 			class VehicleIsDamaged{};
 			class NotifyText{};

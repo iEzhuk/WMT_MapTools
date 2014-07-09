@@ -26,7 +26,7 @@ PR(_fnc_getBeginForSidesOnly) = {
 
 wmt_hlsBeginUnitsCount = []; // без учета союзников
 wmt_hlsSides = [east,west,resistance];
-_nullSides = [civilian];
+PR(_nullSides) = [civilian];
 
 {
 	_i = _x;
@@ -39,9 +39,14 @@ diag_log ("LOSSES.SQF INITIALIZED UNITS:"+str(wmt_hlsBeginUnitsCount) + " NULL:"
 
 wmt_hlsSides = wmt_hlsSides - _nullSides;
 
-_winside = [east];
-scopename "main";
+PR(_winside) = [east];
 
+
+PR(_enemies) = [];
+PR(_beginEnemies) = 0;
+PR(_aliveEnemies) = 0;
+
+scopename "main";
 while {true} do {
 	sleep 5.5;
 	

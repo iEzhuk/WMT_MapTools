@@ -16,6 +16,16 @@
 #define REAMMOTIME 180
 #define CLEARTIME 300
 
+if (isServer) then {
+	{
+		_ammoCargo = getAmmoCargo _x ;
+		if (_ammoCargo > 0 and _ammoCargo < 2) then {
+			wmt_ammoCargoVehs set [count wmt_ammoCargoVehs, _x];
+			_x setAmmoCargo 0;
+		};
+	} foreach vehicles;
+};
+
 if(isDedicated) exitWith {};
 waitUntil {sleep 0.23; player == player};
 if(true && (!(["engineer" ,str(typeOf player)] call BIS_fnc_inString) && !(["crew" ,str(typeOf player)] call BIS_fnc_inString) && !(["pilot",str(typeOf player)] call BIS_fnc_inString))) exitWith {};
@@ -26,13 +36,7 @@ if (isNil "wmt_ammoCargoVehs") then {
 };
 
 waitUntil {sleep 0.41;time > 0};
-{
-	_ammoCargo = getAmmoCargo _x ;
-	if (_ammoCargo > 0 and _ammoCargo < 2) then {
-		wmt_ammoCargoVehs set [count wmt_ammoCargoVehs, _x];
-		_x setAmmoCargo 0;
-	};
-} foreach vehicles;
+
 
 wmt_fnc_GetNearestAmmoSource = {
 	private ["_res"];
