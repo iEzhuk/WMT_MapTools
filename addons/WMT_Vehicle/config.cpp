@@ -22,21 +22,22 @@ class CfgFunctions
 		class Vehicle
 		{
 			file="WMT_Vehicle\functions";		
-			class VehicleInit
-			{
-				postInit = 1;
-			};
+			class PushBoat{};
+			class StaticWpnDrag{};
 			class RepairInit{};
 			class fieldrepair{};
 			class CheckKindOfArray{};
 			class VehicleIsDamaged{};
 			class NotifyText{};
-			class StaticWpnInit{};
-			class PushBoatInit{};
 			class ShowVehicleCrew{};
 			class LowGearInit{};
 			class RearmVehicle{};
 			class InitRearmSystem{};
+			class VehicleInit
+			{
+				postInit = 1;
+			};
+
 			
 		};
 	};
