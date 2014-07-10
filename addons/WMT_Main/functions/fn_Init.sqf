@@ -71,13 +71,15 @@ if(isNil "wmt_param_GenerateFrequencies") then {
 	wmt_param_GenerateFrequencies =  getNumber (MissionConfigFile >> "WMT_Params" >> "GenerateFrequencies");
 };
 if(isNil "wmt_param_DisableAI") then {
-	if(isNumber (MissionConfigFile >> "WMT_Params" >> "StartZone")) then {
+	if(isNumber (MissionConfigFile >> "WMT_Params" >> "DisableAI")) then {
 		wmt_param_DisableAI = getNumber (MissionConfigFile >> "WMT_Params" >> "DisableAI");
 	} else {
 		wmt_param_DisableAI = 1;
 	};
 };
-
+if(isNil "wmt_param_DisableStat") then {
+	wmt_param_DisableStat = getNumber (MissionConfigFile >> "WMT_Params" >> "DisableStat");
+};
 
 // Check variables 
 wmt_param_ViewDistance = 10 max wmt_param_ViewDistance;
@@ -90,6 +92,7 @@ wmt_param_RemoveBots = 0 max wmt_param_RemoveBots;
 wmt_param_HeavyLossesCoeff = 0.01 max wmt_param_HeavyLossesCoeff;
 wmt_param_ShowEnemyVehiclesInNotes = 0 max (1 min wmt_param_ShowEnemyVehiclesInNotes);
 wmt_param_GenerateFrequencies = 0 max (1 min wmt_param_GenerateFrequencies);
+wmt_param_DisableStat = 0 max (1 min wmt_param_DisableStat);
 
 //================================================
 //					ALL
@@ -116,7 +119,7 @@ if(isServer || isDedicated) then {
 //================================================
 //					CLIENT
 //================================================
-if(hasInterface) then {
+if(!isDedicated) then {
 	[] spawn {
 		waitUntil{player==player};
 		waitUntil{alive player};
@@ -174,6 +177,10 @@ if(hasInterface) then {
 			sleep 30;
 			{deleteMarkerLocal _x;} foreach _markerPool;
 		};
-		if (wmt_param_GenerateFrequencies == 1) then {[] spawn WMT_fnc_DefaultFreqsClient;};
+		
+		// Show frequencies
+		if (wmt_param_GenerateFrequencies == 1) then {
+			[] spawn WMT_fnc_DefaultFreqsClient;
+		};
 	};
 };

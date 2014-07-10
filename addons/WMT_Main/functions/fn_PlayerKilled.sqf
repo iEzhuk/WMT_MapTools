@@ -15,6 +15,8 @@
 
 #define PR(x) private ['x']; x
 
+if(wmt_param_DisableStat)exitWith{};
+
 closeDialog 0;
 
 PR(_killer) = _this select 1; 

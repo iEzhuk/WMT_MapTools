@@ -1,11 +1,11 @@
 /*
- 	Name: WMT_fnc_KeyDown
+ 	Name: WMT_fnc_KeyUp
  	
  	Author(s):
 		Ezhuk
 
  	Description:
-		Handler function for keyDown handler from display #46
+		Handler function for keyUp handler from display #46
 	
 	Parameters:
 		ARRAY: argument from event
@@ -25,10 +25,10 @@ PR(_denyaction) = false;
 
 switch (_key) do
 {
-	case (KEY_HOME):
+	case (KEY_END):
 	{
-		if(!dialog) then {
-			createDialog "RscWMTMainMenu";
+		if(!isNil "WMT_Local_MissionEnd" || count WMT_Local_Killer > 0) then {
+			call WMT_fnc_ShowStatistic;
 		};
 	};
 };

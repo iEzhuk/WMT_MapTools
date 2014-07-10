@@ -94,7 +94,18 @@ class CfgVehicles
 					class Disable 		{name = "$STR_WMT_Disable"; value = 0;};
 					class Enable		{name = "$STR_WMT_Enable"; value = 1; default = 1;};
 				};
-			};					
+			};	
+			class DisableStat
+			{
+				displayName = "$STR_WMT_DisableStat";
+				description = "";
+				typeName = "NUMBER";
+				class values
+				{
+					class Disable 		{name = "$STR_WMT_Disable"; value = 0; default = 1;};
+					class Enable		{name = "$STR_WMT_Enable"; value = 1;};
+				};
+			};				
 		};
 	};
 //=======================================================================================

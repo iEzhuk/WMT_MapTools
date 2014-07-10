@@ -270,7 +270,11 @@
 			<Key ID="STR_WMT_MOD_GENFREQS">
 				<Original>Generate frequencies</Original>
 				<Russian>Генерировать частоты</Russian>
-			</Key>			
+			</Key>	
+			<Key ID="STR_WMT_DisableStat">
+				<Original>Disable statistic</Original>
+				<Russian>Отключение статистики</Russian>
+			</Key>
 		</Container>
 	</Package>
 </Project>
