@@ -22,18 +22,22 @@ class CfgFunctions
 		class Vehicle
 		{
 			file="WMT_Vehicle\functions";		
-			class PushBoat{};
-			class PartRepair{};
+			class CheckKindOfArray{};
 			class FieldRepairVehicle{};
 			class FullRepair{};
-			class StaticWpnDrag{};
-			class CheckKindOfArray{};
-			class VehicleIsDamaged{};
+			class KeyHandlerShowCrew{};
+			class LowGearCond{};
+			class LowGear{};
 			class NotifyText{};
-			class ShowVehicleCrew{};
-			class LowGearInit{};
+			class PartRepair{};
+			class PushBoat{};
+			class ReammoCond{};
+			class ReammoGetNearest{};
+			class Reammo{};
 			class RearmVehicle{};
-			class InitRearmSystem{};
+			class ShowCrew{};
+			class StaticWpnDrag{};
+			class VehicleIsDamaged{};
 			class VehicleInit
 			{
 				postInit = 1;
@@ -49,17 +53,17 @@ class CfgFunctions
 
 class RscTitles 
 {
-	class RscVechileCrew
+	class RscWMTVehicleCrew
 	{
 		idd			= 5000;
 		fadeout		= 0;
 		fadein		= 0;
 		duration	= 3;
-		onLoad		= "_this call Func_KeyHandler_ShowCrew";
+		onLoad		= "_this call WMT_fnc_ShowCrew;";
 
 		class controls
 		{
-			class RscVechileCrewText
+			class RscWMTVehicleCrewText
 			{
 				idc 	= 5001;
 				type 	= 13;

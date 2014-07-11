@@ -1,3 +1,14 @@
+/*
+ 	Name: 
+ 	
+ 	Author(s):
+		Zealot
+
+ 	Description:
+		
+
+*/
+
 private "_veh";
 _veh = [_this, 0] call BIS_fnc_param;
 if (isNil {_veh} ) exitWith {}; 

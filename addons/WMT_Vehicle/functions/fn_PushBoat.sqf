@@ -1,3 +1,13 @@
+/*
+ 	Name: 
+ 	
+ 	Author(s):
+		Zealot
+
+ 	Description:
+		
+
+*/
 #include "defines.sqf"
 
 PR(_veh) = (nearestObjects [player,["Ship"], 8]) select 0;
