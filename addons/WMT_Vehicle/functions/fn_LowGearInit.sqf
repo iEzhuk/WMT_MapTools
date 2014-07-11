@@ -35,16 +35,18 @@ WMT_func_LowGear = {
 	_vecorS = 1.8;
 	_min = 20;
 	_max = 35;
-	hint "asd";
+
 	if((["MBT",str(typeOf _veh)] call BIS_fnc_inString) || (["APC",str(typeOf _veh)] call BIS_fnc_inString) )then{
 		_vecorS = 1.5;
 		_min = 15;
 		_max = 25;
 	};
-	if(Local_LowGearOn)exitWith{};
-	hint str(vectorUp _veh);
-	Local_LowGearOn = true;
-	while {(player==(driver _veh)) && Local_LowGearOn && (canMove _veh) && isEngineOn _veh} do {
+
+	if(WMT_Local_LowGearOn)exitWith{};
+
+	WMT_Local_LowGearOn = true;
+
+	while {(player==(driver _veh)) && WMT_Local_LowGearOn && (canMove _veh) && isEngineOn _veh} do {
 		if (isTouchingGround _veh) then {
 			_speed = speed _veh;
 			_vel   = velocity _veh;
@@ -82,22 +84,22 @@ WMT_func_LowGear = {
 				};
 			};
 			if((getPosASL _veh select 2) - (getPosATL _veh select 2) < -2) then {
-				Local_LowGearOn = false;
+				WMT_Local_LowGearOn = false;
 			};
 		};
 		sleep 0.033;
 	};
 
-	Local_LowGearOn = false;
+	WMT_Local_LowGearOn = false;
 };
 
 
-Func_LowGearCond = {
+WMT_func_LowGearCond = {
 	private ["_res","_veh"];
 	_veh = vehicle player;
 	_res = false;
 
-	if(!Local_LowGearOn)then{
+	if(!WMT_Local_LowGearOn)then{
 		if(player != _veh && player==(driver _veh))then{
 			if(alive player && alive _veh && canMove _veh && isEngineOn _veh)then{
 				if((["APC",str(typeOf _veh)] call BIS_fnc_inString) || {["MBT",str(typeOf _veh)] call BIS_fnc_inString} || {["Truck",str(typeOf _veh)] call BIS_fnc_inString} || {["MRAP",str(typeOf _veh)] call BIS_fnc_inString} || {["Offroad",str(typeOf _veh)] call BIS_fnc_inString})then{
@@ -113,8 +115,8 @@ Func_LowGearCond = {
 	_res
 };
 
-Local_LowGearOn = false;
-player addAction[ format ["<t color='#ff0000'>%1</t>", (localize "STR_ACTION_LOWGEARON") ], WMT_func_LowGear, [], 1, false, false, '','[] call Func_LowGearCond'];
-player addAction[ format ["<t color='#ff0000'>%1</t>", (localize "STR_ACTION_LOWGEAROFF")], {Local_LowGearOn=false;}, [], 1, false, false, '','Local_LowGearOn'];
+WMT_Local_LowGearOn = false;
+player addAction[ format ["<t color='#ff0000'>%1</t>", (localize "STR_ACTION_LOWGEARON") ], WMT_func_LowGear, [], 1, false, false, '','[] call WMT_func_LowGearCond'];
+player addAction[ format ["<t color='#ff0000'>%1</t>", (localize "STR_ACTION_LOWGEAROFF")], {WMT_Local_LowGearOn=false;}, [], 1, false, false, '','WMT_Local_LowGearOn'];
 
 
