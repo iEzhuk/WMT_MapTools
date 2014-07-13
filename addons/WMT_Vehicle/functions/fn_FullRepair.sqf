@@ -1,4 +1,13 @@
+/*
+ 	Name: 
+ 	
+ 	Author(s):
+		Zealot
 
+ 	Description:
+		
+
+*/
 #include "defines.sqf"
 #define DEFAULT_FULLREPAIR_LENGTH 320
 #define DEFAULT_REPAIR_TRUCK_USES 1000

@@ -1,3 +1,13 @@
+/*
+ 	Name: 
+ 	
+ 	Author(s):
+		Zealot
+
+ 	Description:
+		
+
+*/
 _wpn = cursorTarget;
 if (isnil "_wpn") exitWith {};
 player playMove "acinpknlmstpsraswrfldnon";

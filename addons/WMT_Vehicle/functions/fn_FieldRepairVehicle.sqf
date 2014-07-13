@@ -1,3 +1,13 @@
+/*
+ 	Name: 
+ 	
+ 	Author(s):
+		Zealot
+
+ 	Description:
+		
+
+*/
 #include "defines.sqf"
 #define DEFAULT_FREE_REPAIRS 1
 #define DEFAULT_FIELDREPAIR_EACH_PART_TIME 30
