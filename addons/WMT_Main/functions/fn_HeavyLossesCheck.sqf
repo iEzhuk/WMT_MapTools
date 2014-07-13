@@ -1,70 +1,61 @@
- // by [STELS]Zealot
+// by [STELS]Zealot
 
-#include "defines.sqf"
-private ["_losses","_westalive","_eastalive","_resalive","_reseastfriend","_reswestfriend","_sides","_inittotal", "_initialwest","_initialeast","_initialres","_i"];
+#define PR(x) private ['x']; x
 
+PR(_playerratio) =  [_this, 0, 0.1] call BIS_fnc_param; 
+PR(_aftertime) = [_this, 1, 30] call BIS_fnc_param; 
 
+if (_playerratio == 0) exitWith {};
+if (not isServer) exitWith {diag_log "PALYERCOUNT.SQF NOT SERVER";};
+waitUntil { time > _aftertime };
 
-PARAM(_losses, 0, 0.01);
-PARAM(_freeztime, 1, 60);
-
-waitUntil { sleep 0.67; time > _freeztime };
-
-PR(_fnc_countAliveForSidesOnly) = {
-	PR(_sides) =  [_this, 0, [east]] call BIS_fnc_param;
-	PR(_res) = 0;
-	{ _i = _x; _res = _res + ({(isPlayer _x) and (alive _x) and (side _x == _i)} count playableUnits); } foreach _sides;
-	_res;
-};
-
-PR(_fnc_getBeginForSidesOnly) = {
-	PR(_sides) =  [_this, 0, [east]] call BIS_fnc_param;
-	PR(_res) = 0;
-	{_res = _res + (wmt_hlsBeginUnitsCount select ([_x] call BIS_fnc_sideID)) } foreach _sides;
-	_res;
-};
-
-wmt_hlsBeginUnitsCount = []; // без учета союзников
-wmt_hlsSides = [east,west,resistance];
-PR(_nullSides) = [civilian];
+wmt_playerCountInit = [0,0,0];
+PR(_endtimer) = false;
 
 {
-	_i = _x;
-	_count = [[_x]] call _fnc_countAliveForSidesOnly;
-	wmt_hlsBeginUnitsCount set [count wmt_hlsBeginUnitsCount, _count];
-	if (_count == 0) then {_nullSides = _nullSides + [_x]};
-} foreach wmt_hlsSides;
-
-diag_log ("LOSSES.SQF INITIALIZED UNITS:"+str(wmt_hlsBeginUnitsCount) + " NULL:" + str(_nullSides)) ;  
-
-wmt_hlsSides = wmt_hlsSides - _nullSides;
-
-PR(_winside) = [east];
-
-
-PR(_enemies) = [];
-PR(_beginEnemies) = 0;
-PR(_aliveEnemies) = 0;
-
-scopename "main";
-while {true} do {
-	sleep 5.5;
-	
-	// для каждой стороны - все их враги понесли потери
+	PR(_iside)=_x;
+	PR(_isideind) = _foreachindex;
 	{
-		_enemies = [_x] call BIS_fnc_enemySides;
-		_beginEnemies = [_enemies] call _fnc_getBeginForSidesOnly;
-		_aliveEnemies = [_enemies] call _fnc_countAliveForSidesOnly;
-		if (_beginEnemies > 0) then {
-			if (_aliveEnemies / _beginEnemies < _losses ) then {
-				diag_log ("LOSSES.SQF TRIGGERED BEGIN:"+str(_beginEnemies)+" ALIVE:"+str(_aliveEnemies)+" INITIAL:"+str(wmt_hlsBeginUnitsCount) + " NULL:"+str(_nullSides));
-				_winside = ([_x] call BIS_fnc_friendlySides) - _nullSides ;
-				breakTo "main";
-			};
+		if (side _x == _iside and isPlayer _x) then {
+			wmt_playerCountInit set [_isideind, (wmt_playerCountInit select _isideind) + 1];
 		};
-	} foreach wmt_hlsSides;
+	} foreach playableUnits;
+} foreach [east, west, resistance];
+
+PR(_resistanceFriendSide) = switch (true) do {
+	case (west in ([resistance] call BIS_fnc_friendlySides)) : {west};
+	case (east in ([resistance] call BIS_fnc_friendlySides)) : {east};
+	default {sideUnknown};
+	
 };
 
-_s = "";
-{_s = _s +' ' +([_x]call BIS_fnc_sideName);} foreach _winside;
-[[_winside select 0,format[localize "STR_WMT_HLSWinLoseMSG",_s]],"WMT_fnc_EndMission"] call BIS_fnc_MP;
+while {not _endtimer} do {
+	wmt_PlayerCountNow = [0,0,0];
+	{
+			
+			PR(_iside)=_x;
+			PR(_isideind) = _foreachindex;
+			{
+				if (side _x == _iside and isPlayer _x) then {
+					wmt_PlayerCountNow set [_isideind, (wmt_PlayerCountNow select _isideind) + 1];
+				};
+			} foreach playableUnits;
+	} foreach [east, west, resistance];
+	{
+		
+		if ( (wmt_playerCountInit select _foreachindex) != 0 and {_x in [east,west] or _resistanceFriendSide == sideUnknown}) then {
+			PR(_playersActualBegin) = (wmt_playerCountInit select _foreachindex) + ( if (_x == _resistanceFriendSide) then {wmt_playerCountInit select 2} else {0} );
+			PR(_playersActualNow) = (wmt_PlayerCountNow select _foreachindex) + ( if (_x == _resistanceFriendSide) then {wmt_PlayerCountNow select 2} else {0} );
+
+			if (_playersActualNow / _playersActualBegin < _playerratio) then {
+				PR(_enemy) = ([_x] call BIS_fnc_enemySides) select 0;
+				if (not _endtimer) then {
+					[[_enemy,format[localize "STR_WMT_HLSWinLoseMSG",([_enemy]call BIS_fnc_sideName)]],"wmt_fnc_endmission"] call BIS_fnc_MP;
+					_endtimer = true;
+				};
+			};
+		};
+	} foreach [east,west,resistance];
+	sleep 5.5;
+};
+
