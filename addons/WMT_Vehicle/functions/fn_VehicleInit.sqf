@@ -62,6 +62,9 @@ if (isNil "WMT_flagDisableRepair" or { WMT_flagDisableRepair == 0}) then {
 // ================================================= REARM =============================================================
 if (isNil "WMT_flagDisableRearmSystem" or { WMT_flagDisableRearmSystem==0 }) then {
 	if (isServer) then {
+		if (isNil "wmt_ammoCargoVehs") then {
+			wmt_ammoCargoVehs = [];
+		};
 		{
 			_ammoCargo = getAmmoCargo _x ;
 			if (_ammoCargo > 0 and _ammoCargo < 2) then {
@@ -73,9 +76,7 @@ if (isNil "WMT_flagDisableRearmSystem" or { WMT_flagDisableRearmSystem==0 }) the
 	if(isDedicated) exitWith {};
 	waitUntil {sleep 0.23; player == player};
 	if(true && (!(["engineer" ,str(typeOf player)] call BIS_fnc_inString) && !(["crew" ,str(typeOf player)] call BIS_fnc_inString) && !(["pilot",str(typeOf player)] call BIS_fnc_inString))) exitWith {};
-	if (isNil "wmt_ammoCargoVehs") then {
-		wmt_ammoCargoVehs = [];
-	};
+
 	waitUntil {sleep 0.41;time > 0};
 	player addAction[ format ["<t color='#ff0000'>%1</t>", (localize "STR_ACTION_REAMMO") ] , wmt_fnc_Reammo, [], 1, false, true, '','[] call wmt_fnc_ReammoCond'];
 };
