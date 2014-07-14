@@ -9,18 +9,34 @@
 
 */
 
-WMT_mutexAction = false;  
+if(isNil "wmt_param_FullRepair") then {
+	wmt_param_FullRepair = getNumber (MissionConfigFile >> "WMT_Params" >> "FullRepair");
+};
+if(isNil "wmt_param_VehicleCrew") then {
+	wmt_param_VehicleCrew = getNumber (MissionConfigFile >> "WMT_Params" >> "VehicleCrew");
+};
+if(isNil "wmt_param_LowGear") then {
+	wmt_param_LowGear = getNumber (MissionConfigFile >> "WMT_Params" >> "LowGear");
+};
+if(isNil "wmt_param_PushBoat") then {
+	wmt_param_PushBoat = getNumber (MissionConfigFile >> "WMT_Params" >> "PushBoat");
+};
+if(isNil "wmt_param_Reammo") then {
+	wmt_param_Reammo = getNumber (MissionConfigFile >> "WMT_Params" >> "Reammo");
+};
 
-WMT_flagDisableRepair = getNumber (MissionConfigFile >> "WMT_Params" >> "WMT_flagDisableRepair");
-WMT_flagDisableStaticWeaponDrag = getNumber (MissionConfigFile >> "WMT_Params" >> "WMT_flagDisableStaticWeaponDrag");
-WMT_flagDisablePushBoat = getNumber (MissionConfigFile >> "WMT_Params" >> "WMT_flagDisablePushBoat");
-WMT_flagDisableShowVehicleCrew = getNumber (MissionConfigFile >> "WMT_Params" >> "WMT_flagDisableShowVehicleCrew");
-WMT_flagDisableLowGear = getNumber (MissionConfigFile >> "WMT_Params" >> "WMT_flagDisableLowGear");
-WMT_flagDisableRearmSystem = getNumber (MissionConfigFile >> "WMT_Params" >> "WMT_flagDisableRearmSystem");
 
+
+wmt_param_FullRepair = 0 max (1 min wmt_param_FullRepair);
+wmt_param_VehicleCrew = 0 max (1 min wmt_param_VehicleCrew);
+wmt_param_LowGear = 0 max (1 min wmt_param_LowGear);
+wmt_param_PushBoat = 0 max (1 min wmt_param_PushBoat);
+wmt_param_Reammo = 0 max (1 min wmt_param_Reammo);
+
+WMT_mutexAction = false;
 
 // ==================================== REPAIR =========================================================================
-if (isNil "WMT_flagDisableRepair" or { WMT_flagDisableRepair == 0}) then {
+if (isNil "wmt_param_FullRepair" or { wmt_param_FullRepair == 0}) then {
 	WMT_fullRepairClasses = [];
 	WMT_fullRepairEnabled = false;
 	if (isServer) then {
@@ -44,13 +60,13 @@ if (isNil "WMT_flagDisableRepair" or { WMT_flagDisableRepair == 0}) then {
 		case (_playerClass in ["O_PILOT_F","B_PILOT_F","I_PILOT_F","O_HELICREW_F","I_HELICREW_F","B_HELICREW_F","O_HELIPILOT_F","B_HELIPILOT_F","I_HELIPILOT_F"]) : {WMT_fullRepairClasses = ["Car","Tank","Ship","Air"];WMT_fullRepairEnabled = true; };
 		case (_playerClass in ["O_SOLDIER_UAV_F","I_SOLDIER_UAV_F","B_SOLDIER_UAV_F"]) : {WMT_fullRepairClasses = ["UGV_01_base_F","UAV_01_base_F","UAV_02_base_F"];WMT_fullRepairEnabled = true; };
 	};
-	if (isNil "zlt_cancelActionId") then {
-		player addAction["<t color='#0000ff'>"+localize("STR_CANCEL_ACTION")+"</t>", {WMT_mutexAction = false}, [], 10, false, true, '',' WMT_mutexAction  '];
-		player addAction["<t color='#ff0000'>"+localize ("STR_FIELD_REPAIR")+"</t>", WMT_fnc_Fieldrepairvehicle, [], -1, false, true, '','(not isNull cursorTarget) and {alive player} and {(player distance cursortarget) <= 7} and {(vehicle player == player)} and {speed cursortarget < 3} and {not WMT_mutexAction} and {alive cursortarget} and {cursortarget call WMT_fnc_vehicleIsDamaged}'];
-		if (WMT_fullRepairEnabled) then {
-			player addAction["<t color='#ff0000'>"+localize ("STR_SERIOUS_REPAIR")+ "</t>", WMT_fnc_FullRepair, [], -1, false, true, '','(not isNull cursorTarget) and {vehicle player == player} and {player distance cursortarget <= 7 and damage cursortarget != 0} and {alive player and alive cursortarget} and {speed cursortarget < 3} and {not WMT_mutexAction}'];
-		};
+	
+	player addAction["<t color='#0000ff'>"+localize("STR_CANCEL_ACTION")+"</t>", {WMT_mutexAction = false}, [], 10, false, true, '',' WMT_mutexAction  '];
+	player addAction["<t color='#ff0000'>"+localize ("STR_FIELD_REPAIR")+"</t>", WMT_fnc_Fieldrepairvehicle, [], -1, false, true, '','(not isNull cursorTarget) and {alive player} and {(player distance cursortarget) <= 7} and {(vehicle player == player)} and {speed cursortarget < 3} and {not WMT_mutexAction} and {alive cursortarget} and {cursortarget call WMT_fnc_vehicleIsDamaged}'];
+	if (WMT_fullRepairEnabled) then {
+		player addAction["<t color='#ff0000'>"+localize ("STR_SERIOUS_REPAIR")+ "</t>", WMT_fnc_FullRepair, [], -1, false, true, '','(not isNull cursorTarget) and {vehicle player == player} and {player distance cursortarget <= 7 and damage cursortarget != 0} and {alive player and alive cursortarget} and {speed cursortarget < 3} and {not WMT_mutexAction}'];
 	};
+
 	player addEventHandler ["Respawn", {
 		player addAction["<t color='#0000ff'>"+localize("STR_CANCEL_ACTION")+"</t>", {WMT_mutexAction = false}, [], 10, false, true, '',' WMT_mutexAction  '];
 		player addAction["<t color='#ff0000'>"+localize ("STR_FIELD_REPAIR")+"</t>", WMT_fnc_Fieldrepairvehicle, [], -1, false, true, '','(not isNull cursorTarget) and {alive player} and {(player distance cursortarget) <= 7} and {(vehicle player == player)} and {speed cursortarget < 3} and {not WMT_mutexAction} and {alive cursortarget} and {cursortarget call WMT_fnc_vehicleIsDamaged}'];
@@ -60,7 +76,7 @@ if (isNil "WMT_flagDisableRepair" or { WMT_flagDisableRepair == 0}) then {
 	}];
 };
 // ================================================= REARM =============================================================
-if (isNil "WMT_flagDisableRearmSystem" or { WMT_flagDisableRearmSystem==0 }) then {
+if (isNil "wmt_param_Reammo" or { wmt_param_Reammo==0 }) then {
 	if (isServer) then {
 		if (isNil "wmt_ammoCargoVehs") then {
 			wmt_ammoCargoVehs = [];
@@ -86,7 +102,7 @@ if (isNil "WMT_flagDisableRearmSystem" or { WMT_flagDisableRearmSystem==0 }) the
 if (isDedicated) exitWith {};
 waitUntil {sleep 0.39; player == player};
 
-if (isNil "WMT_flagDisablePushBoat" or { WMT_flagDisablePushBoat==0}) then {
+if (isNil "wmt_param_PushBoat" or { wmt_param_PushBoat==0}) then {
 	player addAction ["<t color='#FF9900'>"+localize('STR_PUSH_BOAT')+"</t>",WMT_fnc_pushboat,[],-1,false,true,"",'vehicle player == player and {not isNull cursorTarget} and {cursorTarget isKindOf "Ship"} and {player distance cursorTarget < 8} and {not WMT_mutexAction}'];  
 	player addEventHandler ["Respawn", {
 		player addAction ["<t color='#FF9900'>"+localize('STR_PUSH_BOAT')+"</t>",WMT_fnc_pushboat,[],-1,false,true,"",'vehicle player == player and {not isNull cursorTarget} and {cursorTarget isKindOf "Ship"} and {player distance cursorTarget < 8} and {not WMT_mutexAction}'];  
@@ -101,11 +117,11 @@ if (isNil "WMT_flagDisableStaticWeaponDrag" or { WMT_flagDisableStaticWeaponDrag
 };	
 
 waitUntil{sleep 0.36; !(isNull (findDisplay 46))};
-if (isNil "WMT_flagDisableShowVehicleCrew" or { WMT_flagDisableShowVehicleCrew ==0}) then {
+if (isNil "wmt_param_VehicleCrew" or { wmt_param_VehicleCrew ==0}) then {
 	(findDisplay 46) displayAddEventHandler ["MouseZChanged","_this call WMT_fnc_KeyHandlerShowCrew;"];
 };
 
-if (isNil "WMT_flagDisableLowGear" or {  WMT_flagDisableLowGear==0}) then {
+if (isNil "wmt_param_LowGear" or {  wmt_param_LowGear==0}) then {
 
 	WMT_LowGear_mutex = diag_tickTime;
 	WMT_lowGearOn = false;

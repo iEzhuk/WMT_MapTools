@@ -28,5 +28,12 @@ STR_ACTION_REAMMO,"Rearm vehicle","Перевооружениe"
 STR_COMPLETED_REAMMO,"Reammo is completed","Перевооружение завершено"
 STR_WARNING_NoAmmoVehcile,"You are far from the rearm vehicle","Вы находитесь слишком далеко от техники с боеприпасами"
 
+STR_WMT_Enable,"Enable","Включено"
+STR_WMT_Disable,"Disable","Отключен"
 
-
+STR_WMT_ModuleFieldRepair,"Field repair","Полевой ремонт"
+STR_WMT_ModuleFullRepair,"Repair mod","Мод ремонта"
+STR_WMT_ModuleVehicleCrew,"Show vehicle crew","Показывать экипаж"
+STR_WMT_ModulePushBoat,"Push boat","Толкание лодок"
+STR_WMT_ModuleLowGear,"Low gear option","Повышенная передача"
+STR_WMT_ModuleReammo,"Rearm mod","Мод перевооружения"

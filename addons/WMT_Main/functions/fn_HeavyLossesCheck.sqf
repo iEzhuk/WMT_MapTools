@@ -29,6 +29,13 @@ PR(_resistanceFriendSide) = switch (true) do {
 	
 };
 
+wmtPlayerCountEmptySides = [civilian];
+{
+	if( (wmt_playerCountInit select _foreachindex) == 0) then {
+		wmtPlayerCountEmptySides = wmtPlayerCountEmptySides + [_x];
+	};
+} foreach [east, west, resistance];
+
 while {not _endtimer} do {
 	wmt_PlayerCountNow = [0,0,0];
 	{
@@ -47,7 +54,7 @@ while {not _endtimer} do {
 			PR(_playersActualNow) = (wmt_PlayerCountNow select _foreachindex) + ( if (_x == _resistanceFriendSide) then {wmt_PlayerCountNow select 2} else {0} );
 
 			if (_playersActualNow / _playersActualBegin < _playerratio) then {
-				PR(_enemy) = ([_x] call BIS_fnc_enemySides) select 0;
+				PR(_enemy) = if ( count (([_x] call BIS_fnc_enemySides) - wmtPlayerCountEmptySides) > 0) then {(([_x] call BIS_fnc_enemySides) - wmtPlayerCountEmptySides) select 0} else {sideUnknown};
 				if (not _endtimer) then {
 					[[_enemy,format[localize "STR_WMT_HLSWinLoseMSG",([_enemy]call BIS_fnc_sideName)]],"wmt_fnc_endmission"] call BIS_fnc_MP;
 					_endtimer = true;
