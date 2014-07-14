@@ -75,9 +75,7 @@ if(_activated) then {
 	//================================================
 	if(!isDedicated) then {
 		[] spawn {
-			waitUntil{player==player};
-			waitUntil{alive player};
-			waitUntil{local player};
+			waitUntil {not isNull player};
 
 			WMT_Local_Killer = [];
 			WMT_Local_Kills = [];
