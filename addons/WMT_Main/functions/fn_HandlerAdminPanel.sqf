@@ -57,7 +57,7 @@ switch (_event) do
 			WMT_Global_EndMission = [_text];
 
 			publicVariable "WMT_Global_EndMission";
-			WMT_Global_EndMission call WMT_fnc_EndMission;
+			[ [ [WMT_Global_EndMission], {(_this select 0) call WMT_fnc_EndMission;} ],"bis_fnc_spawn"] call bis_fnc_mp;
 
 			closeDialog 0;
 		}else{

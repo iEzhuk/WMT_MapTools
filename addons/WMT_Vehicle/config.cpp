@@ -25,6 +25,7 @@ class CfgFunctions
 			class CheckKindOfArray{};
 			class FieldRepairVehicle{};
 			class FullRepair{};
+			class InitModuleVehicle{};
 			class KeyHandlerShowCrew{};
 			class LowGearCond{};
 			class LowGear{};
@@ -38,12 +39,7 @@ class CfgFunctions
 			class ShowCrew{};
 			class StaticWpnDrag{};
 			class VehicleIsDamaged{};
-			class VehicleInit
-			{
-				postInit = 1;
-			};
-
-			
+	
 		};
 	};
 };
