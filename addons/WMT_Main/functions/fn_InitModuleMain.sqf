@@ -66,7 +66,7 @@ if(_activated) then {
 	
 			["vehicle", [(wmt_param_TI==1)]] call WMT_fnc_DisableTI;
 
-			[wmt_param_HeavyLossesCoeff, wmt_param_PrepareTime] spawn WMT_fnc_HeavyLossesCheck;
+			[wmt_param_HeavyLossesCoeff] spawn WMT_fnc_HeavyLossesCheck;
 		};
 	}; 
 
