@@ -32,7 +32,6 @@ PR(_resistanceFriendSide) = switch (true) do {
 while {not _endtimer} do {
 	wmt_PlayerCountNow = [0,0,0];
 	{
-			
 			PR(_iside)=_x;
 			PR(_isideind) = _foreachindex;
 			{

@@ -36,6 +36,12 @@ if(_activated) then {
 	if(isNil "wmt_param_GenerateFrequencies") then {
 		wmt_param_GenerateFrequencies = _logic getVariable "GenerateFrequencies";
 	};
+	if(isNil "wmt_param_ShowVehiclesBriefing") then {
+		wmt_param_ShowVehiclesBriefing = _logic getVariable "ShowVehiclesBriefing";
+	};
+	if(isNil "wmt_param_ShowSquadsBriefing") then {
+		wmt_param_ShowSquadsBriefing = _logic getVariable "ShowSquadsBriefing";
+	};
 	
 
 	

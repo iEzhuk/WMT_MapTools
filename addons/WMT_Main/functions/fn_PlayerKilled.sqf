@@ -15,7 +15,7 @@
 
 #define PR(x) private ['x']; x
 
-if(wmt_param_DisableStat)exitWith{};
+if(wmt_param_DisableStat==0)exitWith{};
 
 closeDialog 0;
 

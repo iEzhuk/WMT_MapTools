@@ -250,7 +250,23 @@
 			<Key ID="STR_WMT_ShowEnemyVehsNotes">
 				<Original>Show enemy vehicles in game briefing notes</Original>
 				<Russian>Показывать вражескую технику в заметках</Russian>
-			</Key>	
+			</Key>
+			<Key ID="STR_WMT_ShowVehsBriefing">
+				<Original>Show friendly vehicles in game briefing notes and on the map</Original>
+				<Russian>Показывать дружественную технику в заметках и на карте</Russian>
+			</Key>
+			<Key ID="STR_WMT_ShowVehsBriefingShort">
+				<Original>Show friendly vehicles</Original>
+				<Russian>Показывать технику</Russian>
+			</Key>			
+			<Key ID="STR_WMT_ShowSquadsBriefing">
+				<Original>Show squads in game briefing and notes</Original>
+				<Russian>Показывать список отрядов в заметках и отмечать метками на карте</Russian>
+			</Key>
+			<Key ID="STR_WMT_ShowSquadsBriefingShort">
+				<Original>Show squads</Original>
+			<Russian>Показывать отряды</Russian>
+			</Key>
 			<Key ID="STR_WMT_EnemyVehicles">
 				<Original>Enemy vehicles</Original>
 				<Russian>Техника противника</Russian>

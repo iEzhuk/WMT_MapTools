@@ -81,6 +81,13 @@ if(isNil "wmt_param_DisableStat") then {
 	wmt_param_DisableStat = getNumber (MissionConfigFile >> "WMT_Params" >> "DisableStat");
 };
 
+if(isNil "wmt_param_ShowVehiclesBriefing") then {
+	wmt_param_ShowVehiclesBriefing = getNumber (MissionConfigFile >> "WMT_Params" >> "ShowVehiclesBriefing");
+};
+if(isNil "wmt_param_ShowSquadsBriefing") then {
+	wmt_param_ShowSquadsBriefing = getNumber (MissionConfigFile >> "WMT_Params" >> "ShowSquadsBriefing");
+};
+
 // Check variables 
 wmt_param_ViewDistance = 10 max wmt_param_ViewDistance;
 wmt_param_TI = 0 max (2 min wmt_param_TI);
@@ -93,6 +100,8 @@ wmt_param_HeavyLossesCoeff = 0.01 max wmt_param_HeavyLossesCoeff;
 wmt_param_ShowEnemyVehiclesInNotes = 0 max (1 min wmt_param_ShowEnemyVehiclesInNotes);
 wmt_param_GenerateFrequencies = 0 max (1 min wmt_param_GenerateFrequencies);
 wmt_param_DisableStat = 0 max (1 min wmt_param_DisableStat);
+wmt_param_ShowVehiclesBriefing = 0 max (1 min wmt_param_ShowVehiclesBriefing);
+wmt_param_ShowSquadsBriefing = 0 max (1 min wmt_param_ShowSquadsBriefing);
 
 //================================================
 //					ALL
@@ -164,8 +173,12 @@ if(!isDedicated) then {
 		"WMT_Global_AddKills" addPublicVariableEventHandler { WMT_Local_Kills=WMT_Local_Kills+(_this select 1) };
 
 		// briefing
-		[wmt_param_ShowEnemyVehiclesInNotes] call WMT_fnc_BriefingVehicles;
-		[] call WMT_fnc_BriefingSquads;
+		if(wmt_param_ShowVehiclesBriefing == 1) then {
+			[wmt_param_ShowEnemyVehiclesInNotes] call WMT_fnc_BriefingVehicles;
+		};
+		if(wmt_param_ShowSquadsBriefing == 1) then {
+			[] call WMT_fnc_BriefingSquads;
+		};
 
 		[wmt_param_PrepareTime,wmt_param_StartZone] spawn WMT_fnc_PrepareTime_client;
 		
