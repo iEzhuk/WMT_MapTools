@@ -65,7 +65,7 @@ class CfgVehicles
 			class ShowEnemyVehiclesInNotes
 			{
 				displayName = "$STR_WMT_ShowEnemyVehsNotes";
-				description = "";
+				description = "$STR_WMT_ShowEnemyVehsNotes_Desc";
 				typeName = "NUMBER";
 				class values
 				{

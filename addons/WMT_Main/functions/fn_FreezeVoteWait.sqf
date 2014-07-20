@@ -1,4 +1,19 @@
-// Zealot
+/*
+ 	Name: WMT_fnc_FreezeVoteEnd
+ 	
+ 	Author(s):
+		Zealot
+
+ 	Description:
+		Using for vote for wait the end of prepare time
+	
+	Parameters:
+		Nothing
+ 	
+ 	Returns:
+		Nothing
+*/
+
 if ((name player) in WMT_pub_frzVoteStart) then {
 	WMT_pub_frzVoteStart = WMT_pub_frzVoteStart - [name player];
 	publicVariable "WMT_pub_frzVoteStart";

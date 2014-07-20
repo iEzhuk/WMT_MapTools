@@ -1,4 +1,19 @@
-// by Zealot
+/*
+ 	Name: WMT_fnc_LongGroupNameToShort
+ 	
+ 	Author(s):
+		Zealot
+
+ 	Description:
+		Contraction of the name of group
+		"Alpha 1-1" -> "A1-1"
+
+	Parameters:
+		STRING: group 
+ 	
+ 	Returns:
+		STRING: short name of the group 
+*/	
 #include "defines.sqf"
 
 PR(_longGr) = _this;

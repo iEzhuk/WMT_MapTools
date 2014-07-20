@@ -1,3 +1,18 @@
+/*
+ 	Name: WMT_fnc_FreezeVoteStart
+ 	
+ 	Author(s):
+		Zealot
+
+ 	Description:
+		Using for vote for end of prepare time 
+	
+	Parameters:
+		Nothing
+ 	
+ 	Returns:
+		Nothing
+*/
 
 if ((name player) in WMT_pub_frzVoteWait) then {
 	WMT_pub_frzVoteWait = WMT_pub_frzVoteWait - [name player];

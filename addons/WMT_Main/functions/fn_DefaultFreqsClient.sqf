@@ -1,5 +1,18 @@
-// by Zealot
+/*
+ 	Name: WMT_fnc_DefaultFreqsClient
+ 	
+ 	Author(s):
+		Zealot
 
+ 	Description:
+		Show frequences
+	
+	Parameters:
+		Nothing
+ 	
+ 	Returns:
+		Nothing
+*/
 #include "defines.sqf"
 
 if (not isClass (configFile >> "CfgPatches" >> "task_force_radio_items")) exitwith {diag_log "DefaultFreqClient TF radio not initialized"};
@@ -25,14 +38,13 @@ PR(_sideToColor) = {
 PR(_spawnSetLrChannel) = {
 	if (leader group player == player) then {
 		_this spawn {					
-				waituntil {sleep 0.3;(player call TFAR_fnc_haveLRRadio) or time > 10};
-				sleep 0.5;
-				_val = str (_this);					
-				[(call TFAR_fnc_activeLrRadio) select 0, (call TFAR_fnc_activeLrRadio) select 1, _val] call TFAR_fnc_setLrFrequency;
-				if (dialog) then {
-					call TFAR_fnc_updateLRDialogToChannel;
-				};
-				
+			waituntil {sleep 0.3;(player call TFAR_fnc_haveLRRadio) or time > 10};
+			sleep 0.5;
+			PR(_val) = str (_this);					
+			[(call TFAR_fnc_activeLrRadio) select 0, (call TFAR_fnc_activeLrRadio) select 1, _val] call TFAR_fnc_setLrFrequency;
+			if (dialog) then {
+				call TFAR_fnc_updateLRDialogToChannel;
+			};
 		};
 	};
 };
@@ -43,10 +55,10 @@ PR(_printFrq) = {
 	PR(_arrFrq) = _str select 1;
 
 	switch ( typename (_str select 0)) do {
-		case ( typename east) : {
+		case ("SIDE") : {
 			_txt = "<font>" + format[localize "STR_WMT_FREQ_LR",_arrFrq select 0, _arrFrq select 1,_arrFrq select 2] + "</font><br/><br/>";
 		 };
-		case ( typename grpnull) : {
+		case ("GROUP") : {
 			PR(_leader) = leader (_str select 0);
 			PR(_tcolor) = [side (_str select 0)] call _sideToColor;
 			_txt = format["<font color='%3'>%1 %2</font><br/>", (groupid(_str select 0)) call wmt_fnc_LongGroupNameToShort, if(isPLayer _leader)then{name _leader}else {""}, _tcolor ];

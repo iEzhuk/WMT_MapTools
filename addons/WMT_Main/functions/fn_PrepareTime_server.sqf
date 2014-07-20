@@ -15,7 +15,7 @@
 */
 #include "defines.sqf"
 
-_freeztime = (_this select 0)*60;
+PR(_freeztime) = (_this select 0)*60;
 
 waituntil {!isnil "bis_fnc_init"};
 
@@ -33,9 +33,10 @@ if (WMT_pub_frzState == 0 and _freeztime > 0) then {
 
 if (WMT_pub_frzState >= 3) exitWith {};
 
-[_freeztime] spawn WMT_fnc_FreezeVehicle;
+[] spawn WMT_fnc_FreezeVehicle;
 
-waitUntil {sleep 0.75;time > 0};
+sleep 1;
+
 while {WMT_pub_frzState < 3} do
 {
 	if (WMT_pub_frzTimeLeft <= 0 or WMT_pub_frzTimeLeftForced <= 0) then {WMT_pub_frzState = 3; publicVariable "WMT_pub_frzState";};

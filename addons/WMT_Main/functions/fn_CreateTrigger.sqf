@@ -37,13 +37,13 @@ _vehicle 		= [_this, 12, objNull 	] call BIS_fnc_param;
 
 _trg = createTrigger["EmptyDetector",_pos];
 
-_trg setTriggerArea [_size select 0,_size select 1,_dir,_isrectangle];
-_trg setTriggerActivation [_by,_type,_tb];
+_trg setTriggerArea [_size select 0, _size select 1, _dir, _isrectangle];
+_trg setTriggerActivation [_by, _type, _tb];
 _trg setTriggerTimeout [_timeout, _timeout, _timeout, true ];
 _trg setTriggerText _text;
 
 if (_condition != "" ) then {	
-	_trg setTriggerStatements [_condition,_activation,_deactivation];
+	_trg setTriggerStatements [_condition, _activation, _deactivation];
 };
 if (not isNull(_vehicle) ) then {
 	_trg triggerAttachVehicle [_vehicle];

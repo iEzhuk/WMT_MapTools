@@ -38,4 +38,4 @@ while {diag_tickTime-_startTime<_missionTime} do {
 	sleep 20;
 };
 
-[ [ [_winSide, _message], {_this call WMT_fnc_EndMission;} ],"bis_fnc_spawn"] call bis_fnc_mp;			
+[[[_winSide, _message], {_this call WMT_fnc_EndMission;}], "bis_fnc_spawn"] call bis_fnc_mp;			

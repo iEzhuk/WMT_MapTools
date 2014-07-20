@@ -1,12 +1,25 @@
-// by [STELS]Zealot
+/*
+ 	Name: WMT_fnc_FreezeVehicle
+ 	
+ 	Author(s):
+		Zealot
+
+ 	Description:
+		Immobilization vehicles
+	
+	Parameters:
+		Nothing
+ 	
+ 	Returns:
+		Nothing
+*/
 
 #include "defines.sqf"
 
-private ["_fuel","_freeztime","_infoStr1","_infoStr2","_infoString"];
-PR(_freeztime) = [_this, 0, 60] call BIS_fnc_param;
+private ["_fuel","_infoStr1","_infoStr2","_infoString","_vehs","_airVehs"];
 
-PR(_vehs) = [];
-PR(_airVehs) = [];
+_vehs 	 = [];
+_airVehs = [];
 
 {
 	if (local _x) then {
@@ -25,7 +38,6 @@ PR(_airVehs) = [];
 } forEach (vehicles); 
 
 waitUntil {sleep 0.9; WMT_pub_frzState >= 3};
-
 
 {
 	_fuel = _x getVariable ["freezefuel", 1];

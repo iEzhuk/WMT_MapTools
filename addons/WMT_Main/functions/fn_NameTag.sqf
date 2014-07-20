@@ -11,7 +11,7 @@
 		ARRAY: from dialog handler 
  	
  	Returns:
-		BOOL: for standart handlers 
+		Nothing
 */	
 #include "defines.sqf"
 

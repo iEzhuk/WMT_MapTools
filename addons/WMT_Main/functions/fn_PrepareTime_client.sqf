@@ -20,7 +20,6 @@
 PR(_freeztime) = (_this select 0)*60;
 PR(_distance) = _this select 1;
 
-
 waitUntil {not isNull player};
 
 if (isNil "WMT_pub_frzState") then { WMT_pub_frzState = 0; };
@@ -38,7 +37,7 @@ if (WMT_pub_frzState == 0 and _freeztime > 0) then {
 
 if (WMT_pub_frzState >= 3) exitWith {};
 
-[_freeztime, _distance] spawn WMT_fnc_FreezePlayerClient;
-[_freeztime] spawn WMT_fnc_FreezeUI;	
+[_distance] spawn WMT_fnc_FreezePlayerClient;
+[] spawn WMT_fnc_FreezeUI;	
 
 
