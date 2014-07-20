@@ -25,9 +25,9 @@ if(!hasInterface)exitWith{};
 
 _obj = _this select 0;
 _color = [_this, 1, "ColorBlack"] call BIS_fnc_param;
+_alpha = [_this, 2, 1.0] call BIS_fnc_param;
 
 _logic = bis_functions_mainscope;
-
 //--- ID not defined yet
 _id = if (isnil {_logic getvariable "bundingBoxMarker_id"}) then {_logic setvariable ["bundingBoxMarker_id",-1];-1} else {_logic getvariable "bundingBoxMarker_id"};
 [_logic,"bundingBoxMarker_id",1] call bis_fnc_variablespaceadd;
@@ -42,5 +42,5 @@ _marker setmarkerdir direction _obj;
 _marker setmarkershapelocal "rectangle";
 _marker setmarkersizelocal [_bbx/2,_bby/2];
 _marker setmarkercolor _color;
-_marker setmarkeralphalocal 0.75;
+_marker setmarkeralphalocal _alpha;
 _marker
