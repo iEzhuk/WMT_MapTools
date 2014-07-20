@@ -58,7 +58,7 @@ if(_activated) then {
 	//================================================
 	//					SERVER
 	//================================================
-	if(isServer || isDedicated) then {
+	if(isServer) then {
 		[] spawn {
 			if (wmt_param_GenerateFrequencies == 1) then {
 				[] spawn WMT_fnc_DefaultFreqsServer;

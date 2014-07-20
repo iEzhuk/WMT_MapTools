@@ -47,7 +47,7 @@ if(_activated) then {
 	//================================================
 	//					SERVER
 	//================================================
-	if(isServer || isDedicated) then {
+	if(isServer) then {
 		[] spawn {
 
 			[wmt_param_PrepareTime] call WMT_fnc_PrepareTime_server;
