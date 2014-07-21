@@ -73,14 +73,14 @@ PR(_repairFinished)  = false;
 PR(_lastPlayerState) = animationState player;
 PR(_maxlength) 		 = _veh getVariable["wmt_fieldrepair",[_veh] call _fnc_getPartsRepairTime];
 PR(_vehname) 		 = getText ( configFile >> "CfgVehicles" >> typeOf(_veh) >> "displayName");
-PR(_length) 		 = _maxlength;
+PR(_length) 		 = 0;
 
 while {(alive player) and ((player distance _veh) < 7) and (vehicle player == player) and (speed _veh < 3) and (not _repairFinished) and WMT_mutexAction} do {		
-	(format[localize ("STR_REPAIR_MSG_STRING"), _length, _vehname]) call WMT_fnc_NotifyText;
-	if (_length <= 0) then {
+	(format[localize ("STR_REPAIR_MSG_STRING"), ([] call _fnc_getPartsRepairTime) - _length, _vehname]) call WMT_fnc_NotifyText;
+	if ((([] call _fnc_getPartsRepairTime) - _length) <= 0) then {
 		_repairFinished = true;
 	};
-	_length = _length - 1;
+	_length = _length + 1;
 	player playMove "AinvPknlMstpSlayWrflDnon_medic";
 	sleep 1;
 	_hastk = [] call _fnc_hastk;
