@@ -39,8 +39,8 @@ class CfgVehicles
 				typeName = "NUMBER";
 				class values
 				{
-					class Enable		{name = "$STR_WMT_TI_Enable"; value = 0; };
-					class DisableInVehs	{name = "$STR_WMT_TI_DisableInVehicle"; value = 1;default = 1;};
+					class Enable		{name = "$STR_WMT_TI_Enable"; value = 0; default = 1;};
+					class DisableInVehs	{name = "$STR_WMT_TI_DisableInVehicle"; value = 1;};
 					class Disable 		{name = "$STR_WMT_TI_Disable"; value = 2;};
 				};
 			};
