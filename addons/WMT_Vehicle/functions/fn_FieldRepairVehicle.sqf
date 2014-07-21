@@ -71,9 +71,8 @@ if ( _hastk == 0 ) exitWith {localize("STR_NEED_TOOLKIT") call WMT_fnc_NotifyTex
 WMT_mutexAction = true;  
 PR(_repairFinished)  = false;
 PR(_lastPlayerState) = animationState player;
-PR(_maxlength) 		 = _veh getVariable["wmt_fieldrepair",[_veh] call _fnc_getPartsRepairTime];
 PR(_vehname) 		 = getText ( configFile >> "CfgVehicles" >> typeOf(_veh) >> "displayName");
-PR(_length) 		 = 0;
+PR(_length) 		 = _veh getVariable["wmt_fieldrepair",0];
 
 while {(alive player) and ((player distance _veh) < 7) and (vehicle player == player) and (speed _veh < 3) and (not _repairFinished) and WMT_mutexAction} do {
 	//Check toolkit 
