@@ -44,15 +44,6 @@ PR(_vehs) = [];
 
 } foreach vehicles;
 
-wmt_frzDisconnectUav = _freeztime spawn {
-	while {time < _this} do {
-		player connectTerminalToUAV objNull;
-		sleep 0.08;
-	};
-};
-
-
-
 // Check UAV terminal
 [] spawn {
 	PR(_msg) = "<t size='0.7' color='#ff2222'>"+localize "STR_WMT_FreezeUAVTerminal"+"</t>";
@@ -96,6 +87,3 @@ player removeEventHandler ["Fired",_freezeGrenadeHandler];
 	_x removeEventHandler ["Engine", (_x getVariable ["wmtfrzEngine",0]) ];
 } foreach _vehs;
 
-if ( not isNil 'wmt_frzDisconnectUav' and {not scriptdone wmt_frzDisconnectUav}) then {
-	terminate wmt_frzDisconnectUav;
-};
