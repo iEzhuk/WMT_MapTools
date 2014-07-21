@@ -1,13 +1,18 @@
 /*
- 	Name: 
+ 	Name: WMT_fnc_CheckKindOfArray
  	
  	Author(s):
 		Zealot
 
  	Description:
-		Checks whether is vehicle is belongs to one or more classes 
-		
+		Checks parts of vehicle for repair 
 
+	Parameters:
+		0: OBJECT
+ 		1: vehcile parts
+
+ 	Returns:
+		BOOL
 */
  
 #define PR(x) private ['x']; x
