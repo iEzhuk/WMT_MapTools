@@ -1,25 +1,21 @@
 /*
- 	Name: 
+ 	Name: WMT_fnc_Reammo
  	
  	Author(s):
 		Ezhuk
 
  	Description:
-		
+		Reammo vehicle for some time 
 
+	Parameters:
+		Nothing
+
+ 	Returns:
+		Nothing
 */
 #define REAMMOTIME 180
 #define CLEARTIME 300
-/*
- 	Name: 
- 	
- 	Author(s):
-		Ezhuk
 
- 	Description:
-		
-
-*/
 private ["_repairVeh","_veh","_vehType","_damagedParts","_reammoTime_left","_startTime","_startPos","_totalTime"];
 _veh 			 = cursorTarget;
 _vehType 		 = typeOf _veh;

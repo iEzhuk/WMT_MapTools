@@ -1,12 +1,17 @@
 /*
- 	Name: 
+ 	Name: WMT_fnc_ReammoGetNearest
  	
  	Author(s):
 		Ezhuk
 
  	Description:
-		
+		Fine the nearest vehicle with ammo  
 
+	Parameters:
+		Nothing
+
+ 	Returns:
+		OBJECT
 */
 #define DISTANCE_TO_REAMMOVEHICLE 15
 

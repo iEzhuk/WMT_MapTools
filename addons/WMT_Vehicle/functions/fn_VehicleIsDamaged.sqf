@@ -1,19 +1,28 @@
-/*
- 	Name: 
+ /*
+ 	Name: WMT_fnc_VehicleIsDamaged
  	
  	Author(s):
 		Zealot
 
  	Description:
-		Checks whether vehicle is damaged enough to field repair it 
+		Check hitpoint vehicle's parts 
 
+	Parameters:
+		0: vehicle
+
+ 	Returns:
+		BOOL
 */
 
-private ["_veh","_vehtype","_flag"];
+private ["_veh","_vehtype","_flag","_cdmg"];
+
 _veh =  [_this, 0] call BIS_fnc_param;
+
 if (isNil {_veh}) exitWith {false};
+
+_flag 	 = false;
 _vehtype = typeOf _veh;
-_flag = false;
+
 if (true) then {
 	{
 		_cdmg = _veh getHitPointDamage (_x);
@@ -22,4 +31,4 @@ if (true) then {
 		};
 	}  forEach WMT_fieldRepairHps;
 };
-_flag;
+_flag

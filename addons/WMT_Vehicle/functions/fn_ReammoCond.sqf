@@ -1,12 +1,17 @@
 /*
- 	Name: 
+ 	Name: WMT_fnc_ReammoCond
  	
  	Author(s):
 		Ezhuk
 
  	Description:
-		
+		Condition for reammo action
 
+	Parameters:
+		Nothing
+
+ 	Returns:
+		Nothing
 */
 private ["_res","_obj","_repairVeh"];
 _obj = cursorTarget;
@@ -17,7 +22,7 @@ if(!WMT_mutexAction) then
 	{
 		if(alive _obj && player == vehicle player) then 
 		{
-			if( ( locked _obj == 0 || locked _obj == 1) && _obj distance player < 8) then 
+			if((locked _obj < 2) && _obj distance player < 8) then 
 			{
 				if( _obj isKindOf "LandVehicle" || _obj isKindOf "Ship" || _obj isKindOf  "Air" ) then 
 				{
