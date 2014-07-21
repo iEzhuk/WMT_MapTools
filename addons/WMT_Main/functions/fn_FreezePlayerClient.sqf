@@ -63,7 +63,7 @@ deleteMarkerLocal _mrk;
 player removeEventHandler ["Fired",_freezeGrenadeHandler];
 {
 
-	RP(_evh) = _x getVariable "frz_evh";
+	PR(_evh) = _x getVariable "frz_evh";
 	if (!isNil "_evh") then {
 		_x removeEventHandler ["Fired", _evh];
 	};
