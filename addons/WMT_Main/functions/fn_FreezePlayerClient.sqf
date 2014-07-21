@@ -19,7 +19,6 @@ PR(_maxdistance) = _distance + 20;
 
 PR(_startpos) = getpos player;
 PR(_mrk) = ["PlayerFreeze",_startpos,"","ColorGreen","EMPTY",[_distance, _distance],"ELLIPSE",0,"Solid"] call WMT_fnc_CreateLocalMarker;
-PR(_uav_term) = ["B_UavTerminal","O_UavTerminal","I_UavTerminal"];
 
 sleep 0.01;
 
@@ -37,8 +36,8 @@ PR(_vehs) = [];
 		_car = _this select 0;
 		_engineon = _this select 1;
 		if ( WMT_pub_frzState < 3 and local _car and _engineon) then {
-				player action ["engineoff", _car];
-			};
+			player action ["engineoff", _car];
+		};
 	}];
 	_x setVariable ["wmtfrzEngine", _handler];
 
@@ -69,8 +68,6 @@ while {WMT_pub_frzState < 3} do {
 		player setPos _startpos;
 	};
 
-
-	
 	sleep 0.75;
 };
 
