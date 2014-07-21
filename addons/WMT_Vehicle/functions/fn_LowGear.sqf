@@ -1,13 +1,19 @@
 /*
- 	Name: 
+ 	Name: WMT_fnc_LowGear
  	
  	Author(s):
 		Ezhuk
 
  	Description:
-		
+		Loop for lowgear action
 
+	Parameters:
+		Nothing
+
+ 	Returns:
+		Nothing
 */
+		
 private["_min","_max","_veh","_vecorS"];
 _veh = vehicle player;
 _vecorS = 1.8;

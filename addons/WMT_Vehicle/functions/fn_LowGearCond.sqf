@@ -1,12 +1,17 @@
 /*
- 	Name: 
+ 	Name: WMT_fnc_LowGearCond
  	
  	Author(s):
 		Ezhuk
 
  	Description:
-		
+		Check conditions for lowgear 
 
+	Parameters:
+		Nothing
+
+ 	Returns:
+		BOOL
 */
 private ["_res","_veh"];
 _veh = vehicle player;

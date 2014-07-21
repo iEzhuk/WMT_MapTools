@@ -1,12 +1,17 @@
 /*
- 	Name: 
+ 	Name: WMT_fnc_FullRepair
  	
  	Author(s):
 		Zealot
 
  	Description:
-		
+		Full repair vehcile by repair truck
 
+	Parameters:
+		Nothing
+
+ 	Returns:
+		Nothing
 */
 #include "defines.sqf"
 #define DEFAULT_FULLREPAIR_LENGTH 320
