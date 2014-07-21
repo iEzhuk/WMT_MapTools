@@ -33,8 +33,6 @@ if (WMT_pub_frzState == 0 and _freeztime > 0) then {
 
 if (WMT_pub_frzState >= 3) exitWith {};
 
-[] spawn WMT_fnc_FreezeVehicle;
-
 sleep 1;
 
 while {WMT_pub_frzState < 3} do

@@ -21,7 +21,6 @@ class CfgFunctions
 			class EndMissionByTime{};
 			class FreezePlayerClient{};
 			class FreezeUI{};
-			class FreezeVehicle{};
 			class FreezeVoteStart{};
 			class FreezeVoteWait{};
 			class HandlerAdminPanel{};

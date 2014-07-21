@@ -19,6 +19,7 @@ PR(_maxdistance) = _distance + 20;
 
 PR(_startpos) = getpos player;
 PR(_mrk) = ["PlayerFreeze",_startpos,"","ColorGreen","EMPTY",[_distance, _distance],"ELLIPSE",0,"Solid"] call WMT_fnc_CreateLocalMarker;
+PR(_uav_term) = ["B_UavTerminal","O_UavTerminal","I_UavTerminal"];
 
 sleep 0.01;
 
@@ -31,6 +32,16 @@ PR(_vehs) = [];
 	PR(_evh) = _x addEventHandler ["Fired",{if (WMT_pub_frzState < 3) then { deleteVehicle (_this select 6);};}];
 	_x setVariable ["frz_evh", _evh];
 	_vehs = _vehs + [_x];
+
+	PR(_handler) = _x addEventHandler ["Engine", {
+		_car = _this select 0;
+		_engineon = _this select 1;
+		if ( zlt_pub_frz_state < 3 and local _car and _engineon) then {
+				player action ["engineoff", _car];
+			};
+	}];
+	_x setVariable ["wmtfrzEngine", _handler];
+
 } foreach vehicles;
 
 // Check UAV terminal
@@ -57,6 +68,8 @@ while {WMT_pub_frzState < 3} do {
 		player setVelocity [0,0,0];
 		player setPos _startpos;
 	};
+
+
 	
 	sleep 0.75;
 };
@@ -71,4 +84,6 @@ player removeEventHandler ["Fired",_freezeGrenadeHandler];
 	if (!isNil "_evh") then {
 		_x removeEventHandler ["Fired", _evh];
 	};
+	_x removeEventHandler ["Engine", (_x getVariable ["wmtfrzEngine",0]) ];
 } foreach _vehs;
+
