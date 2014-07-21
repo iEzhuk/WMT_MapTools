@@ -119,9 +119,8 @@ if(_activated) then {
 	};
 
 	if (isNil "wmt_param_LowGear" or {wmt_param_LowGear==0}) then {
-
-		WMT_LowGear_mutex = diag_tickTime;
-		WMT_lowGearOn = false;
+		WMT_Local_LowGear_mutex = diag_tickTime;
+		WMT_Local_LowGearOn = false;
 		(findDisplay 46) displayAddEventHandler ["KeyDown", {
 			_key =_this select 1;
 			if(_key in actionKeys "carForward" or _key in actionKeys "carForward" or _key in actionKeys "carFastForward" or _key in actionKeys "carSlowForward")  then {wmt_carforward = true;
@@ -131,7 +130,7 @@ if(_activated) then {
 			if(_key in actionKeys "carForward" or _key in actionKeys "carForward" or _key in actionKeys "carFastForward" or _key in actionKeys "carSlowForward")  then {wmt_carforward = false;
 		};}];
 		player addAction[ format ["<t color='#ff0000'>%1</t>", (localize "STR_ACTION_LOWGEARON") ], WMT_fnc_LowGear, [], 1, false, true, '','[] call WMT_fnc_LowGearCond'];
-		player addAction[ format ["<t color='#ff0000'>%1</t>", (localize "STR_ACTION_LOWGEAROFF")], {WMT_lowGearOn=false;}, [], 1, false, true, '','WMT_lowGearOn'];
+		player addAction[ format ["<t color='#ff0000'>%1</t>", (localize "STR_ACTION_LOWGEAROFF")], {WMT_Local_LowGearOn=false;}, [], 1, false, true, '','WMT_Local_LowGearOn'];
 	};
 
 };

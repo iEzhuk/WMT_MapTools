@@ -20,11 +20,11 @@ if((["MBT",str(typeOf _veh)] call BIS_fnc_inString) || (["APC",str(typeOf _veh)]
 	_max = 25;
 };
 
-if(WMT_lowGearOn)exitWith{};
+if(WMT_Local_LowGearOn)exitWith{};
 
-WMT_lowGearOn = true;
+WMT_Local_LowGearOn = true;
 
-while {(player==(driver _veh)) && WMT_lowGearOn && (canMove _veh) && isEngineOn _veh} do {
+while {(player==(driver _veh)) && WMT_Local_LowGearOn && (canMove _veh) && isEngineOn _veh} do {
 	if (isTouchingGround _veh) then {
 		_speed = speed _veh;
 		_vel   = velocity _veh;
@@ -33,10 +33,10 @@ while {(player==(driver _veh)) && WMT_lowGearOn && (canMove _veh) && isEngineOn 
 		if (_speed < _min) then {
 			if (wmt_carforward) then {
 				if ( _speed >= -1 && _speed <= 0.5) then {			
-					if(WMT_LowGear_mutex < diag_tickTime - 1) then {
+					if(WMT_Local_LowGear_mutex < diag_tickTime - 1) then {
 						_vel= [(sin _dir)*_vecorS, (cos _dir)*_vecorS, 0];
 						_veh setVelocity _vel;
-						WMT_LowGear_mutex = diag_tickTime;
+						WMT_Local_LowGear_mutex = diag_tickTime;
 					};
 				} else {
 					if (_speed > 0.5) then {		
@@ -62,10 +62,10 @@ while {(player==(driver _veh)) && WMT_lowGearOn && (canMove _veh) && isEngineOn 
 			};
 		};
 		if((getPosASL _veh select 2) - (getPosATL _veh select 2) < -2) then {
-			WMT_lowGearOn = false;
+			WMT_Local_LowGearOn = false;
 		};
 	};
 	sleep 0.033;
 };
 
-WMT_lowGearOn = false;
+WMT_Local_LowGearOn = false;
