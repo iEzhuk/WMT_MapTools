@@ -36,7 +36,7 @@ PR(_vehs) = [];
 	PR(_handler) = _x addEventHandler ["Engine", {
 		_car = _this select 0;
 		_engineon = _this select 1;
-		if ( zlt_pub_frz_state < 3 and local _car and _engineon) then {
+		if ( WMT_pub_frzState < 3 and local _car and _engineon) then {
 				player action ["engineoff", _car];
 			};
 	}];
