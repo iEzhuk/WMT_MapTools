@@ -159,7 +159,7 @@
 				<Russian>Фракция</Russian>
 			</Key>
 			<Key ID="STR_WMT_WinnerSide_Desc">
-				<Original>Side that win after end of time</Original>
+				<Original>Side that win after end time</Original>
 				<Russian>Фракция, которая побеждает после окончания времени</Russian>
 			</Key>
 			<Key ID="STR_WMT_Nobody">
@@ -259,7 +259,7 @@
 				<Russian>Показывать технику</Russian>
 			</Key>			
 			<Key ID="STR_WMT_ShowSquadsBriefing">
-				<Original>Show squads in game briefing and on the map</Original>
+				<Original>Show squads in game briefing and notes</Original>
 				<Russian>Показывать список отрядов в заметках и отмечать метками на карте</Russian>
 			</Key>
 			<Key ID="STR_WMT_ShowSquadsBriefingShort">
