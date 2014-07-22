@@ -16,7 +16,7 @@
 private ["_veh", "_spd", "_withcrew", "_dir", "_vel", "_tVel"];
 
 _veh = (nearestObjects [player,["Ship"], 8]) select 0;
-_spd = 3;
+_spd = 2;
 
 if (isNil "_veh") exitwith {};
 
