@@ -36,8 +36,8 @@ if(_activated) then {
 	if(isNil "wmt_param_GenerateFrequencies") then {
 		wmt_param_GenerateFrequencies = _logic getVariable "GenerateFrequencies";
 	};
-	if(isNil "wmt_param_DisableAI") then {
-		wmt_param_DisableAI = _logic getVariable "DisableAI";
+	if(isNil "wmt_param_AI") then {
+		wmt_param_AI = _logic getVariable "AI";
 	};
 
 	if(isNil "wmt_param_ShowVehiclesBriefing") then {
@@ -46,15 +46,15 @@ if(_activated) then {
 	if(isNil "wmt_param_ShowSquadsBriefing") then {
 		wmt_param_ShowSquadsBriefing = _logic getVariable "ShowSquadsBriefing";
 	};
-	if(isNil "wmt_param_DisableStat") then {
-		wmt_param_DisableStat = _logic getVariable "DisableStat";
+	if(isNil "wmt_param_Statistic") then {
+		wmt_param_Statistic = _logic getVariable "Statistic";
 	};
 	
-	wmt_param_MaxViewDistance = 10 max wmt_param_MaxViewDistance;
+	wmt_param_MaxViewDistance  = 10 max wmt_param_MaxViewDistance;
 	wmt_param_HeavyLossesCoeff = 0.01 max wmt_param_HeavyLossesCoeff;
 
 
-	if(wmt_param_DisableAI==1) then {
+	if(wmt_param_AI==0) then {
 		[] call WMT_fnc_DisableAI;
 	};
 

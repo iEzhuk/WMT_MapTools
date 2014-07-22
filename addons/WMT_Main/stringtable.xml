@@ -118,10 +118,9 @@
 				<Original>Disable</Original>
 				<Russian>Отключен</Russian>
 			</Key>
-			
-			<Key ID="STR_WMT_DisableAI">
-				<Original>Disable AI</Original>
-				<Russian>Отключение ИИ</Russian>
+			<Key ID="STR_WMT_AI">
+				<Original>AI</Original>
+				<Russian>ИИ</Russian>
 			</Key>
 			<Key ID="STR_WMT_NameTag">
 				<Original>Name tag</Original>
@@ -160,7 +159,7 @@
 				<Russian>Фракция</Russian>
 			</Key>
 			<Key ID="STR_WMT_WinnerSide_Desc">
-				<Original>Side that win after end time</Original>
+				<Original>Side that win after end of time</Original>
 				<Russian>Фракция, которая побеждает после окончания времени</Russian>
 			</Key>
 			<Key ID="STR_WMT_Nobody">
@@ -260,12 +259,12 @@
 				<Russian>Показывать технику</Russian>
 			</Key>			
 			<Key ID="STR_WMT_ShowSquadsBriefing">
-				<Original>Show squads in game briefing and notes</Original>
+				<Original>Show squads in game briefing and on the map</Original>
 				<Russian>Показывать список отрядов в заметках и отмечать метками на карте</Russian>
 			</Key>
 			<Key ID="STR_WMT_ShowSquadsBriefingShort">
 				<Original>Show squads</Original>
-			<Russian>Показывать отряды</Russian>
+				<Russian>Показывать отряды</Russian>
 			</Key>
 			<Key ID="STR_WMT_EnemyVehicles">
 				<Original>Enemy vehicles</Original>
@@ -287,9 +286,13 @@
 				<Original>Generate frequencies</Original>
 				<Russian>Генерировать частоты</Russian>
 			</Key>	
-			<Key ID="STR_WMT_DisableStat">
-				<Original>Disable statistic</Original>
-				<Russian>Отключение статистики</Russian>
+			<Key ID="STR_WMT_Statistic">
+				<Original>Show statistic</Original>
+				<Russian>Показывать статистики</Russian>
+			</Key>
+			<Key ID="STR_WMT_Statistic_Desc">
+				<Original>Show statistic after death by press [end]</Original>
+				<Russian>Показывать статистики после смерти по нажатию на [end]</Russian>
 			</Key>
 		</Container>
 	</Package>

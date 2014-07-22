@@ -15,7 +15,7 @@
 */
 #include "defines.sqf"
 
-if(wmt_param_DisableStat==0)exitWith{};
+if(wmt_param_Statistic==0)exitWith{};
 
 PR(_text) = "";
 

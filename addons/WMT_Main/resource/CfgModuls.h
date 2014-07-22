@@ -32,6 +32,13 @@ class CfgVehicles
 				typeName = "NUMBER";
 				defaultValue = 2500;
 			};
+			class HeavyLossesCoeff
+			{
+				displayName = "$STR_WMT_HeavyLossesCoeff";
+				description = "";
+				typeName = "NUMBER";
+				defaultValue = 0.1;
+			};
 			class TI 
 			{
 				displayName = "$STR_WMT_TI";
@@ -51,59 +58,19 @@ class CfgVehicles
 				typeName = "NUMBER";
 				class values
 				{
-					class Disable 		{name = "$STR_WMT_Disable"; value = 0;};
-					class Enable		{name = "$STR_WMT_Enable"; value = 1; default = 1;};
+					class Disable 	{name = "$STR_WMT_Disable"; value = 0;};
+					class Enable	{name = "$STR_WMT_Enable"; value = 1; default = 1;};
 				};
 			};
-			class HeavyLossesCoeff
+			class ShowSquadsBriefing
 			{
-				displayName = "$STR_WMT_HeavyLossesCoeff";
-				description = "";
-				typeName = "NUMBER";
-				defaultValue = 0.1;
-			};
-			class ShowEnemyVehiclesInNotes
-			{
-				displayName = "$STR_WMT_ShowEnemyVehsNotes";
-				description = "$STR_WMT_ShowEnemyVehsNotes_Desc";
+				displayName = "$STR_WMT_ShowSquadsBriefingShort";
+				description = "$STR_WMT_ShowSquadsBriefing";
 				typeName = "NUMBER";
 				class values
 				{
-					class Disable 		{name = "$STR_WMT_Disable"; value = 0; };
-					class Enable		{name = "$STR_WMT_Enable"; value = 1; default = 1;};
-				};
-			};
-			class GenerateFrequencies
-			{
-				displayName = "$STR_WMT_MOD_GENFREQS";
-				description = "";
-				typeName = "NUMBER";
-				class values
-				{
-					class Disable 		{name = "$STR_WMT_Disable"; value = 0; };
-					class Enable		{name = "$STR_WMT_Enable"; value = 1; default = 1;};
-				};
-			};	
-			class DisableAI
-			{
-				displayName = "$STR_WMT_DisableAI";
-				description = "";
-				typeName = "NUMBER";
-				class values
-				{
-					class Disable 		{name = "$STR_WMT_Disable"; value = 0;};
-					class Enable		{name = "$STR_WMT_Enable"; value = 1; default = 1;};
-				};
-			};	
-			class DisableStat
-			{
-				displayName = "$STR_WMT_DisableStat";
-				description = "";
-				typeName = "NUMBER";
-				class values
-				{
-					class Disable 		{name = "$STR_WMT_Disable"; value = 0; };
-					class Enable		{name = "$STR_WMT_Enable"; value = 1;default = 1;};
+					class Disable 	{name = "$STR_WMT_Disable"; value = 0; };
+					class Enable	{name = "$STR_WMT_Enable"; value = 1; default = 1;};
 				};
 			};
 			class ShowVehiclesBriefing
@@ -113,20 +80,52 @@ class CfgVehicles
 				typeName = "NUMBER";
 				class values
 				{
-					class Disable 		{name = "$STR_WMT_Disable"; value = 0; };
-					class Enable		{name = "$STR_WMT_Enable"; value = 1; default = 1;};
+					class Disable 	{name = "$STR_WMT_Disable"; value = 0; };
+					class Enable	{name = "$STR_WMT_Enable"; value = 1; default = 1;};
 				};
 			};
-
-			class ShowSquadsBriefing
+			class ShowEnemyVehiclesInNotes
 			{
-				displayName = "$STR_WMT_ShowSquadsBriefingShort";
-				description = "$STR_WMT_ShowSquadsBriefing";
+				displayName = "$STR_WMT_ShowEnemyVehsNotes";
+				description = "$STR_WMT_ShowEnemyVehsNotes_Desc";
 				typeName = "NUMBER";
 				class values
 				{
-					class Disable 		{name = "$STR_WMT_Disable"; value = 0; };
-					class Enable		{name = "$STR_WMT_Enable"; value = 1; default = 1;};
+					class Disable 	{name = "$STR_WMT_Disable"; value = 0; };
+					class Enable	{name = "$STR_WMT_Enable"; value = 1; default = 1;};
+				};
+			};
+			class GenerateFrequencies
+			{
+				displayName = "$STR_WMT_MOD_GENFREQS";
+				description = "";
+				typeName = "NUMBER";
+				class values
+				{
+					class Disable 	{name = "$STR_WMT_Disable"; value = 0; };
+					class Enable	{name = "$STR_WMT_Enable"; value = 1; default = 1;};
+				};
+			};	
+			class AI
+			{
+				displayName = "$STR_WMT_AI";
+				description = "";
+				typeName = "NUMBER";
+				class values
+				{
+					class Disable 	{name = "$STR_WMT_Disable"; value = 0; default = 1;};
+					class Enable 	{name = "$STR_WMT_Enable"; value = 1;};
+				};
+			};	
+			class Statistic
+			{
+				displayName = "$STR_WMT_Statistic";
+				description = "$STR_WMT_Statistic_Desc";
+				typeName = "NUMBER";
+				class values
+				{
+					class Disable 	{name = "$STR_WMT_Disable"; value = 0; };
+					class Enable	{name = "$STR_WMT_Enable"; value = 1;default = 1;};
 				};
 			};
 		};
@@ -193,9 +192,8 @@ class CfgVehicles
 				displayName = "$STR_WMT_RemoveBots";
 				description = "";
 				typeName = "NUMBER";
-				defaultValue = 0;
+				defaultValue = 4;
 			};
-
 		};
 	};
 };
