@@ -15,7 +15,7 @@
 */
 #include "defines.sqf"
 
-if(wmt_param_DisableStat)exitWith{};
+if(wmt_param_DisableStat==0)exitWith{};
 
 PR(_text) = "";
 _text = _text + format ["<t color='#c7861b'>%1</t>:<br/>",localize "STR_Killer"];

@@ -46,7 +46,10 @@ if(_activated) then {
 	if(isNil "wmt_param_ShowSquadsBriefing") then {
 		wmt_param_ShowSquadsBriefing = _logic getVariable "ShowSquadsBriefing";
 	};
-
+	if(isNil "wmt_param_DisableStat") then {
+		wmt_param_DisableStat = _logic getVariable "DisableStat";
+	};
+	
 	wmt_param_MaxViewDistance = 10 max wmt_param_MaxViewDistance;
 	wmt_param_HeavyLossesCoeff = 0.01 max wmt_param_HeavyLossesCoeff;
 
