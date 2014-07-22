@@ -26,7 +26,7 @@ PR(_truck) 	= objNull;
 
 if (isNull _truck) exitWith {localize("STR_NO_REPAIR_TRUCK") call WMT_fnc_NotifyText;};
 
-PR(_canRepair) = [_veh, WMT_fullRepairClasses] call WMT_fnc_CheckKindOfArray;
+PR(_canRepair) = [_veh, WMT_Local_fullRepairClasses] call WMT_fnc_CheckKindOfArray;
 if (not _canRepair) exitWith {localize("STR_NO_ENOGH_SKILLS") call WMT_fnc_NotifyText;};
 
 if (WMT_mutexAction) exitWith {

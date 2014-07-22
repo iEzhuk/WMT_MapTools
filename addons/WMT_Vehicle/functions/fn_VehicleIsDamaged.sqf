@@ -29,6 +29,6 @@ if (true) then {
 		if (not isNil {_cdmg} ) then {
 			if (_cdmg > 0.64) exitWith {_flag = true};
 		};
-	}  forEach WMT_fieldRepairHps;
+	}  forEach WMT_Local_fieldRepairHps;
 };
 _flag

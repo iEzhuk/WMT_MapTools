@@ -38,9 +38,9 @@ PR(_fnc_getPartsRepairTime) = {
 		_cdmg = _veh getHitPointDamage (_x);
 		if (not isNil {_cdmg} ) then {
 			diag_log str ["REPAIR ", _x, _cdmg];
-			if (_cdmg > 0.64) exitWith {_rprTime = _rprTime + ( if (_x in WMT_hardFieldRepairParts) then {DEFAULT_FIELDREPAIR_EACH_HARDPART_TIME} else {DEFAULT_FIELDREPAIR_EACH_PART_TIME}); };
+			if (_cdmg > 0.64) exitWith {_rprTime = _rprTime + ( if (_x in WMT_Local_hardFieldRepairParts) then {DEFAULT_FIELDREPAIR_EACH_HARDPART_TIME} else {DEFAULT_FIELDREPAIR_EACH_PART_TIME}); };
 		};
-	}  forEach WMT_fieldRepairHps;
+	}  forEach WMT_Local_fieldRepairHps;
 	_rprTime;
 };
 
