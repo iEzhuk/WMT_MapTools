@@ -147,10 +147,6 @@
 				<Original>Unknow</Original>
 				<Russian>Неизвестно</Russian>
 			</Key>
-			<Key ID="STR_WMT_Suicide">
-				<Original>You killed yourself</Original>
-				<Russian>Вы убили сами себя</Russian>
-			</Key>
 			<Key ID="STR_WMT_Ally">
 				<Original>ally</Original>
 				<Russian>союзник</Russian>

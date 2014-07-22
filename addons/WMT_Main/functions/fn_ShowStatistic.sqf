@@ -18,11 +18,12 @@
 if(wmt_param_DisableStat==0)exitWith{};
 
 PR(_text) = "";
-_text = _text + format ["<t color='#c7861b'>%1</t>:<br/>",localize "STR_Killer"];
 
 if(count WMT_Local_Killer > 0) then {
 	PR(_killerName) = WMT_Local_Killer select 0;
 	PR(_killerSide) = WMT_Local_Killer select 1;
+
+	_text = _text + format ["<t color='#c7861b'>%1</t>:<br/>",localize "STR_Killer"];
 
 	if(_killerName != WMT_Local_PlayerName) then {
 		_text = _text + _killerName;
@@ -30,10 +31,8 @@ if(count WMT_Local_Killer > 0) then {
 			_text = _text + format [" (%1)", localize "STR_WMT_Ally"];
 		};
 	} else {
-		_text = _text + format ["%1", localize "STR_WMT_Suicide"];
+		_text = _text + format ["%1", localize "STR_WMT_Unknow"];
 	};
-} else {
-	_text = _text + format ["%1", localize "STR_WMT_Unknow"];
 };
 
 _text = _text + "<br/>";
@@ -54,4 +53,4 @@ _text = _text + "<br/>";
 	};
 } foreach Local_Kills;
 
-[ (format [ "<t size='0.6'>%1</t>",_text]), 0,0.3,10,0,0,35] spawn bis_fnc_dynamicText;
+[ (format [ "<t size='0.6'>%1</t>",_text]), 0,0.3*safeZoneH+safeZoneY,10,0,0,35] spawn bis_fnc_dynamicText;
