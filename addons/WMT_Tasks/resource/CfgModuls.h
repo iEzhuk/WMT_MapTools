@@ -19,7 +19,7 @@ class CfgVehicles
 		displayName = "Task: Destroy";
 		category = "WMT";
 		function = "WMT_fnc_InitModuleTaskDestroy";
-		//icon = "";
+		icon = "\WMT_Task\pic\destroy.paa";
 		functionPriority = 1;
 		isGlobal = 1;
 		isTriggerActivated = 0;
@@ -83,7 +83,7 @@ class CfgVehicles
 		displayName = "Task: Arrive";
 		category = "WMT";
 		function = "WMT_fnc_initModuleTaskArrive";
-		//icon = "";
+		icon = "\WMT_Task\pic\arrive.paa";
 		functionPriority = 1;
 		isGlobal = 1;
 		isTriggerActivated = 0;
@@ -154,7 +154,7 @@ class CfgVehicles
 		displayName = "Task: Point";
 		category = "WMT";
 		function = "WMT_fnc_InitModuleTaskPoint";
-		//icon = "";
+		icon = "\WMT_Task\pic\point.paa";
 		functionPriority = 1;
 		isGlobal = 1;
 		isTriggerActivated = 0;
@@ -272,7 +272,7 @@ class CfgVehicles
 		displayName = "Task: Captue points";
 		category = "WMT";
 		function = "WMT_fnc_InitModuleTaskCapturePoints";
-		//icon = "";
+		icon = "\WMT_Task\pic\capture.paa";
 		functionPriority = 10;
 		isGlobal = 1;
 		isTriggerActivated = 0;
@@ -315,5 +315,4 @@ class CfgVehicles
 			};
 		};
 	};
-
 };
