@@ -35,7 +35,7 @@ if (!isDedicated) then {
 	};
 
 	"WMT_Global_Notice_ZoneCaptured" addPublicVariableEventHandler {
-		private ["_winner", "_obj", "_name", "_text"];
+		private ["_side", "_logic", "_msg"];
 
 		_side  = (_this select 1) select 0;
 		_logic = (_this select 1) select 1;
@@ -43,5 +43,14 @@ if (!isDedicated) then {
 		_msg = _logic getVariable "Message";	
 
 		[_side, _msg] call WMT_fnc_ShowTaskNotification;
+	};
+	"WMT_Global_Notice_VIP" addPublicVariableEventHandler {
+		private ["_winner", "_obj", "_text"];
+
+		_winner = (_this select 1) select 0;
+		_obj  	= (_this select 1) select 1;
+
+		_text = format ["%1 %2", _obj getVariable ["WMT_DisplayName", "VIP"], localize "STR_WMT_Eliminated"];
+		[_winner, _text] call WMT_fnc_ShowTaskNotification;
 	};
 };

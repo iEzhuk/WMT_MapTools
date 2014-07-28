@@ -54,6 +54,10 @@
 				<Original>Marker that indicate the zone</Original>
 				<Russian>Маркер обозначающий зону</Russian>
 			</Key>
+			<Key ID="STR_WMT_Marker_VIP_Desc">
+				<Original>Marker that indicate the vip zone</Original>
+				<Russian>Маркер обозначающий зону для VIP</Russian>
+			</Key>
 			<Key ID="STR_WMT_DefaultSide">
 				<Original>Default side</Original>
 				<Russian>Сторона по умолчанию</Russian>
@@ -121,6 +125,26 @@
 			<Key ID="STR_WMT_PointCount_Desc">
 				<Original>Number of captured point for win</Original>
 				<Russian>Кол-во захваченных зон для победы</Russian>
+			</Key>
+			<Key ID="STR_WMT_LeaveAllowedArea">
+				<Original>You are leaving the allowed area. You have %1 seconds to return.</Original>
+				<Russian>Вы покидаете разрешенную зону. У вас есть %1 секунд чтобы вернуться.</Russian>
+			</Key>
+			<Key ID="STR_WMT_Eliminated">
+				<Original>eliminated</Original>
+				<Russian>уничтожен</Russian>
+			</Key>
+			<Key ID="STR_WMT_ReturnTime">
+				<Original>Return time</Original>
+				<Russian>Время на возвращения</Russian>
+			</Key>
+			<Key ID="STR_WMT_CountVIP">
+				<Original>Number of vip</Original>
+				<Russian>Кол-во VIP'ов</Russian>
+			</Key>
+			<Key ID="STR_WMT_CountVIP_Desc">
+				<Original>Number of alive vip when mission ends</Original>
+				<Russian>Кол-во VIP'ов когда завершается миссия</Russian>
 			</Key>
 		</Container>
 	</Package>

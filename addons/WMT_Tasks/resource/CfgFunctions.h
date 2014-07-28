@@ -10,6 +10,7 @@ class CfgFunctions
 			class InitModuleTaskDestroy{};
 			class InitModuleTaskPoint{};
 			class InitModuleTaskCapturePoints{};
+			class InitModuleTaskVIP{};
 			class IsTheUnitInsideMarker{};
 			class ShowTaskNotification{};
 		};
