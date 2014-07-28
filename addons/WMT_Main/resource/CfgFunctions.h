@@ -5,6 +5,7 @@ class CfgFunctions
 		class Main
 		{
 			file = "WMT_Main\functions";
+			class InitMain{postInit=1;};
 			class Announcement{};
 			class ArrayToString{};
 			class BoundingBoxMarker{};
