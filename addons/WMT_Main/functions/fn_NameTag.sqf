@@ -20,6 +20,8 @@ disableSerialization;
 PR(_dialog) = _this select 0;
 PR(_ctrl) = _dialog displayCtrl IDC_NAMETAG_TEXT;
 
+sleep 0.1;
+
 while { true } do { 
 	private ["_unit","_text"];
 	_unit = cursorTarget;
