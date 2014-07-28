@@ -35,7 +35,7 @@ class CfgVehicles
 			class Winner
 			{
 				displayName = "$STR_WMT_WinnerSide";
-				description = "$STR_WMT_WinnerSide_Desc";
+				description = "";
 				typeName 	= "NUMBER";
 				class values
 				{
@@ -106,7 +106,7 @@ class CfgVehicles
 			class Winner
 			{
 				displayName = "$STR_WMT_WinnerSide";
-				description = "$STR_WMT_WinnerSide_Desc";
+				description = "";
 				typeName 	= "NUMBER";
 				class values
 				{
@@ -151,7 +151,7 @@ class CfgVehicles
 	{
 		scope = 2;
 		author = "Ezhuk";
-		displayName = "Point";
+		displayName = "Task: Point";
 		category = "WMT";
 		function = "WMT_fnc_InitModuleTaskPoint";
 		//icon = "";
@@ -162,15 +162,15 @@ class CfgVehicles
 		{
 			class Marker
 			{
-				displayName  = "Marker";
-				description  = "";
+				displayName  = "$STR_WMT_Marker";
+				description  = "$STR_WMT_Marker_Point_Desc";
 				typeName 	 = "STRING";
 				defaultValue = "";
 			};
 			class Owner
 			{
-				displayName = "Owner";
-				description = "";
+				displayName = "$STR_WMT_DefaultSide";
+				description = "$STR_WMT_DefaultSide_Desc";
 				typeName 	= "NUMBER";
 				class values
 				{
@@ -183,29 +183,29 @@ class CfgVehicles
 			};
 			class Message
 			{
-				displayName  = "Message";
-				description  = "";
+				displayName  = "$STR_WMT_Message";
+				description  = "$STR_WMT_Message_Point_Desc";
 				typeName 	 = "STRING";
 				defaultValue = "";
 			};
 			class DefCount
 			{
-				displayName  = "DefCount";
-				description  = "";
+				displayName  = "$STR_WMT_DefCount";
+				description  = "$STR_WMT_DefCount_desc";
 				typeName 	 = "NUMBER";
 				defaultValue = 0;
 			};
 			class CaptureCount
 			{
-				displayName  = "CaptureCount";
-				description  = "";
+				displayName  = "$STR_WMT_CaptureCount";
+				description  = "$STR_WMT_CaptureCount_Desc";
 				typeName 	 = "NUMBER";
 				defaultValue = 0;
 			};
 			class Lock
 			{
-				displayName = "Lock";
-				description = "";
+				displayName = "$STR_WMT_Lock";
+				description = "$STR_WMT_Lock_Desc";
 				typeName 	= "NUMBER";
 				class values
 				{
@@ -215,8 +215,8 @@ class CfgVehicles
 			};
 			class EasyCapture
 			{
-				displayName = "EasyCapture";
-				description = "";
+				displayName = "$STR_WMT_EasyCapture";
+				description = "$STR_WMT_EasyCapture_Desc";
 				typeName 	= "NUMBER";
 				class values
 				{
@@ -226,22 +226,22 @@ class CfgVehicles
 			};
 			class MinHeight
 			{
-				displayName  = "MinHeight";
+				displayName  = "$STR_WMT_MinHeight";
 				description  = "";
 				typeName 	 = "NUMBER";
 				defaultValue = -5;
 			};
 			class MaxHeight
 			{
-				displayName  = "MinHeight";
+				displayName  = "$STR_WMT_MaxHeight";
 				description  = "";
 				typeName 	 = "NUMBER";
 				defaultValue = 30;
 			};
 			class AutoLose
 			{
-				displayName = "AutoLose";
-				description = "";
+				displayName = "$STR_WMT_AutoLose";
+				description = "$STR_WMT_AutoLose_Desc";
 				typeName 	= "NUMBER";
 				class values
 				{
@@ -255,11 +255,65 @@ class CfgVehicles
 			};
 			class Delay
 			{
-				displayName  = "Delay";
-				description  = "";
+				displayName  = "$STR_WMT_Delay";
+				description  = "$STR_WMT_Delay_Desc";
 				typeName 	 = "NUMBER";
 				defaultValue = 60;
 			};
 		};
 	};
+//=======================================================================================
+//									CAPTURE POINT
+//=======================================================================================
+	class WMT_Task_CapturePoint: Module_F
+	{
+		scope = 2;
+		author = "Ezhuk";
+		displayName = "Task: Captue points";
+		category = "WMT";
+		function = "WMT_fnc_InitModuleTaskCapturePoints";
+		//icon = "";
+		functionPriority = 10;
+		isGlobal = 1;
+		isTriggerActivated = 0;
+		class Arguments: ArgumentsBaseUnits
+		{
+			class Winner
+			{
+				displayName = "$STR_WMT_WinnerSide";
+				description = "";
+				typeName 	= "NUMBER";
+				class values
+				{
+					class Empty	{name = "$STR_WMT_Nobody"; 		value = 4;  default = 1;};
+					class East 	{name = "$STR_WMT_East"; 		value = 0;};
+					class West	{name = "$STR_WMT_West"; 		value = 1;};
+					class Guer 	{name = "$STR_WMT_Resistance"; 	value = 2;};
+					class Civ 	{name = "$STR_WMT_Civilian"; 	value = 3;};
+				};
+			};
+			class Count
+			{
+				displayName  = "$STR_WMT_PointCount";
+				description  = "$STR_WMT_PointCount_Desc";
+				typeName 	 = "NUMBER";
+				defaultValue = 1;
+			};
+			class Message
+			{
+				displayName  = "$STR_WMT_Message";
+				description  = "$STR_WMT_Message_Desc";
+				typeName 	 = "STRING";
+				defaultValue = "";
+			};
+			class Delay
+			{
+				displayName  = "$STR_WMT_Delay";
+				description  = "$STR_WMT_Delay_Desc";
+				typeName 	 = "NUMBER";
+				defaultValue = 60;
+			};
+		};
+	};
+
 };

@@ -42,7 +42,6 @@
 				<Original>reached the destination point</Original>
 				<Russian>достиг места назначения</Russian>
 			</Key>
-
 			<Key ID="STR_WMT_Marker">
 				<Original>Marker</Original>
 				<Russian>Маркер</Russian>
@@ -50,6 +49,78 @@
 			<Key ID="STR_WMT_Marker_Arrived_Desc">
 				<Original>Marker that indicate the destination point</Original>
 				<Russian>Маркер обозначающий зону назначений</Russian>
+			</Key>
+			<Key ID="STR_WMT_Marker_Point_Desc">
+				<Original>Marker that indicate the zone</Original>
+				<Russian>Маркер обозначающий зону</Russian>
+			</Key>
+			<Key ID="STR_WMT_DefaultSide">
+				<Original>Default side</Original>
+				<Russian>Сторона по умолчанию</Russian>
+			</Key>
+			<Key ID="STR_WMT_DefaultSide_Desc">
+				<Original>Owner of the point in begin</Original>
+				<Russian>Сторона на момент начала мисии</Russian>
+			</Key>
+			<Key ID="STR_WMT_Message_Point_Desc">
+				<Original>Message that will be show if one side captures the point</Original>
+				<Russian>Сообщение которое будет показано когда одна сторона захватит зону</Russian>
+			</Key>
+			<Key ID="STR_WMT_DefCount">
+				<Original>Number for defend</Original>
+				<Russian>Кол-во для защиты</Russian>
+			</Key>
+			<Key ID="STR_WMT_DefCount_desc">
+				<Original>Number of players for defend the point</Original>
+				<Russian>Кол-во игроков для защиты зоны</Russian>
+			</Key>
+			<Key ID="STR_WMT_CaptureCount">
+				<Original>Number for capture</Original>
+				<Russian>Кол-во для захвата</Russian>
+			</Key>
+			<Key ID="STR_WMT_CaptureCount_Desc">
+				<Original>Number of players for capture the point</Original>
+				<Russian>Кол-во игроков для захвата зоны</Russian>
+			</Key>
+			<Key ID="STR_WMT_Lock">
+				<Original>Lock</Original>
+				<Russian>Блокировка</Russian>
+			</Key>
+			<Key ID="STR_WMT_Lock_Desc">
+				<Original>Lock the point after the first capture</Original>
+				<Russian>Блокировка зоны после первого захвата</Russian>
+			</Key>
+			<Key ID="STR_WMT_EasyCapture">
+				<Original>Easy capture</Original>
+				<Russian>Легкий захват</Russian>
+			</Key>
+			<Key ID="STR_WMT_EasyCapture_Desc">
+				<Original>One player can capture the point if nobody defend</Original>
+				<Russian>Один игрок может захватить зоны если зону никто ее не защищает</Russian>
+			</Key>
+			<Key ID="STR_WMT_MinHeight">
+				<Original>Low border</Original>
+				<Russian>Нижняя граница</Russian>
+			</Key>
+			<Key ID="STR_WMT_MaxHeight">
+				<Original>Верхняя граница</Original>
+				<Russian>Верхняя граница</Russian>
+			</Key>
+			<Key ID="STR_WMT_AutoLose">
+				<Original>Auto lose point</Original>
+				<Russian>Автоматическая потеря зоны</Russian>
+			</Key>
+			<Key ID="STR_WMT_AutoLose_Desc">
+				<Original>Auto lose the point if no body denfen</Original>
+				<Russian>Автоматическая потеря зоны если никто ее не защищает</Russian>
+			</Key>
+			<Key ID="STR_WMT_PointCount">
+				<Original>Number of point</Original>
+				<Russian>Кол-во зон</Russian>
+			</Key>
+			<Key ID="STR_WMT_PointCount_Desc">
+				<Original>Number of captured point for win</Original>
+				<Russian>Кол-во захваченных зон для победы</Russian>
 			</Key>
 		</Container>
 	</Package>

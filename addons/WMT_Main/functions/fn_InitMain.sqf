@@ -14,10 +14,14 @@ if(!isDedicated) then {
 	waitUntil{alive player};
 	waitUntil{local player};
 
+	if(isNil "WMT_Local_PlayerName") then {
+		WMT_Local_PlayerName = name player;
+		player setVariable ["WMT_PlayerName",WMT_Local_PlayerName,true];
+	};
 
-	WMT_Local_PlayerName = name player;
-	WMT_Local_PlayerSide = side player;
+	if(isNil "WMT_Local_PlayerSide") then {
+		WMT_Local_PlayerSide = side player;
+		player setVariable ["WMT_PlayerSide",WMT_Local_PlayerSide,true];
+	};
 
-	player setVariable ["WMT_PlayerName",WMT_Local_PlayerName,true];
-	player setVariable ["WMT_PlayerSide",WMT_Local_PlayerSide,true];
 };

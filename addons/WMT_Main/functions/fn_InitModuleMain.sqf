@@ -53,7 +53,6 @@ if(_activated) then {
 	wmt_param_MaxViewDistance  = 10 max wmt_param_MaxViewDistance;
 	wmt_param_HeavyLossesCoeff = 0.01 max wmt_param_HeavyLossesCoeff;
 
-
 	if(wmt_param_AI==0) then {
 		[] call WMT_fnc_DisableAI;
 	};
@@ -82,6 +81,16 @@ if(_activated) then {
 
 			WMT_Local_Killer = [];
 			WMT_Local_Kills = [];
+			
+			if(isNil "WMT_Local_PlayerName") then {
+				WMT_Local_PlayerName = name player;
+				player setVariable ["WMT_PlayerName",WMT_Local_PlayerName,true];
+			};
+
+			if(isNil "WMT_Local_PlayerSide") then {
+				WMT_Local_PlayerSide = side player;
+				player setVariable ["WMT_PlayerSide",WMT_Local_PlayerSide,true];
+			};
 
 			// Control veiw distance 
 			["loop"] spawn WMT_fnc_handlerOptions;
