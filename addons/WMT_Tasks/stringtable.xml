@@ -3,20 +3,28 @@
 	<Package ID="WMT">
 		<Container ID="Tasks">
 			<Key ID="STR_WMT_ObjectCount">
-				<Original>Object count</Original>
+				<Original>Number of object</Original>
 				<Russian>Кол-во объектов</Russian>
 			</Key>
-			<Key ID="STR_WMT_ObjectCount_Desc">
-				<Original>Number of alive objects for end of mission</Original>
+			<Key ID="STR_WMT_ObjectCount_Destroy_Desc">
+				<Original> alive objects for end of mission</Original>
 				<Russian>Кол-во живых объектов при котором завершаться игра</Russian>
+			</Key>
+			<Key ID="STR_WMT_ObjectCount_Arrive_Desc">
+				<Original>Number of object, that reached the destination point, for end of mission</Original>
+				<Russian>Кол-во объектов, достигших зоны назначения, при котором завершаться игра</Russian>
 			</Key>
 			<Key ID="STR_WMT_Notice">
 				<Original>Notification</Original>
 				<Russian>Объявления</Russian>
 			</Key>
-			<Key ID="STR_WMT_Notice_Desc">
+			<Key ID="STR_WMT_Notice_Destroy_Desc">
 				<Original>Notification about destroying</Original>
 				<Russian>Объявления об унитожении обеъктов</Russian>
+			</Key>
+			<Key ID="STR_WMT_Notice_Arrive_Desc">
+				<Original>Notification when object arrive the destination zone</Original>
+				<Russian>Объявления когда объект достигает зону назначения</Russian>
 			</Key>
 			<Key ID="STR_WMT_Delay">
 				<Original>Delay</Original>
@@ -33,6 +41,15 @@
 			<Key ID="STR_WMT_Arrived">
 				<Original>reached the destination point</Original>
 				<Russian>достиг места назначения</Russian>
+			</Key>
+
+			<Key ID="STR_WMT_Marker">
+				<Original>Marker</Original>
+				<Russian>Маркер</Russian>
+			</Key>
+			<Key ID="STR_WMT_Marker_Arrived_Desc">
+				<Original>Marker that indicate the destination point</Original>
+				<Russian>Маркер обозначающий зону назначений</Russian>
 			</Key>
 		</Container>
 	</Package>

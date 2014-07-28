@@ -16,7 +16,7 @@ class CfgVehicles
 	{
 		scope = 2;
 		author = "Ezhuk";
-		displayName = "Destroy";
+		displayName = "Task: Destroy";
 		category = "WMT";
 		function = "WMT_fnc_InitModuleTaskDestroy";
 		//icon = "";
@@ -28,7 +28,7 @@ class CfgVehicles
 			class EndCount
 			{
 				displayName  = "$STR_WMT_ObjectCount";
-				description  = "$STR_WMT_ObjectCount_Desc";
+				description  = "$STR_WMT_ObjectCount_Destroy_Desc";
 				typeName 	 = "NUMBER";
 				defaultValue = 0;
 			};
@@ -56,7 +56,7 @@ class CfgVehicles
 			class Notice
 			{
 				displayName = "$STR_WMT_Notice";
-				description = "$STR_WMT_Notice_Desc";
+				description = "$STR_WMT_Notice_Destroy_Desc";
 				typeName 	= "NUMBER";
 				class values
 				{
@@ -80,9 +80,9 @@ class CfgVehicles
 	{
 		scope = 2;
 		author = "Ezhuk";
-		displayName = "Arrived";
+		displayName = "Task: Arrive";
 		category = "WMT";
-		function = "WMT_fnc_initModuleTaskArrived";
+		function = "WMT_fnc_initModuleTaskArrive";
 		//icon = "";
 		functionPriority = 1;
 		isGlobal = 1;
@@ -91,15 +91,22 @@ class CfgVehicles
 		{
 			class Marker
 			{
-				displayName  = "EndCount";
-				description  = "";
+				displayName  = "$STR_WMT_Marker";
+				description  = "$STR_WMT_Marker_Arrived_Desc";
 				typeName 	 = "STRING";
 				defaultValue = "";
 			};
+			class Count
+			{
+				displayName  = "$STR_WMT_ObjectCount";
+				description  = "$STR_WMT_ObjectCount_Arrive_Desc";
+				typeName 	 = "NUMBER";
+				defaultValue = 0;
+			};
 			class Winner
 			{
-				displayName = "Winner";
-				description = "";
+				displayName = "$STR_WMT_WinnerSide";
+				description = "$STR_WMT_WinnerSide_Desc";
 				typeName 	= "NUMBER";
 				class values
 				{
@@ -112,24 +119,28 @@ class CfgVehicles
 			};
 			class Message
 			{
-				displayName  = "Message";
-				description  = "";
+				displayName  = "$STR_WMT_Message";
+				description  = "$STR_WMT_Message_Desc";
 				typeName 	 = "STRING";
 				defaultValue = "";
 			};
-			class Count
+			class Notice
 			{
-				displayName  = "EndCount";
-				description  = "";
-				typeName 	 = "NUMBER";
-				defaultValue = 0;
+				displayName = "$STR_WMT_Notice";
+				description = "$STR_WMT_Notice_Arrive_Desc";
+				typeName 	= "NUMBER";
+				class values
+				{
+					class Enable 	{name = "$STR_WMT_Enable";  value = 1; default = 1;};
+					class Disable 	{name = "$STR_WMT_Disable"; value = 0;};
+				};
 			};
 			class Delay
 			{
-				displayName  = "Delay";
-				description  = "";
+				displayName  = "$STR_WMT_Delay";
+				description  = "$STR_WMT_Delay_Desc";
 				typeName 	 = "NUMBER";
-				defaultValue = 0;
+				defaultValue = 60;
 			};
 		};
 	};

@@ -32,17 +32,27 @@ if(_activated) then {
 
 			sleep _delay;
 			
-			while {_c<_count} do {
+			while {_c < _count} do {
 				PR(_o) = _objs;
 				
 				{
 					if ([_x,_marker] call WMT_fnc_IsTheUnitInsideMarker) then {
+						private ["_name", "_text"];
 						_c = _c + 1;
 						_objs = _objs - [_x];
+
+						WMT_Global_Notice_ObjectArrived = [_winner, _x];
+						publicVariable "WMT_Global_Notice_ObjectArrived";
+
+						_name = _x getVariable ["WMT_DisplayName", getText (configFile >> "CfgVehicles" >> typeOf _x >> "displayName")];
+						_text = _name + " " + localize "STR_WMT_Arrived";
+
+						[_winner, _text] call WMT_fnc_ShowTaskNotification;
+
 					};
 				} foreach _o;
 
-				sleep 6.13;
+				sleep 4.13;
 			};
 
 			// End mission
