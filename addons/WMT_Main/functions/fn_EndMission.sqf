@@ -25,7 +25,12 @@ if(count _this == 2) then {
 	PR(_winner) = _this select 0;
 	PR(_text) = _this select 1;
 
-	PR(_isPlayerWin) = [WMT_Local_PlayerSide, _winner] call BIS_fnc_areFriendly;
+	PR(_isPlayerWin) = 	if(_winner in [EAST,WEST,RESISTANCE]) then {
+							[WMT_Local_PlayerSide, _winner] call BIS_fnc_areFriendly
+						}else{
+							WMT_Local_PlayerSide==_winner
+						};
+						
 	PR(_textWinner) = if(_isPlayerWin)then{localize "STR_WMT_Win"}else{localize "STR_WMT_Lose"};
 
 	PR(_color) = if(_isPlayerWin)then{"#057f05"}else{"#7f0505"};//green or red
