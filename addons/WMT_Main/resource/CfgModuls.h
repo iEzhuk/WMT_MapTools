@@ -62,6 +62,17 @@ class CfgVehicles
 					class Enable	{name = "$STR_WMT_Enable"; value = 1; default = 1;};
 				};
 			};
+			class IndetifyTheBody
+			{
+				displayName = "$STR_WMT_IndetifyTheBody";
+				description = "";
+				typeName = "NUMBER";
+				class values
+				{
+					class Disable 	{name = "$STR_WMT_Disable"; value = 0;};
+					class Enable	{name = "$STR_WMT_Enable"; value = 1; default = 1;};
+				};
+			};
 			class ShowSquadsBriefing
 			{
 				displayName = "$STR_WMT_ShowSquadsBriefingShort";
@@ -91,8 +102,8 @@ class CfgVehicles
 				typeName = "NUMBER";
 				class values
 				{
-					class Disable 	{name = "$STR_WMT_Disable"; value = 0; };
-					class Enable	{name = "$STR_WMT_Enable"; value = 1; default = 1;};
+					class Disable 	{name = "$STR_WMT_Disable"; value = 0; default = 1;};
+					class Enable	{name = "$STR_WMT_Enable"; value = 1;};
 				};
 			};
 			class GenerateFrequencies

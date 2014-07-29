@@ -1,5 +1,5 @@
 /*
- 	Name: WMT_fnc_UpdateActions
+ 	Name: WMT_fnc_UpdateVehicleActions
  	
  	Author(s):
 		Ezhuk

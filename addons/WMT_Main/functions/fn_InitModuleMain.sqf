@@ -15,17 +15,17 @@ PR(_activated) = [_this,2,true,[true]] call BIS_fnc_param;
 
 
 if(_activated) then {
-	// thermal image 
 	if(isNil "wmt_param_TI") then {
 		wmt_param_TI = _logic getVariable "TI";
 	};
-	// view distace 
 	if(isNil "wmt_param_MaxViewDistance") then {
 		wmt_param_MaxViewDistance = _logic getVariable "MaxViewDistance";
 	};
-	// view distace 
 	if(isNil "wmt_param_NameTag") then {
 		wmt_param_NameTag = _logic getVariable "NameTag";
+	};
+	if(isNil "wmt_param_IndetifyTheBody") then {
+		wmt_param_IndetifyTheBody = _logic getVariable "IndetifyTheBody";
 	};
 	if(isNil "wmt_param_HeavyLossesCoeff") then {
 		wmt_param_HeavyLossesCoeff = _logic getVariable "HeavyLossesCoeff";
@@ -39,7 +39,6 @@ if(_activated) then {
 	if(isNil "wmt_param_AI") then {
 		wmt_param_AI = _logic getVariable "AI";
 	};
-
 	if(isNil "wmt_param_ShowVehiclesBriefing") then {
 		wmt_param_ShowVehiclesBriefing = _logic getVariable "ShowVehiclesBriefing";
 	};
@@ -147,6 +146,9 @@ if(_activated) then {
 			if (wmt_param_GenerateFrequencies == 1) then {
 				[] spawn WMT_fnc_DefaultFreqsClient;
 			};
+
+			[] call WMT_fnc_UpdateMainActions;
+			player addEventHandler ["Respawn", {[] call WMT_fnc_UpdateMainActions;}];
 		};
 	};
 };

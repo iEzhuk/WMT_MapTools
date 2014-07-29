@@ -29,6 +29,7 @@ class CfgFunctions
 			class HandlerMenu{};
 			class HandlerOptions{};
 			class HeavyLossesCheck{};
+			class IndetifyTheBody{};
 			class InitModuleMain{};
 			class InitModuleTime{};
 			class KeyDown{};
@@ -42,6 +43,7 @@ class CfgFunctions
 			class RemoveBots{};
 			class ShowStatistic{};
 			class SpotMarkers{};
+			class UpdateMainActions{};
 			class ZoneCaptured{};
 		};
 	};

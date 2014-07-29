@@ -136,7 +136,7 @@ if(_activated) then {
 			};
 		};
 
-		[] call WMT_fnc_UpdateActions;
-		player addEventHandler ["Respawn", {[] call WMT_fnc_UpdateActions;}];
+		[] call WMT_fnc_UpdateVehicleActions;
+		player addEventHandler ["Respawn", {[] call WMT_fnc_UpdateVehicleActions;}];
 	};
 };

@@ -294,6 +294,14 @@
 				<Original>Show statistic after death by press [end]</Original>
 				<Russian>Показывать статистики после смерти по нажатию на [end]</Russian>
 			</Key>
+			<Key ID="STR_WMT_IndetifyTheBody">
+				<Original>Indetify the body</Original>
+				<Russian>Распознование мертвых</Russian>
+			</Key>
+			<Key ID="STR_WMT_IndetifyTheBody_Action">
+				<Original>Indetify the body</Original>
+				<Russian>Распознать тело</Russian>
+			</Key>
 		</Container>
 	</Package>
 </Project>

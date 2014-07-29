@@ -21,7 +21,7 @@ class CfgFunctions
 			class RearmVehicle{};
 			class ShowCrew{};
 			class StaticWpnDrag{};
-			class UpdateActions;
+			class UpdateVehicleActions{};
 			class VehicleIsDamaged{};
 		};
 	};
