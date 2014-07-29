@@ -9,18 +9,14 @@ if (_playerratio == 0) exitWith {};
 if (not isServer) exitWith {diag_log "PALYERCOUNT.SQF NOT SERVER";};
 waitUntil { time > _aftertime };
 
-wmt_playerCountInit = [0,0,0];
+
 PR(_endtimer) = false;
 
-{
-	PR(_iside)=_x;
-	PR(_isideind) = _foreachindex;
-	{
-		if (side _x == _iside and isPlayer _x) then {
-			wmt_playerCountInit set [_isideind, (wmt_playerCountInit select _isideind) + 1];
-		};
-	} foreach playableUnits;
-} foreach [east, west, resistance];
+wmt_playerCountInit = [
+	{side _x == east and isPlayer _x} count playableUnits,
+	{side _x == west and isPlayer _x} count playableUnits,
+	{side _x == resistance and isPlayer _x} count playableUnits
+];
 
 PR(_resistanceFriendSide) = switch (true) do {
 	case (west in ([resistance] call BIS_fnc_friendlySides)) : {west};
@@ -36,24 +32,21 @@ wmtPlayerCountEmptySides = [civilian];
 	};
 } foreach [east, west, resistance];
 
+
+
 while {not _endtimer} do {
-	wmt_PlayerCountNow = [0,0,0];
-	{
-			PR(_iside)=_x;
-			PR(_isideind) = _foreachindex;
-			{
-				if (side _x == _iside and isPlayer _x) then {
-					wmt_PlayerCountNow set [_isideind, (wmt_PlayerCountNow select _isideind) + 1];
-				};
-			} foreach playableUnits;
-	} foreach [east, west, resistance];
+	wmt_PlayerCountNow = [
+		{side _x == east and isPlayer _x} count playableUnits,
+		{side _x == west and isPlayer _x} count playableUnits,
+		{side _x == resistance and isPlayer _x} count playableUnits
+	];
 	{
 		
-		if ( (wmt_playerCountInit select _foreachindex) != 0 and {_x in [east,west] or _resistanceFriendSide == sideUnknown}) then {
+		if ( _x in [east,west] or _resistanceFriendSide == sideUnknown ) then {
 			PR(_playersActualBegin) = (wmt_playerCountInit select _foreachindex) + ( if (_x == _resistanceFriendSide) then {wmt_playerCountInit select 2} else {0} );
 			PR(_playersActualNow) = (wmt_PlayerCountNow select _foreachindex) + ( if (_x == _resistanceFriendSide) then {wmt_PlayerCountNow select 2} else {0} );
 
-			if (_playersActualNow / _playersActualBegin < _playerratio) then {
+			if ( _playersActualBegin != 0 and {_playersActualNow / _playersActualBegin < _playerratio} ) then {
 				PR(_enemy) = if ( count (([_x] call BIS_fnc_enemySides) - wmtPlayerCountEmptySides) > 0) then {(([_x] call BIS_fnc_enemySides) - wmtPlayerCountEmptySides) select 0} else {sideUnknown};
 				if (not _endtimer) then {
 					[[_enemy,format[localize "STR_WMT_HLSWinLoseMSG",([_enemy]call BIS_fnc_sideName)]],"wmt_fnc_endmission"] call BIS_fnc_MP;
