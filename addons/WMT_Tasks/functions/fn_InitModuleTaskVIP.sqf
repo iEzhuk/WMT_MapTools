@@ -55,7 +55,7 @@ if(_activated) then {
 			};
 
 			// End mission
-			[[[_winner, _message], {_this call WMT_fnc_EndMission;}], "bis_fnc_spawn"] call bis_fnc_mp;
+			[[[_winner, _msg], {_this call WMT_fnc_EndMission;}], "bis_fnc_spawn"] call bis_fnc_mp;
 		};
 	};
 
