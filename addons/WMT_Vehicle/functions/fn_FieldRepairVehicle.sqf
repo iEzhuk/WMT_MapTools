@@ -73,8 +73,9 @@ PR(_repairFinished)  = false;
 PR(_lastPlayerState) = animationState player;
 PR(_vehname) 		 = getText ( configFile >> "CfgVehicles" >> typeOf(_veh) >> "displayName");
 PR(_length) 		 = _veh getVariable["wmt_fieldrepair",0];
+PR(_startPos)		 = getPos player;
 
-while {(alive player) and ((player distance _veh) < 7) and (vehicle player == player) and (speed _veh < 3) and (not _repairFinished) and WMT_mutexAction} do {
+while {(alive player) and ((player distance _startPos) < 0.4) and ((player distance _veh) < 7) and (vehicle player == player) and (speed _veh < 3) and (not _repairFinished) and WMT_mutexAction} do {
 	//Check toolkit 
 	_hastk = [] call _fnc_hastk;
 	if (_hastk <= 0) exitWith {localize("STR_NEED_TOOLKIT") call WMT_fnc_NotifyText; sleep 1.;};
@@ -114,4 +115,3 @@ if (_repairFinished) then {
 };
 
 WMT_mutexAction = false;  
-player playActionNow "medicstop";
