@@ -75,10 +75,10 @@ if(_activated) then {
 					if([player,_marker] call WMT_fnc_IsTheUnitInsideMarker) then {
 						_timeCount = 0;
 					}else {
-						PR(_text) = format ["<t size='1' color='#bb0101'>" + localize "STR_WMT_LeaveAllowedArea" + "</t>", _returnTime - _timeCount];
-
-						[format ["<t size='1' color='#bb0000'>%1</t>", _text], 0,0.75*safezoneH + safezoneY,1.2,0,0,27] spawn bis_fnc_dynamicText;
-
+						if(_returnTime > 0) then {
+							PR(_text) = format ["<t size='1' color='#bb0101'>" + localize "STR_WMT_LeaveAllowedArea" + "</t>", _returnTime - _timeCount];
+							[format ["<t size='1' color='#bb0000'>%1</t>", _text], 0,0.75*safezoneH + safezoneY,1.2,0,0,27] spawn bis_fnc_dynamicText;
+						};
 						_timeCount = _timeCount + 1;
 					};
 					sleep 1;
