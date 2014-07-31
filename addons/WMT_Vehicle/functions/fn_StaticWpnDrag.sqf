@@ -31,7 +31,7 @@ _wpn setVariable ["WMT_drag", true, true];
 sleep 0.1;
 
 _reltxt = format [localize("STR_RELEASE_STATIC"), getText (configFile >> "CfgVehicles" >> typeof _wpn >> "Displayname")];
-_rel 	= player addaction [("<t color=""#00FF00"">") + _reltxt + "</t>",{WMT_drag = false},[],15,true,true,"","true"];
+_rel 	= player addaction [("<t color=""#0353f5"">") + _reltxt + "</t>",{WMT_drag = false},[],15,true,true,"","true"];
 
 waitUntil {not alive player or ((animationstate player == "acinpknlmstpsraswrfldnon") or (animationstate player == "acinpknlmwlksraswrfldb"))};
 
