@@ -108,19 +108,16 @@ _h = _markerSize select 1;
 
 switch ( markerShape _marker) do {	
 	case "ELLIPSE" : {
-		//circle
-		if (_w == _h)exitWith {
+		if (_w == _h) then {
+			//circle
 			[_unitPos,  _markerPos, _h] call _pointInCircle 
-		};
-		//ellipce
-		if (_w != _h) exitWith {
+		} else {
+			//ellipce
 			[_unitPos select 0, _unitPos select 1, _markerPos select 0 , _markerPos select 1, _w, _h, _markerDir] call _pointInEllipse
 		};
 	};
 	case "RECTANGLE" : {
-		if (true) exitWith {
-			[_unitPos, _markerPos, _w , _h, _markerDir] call _pointInReactangle
-		};
+		[_unitPos, _markerPos, _w , _h, _markerDir] call _pointInReactangle
 	};
 	default {false};
 };

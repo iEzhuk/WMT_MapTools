@@ -44,6 +44,7 @@ if (!isDedicated) then {
 
 		[_side, _msg] call WMT_fnc_ShowTaskNotification;
 	};
+	
 	"WMT_Global_Notice_VIP" addPublicVariableEventHandler {
 		private ["_winner", "_obj", "_text"];
 
