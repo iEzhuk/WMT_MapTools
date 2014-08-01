@@ -52,10 +52,8 @@ if(WMT_mutexAction)then
 {
 	// Finished
 	[[[_veh], {_this call WMT_fnc_RearmVehicle;} ],"bis_fnc_spawn",_veh] call bis_fnc_mp;
-
 	_veh setVariable ["WMT_ReammoTime",[0,0],true];
 	WMT_mutexAction = false;
-	(localize "STR_COMPLETED_REAMMO") call WMT_fnc_NotifyText; 
 }else{
 	// Interrapted
 	_veh setVariable ["WMT_ReammoTime",[_reammoTime,time],true];
