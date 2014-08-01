@@ -51,7 +51,7 @@ PR(_markersPool) = [];
 	PR(_leader) = leader _x;
 	PR(_pos) = getPos _leader;
 
-	if( (side _leader) == _side and _leader in playableUnits) then {
+	if( (side _leader) in ([_side] call BIS_fnc_friendlySides) and _leader in playableUnits) then {
 		PR(_playersGr) = 0;
 		{
 			if (isPlayer _x) then {_playersGr=_playersGr+1;};
