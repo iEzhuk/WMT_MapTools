@@ -13,7 +13,6 @@ PR(_logic) = [_this,0,objNull,[objNull]] call BIS_fnc_param;
 PR(_units) = [_this,1,[],[[]]] call BIS_fnc_param;
 PR(_activated) = [_this,2,true,[true]] call BIS_fnc_param;
 
-
 if(_activated) then {
 	if(isNil "wmt_param_TI") then {
 		wmt_param_TI = _logic getVariable "TI";
@@ -76,7 +75,9 @@ if(_activated) then {
 	//================================================
 	if(!isDedicated) then {
 		[] spawn {
-			waitUntil {not isNull player};
+			waitUntil{!isNil {player}};
+
+			[] call WMT_fnc_HideSideMarkers;
 
 			WMT_Local_Killer = [];
 			WMT_Local_Kills = [];
@@ -123,6 +124,7 @@ if(_activated) then {
 			"WMT_Global_AddKills" addPublicVariableEventHandler { WMT_Local_Kills=WMT_Local_Kills+(_this select 1) };
 
 			// briefing
+			[] call WMT_fnc_BriefingMissionParameters;
 			if(wmt_param_ShowVehiclesBriefing == 1) then {
 				[wmt_param_ShowEnemyVehiclesInNotes] call WMT_fnc_BriefingVehicles;
 			};

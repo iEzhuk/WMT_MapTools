@@ -194,6 +194,10 @@
 				<Original>Prepare time (min)</Original>
 				<Russian>Время на подготовку (мин)</Russian>
 			</Key>
+			<Key ID="STR_WMT_PrepareTime_param">
+				<Original>Prepare time</Original>
+				<Russian>Время на подготовку</Russian>
+			</Key>
 			<Key ID="STR_WMT_StartZone">
 				<Original>Size of start zone (m)</Original>
 				<Russian>Размер стартовой зоны (м)</Russian>
@@ -301,6 +305,10 @@
 			<Key ID="STR_WMT_IndetifyTheBody_Action">
 				<Original>Indetify the body</Original>
 				<Russian>Распознать тело</Russian>
+			</Key>
+			<Key ID="STR_WMT_MissionParameters">
+				<Original>Mission parameters</Original>
+				<Russian>араметры миссии</Russian>
 			</Key>
 		</Container>
 	</Package>

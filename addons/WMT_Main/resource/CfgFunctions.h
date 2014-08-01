@@ -5,10 +5,11 @@ class CfgFunctions
 		class Main
 		{
 			file = "WMT_Main\functions";
-			class InitMain{postInit=1;};
+			class InitMain{preInit=1;};
 			class Announcement{};
 			class ArrayToString{};
 			class BoundingBoxMarker{};
+			class BriefingMissionParameters{};
 			class BriefingSquads{};
 			class BriefingVehicles{};
 			class CreateDiaryRecord{};

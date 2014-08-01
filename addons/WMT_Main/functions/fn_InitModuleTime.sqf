@@ -13,7 +13,6 @@ PR(_logic) = [_this,0,objNull,[objNull]] call BIS_fnc_param;
 PR(_units) = [_this,1,[],[[]]] call BIS_fnc_param;
 PR(_activated) = [_this,2,true,[true]] call BIS_fnc_param;
 
-
 if(_activated) then {
 	// mission time 
 	if(isNil "wmt_param_MissionTime") then {
@@ -65,9 +64,7 @@ if(_activated) then {
 	//================================================
 	if(!isDedicated) then {
 		[] spawn {
-			waitUntil{player==player};
-			waitUntil{alive player};
-			waitUntil{local player};
+			waitUntil{!isNil {player}};
 
 			[wmt_param_PrepareTime,wmt_param_StartZone] spawn WMT_fnc_PrepareTime_client;
 		};

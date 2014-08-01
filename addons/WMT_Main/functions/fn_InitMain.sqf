@@ -7,13 +7,8 @@
  	Description:
 		Initialize general variables 
 */
-
 if(!isDedicated) then {
-	waitUntil{player==player};
-	waitUntil{alive player};
-	waitUntil{local player};
-			
-	[] call WMT_fnc_HideSideMarkers;
+	waitUntil{!isNil {player}};
 
 	if(isNil "WMT_Local_PlayerName") then {
 		WMT_Local_PlayerName = name player;
@@ -24,5 +19,4 @@ if(!isDedicated) then {
 		WMT_Local_PlayerSide = side player;
 		player setVariable ["WMT_PlayerSide",WMT_Local_PlayerSide,true];
 	};
-
 };
