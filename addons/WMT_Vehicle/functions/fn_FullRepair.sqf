@@ -41,9 +41,15 @@ PR(_repairFinished) = false;
 PR(_maxlength) 		= _veh getVariable["wmt_longrepairTruck",DEFAULT_FULLREPAIR_LENGTH];
 PR(_vehname) 		= getText ( configFile >> "CfgVehicles" >> typeOf(_veh) >> "displayName");
 PR(_length)			= _maxlength;
+PR(_startPos)		= getPos player;
 
-while { player distance _veh < 7 and alive player and alive _truck and alive _veh and vehicle player == player and speed _veh <= 3 and speed _truck <=3 and not _repairFinished and WMT_mutexAction and _veh distance _truck <= DISTANCE_TO_REPAIRVEHICLE } do {			
-	(format[localize("STR_REPAIR_MSG_STRING"), _length, _vehname] ) call WMT_fnc_NotifyText;
+[true] call WMT_fnc_ProgressBar;
+
+while { player distance _veh < 7 and (player distance _startPos) < 0.4 and alive player and alive _truck and alive _veh and vehicle player == player and speed _veh <= 3 and speed _truck <=3 and not _repairFinished and WMT_mutexAction and _veh distance _truck <= DISTANCE_TO_REPAIRVEHICLE } do {	
+
+	// Show progress bar
+	[1-(_length/_maxlength)] call WMT_fnc_ProgressBar;
+
 	if (_length <= 0) then {_repairFinished = true;};
 	_length = _length - 1;
 	player playMove "AinvPknlMstpSlayWrflDnon_medic";
@@ -51,16 +57,17 @@ while { player distance _veh < 7 and alive player and alive _truck and alive _ve
 };
 
 if (_repairFinished) then {
-	localize("STR_REPAIR_FINISHED") call WMT_fnc_NotifyText;
 	[ [ [_veh], {(_this select 0) setDamage 0;} ],"bis_fnc_spawn",_veh] call bis_fnc_mp;
 	_truck setVariable ["wmt_repair_cargo", ( (_truck getVariable ["wmt_repair_cargo", 0] )- (1 / DEFAULT_REPAIR_TRUCK_USES) ), true] ;
 	
 	_veh setVariable["wmt_longrepairTruck", nil, true];
 	_veh setVariable["wmt_fullrepair_times", (_veh getVariable ["wmt_fullrepair_times",0]) + 1 , true ];
 } else {
-	localize("STR_REPAIR_INTERRUPTED") call WMT_fnc_NotifyText;
 	_veh setVariable["wmt_longrepairTruck",_length, true];
 };
 
 WMT_mutexAction = false;  
 player playActionNow "medicstop";	
+
+sleep 0.5;
+[false] call WMT_fnc_ProgressBar;

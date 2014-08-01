@@ -36,10 +36,15 @@ _startTime = time;
 _startPos  = getPos player;
 _totalTime = REAMMOTIME;
 
+[true] call WMT_fnc_ProgressBar;
+
 while{ (time-(_startTime-_reammoTime_left))<_totalTime && WMT_mutexAction} do {
 	if( !(alive player) || (speed _veh > 0.5) || (speed _ammoVeh > 0.5) || (_startPos distance (getPos player))>0.3) then {
 		WMT_mutexAction = false;
 	}else{
+		
+		[1-((time-(_startTime-_reammoTime_left))/_totalTime)] call WMT_fnc_ProgressBar;
+
 		 (format [ "%1 %2", (localize "STR_REARM_TIMELEFT"), [_totalTime - (time-(_startTime-_reammoTime_left)), "MM:SS"] call BIS_fnc_secondsToString ] ) call WMT_fnc_NotifyText;
 		player playMove "AinvPknlMstpSlayWrflDnon_medic";
 		sleep 1;
@@ -56,3 +61,6 @@ if(WMT_mutexAction)then
 }else{
 	_veh setVariable ["VH_ReammoTime_left",[time-(_startTime-_reammoTime_left),time],true];
 };
+
+sleep 0.5;
+[false] call WMT_fnc_ProgressBar;

@@ -20,6 +20,7 @@ class CfgPatches
 
 class RscTitles 
 {
+	#include "resource\RscWMTProgressBar.h"
 	#include "resource\RscWMTVehicleCrew.h"
 };
 

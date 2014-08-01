@@ -14,6 +14,7 @@ class CfgFunctions
 			class LowGear{};
 			class NotifyText{};
 			class PartRepair{};
+			class ProgressBar{};
 			class PushBoat{};
 			class ReammoCond{};
 			class ReammoGetNearest{};

@@ -22,7 +22,7 @@ class RscWMTVehicleCrew
 			size 	= 0.02;
 			text 	= "";
 
-			colorText[] 		= {0.8,0.8,0.8,0.8};
+			colorText[] 		= {0.8,0.8,0.8,1.0};
 			colorBackground[] 	= {0,0,0,0};
 		};
 	};

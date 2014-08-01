@@ -75,6 +75,8 @@ PR(_vehname) 		 = getText ( configFile >> "CfgVehicles" >> typeOf(_veh) >> "disp
 PR(_length) 		 = _veh getVariable["wmt_fieldrepair",0];
 PR(_startPos)		 = getPos player;
 
+[true] call WMT_fnc_ProgressBar;
+
 while {(alive player) and ((player distance _startPos) < 0.4) and ((player distance _veh) < 7) and (vehicle player == player) and (speed _veh < 3) and (not _repairFinished) and WMT_mutexAction} do {
 	//Check toolkit 
 	_hastk = [] call _fnc_hastk;
@@ -83,15 +85,15 @@ while {(alive player) and ((player distance _startPos) < 0.4) and ((player dista
 	// Calculate repair time 
 	PR(_repairTime) = [_veh] call _fnc_getPartsRepairTime;	
 
-	// Show left time 
-	(format[localize ("STR_REPAIR_MSG_STRING"), (_repairTime-_length), _vehname]) call WMT_fnc_NotifyText;
+	// Show progress bar
+	[_length/_repairTime] call WMT_fnc_ProgressBar;
 
 	// Finish repair 
-	if ((_repairTime-_length) <= 0) exitWith {_repairFinished = true;};
+	if (_repairTime <= _length) exitWith {_repairFinished = true;};
 
-	_length = _length + 1;
+	_length = _length + 0.5;
 	player playMove "AinvPknlMstpSlayWrflDnon_medic";
-	sleep 1;
+	sleep 0.5;
 };
 
 if (_repairFinished) then {
@@ -99,7 +101,6 @@ if (_repairFinished) then {
 
 	if (_hastk == 0) exitWith {localize("STR_NEED_TOOLKIT") call WMT_fnc_NotifyText; sleep 1.;};	
 
-	localize("STR_REPAIR_FINISHED") call WMT_fnc_NotifyText;
 	[_veh,"WMT_fnc_partrepair", _veh] call bis_fnc_MP;
 
 	switch (_hastk) do {
@@ -110,8 +111,10 @@ if (_repairFinished) then {
 	_veh setVariable["wmt_fieldrepair",nil, true];
 	_veh setVariable["wmt_fieldrepair_times", (_veh getVariable ["wmt_fieldrepair_times",0]) + 1 , true ];
 } else {
-	localize("STR_REPAIR_INTERRUPTED") call WMT_fnc_NotifyText;
 	_veh setVariable["wmt_fieldrepair",_length, true];
 };
 
 WMT_mutexAction = false;  
+
+sleep 0.5;
+[false] call WMT_fnc_ProgressBar;

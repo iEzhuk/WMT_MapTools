@@ -112,6 +112,9 @@ if(_activated) then {
 			WMT_Local_LowGearOn = false;
 		};
 
+		// Rsc
+		5101 cutRsc ["RscWMTProgressBar","PLAIN"];
+
 		// Add event handler to display 46 
 		[] spawn {
 			waitUntil{sleep 0.36; !(isNull (findDisplay 46))};
