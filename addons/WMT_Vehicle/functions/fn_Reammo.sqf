@@ -30,36 +30,35 @@ if(isNull _veh)exitWith{};
 if(!(_veh isKindOf "LandVehicle" || _veh isKindOf  "Air" || _veh isKindOf "Ship"))exitWith{};
 
 WMT_mutexAction = true;
-_reammoTime_left = _veh getVariable["VH_ReammoTime_left",[0,0]];
-_reammoTime_left = if(time - (_reammoTime_left select 1) < CLEARTIME)then{(_reammoTime_left select 0)}else{0};
-_startTime = time;
+_reammoTime = _veh getVariable ["WMT_ReammoTime",[0,0]];
+_reammoTime = if(time - (_reammoTime select 1) < CLEARTIME)then{(_reammoTime select 0)}else{0}; 
 _startPos  = getPos player;
-_totalTime = REAMMOTIME;
 
 [true] call WMT_fnc_ProgressBar;
 
-while{ (time-(_startTime-_reammoTime_left))<_totalTime && WMT_mutexAction} do {
-	if( !(alive player) || (speed _veh > 0.5) || (speed _ammoVeh > 0.5) || (_startPos distance (getPos player))>0.3) then {
+while {_reammoTime <= REAMMOTIME && WMT_mutexAction} do {
+	if( !(alive player) || (speed _veh > 0.5) || (speed _ammoVeh > 0.5) || (_startPos distance player)>0.3) then {
 		WMT_mutexAction = false;
-	}else{
-		
-		[1-((time-(_startTime-_reammoTime_left))/_totalTime)] call WMT_fnc_ProgressBar;
-
-		 (format [ "%1 %2", (localize "STR_REARM_TIMELEFT"), [_totalTime - (time-(_startTime-_reammoTime_left)), "MM:SS"] call BIS_fnc_secondsToString ] ) call WMT_fnc_NotifyText;
+	} else {	
+		[_reammoTime/REAMMOTIME] call WMT_fnc_ProgressBar;
 		player playMove "AinvPknlMstpSlayWrflDnon_medic";
+
+		_reammoTime = _reammoTime + 1;
 		sleep 1;
 	};
 };
 
 if(WMT_mutexAction)then 
 {
-	[ [ [_veh], {_this call WMT_fnc_RearmVehicle;} ],"bis_fnc_spawn",_veh] call bis_fnc_mp;
+	// Finished
+	[[[_veh], {_this call WMT_fnc_RearmVehicle;} ],"bis_fnc_spawn",_veh] call bis_fnc_mp;
 
-	_veh setVariable ["VH_ReammoTime_left",[0,0],true];
+	_veh setVariable ["WMT_ReammoTime",[0,0],true];
 	WMT_mutexAction = false;
 	(localize "STR_COMPLETED_REAMMO") call WMT_fnc_NotifyText; 
 }else{
-	_veh setVariable ["VH_ReammoTime_left",[time-(_startTime-_reammoTime_left),time],true];
+	// Interrapted
+	_veh setVariable ["WMT_ReammoTime",[_reammoTime,time],true];
 };
 
 sleep 0.5;
