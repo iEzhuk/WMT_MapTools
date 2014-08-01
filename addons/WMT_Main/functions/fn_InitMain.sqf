@@ -9,10 +9,11 @@
 */
 
 if(!isDedicated) then {
-	
 	waitUntil{player==player};
 	waitUntil{alive player};
 	waitUntil{local player};
+			
+	[] call WMT_fnc_HideSideMarkers;
 
 	if(isNil "WMT_Local_PlayerName") then {
 		WMT_Local_PlayerName = name player;

@@ -29,6 +29,7 @@ class CfgFunctions
 			class HandlerMenu{};
 			class HandlerOptions{};
 			class HeavyLossesCheck{};
+			class HideSideMarkers{};
 			class IndetifyTheBody{};
 			class InitModuleMain{};
 			class InitModuleTime{};
