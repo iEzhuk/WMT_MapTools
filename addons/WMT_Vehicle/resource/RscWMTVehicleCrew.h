@@ -13,9 +13,9 @@ class RscWMTVehicleCrew
 			idc 	= 5001;
 			type 	= 13;
 			style 	= 0;
-			x 		= 0.80 * safezoneW + safezoneX;
+			x 		= 0.83 * safezoneW + safezoneX;
 			y 		= 0.25 * safezoneH + safezoneY;
-			w 		= 0.20 * safezoneW;
+			w 		= 0.17 * safezoneW;
 			h 		= 0.65 * safezoneH;
 			font 	= "puristaMedium";
 			sizeEx 	= 0.02;
