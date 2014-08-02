@@ -14,6 +14,9 @@ PR(_units) = [_this,1,[],[[]]] call BIS_fnc_param;
 PR(_activated) = [_this,2,true,[true]] call BIS_fnc_param;
 
 if(_activated) then {
+	if ( not isnil "wmt_Main_ModuleRunning" ) exitWith {};
+	wmt_Main_ModuleRunning = true;
+
 	if(isNil "wmt_param_TI") then {
 		wmt_param_TI = _logic getVariable "TI";
 	};
