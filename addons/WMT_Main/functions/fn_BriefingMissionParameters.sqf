@@ -35,4 +35,21 @@ if(!isNil "wmt_param_MissionTime") then {
 					localize "STR_BR_T_PARAM_DURATION"	, [wmt_param_MissionTime,"HH:MM:SS"] call BIS_fnc_secondsToString];
 };
 
+if(!isNil "wmt_param_TI") then {
+	switch wmt_param_TI do {
+		case 0 : {
+			_text = _text + format ["%1: <font color='#c7861b'>%2</font><br/>", 
+							localize "STR_WMT_TI", localize "STR_WMT_Enable"];
+		};
+		case 1 : {
+			_text = _text + format ["%1: <font color='#ed2616'>%2</font><br/>", 
+							localize "STR_WMT_TI", localize "STR_WMT_TI_DisableInVehicle"];
+		};
+		case 2 : {
+			_text = _text + format ["%1: <font color='#ed2616'>%2</font><br/>", 
+							localize "STR_WMT_TI", localize "STR_WMT_Disable"];
+		};
+	};
+};
+
 ["diary",localize "STR_WMT_MissionParameters", _text] call WMT_fnc_CreateDiaryRecord;
