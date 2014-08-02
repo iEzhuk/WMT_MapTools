@@ -26,14 +26,6 @@
 				<Original>Notification when object arrive the destination zone</Original>
 				<Russian>Объявления когда объект достигает зону назначения</Russian>
 			</Key>
-			<Key ID="STR_WMT_Delay">
-				<Original>Delay</Original>
-				<Russian>Задержка</Russian>
-			</Key>
-			<Key ID="STR_WMT_Delay_Desc">
-				<Original>Delay efor starting the script</Original>
-				<Russian>Задержка перед началос проверки</Russian>
-			</Key>
 			<Key ID="STR_WMT_Destroyed">
 				<Original>has been destroyed</Original>
 				<Russian>уничтожен</Russian>

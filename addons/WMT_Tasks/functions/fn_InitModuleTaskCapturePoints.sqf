@@ -5,7 +5,7 @@
 		Ezhuk
 */
 
-#define PR(x) private ['x']; x
+#include "defines.sqf"
 
 PR(_logic) = [_this,0,objNull,[objNull]] call BIS_fnc_param;
 PR(_units) = [_this,1,[],[[]]] call BIS_fnc_param;
@@ -16,13 +16,13 @@ if(_activated) then {
 	// 							Server part
 	//===============================================================
 	if(isServer) then {
-		[_logic] spawn {
+		[_logic, DELAY] spawn {
 			PR(_logic) = _this select 0;
+			PR(_delay) = _this select 1;
 
 			PR(_winner)	= [east,west,resistance,civilian,sideLogic] select (_logic getVariable "Winner");
 			PR(_count)	= _logic getVariable "Count";
 			PR(_msg) 	= _logic getVariable "Message";
-			PR(_delay)	= 0.001 max (_logic getVariable "Delay");
 
 			sleep _delay;
 

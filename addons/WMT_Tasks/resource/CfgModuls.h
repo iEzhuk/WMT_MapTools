@@ -64,13 +64,6 @@ class CfgVehicles
 					class Disable 	{name = "$STR_WMT_Disable"; value = 0;};
 				};
 			};
-			class Delay
-			{
-				displayName  = "$STR_WMT_Delay";
-				description  = "$STR_WMT_Delay_Desc";
-				typeName 	 = "NUMBER";
-				defaultValue = 60;
-			};
 		};
 	};
 //=======================================================================================
@@ -134,13 +127,6 @@ class CfgVehicles
 					class Enable 	{name = "$STR_WMT_Enable";  value = 1; default = 1;};
 					class Disable 	{name = "$STR_WMT_Disable"; value = 0;};
 				};
-			};
-			class Delay
-			{
-				displayName  = "$STR_WMT_Delay";
-				description  = "$STR_WMT_Delay_Desc";
-				typeName 	 = "NUMBER";
-				defaultValue = 60;
 			};
 		};
 	};
@@ -253,13 +239,6 @@ class CfgVehicles
 					class Civ 	{name = "$STR_WMT_Civilian"; 	value = 3;};
 				};
 			};
-			class Delay
-			{
-				displayName  = "$STR_WMT_Delay";
-				description  = "$STR_WMT_Delay_Desc";
-				typeName 	 = "NUMBER";
-				defaultValue = 60;
-			};
 		};
 	};
 //=======================================================================================
@@ -305,13 +284,6 @@ class CfgVehicles
 				description  = "$STR_WMT_Message_Desc";
 				typeName 	 = "STRING";
 				defaultValue = "";
-			};
-			class Delay
-			{
-				displayName  = "$STR_WMT_Delay";
-				description  = "$STR_WMT_Delay_Desc";
-				typeName 	 = "NUMBER";
-				defaultValue = 60;
 			};
 		};
 	};
@@ -383,13 +355,6 @@ class CfgVehicles
 					class Enable 	{name = "$STR_WMT_Enable";  value = 1; default = 1;};
 					class Disable 	{name = "$STR_WMT_Disable"; value = 0;};
 				};
-			};
-			class Delay
-			{
-				displayName  = "$STR_WMT_Delay";
-				description  = "$STR_WMT_Delay_Desc";
-				typeName 	 = "NUMBER";
-				defaultValue = 60;
 			};
 		};
 	};

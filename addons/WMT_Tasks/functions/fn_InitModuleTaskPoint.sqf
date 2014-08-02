@@ -4,7 +4,7 @@
  	Author(s):
 		Ezhuk
 */
-#define PR(x) private ['x']; x
+#include "defines.sqf"
 
 PR(_logic) = [_this,0,objNull,[objNull]] call BIS_fnc_param;
 PR(_units) = [_this,1,[],[[]]] call BIS_fnc_param;
@@ -17,7 +17,7 @@ if(_activated) then {
 	if(isServer) then {
 		WMT_Local_PointArray set [count WMT_Local_PointArray, _logic]; 
 
-		[_logic, _units] spawn {
+		[_logic, _units, DELAY] spawn {
 
 			PR(_func_create_trigger) = {
 				private ["_trigger","_marker","_markerPos","_markerDir"];
@@ -72,6 +72,7 @@ if(_activated) then {
 
 			PR(_logic) = _this select 0;
 			PR(_units) = _this select 1;
+			PR(_delay) = _this select 2;
 
 			PR(_marker) 	= _logic getVariable "Marker";
 			PR(_owner)		= [east,west,resistance,civilian,sideLogic] select (_logic getVariable "Owner");
@@ -80,7 +81,6 @@ if(_activated) then {
 			PR(_lock)		= _logic getVariable "Lock";
 			PR(_minHeight)	= _logic getVariable "MinHeight";
 			PR(_maxHeight)	= _logic getVariable "MaxHeight";
-			PR(_delay) 		= 0.001 max (_logic getVariable "Delay");
 			PR(_autoLose) 	= _logic getVariable "AutoLose";
 			PR(_captureCount) = _logic getVariable "CaptureCount";
 			PR(_easyCapture)  = _logic getVariable "EasyCapture";

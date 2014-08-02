@@ -4,7 +4,7 @@
  	Author(s):
 		Ezhuk
 */
-#define PR(x) private ['x']; x
+#include "defines.sqf"
 
 PR(_logic) = [_this,0,objNull,[objNull]] call BIS_fnc_param;
 PR(_units) = [_this,1,[],[[]]] call BIS_fnc_param;
@@ -15,15 +15,15 @@ if(_activated) then {
 	// 							Server part
 	//===============================================================
 	if(isServer) then {
-		[_logic, _units] spawn {
+		[_logic, _units, DELAY] spawn {
 			PR(_logic) = _this select 0;
 			PR(_units) = _this select 1;
+			PR(_delay) = _this select 2;
 
 			PR(_notice) 	= _logic getVariable "Notice";
 			PR(_message)	= _logic getVariable "Message";
 			PR(_endCount) 	= _logic getVariable "EndCount";
 			PR(_winner)		= [east,west,resistance,civilian,sideLogic] select (_logic getVariable "Winner");
-			PR(_delay) 		= 0.0001 max (_logic getVariable "Delay");
 
 			sleep _delay;
 
