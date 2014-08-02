@@ -80,20 +80,16 @@ if(_activated) then {
 		[] spawn {
 			waitUntil{!isNil {player}};
 
-			[] call WMT_fnc_HideSideMarkers;
+			WMT_Local_PlayerName = name player;
+			WMT_Local_PlayerSide = side player;
+
+			player setVariable ["WMT_PlayerName",WMT_Local_PlayerName,true];
+			player setVariable ["WMT_PlayerSide",WMT_Local_PlayerSide,true];
 
 			WMT_Local_Killer = [];
 			WMT_Local_Kills = [];
-			
-			if(isNil "WMT_Local_PlayerName") then {
-				WMT_Local_PlayerName = name player;
-				player setVariable ["WMT_PlayerName",WMT_Local_PlayerName,true];
-			};
 
-			if(isNil "WMT_Local_PlayerSide") then {
-				WMT_Local_PlayerSide = side player;
-				player setVariable ["WMT_PlayerSide",WMT_Local_PlayerSide,true];
-			};
+			[] call WMT_fnc_HideSideMarkers;
 
 			// Control veiw distance 
 			["loop"] spawn WMT_fnc_handlerOptions;
