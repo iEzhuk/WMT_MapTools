@@ -29,7 +29,7 @@ PR(_markersPool) = [];
 		}else{
 			PR(_nearestUnit) = nearestObject [_x, "Man"];
 			if(!(isNil "_nearestUnit") ) then {
-				if( side player == side _nearestUnit) then {
+				if(side player in ([side _nearestUnit] call BIS_fnc_friendlySides)) then {
 					_show = true;
 				};
 			};
