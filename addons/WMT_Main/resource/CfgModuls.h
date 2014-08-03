@@ -203,7 +203,7 @@ class CfgVehicles
 				displayName = "$STR_WMT_RemoveBots";
 				description = "";
 				typeName = "NUMBER";
-				defaultValue = 0;
+				defaultValue = 5;
 			};
 		};
 	};

@@ -52,7 +52,7 @@ if(_activated) then {
 	};
 	
 	wmt_param_MaxViewDistance  = 10 max wmt_param_MaxViewDistance;
-	wmt_param_HeavyLossesCoeff = 0.01 max wmt_param_HeavyLossesCoeff;
+	wmt_param_HeavyLossesCoeff = 0 max wmt_param_HeavyLossesCoeff;
 
 	if(wmt_param_AI==0) then {
 		[] call WMT_fnc_DisableAI;
