@@ -67,7 +67,9 @@ if(_activated) then {
 	if(!isDedicated) then {
 		[] spawn {
 			waitUntil{!isNil {player}};
-			
+
+			WMT_Local_PlayerSide = side player;
+
 			[wmt_param_PrepareTime,wmt_param_StartZone] spawn WMT_fnc_PrepareTime_client;
 		};
 	};

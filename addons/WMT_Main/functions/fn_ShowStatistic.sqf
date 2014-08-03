@@ -27,7 +27,7 @@ if(count WMT_Local_Killer > 0) then {
 
 	if(_killerName != WMT_Local_PlayerName) then {
 		_text = _text + _killerName;
-		if(_killerSide == playerSide) then {
+		if(_killerSide == WMT_Local_PlayerSide) then {
 			_text = _text + format [" (%1)", localize "STR_WMT_Ally"];
 		};
 	} else {

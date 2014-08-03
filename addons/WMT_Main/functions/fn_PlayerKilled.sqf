@@ -26,5 +26,5 @@ PR(_killerSide) = _killer getVariable ["WMT_PlayerSide", sideLogic];
 
 WMT_Local_Killer = [_killerName, _killerSide];
 
-WMT_Global_AddKills = [WMT_Local_PlayerName,playerSide];
+WMT_Global_AddKills = [WMT_Local_PlayerName,WMT_Local_PlayerSide];
 (owner _killer) publicVariableClient "WMT_Global_AddKills";

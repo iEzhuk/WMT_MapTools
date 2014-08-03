@@ -81,9 +81,10 @@ if(_activated) then {
 			waitUntil{!isNil {player}};
 
 			WMT_Local_PlayerName = name player;
+			WMT_Local_PlayerSide = side player;
 
 			player setVariable ["WMT_PlayerName",WMT_Local_PlayerName,true];
-			player setVariable ["WMT_PlayerSide",playerSide,true];
+			player setVariable ["WMT_PlayerSide",WMT_Local_PlayerSide,true];
 
 			WMT_Local_Killer = [];
 			WMT_Local_Kills = [];

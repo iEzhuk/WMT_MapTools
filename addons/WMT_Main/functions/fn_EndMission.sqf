@@ -26,9 +26,9 @@ if(count _this == 2) then {
 	PR(_text) = _this select 1;
 
 	PR(_isPlayerWin) = 	if(_winner in [EAST,WEST,RESISTANCE]) then {
-							[playerSide, _winner] call BIS_fnc_areFriendly
+							[WMT_Local_PlayerSide, _winner] call BIS_fnc_areFriendly
 						}else{
-							playerSide == _winner
+							WMT_Local_PlayerSide==_winner
 						};
 						
 	PR(_textWinner) = if(_isPlayerWin)then{localize "STR_WMT_Win"}else{localize "STR_WMT_Lose"};

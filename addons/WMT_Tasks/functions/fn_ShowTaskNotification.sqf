@@ -27,7 +27,7 @@ switch(count _this) do {
 		private ["_side","_text"];
 		_side = _this select 0;
 		_text = _this select 1;
-		_type = if (playerSide == _side) then {"TaskSucceeded"} else {"TaskFailed"};
+		_type = if (WMT_Local_PlayerSide == _side) then {"TaskSucceeded"} else {"TaskFailed"};
 		[_type,[0,_text]] call bis_fnc_showNotification;
 	};
 };
