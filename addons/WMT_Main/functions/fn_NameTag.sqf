@@ -30,7 +30,7 @@ while { true } do {
 	if(alive player) then {
 		if(!visibleMap) then {
 			if(player != _unit) then {
-				if(side _unit == WMT_Local_PlayerSide) then {
+				if(side _unit == playerSide) then {
 					if(alive _unit) then {
 						if(_unit distance player < 10) then {
 							if(!(["Error:", name _unit] call BIS_fnc_inString)) then {
