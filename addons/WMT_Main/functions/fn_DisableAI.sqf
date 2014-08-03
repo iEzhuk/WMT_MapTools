@@ -15,7 +15,6 @@
 */
 
 {
-	_x disableAI "ANIM";
 	_x disableAI "AUTOTARGET";
 	_x disableAI "TARGET";
 	_x disableAI "FSM";
