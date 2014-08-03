@@ -83,7 +83,9 @@ if (_showEnemyVehs == 1) then {
 		_enemyText = _enemyText + "<br/>";
 	};
 
-	["diary",localize "STR_WMT_EnemyVehicles", _enemyText] call WMT_fnc_CreateDiaryRecord;
+	if (count _enemyVehsName != 0 ) then {
+		["diary",localize "STR_WMT_EnemyVehicles", _enemyText] call WMT_fnc_CreateDiaryRecord;
+	};
 };
 
 
@@ -93,6 +95,7 @@ for "_i" from 0 to ((count _vehsName)-1) do
 	_text = _text + "<br/>";
 };
 
-["diary",localize "STR_WMT_Vehicles", _text] call WMT_fnc_CreateDiaryRecord;
-
+if (count _vehsName != 0 ) then {
+	["diary",localize "STR_WMT_Vehicles", _text] call WMT_fnc_CreateDiaryRecord;
+};
 
