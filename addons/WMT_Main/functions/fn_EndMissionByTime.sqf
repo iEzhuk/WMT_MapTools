@@ -27,15 +27,15 @@ sleep 1;
 PR(_startTime) = diag_tickTime;
 PR(_missionTime) = _time*60;
 
-Global_WMT_Specator_Time = ceil((_missionTime-_startTime)/60);
+Global_HIA3_Specator_Time = ceil((_missionTime-_startTime)/60);
 
 while {diag_tickTime-_startTime<_missionTime} do {
 	PR(_tmp) = ceil((_missionTime-(diag_tickTime-_startTime))/60);
-	if(_tmp != Global_WMT_Specator_Time) then {
-		Global_WMT_Specator_Time = _tmp;
+	if(_tmp != Global_HIA3_Specator_Time) then {
+		Global_HIA3_Specator_Time = _tmp;
 		publicVariable "Global_HIA3_Specator_Time";
 	};
-	sleep 20;
+	sleep 60;
 };
 
 [[[_winSide, _message], {_this call WMT_fnc_EndMission;}], "bis_fnc_spawn"] call bis_fnc_mp;			
