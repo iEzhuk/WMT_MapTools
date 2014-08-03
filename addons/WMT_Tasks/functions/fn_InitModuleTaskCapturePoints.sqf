@@ -16,7 +16,7 @@ if(_activated) then {
 	// 							Server part
 	//===============================================================
 	if(isServer) then {
-		if(isNil "WMT_Local_PointArray") then 
+		if(isNil "WMT_Local_PointArray") then {
 			WMT_Local_PointArray = [];
 		};
 		[_logic, DELAY] spawn {
