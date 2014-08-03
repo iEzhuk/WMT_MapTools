@@ -308,7 +308,15 @@
 			</Key>
 			<Key ID="STR_WMT_MissionParameters">
 				<Original>Mission parameters</Original>
-				<Russian>араметры миссии</Russian>
+				<Russian>Параметры миссии</Russian>
+			</Key>
+			<Key ID="STR_WMT_MissionDuration">
+				<Original>Mission duration</Original>
+				<Russian>Продолжительность миссии</Russian>
+			</Key>
+			<Key ID="STR_WMT_MissionStart">
+				<Original>Mission start</Original>
+				<Russian>Начало миссии</Russian>
 			</Key>
 		</Container>
 	</Package>
