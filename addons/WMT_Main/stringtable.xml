@@ -248,11 +248,11 @@
 			</Key>
 			<Key ID="STR_WMT_ShowEnemyVehsNotes">
 				<Original>Info about enemy vehicles</Original>
-				<Russian>Информация о вражеской технике</Russian>
+				<Russian>Информация о противнике</Russian>
 			</Key>
 			<Key ID="STR_WMT_ShowEnemyVehsNotes_Desc">
 				<Original>Show enemy vehicles in game briefing notes</Original>
-				<Russian>Показывать вражескую технику в заметках</Russian>
+				<Russian>Показывать информацию о вражеской технике в заметках</Russian>
 			</Key>
 			<Key ID="STR_WMT_ShowVehsBriefing">
 				<Original>Show friendly vehicles in game briefing notes and on the map</Original>
