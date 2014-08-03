@@ -15,6 +15,9 @@ if(_activated) then {
 	// 							Server part
 	//===============================================================
 	if(isServer) then {
+		if(isNil "WMT_Local_PointArray") then 
+			WMT_Local_PointArray = [];
+		};
 		WMT_Local_PointArray set [count WMT_Local_PointArray, _logic]; 
 
 		[_logic, _units, DELAY] spawn {
@@ -155,6 +158,26 @@ if(_activated) then {
 				};
 
 				sleep 4.12;
+			};
+		};
+	};
+	//===============================================================
+	// 							Client part
+	//===============================================================
+	if(!isDedicated) then {
+		if(isNil "WMT_ClientInit_Point") then {
+			WMT_ClientInit_Point = true;
+			"WMT_Global_Notice_ZoneCaptured" addPublicVariableEventHandler {
+				if(count (_this select 1) == 2) then {
+					private ["_side", "_logic", "_msg"];
+
+					_side  = (_this select 1) select 0;
+					_logic = (_this select 1) select 1;
+
+					_msg = _logic getVariable "Message";	
+
+					[_side, _msg] call WMT_fnc_ShowTaskNotification;
+				};
 			};
 		};
 	};

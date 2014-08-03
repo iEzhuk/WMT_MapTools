@@ -5,7 +5,6 @@ class CfgFunctions
 		class Tasks
 		{
 			file = "WMT_Tasks\functions";
-			class InitTask{preInit=1;};
 			class InitModuleTaskArrive{};
 			class InitModuleTaskDestroy{};
 			class InitModuleTaskPoint{};

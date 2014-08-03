@@ -55,4 +55,25 @@ if(_activated) then {
 			[[[_winner, _message], {_this call WMT_fnc_EndMission;}], "bis_fnc_spawn"] call bis_fnc_mp;
 		};
 	};
+	//===============================================================
+	// 							Client part
+	//===============================================================
+	if(!isDedicated) then {
+		if(isNil "WMT_ClientInit_Destroy") then {
+			WMT_ClientInit_Destroy = true;
+			"WMT_Global_Notice_ObjectDestroy" addPublicVariableEventHandler {
+				if(count (_this select 1) == 2) then {
+					private ["_winner", "_obj", "_name", "_text"];
+
+					_winner = (_this select 1) select 0;
+					_obj 	= (_this select 1) select 1;
+
+					_name = _obj getVariable ["WMT_DisplayName", getText (configFile >> "CfgVehicles" >> typeOf _obj >> "displayName")];
+					_text = _name + " " + localize "STR_WMT_Destroyed";
+
+					[_winner, _text] call WMT_fnc_ShowTaskNotification;
+				};
+			};
+		};
+	};
 };

@@ -62,6 +62,21 @@ if(_activated) then {
 	// 							Client part
 	//===============================================================
 	if(!isDedicated) then {
+		if(isNil "WMT_ClientInit_VIP") then {
+			WMT_ClientInit_VIP = true;
+			"WMT_Global_Notice_VIP" addPublicVariableEventHandler {
+				if(count (_this select 1) == 2) then {
+					private ["_winner", "_obj", "_text"];
+
+					_winner = (_this select 1) select 0;
+					_obj  	= (_this select 1) select 1;
+
+					_text = format ["%1 %2", _obj getVariable ["WMT_DisplayName", "VIP"], localize "STR_WMT_Eliminated"];
+					[_winner, _text] call WMT_fnc_ShowTaskNotification;
+				};
+			};
+		};
+		
 		if(player in _units) then {
 			[_logic] spawn {
 				PR(_logic) = _this select 0;
