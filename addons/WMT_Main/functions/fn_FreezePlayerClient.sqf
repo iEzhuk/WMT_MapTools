@@ -68,6 +68,10 @@ while {WMT_pub_frzState < 3} do {
 		player setPos _startpos;
 	};
 
+	if (player != vehicle player and {local vehicle player} and {engineOn vehicle player}) then {
+		player action ["engineoff", vehicle player];
+	};
+
 	sleep 0.75;
 };
 
