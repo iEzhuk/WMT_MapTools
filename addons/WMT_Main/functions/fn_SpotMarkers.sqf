@@ -21,7 +21,7 @@ PR(_markersPool) = [];
 
 // Vehicles
 {
-	if(!(_x isKindOf "Strategic") && !(_x isKindOf "Thing")) then
+	if(!(_x isKindOf "Strategic") && !(_x isKindOf "Thing") && (_x getVariable ["WMT_show",true])) then
 	{
 		PR(_show) = false;
 		if(_x getVariable ["WMT_side",sideLogic] == _side) then {
@@ -51,7 +51,7 @@ PR(_markersPool) = [];
 	PR(_leader) = leader _x;
 	PR(_pos) = getPos _leader;
 
-	if( (side _leader) in ([_side] call BIS_fnc_friendlySides) and _leader in playableUnits) then {
+	if( (side _leader) in ([_side] call BIS_fnc_friendlySides) and _leader in playableUnits and {(_leader getVariable ["WMT_show",true])}) then {
 		PR(_playersGr) = 0;
 		{
 			if (isPlayer _x) then {_playersGr=_playersGr+1;};
