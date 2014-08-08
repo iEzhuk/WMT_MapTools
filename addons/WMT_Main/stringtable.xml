@@ -88,7 +88,7 @@
 			</Key>
 			<Key ID="STR_WMT_Lose">
 				<Original>Defeat</Original>
-				<Russian>Победа</Russian>
+				<Russian>Поражение</Russian>
 			</Key>
 			<Key ID="STR_WMT_EndMissionByAdmin">
 				<Original>Admin interrupted the mission</Original>
