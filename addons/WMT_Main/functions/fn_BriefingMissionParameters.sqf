@@ -24,7 +24,7 @@ if(!isNil "wmt_param_MaxViewDistance") then {
 
 if(!isNil "wmt_param_PrepareTime") then {
 	_text = _text + format ["%1: <font color='#c7861b'>%2</font><br/>", 
-					localize "STR_WMT_PrepareTime_param", [wmt_param_PrepareTime,"HH:MM"] call BIS_fnc_secondsToString];
+					localize "STR_WMT_PrepareTime_param", [wmt_param_PrepareTime*60,"HH:MM"] call BIS_fnc_secondsToString];
 };
 
 _text = _text + format ["%1: <font color='#c7861b'>%2</font><br/>",
@@ -32,7 +32,7 @@ _text = _text + format ["%1: <font color='#c7861b'>%2</font><br/>",
 
 if(!isNil "wmt_param_MissionTime") then {
 	_text = _text + format ["%1: <font color='#c7861b'>%2</font><br/>", 
-					localize "STR_WMT_MissionDuration", [wmt_param_MissionTime,"HH:MM"] call BIS_fnc_secondsToString];
+					localize "STR_WMT_MissionDuration", [wmt_param_MissionTime*60,"HH:MM"] call BIS_fnc_secondsToString];
 };
 
 if(!isNil "wmt_param_TI") then {
