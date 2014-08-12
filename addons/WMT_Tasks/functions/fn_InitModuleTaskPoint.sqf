@@ -111,6 +111,7 @@ if(_activated) then {
 				PR(_cs) = sideLogic;
 				PR(_cc) = 0;
 
+				// Calculate units and detect side that have more units in zone
 				{
 					if(_curOwner != _x) then {
 						if(_cc < _unitCount select _foreachindex) then {
@@ -122,7 +123,7 @@ if(_activated) then {
 
 				PR(_captured) = false;
 				if (_dc < _defCount) then {
-					if (_cs >= _captureCount) then {
+					if (_cc >= _captureCount) then {
 						// Standart
 						_captured = true;
 					};
