@@ -32,11 +32,11 @@ if((alive player) && (_veh != player) && (alive _veh)) then
 					case (_x == commander _veh): {"getincommander_ca.paa"};
 					default {"getincargo_ca.paa"};
 				};
-		_text = _text + format ["<t size='1.0'> <img image='\A3\ui_f\data\igui\cfg\actions\%1'></t><t size='1.2' color='#eeeeff'> %2</t>",_icon,name _x];
+		_text = _text + format ["<t size='1.2'> <img image='\A3\ui_f\data\igui\cfg\actions\%1'></t><t size='1.5' color='#eeeeff'> %2</t>",_icon,name _x];
 
 		// Add number of crew in first line 
 		if(_forEachIndex == 0) then {
-			_text = _text + format ["<t size='1.2' color='#eeeeff'> (%1)</t>",count crew _veh];
+			_text = _text + format ["<t size='1.5' color='#eeeeff'> (%1)</t>",count crew _veh];
 		};
 
 		_text = _text + "<br/>";
