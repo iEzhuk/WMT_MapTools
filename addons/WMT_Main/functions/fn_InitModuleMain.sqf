@@ -28,6 +28,9 @@ if(_activated) then {
 	};
 	if(isNil "wmt_param_IndetifyTheBody") then {
 		wmt_param_IndetifyTheBody = _logic getVariable "IndetifyTheBody";
+		if(isNil "wmt_param_IndetifyTheBody") then {
+			wmt_param_IndetifyTheBody = 1;
+		};
 	};
 	if(isNil "wmt_param_HeavyLossesCoeff") then {
 		wmt_param_HeavyLossesCoeff = _logic getVariable "HeavyLossesCoeff";
