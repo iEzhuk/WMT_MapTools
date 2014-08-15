@@ -23,7 +23,7 @@ if(count WMT_Local_Killer > 0) then {
 	PR(_killerName) = WMT_Local_Killer select 0;
 	PR(_killerSide) = WMT_Local_Killer select 1;
 
-	_text = _text + format ["<t color='#c7861b'>%1</t>:<br/>",localize "STR_Killer"];
+	_text = _text + format ["<t color='#c7861b'>%1</t>:<br/>",localize "STR_WMT_Killer"];
 
 	if(_killerName != WMT_Local_PlayerName) then {
 		_text = _text + _killerName;
