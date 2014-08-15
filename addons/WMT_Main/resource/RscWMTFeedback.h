@@ -47,7 +47,7 @@ class RscWMTFeedback {
 			idc = IDC_FEEDBACK_ADMIN;
 			x = 0.05;
 			y = 0.36;
-			w = 0.25;
+			w = 0.5;
 			h = 0.04;
 			text = $STR_WMT_GameAdmin;
 		};
