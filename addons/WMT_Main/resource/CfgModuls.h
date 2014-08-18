@@ -207,4 +207,8 @@ class CfgVehicles
 			};
 		};
 	};
+	class ModuleCreateDiaryRecord_F : Module_F 
+	{
+		functionPriority = 5;
+	};
 };
