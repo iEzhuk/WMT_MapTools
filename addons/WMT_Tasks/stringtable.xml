@@ -99,7 +99,7 @@
 				<Russian>Нижняя граница</Russian>
 			</Key>
 			<Key ID="STR_WMT_MaxHeight">
-				<Original>Верхняя граница</Original>
+				<Original>Top border</Original>
 				<Russian>Верхняя граница</Russian>
 			</Key>
 			<Key ID="STR_WMT_AutoLose">
