@@ -16,6 +16,11 @@
 #define PR(x) private ['x']; x
 
 PR(_text) = "";
+
+// Show group of player in top position
+PR(_playerGroup) = group player;
+PR(_allGroups) = [_playerGroup] + (allgroups - [_playerGroup]);
+
 {
 	if (side leader _x == side player and (leader _x) in playableUnits) then {
 		PR(_markerName) = format ["WMT_PrepareTime_%1_%2", side _x, groupId _x];
@@ -30,7 +35,7 @@ PR(_text) = "";
 		} foreach units _x;
 		_text = _text + "<br/>";
 	}
-} foreach allgroups;
+} foreach _allGroups;
 
 ["diary",localize "STR_WMT_Squads", _text] call WMT_fnc_CreateDiaryRecord;
 
