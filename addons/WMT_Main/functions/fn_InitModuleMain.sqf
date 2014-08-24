@@ -141,7 +141,6 @@ if(_activated) then {
 					if (!isNil "WMT_pub_frzState") then {
 						waitUntil{sleep 1.05; WMT_pub_frzState>=3};
 					};
-					sleep 30;
 					{deleteMarkerLocal _x;} foreach _markerPool;
 				};
 			};
