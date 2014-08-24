@@ -138,6 +138,10 @@
 				<Original>Number of alive vip when mission ends</Original>
 				<Russian>Кол-во VIP'ов когда завершается миссия</Russian>
 			</Key>
+			<Key ID="STR_WMT_TimerInSec">
+				<Original>Timer (sec)</Original>
+				<Russian>Таймер (сек)</Russian>
+			</Key>
 		</Container>
 	</Package>
 </Project>

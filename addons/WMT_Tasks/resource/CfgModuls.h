@@ -239,6 +239,13 @@ class CfgVehicles
 					class Civ 	{name = "$STR_WMT_Civilian"; 	value = 3;};
 				};
 			};
+			class Timer 
+			{
+				displayName  = "$STR_WMT_TimerInSec";
+				description  = "";
+				typeName 	 = "NUMBER";
+				defaultValue = 0;
+			};
 		};
 	};
 //=======================================================================================

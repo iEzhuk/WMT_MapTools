@@ -85,6 +85,7 @@ if(_activated) then {
 			PR(_minHeight)	= _logic getVariable "MinHeight";
 			PR(_maxHeight)	= _logic getVariable "MaxHeight";
 			PR(_autoLose) 	= _logic getVariable "AutoLose";
+			PR(_timer) 		= _logic getVariable ["Timer",0];
 			PR(_captureCount) = _logic getVariable "CaptureCount";
 			PR(_easyCapture)  = _logic getVariable "EasyCapture";
 
@@ -102,6 +103,7 @@ if(_activated) then {
 
 			PR(_objs)   = _units;
 			PR(_locked) = false;
+			PR(_timeB)  = -1;
 
 			while {!_locked} do {
 				PR(_unitCount) = [_trg, _minHeight, _maxHeight] call _getCountUnits;
@@ -143,22 +145,32 @@ if(_activated) then {
 				};
 
 				if (_captured) then {
-					_logic setVariable ["WMT_PointOwner", _cs];
-					_marker setMarkerColor (_cs call _func_sideToColor);
-
-					if(_message != "") then {
-						WMT_Global_Notice_ZoneCaptured = [_cs, _logic];
-						publicVariable "WMT_Global_Notice_ZoneCaptured";
-
-						[_cs, _message] call WMT_fnc_ShowTaskNotification;
+					if (_timeB < 0) then {
+						// Timecount
+						_timeB = diag_tickTime;
 					};
 
-					if(_lock == 1) then {
-						_locked = true;
+					if (diag_tickTime - _timeB >= _timer) then {
+						// Capture the zone
+						_logic setVariable ["WMT_PointOwner", _cs];
+						_marker setMarkerColor (_cs call _func_sideToColor);
+
+						if(_message != "") then {
+							WMT_Global_Notice_ZoneCaptured = [_cs, _logic];
+							publicVariable "WMT_Global_Notice_ZoneCaptured";
+
+							[_cs, _message] call WMT_fnc_ShowTaskNotification;
+						};
+
+						if(_lock == 1) then {
+							_locked = true;
+						};
 					};
+				} else {
+					_timeB = -1;
 				};
 
-				sleep 4.12;
+				sleep 3.12;
 			};
 			deleteVehicle  _trg; 
 		};
