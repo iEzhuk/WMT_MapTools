@@ -179,14 +179,14 @@ class CfgVehicles
 				displayName  = "$STR_WMT_DefCount";
 				description  = "$STR_WMT_DefCount_desc";
 				typeName 	 = "NUMBER";
-				defaultValue = 0;
+				defaultValue = 3;
 			};
 			class CaptureCount
 			{
 				displayName  = "$STR_WMT_CaptureCount";
 				description  = "$STR_WMT_CaptureCount_Desc";
 				typeName 	 = "NUMBER";
-				defaultValue = 0;
+				defaultValue = 4;
 			};
 			class Lock
 			{
