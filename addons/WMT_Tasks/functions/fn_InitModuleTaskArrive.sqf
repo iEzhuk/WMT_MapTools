@@ -1,5 +1,5 @@
 /*
- 	Name: WMT_fnc_InitModuleTaskArrived
+ 	Name: WMT_fnc_InitModuleTaskArrive
  	
  	Author(s):
 		Ezhuk

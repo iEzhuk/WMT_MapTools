@@ -5,11 +5,8 @@ class CfgFunctions
 		class Tasks
 		{
 			file = "WMT_Tasks\functions";
-			class InitModuleTaskArrive{};
-			class InitModuleTaskDestroy{};
-			class InitModuleTaskPoint{};
-			class InitModuleTaskCapturePoints{};
-			class InitModuleTaskVIP{};
+			class PrecompileTask{preInit=1};
+			
 			class IsTheUnitInsideMarker{};
 			class ShowTaskNotification{};
 		};

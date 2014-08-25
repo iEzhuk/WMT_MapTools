@@ -1,5 +1,5 @@
 /*
- 	Name: WMT_fnc_Precompile
+ 	Name: WMT_fnc_PrecompileMain
  	
  	Author(s):
 		Ezhuk
@@ -13,7 +13,8 @@
  	Returns:
 		Nothing 
 */
-
+WMT_fnc_Announcement				= compileFinal preprocessFile  ("WMT_Main\functions\fn_Announcement.sqf");
+WMT_fnc_ArrayToString				= compileFinal preprocessFile  ("WMT_Main\functions\fn_ArrayToString.sqf");
 WMT_fnc_BriefingMissionParameters 	= compileFinal preprocessFile  ("WMT_Main\functions\fn_Announcement.sqf");
 WMT_fnc_BriefingSquads 				= compileFinal preprocessFile  ("WMT_Main\functions\fn_BriefingSquads.sqf");
 WMT_fnc_BriefingVehicles			= compileFinal preprocessFile  ("WMT_Main\functions\fn_BriefingVehicles.sqf");
@@ -33,6 +34,7 @@ WMT_fnc_HandlerFeedback				= compileFinal preprocessFile  ("WMT_Main\functions\f
 WMT_fnc_HandlerMenu					= compileFinal preprocessFile  ("WMT_Main\functions\fn_HandlerMenu.sqf");
 WMT_fnc_HandlerOptions				= compileFinal preprocessFile  ("WMT_Main\functions\fn_HandlerOptions.sqf");
 
+WMT_fnc_HideSideMarkers				= compileFinal preprocessFile  ("WMT_Main\functions\fn_HideSideMarkers.sqf");
 WMT_fnc_HeavyLossesCheck			= compileFinal preprocessFile  ("WMT_Main\functions\fn_HeavyLossesCheck.sqf");
 WMT_fnc_IndetifyTheBody				= compileFinal preprocessFile  ("WMT_Main\functions\fn_IndetifyTheBody.sqf");
 

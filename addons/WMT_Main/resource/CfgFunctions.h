@@ -5,15 +5,13 @@ class CfgFunctions
 		class Main
 		{
 			file = "WMT_Main\functions";
-			class Precompile{preInit=1};
-			class Announcement{};
-			class ArrayToString{};
+			class PrecompileMain{preInit=1};
+			
 			class BoundingBoxMarker{};
 			class CreateDiaryRecord{};
 			class CreateLocalMarker{};
 			class CreateTrigger{};
 			class EndMission{};
-			class HideSideMarkers{};
 			class LongGroupNameToShort{};
 			class ZoneCaptured{};
 		};
