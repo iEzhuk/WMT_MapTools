@@ -1,5 +1,5 @@
 /*
- 	Name: WMT_fnc_FreezeVoteEnd
+ 	Name: WMT_fnc_FreezeVoteWait
  	
  	Author(s):
 		Zealot

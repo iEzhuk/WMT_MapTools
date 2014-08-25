@@ -1,4 +1,13 @@
-// by [STELS]Zealot
+/*
+ 	Name: WMT_fnc_HeavyLossesCheck
+ 	
+ 	Author(s):
+		Zealot
+
+ 	Description:
+		Check losses 
+*/
+
 
 #define PR(x) private ['x']; x
 

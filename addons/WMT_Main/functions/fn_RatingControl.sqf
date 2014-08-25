@@ -22,5 +22,5 @@ while {true} do {
 			player addRating -_rating;
 		};
 	};
-	sleep 5;
+	sleep 1;
 };
