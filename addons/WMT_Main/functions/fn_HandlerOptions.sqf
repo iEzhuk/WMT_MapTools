@@ -96,7 +96,7 @@ switch (_event) do
 
 		_fnc_state = {
 			PR(_veh) = vehicle player;
-			PR(_spectator) = uiNamespace getVariable "WMT_DisaplaySpectator";
+			PR(_spectator) = uiNamespace getVariable "HIA3_DisaplaySpectator";
 			if(!(isNil "_spectator"))exitWith{4};
 			if(_veh isKindOf "Air")exitWith{2};
 			if(_veh isKindOf "LandVehicle")exitWith{1};
@@ -108,7 +108,7 @@ switch (_event) do
 		[MAX_DISTANCE, MAX_DISTANCE, MAX_DISTANCE, MAX_DISTANCE, MAX_DISTANCE]];
 
 		while{true} do {
-			_spectator = uiNamespace getVariable "WMT_DisaplaySpectator";
+			_spectator = uiNamespace getVariable "HIA3_DisaplaySpectator";
 			_maxDist = if(isNil "_spectator")then{wmt_param_MaxViewDistance}else{MAX_DISTANCE};
 
 			_dist = _maxDist min (WMT_Options_ViewDistance select ([] call _fnc_state));
