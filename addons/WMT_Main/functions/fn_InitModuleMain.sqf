@@ -135,14 +135,8 @@ if(_activated) then {
 
 			// Draw markers on start position vehicles and groups
 			if ( wmt_param_ShowVehiclesBriefing != 0 or wmt_param_ShowSquadsBriefing != 0 ) then {
-				[] spawn {
-					PR(_markerPool) = [] call WMT_fnc_SpotMarkers;
-					sleep 0.1;
-					if (!isNil "WMT_pub_frzState") then {
-						waitUntil{sleep 1.05; WMT_pub_frzState>=3};
-					};
-					{deleteMarkerLocal _x;} foreach _markerPool;
-				};
+				0 = [] spawn WMT_fnc_SpotMarkers;
+		
 			};
 			// Show frequencies
 			if (wmt_param_GenerateFrequencies == 1) then {

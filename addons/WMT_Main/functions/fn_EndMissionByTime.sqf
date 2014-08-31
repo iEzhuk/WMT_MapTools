@@ -24,13 +24,18 @@ PR(_message) = _this select 2;
 
 sleep 1;
 
+if (not isNil "WMT_pub_frzState") then {
+	waitUntil {sleep 0.67; WMT_pub_frzState >= 3};
+
+};
+
+//PR(_missionTime) = _time*60;
 PR(_startTime) = diag_tickTime;
-PR(_missionTime) = _time*60;
+	
+Global_HIA3_Specator_Time = ceil((wmt_param_MissionTime*60-_startTime)/60);
 
-Global_HIA3_Specator_Time = ceil((_missionTime-_startTime)/60);
-
-while {diag_tickTime-_startTime<_missionTime} do {
-	PR(_tmp) = ceil((_missionTime-(diag_tickTime-_startTime))/60);
+while {diag_tickTime-_startTime<(wmt_param_MissionTime*60)} do {
+	PR(_tmp) = ceil(((wmt_param_MissionTime*60)-(diag_tickTime-_startTime))/60);
 	if(_tmp != Global_HIA3_Specator_Time) then {
 		Global_HIA3_Specator_Time = _tmp;
 		publicVariable "Global_HIA3_Specator_Time";
