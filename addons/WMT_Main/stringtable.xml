@@ -35,7 +35,7 @@
 				<Russian>В наземной технике</Russian>
 			</Key>
 			<Key ID="STR_WMT_InAirVehicle">
-				<Original>In a air vehicle</Original>
+				<Original>In an air vehicle</Original>
 				<Russian>В воздушной технике</Russian>
 			</Key>
 			<Key ID="STR_WNT_OnShip">
@@ -71,15 +71,15 @@
 				<Russian>Отправить</Russian>
 			</Key>
 			<Key ID="STR_WMT_Enable">
-				<Original>Enable</Original>
+				<Original>Enabled</Original>
 				<Russian>Включено</Russian>
 			</Key>
 			<Key ID="STR_WMT_Disable">
-				<Original>Disable</Original>
+				<Original>Disabled</Original>
 				<Russian>Отключен</Russian>
 			</Key>
 			<Key ID="STR_WMT_DisableTI">
-				<Original>Terminal view is disable</Original>
+				<Original>Terminal view is disabled</Original>
 				<Russian>Тепловизор отключен</Russian>
 			</Key>
 			<Key ID="STR_WMT_Win">
@@ -111,11 +111,11 @@
 				<Russian>Стандартные настройки</Russian>
 			</Key>	
 			<Key ID="STR_WMT_TI_DisableInVehicle">
-				<Original>Disable in vehicles</Original>
+				<Original>Disabled in vehicles</Original>
 				<Russian>Отключен в технике</Russian>
 			</Key>	
 			<Key ID="STR_WMT_TI_Disable">
-				<Original>Disable</Original>
+				<Original>Disabled</Original>
 				<Russian>Отключен</Russian>
 			</Key>
 			<Key ID="STR_WMT_AI">
@@ -123,7 +123,7 @@
 				<Russian>ИИ</Russian>
 			</Key>
 			<Key ID="STR_WMT_NameTag">
-				<Original>Name tag</Original>
+				<Original>Name tags</Original>
 				<Russian>Подсветка имени</Russian>
 			</Key>
 			<Key ID="STR_WMT_Vehicles">
@@ -143,7 +143,7 @@
 				<Russian>Убиства</Russian>
 			</Key>
 			<Key ID="STR_WMT_Unknow">
-				<Original>Unknow</Original>
+				<Original>Unknown</Original>
 				<Russian>Неизвестно</Russian>
 			</Key>
 			<Key ID="STR_WMT_Ally">
@@ -159,7 +159,7 @@
 				<Russian>Фракция</Russian>
 			</Key>
 			<Key ID="STR_WMT_WinnerSide_Desc">
-				<Original>Side that win after end time</Original>
+				<Original>Side that wins after end time</Original>
 				<Russian>Фракция, которая побеждает после окончания времени</Russian>
 			</Key>
 			<Key ID="STR_WMT_Nobody">
@@ -175,7 +175,7 @@
 				<Russian>Восток</Russian>
 			</Key>
 			<Key ID="STR_WMT_Resistance">
-				<Original>Resistance</Original>
+				<Original>Independant</Original>
 				<Russian>Независимые</Russian>
 			</Key>
 			<Key ID="STR_WMT_Civilian">
@@ -239,11 +239,11 @@
 				<Russian>Время вышло</Russian>
 			</Key>
 			<Key ID="STR_WMT_HeavyLossesCoeff">
-				<Original>Fraction of heavy losses</Original>
+				<Original>Heavy losses ratio</Original>
 				<Russian>Доля тяжелых потерь</Russian>
 			</Key>
 			<Key ID="STR_WMT_HLSWinLoseMSG">
-				<Original>%1 Win. Their enemies suffered heavy losses!</Original>
+				<Original>%1 Wins. Their enemies suffered heavy losses!</Original>
 				<Russian>%1 победили. Их противники понесли тяжелые потери и были вынуждены отступить!</Russian>
 			</Key>
 			<Key ID="STR_WMT_ShowEnemyVehsNotes">
@@ -295,15 +295,15 @@
 				<Russian>Показывать статистики</Russian>
 			</Key>
 			<Key ID="STR_WMT_Statistic_Desc">
-				<Original>Show statistic after death by press [end]</Original>
+				<Original>Show statistic after death by pressing [end]</Original>
 				<Russian>Показывать статистики после смерти по нажатию на [end]</Russian>
 			</Key>
 			<Key ID="STR_WMT_IndetifyTheBody">
-				<Original>Indetify the body</Original>
-				<Russian>Распознавание мертвых</Russian>
+				<Original>Identify the body</Original>
+				<Russian>Распознование мертвых</Russian>
 			</Key>
 			<Key ID="STR_WMT_IndetifyTheBody_Action">
-				<Original>Indetify the body</Original>
+				<Original>Identify the body</Original>
 				<Russian>Распознать тело</Russian>
 			</Key>
 			<Key ID="STR_WMT_MissionParameters">
