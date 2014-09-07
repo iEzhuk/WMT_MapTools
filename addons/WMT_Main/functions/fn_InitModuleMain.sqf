@@ -122,7 +122,7 @@ if(_activated) then {
 
 			// Public variable handlers 
 			"WMT_Global_Announcement" addPublicVariableEventHandler { (_this select 1) call WMT_fnc_Announcement };
-			"WMT_Global_AddKills" addPublicVariableEventHandler { WMT_Local_Kills=WMT_Local_Kills+(_this select 1) };
+			//"WMT_Global_AddKills" addPublicVariableEventHandler { WMT_Local_Kills=WMT_Local_Kills+(_this select 1) };
 
 			// briefing
 			[] call WMT_fnc_BriefingMissionParameters;
