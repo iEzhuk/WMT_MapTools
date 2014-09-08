@@ -48,9 +48,33 @@ if(_activated) then {
 				};
 			};
 
+			PR(_getUnitList) = {
+				PR(_arrTrg) = _this select 0;
+				PR(_unitList) = [];
+
+				if(count _arrTrg > 0) then {
+					// Add units from first trigger in list 
+					_unitList = list (_arrTrg select 0);
+
+					for "_i" from 1 to ((count _arrTrg)-1) do {
+						PR(_lst) = list (_arrTrg select _i);
+
+						for "_k" from 0 to ((count _lst)-1) do {
+							PR(_unit) = _lst select _k;
+							// Checking the  double detection
+							if !(_unit in _unitList) then {
+								// Push in unit list 
+								_unitList = _unitList + [_unit];
+							};
+						};
+					};
+				};
+				_unitList
+			};
+
 			PR(_getCountUnits) = {
-				private ["_sideUnits", "_units", "_marker", "_trigger", "_minZ", "_maxZ"];
-				_trigger  = _this select 0;
+				private ["_sideUnits", "_units", "_marker", "_arrTrg", "_minZ", "_maxZ"];
+				_arrTrg  = _this select 0;
 				_minZ = _this select 1;
 				_maxZ = _this select 2;
 				_sideUnits = [0,0,0,0,0];
@@ -68,7 +92,7 @@ if(_activated) then {
 							_sideUnits set [_id, (_sideUnits select 0) + ({isPlayer _x && alive _x} count (crew _unit))];
 						};
 					};
-				}forEach (list _trigger);
+				}forEach ([_arrTrg] call _getUnitList);
 
 				_sideUnits
 			};
@@ -77,7 +101,7 @@ if(_activated) then {
 			PR(_units) = _this select 1;
 			PR(_delay) = _this select 2;
 
-			PR(_marker) 	= _logic getVariable "Marker";
+			PR(_markerStr) 	= _logic getVariable "Marker";
 			PR(_owner)		= [east,west,resistance,civilian,sideLogic] select (_logic getVariable "Owner");
 			PR(_message)	= _logic getVariable "Message";
 			PR(_defCount)	= _logic getVariable "DefCount";
@@ -89,12 +113,21 @@ if(_activated) then {
 			PR(_captureCount) = _logic getVariable "CaptureCount";
 			PR(_easyCapture)  = _logic getVariable "EasyCapture";
 
-			// Init point
-			PR(_trg) = [_marker] call _func_create_trigger;
 
-			// Marker settings 
-			_marker setMarkerColor (_owner call _func_sideToColor);
-			_marker setMarkerBrush "SolidBorder";
+			PR(_arrMarkers) = [_markerStr] call WMT_fnc_StringToArray;
+			PR(_arrTrgs)	= [];
+			PR(_brush) 		= if(count _arrMarkers == 1)then{"SolidBorder"}else{"Solid"};
+
+			// Init point
+
+			for "_i" from 0 to ((count _arrMarkers)-1) do {
+				PR(_marker) = _arrMarkers select _i;
+
+				_marker setMarkerColor (_owner call _func_sideToColor);
+				_marker setMarkerBrush _brush;
+
+				_arrTrgs set [count _arrTrgs, ([_marker] call _func_create_trigger)];
+			};
 
 			// Set variable
 			_logic setVariable ["WMT_PointOwner", _owner];
@@ -106,7 +139,7 @@ if(_activated) then {
 			PR(_timeB)  = -1;
 
 			while {!_locked} do {
-				PR(_unitCount) = [_trg, _minHeight, _maxHeight] call _getCountUnits;
+				PR(_unitCount) = [_arrTrgs, _minHeight, _maxHeight] call _getCountUnits;
 				PR(_curOwner)  = _logic getVariable "WMT_PointOwner";
 
 				PR(_dc) = _unitCount select ([WEST, EAST, RESISTANCE, CIVILIAN, sideLogic] find _curOwner);
@@ -153,7 +186,7 @@ if(_activated) then {
 					if (diag_tickTime - _timeB >= _timer) then {
 						// Capture the zone
 						_logic setVariable ["WMT_PointOwner", _cs];
-						_marker setMarkerColor (_cs call _func_sideToColor);
+						{_x setMarkerColor (_cs call _func_sideToColor)} forEach _arrMarkers;
 
 						if(_message != "") then {
 							WMT_Global_Notice_ZoneCaptured = [_cs, _logic];
@@ -172,7 +205,8 @@ if(_activated) then {
 
 				sleep 3.12;
 			};
-			deleteVehicle  _trg; 
+			//Remove trigers
+			{deleteVehicle  _x} foreach _arrTrgs; 
 		};
 	};
 	//===============================================================

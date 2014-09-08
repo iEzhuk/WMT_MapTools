@@ -13,6 +13,7 @@ class CfgFunctions
 			class CreateTrigger{};
 			class EndMission{};
 			class LongGroupNameToShort{};
+			class StringToArray{};
 			class ZoneCaptured{};
 		};
 	};
