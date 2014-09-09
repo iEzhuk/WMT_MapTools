@@ -25,8 +25,7 @@ PR(_killerName) = _killer getVariable ["WMT_PlayerName", localize "STR_WMT_Unkno
 PR(_killerSide) = _killer getVariable ["WMT_PlayerSide", sideLogic];
 
 WMT_Local_Killer    = [_killerName, _killerSide];
-WMT_Global_AddKills = [WMT_Local_PlayerName,playerSide];
 
 if (not isnil '_killer' and {not isnull _killer}) then {
-	[ [ WMT_Global_AddKills, { WMT_Local_Kills pushback (_this); } ],"bis_fnc_spawn",_killer] call bis_fnc_mp;
+	[ [ [WMT_Local_PlayerName,playerSide], { WMT_Local_Kills pushback (_this); } ],"bis_fnc_spawn",_killer] call bis_fnc_mp;
 };
