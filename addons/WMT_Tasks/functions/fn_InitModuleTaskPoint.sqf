@@ -137,6 +137,7 @@ if(_activated) then {
 			PR(_objs)   = _units;
 			PR(_locked) = false;
 			PR(_timeB)  = -1;
+			PR(_typeB)	= 0;
 
 			while {!_locked} do {
 				PR(_unitCount) = [_arrTrgs, _minHeight, _maxHeight] call _getCountUnits;
@@ -156,31 +157,32 @@ if(_activated) then {
 					};
 				} foreach [WEST, EAST, RESISTANCE, CIVILIAN];
 
-				PR(_captured) = false;
-				if (_dc < _defCount) then {
-					if (_cc >= _captureCount) then {
-						// Standart
-						_captured = true;
+				PR(_captured) = 0;
+
+				//Checking conditions
+				switch (true) do {
+					// Standart
+					case (_dc < _defCount && _cc >= _captureCount) : {
+						_captured = 1;
 					};
-				} else {
-					if (_dc==0) then {
-						if (_easyCapture==1 && _cc > 0) then {
-							// Easy capture
-							_captured = true;
-						} else {
-							if (_autoLose != -1) then {
-								// Auto lose
-								_cs = [east,west,resistance,civilian,sideLogic] select _autoLose;
-								_captured = true;
-							};
+					// Easy capture
+					case (_dc==0 && _easyCapture==1 && _cc > 0) : {
+						_captured = 2;
+					};
+					// Auto lose
+					case (_dc==0 && _autoLose != -1) : {
+						_cs = [east,west,resistance,civilian,sideLogic] select _autoLose;
+						if(_cs != _curOwner) then {
+							_captured = 3;
 						};
 					};
 				};
 
-				if (_captured) then {
-					if (_timeB < 0) then {
+				if (_captured > 0) then {
+					if (_typeB!= _captured) then {
 						// Timecount
 						_timeB = diag_tickTime;
+						_typeB = _captured;
 					};
 
 					if (diag_tickTime - _timeB >= _timer) then {
@@ -200,7 +202,9 @@ if(_activated) then {
 						};
 					};
 				} else {
+					// Stop timecount
 					_timeB = -1;
+					_typeB = 0;
 				};
 
 				sleep 3.12;
