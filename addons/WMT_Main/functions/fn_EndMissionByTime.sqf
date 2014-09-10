@@ -11,7 +11,6 @@
 		0 - time 
 		1 - winner side
 		2 - message
-		3 - brodcast left time
  	
  	Returns:
 		Nothing 
@@ -26,20 +25,18 @@ sleep 1;
 
 if (not isNil "WMT_pub_frzState") then {
 	waitUntil {sleep 0.67; WMT_pub_frzState >= 3};
-
 };
 
-//PR(_missionTime) = _time*60;
 PR(_startTime) = diag_tickTime;
-	
-Global_HIA3_Specator_Time = ceil((wmt_param_MissionTime*60-_startTime)/60);
 
 while {diag_tickTime-_startTime<(wmt_param_MissionTime*60)} do {
-	PR(_tmp) = ceil(((wmt_param_MissionTime*60)-(diag_tickTime-_startTime))/60);
-	if(_tmp != Global_HIA3_Specator_Time) then {
-		Global_HIA3_Specator_Time = _tmp;
-		publicVariable "Global_HIA3_Specator_Time";
-	};
+	PR(_leftTime) = ceil(((wmt_param_MissionTime*60)-(diag_tickTime-_startTime)));
+
+	WMT_Global_LeftTime = [_leftTime];
+	publicVariable "WMT_Global_LeftTime";
+
+	WMT_Local_LeftTime = [diag_tickTime, _leftTime, true];
+
 	sleep 60;
 };
 

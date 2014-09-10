@@ -65,6 +65,13 @@ if(_activated) then {
 	//					CLIENT
 	//================================================
 	if(!isDedicated) then {
+
+		"WMT_Global_LeftTime" addPublicVariableEventHandler {WMT_Local_LeftTime=[diag_tickTime, ((_this select 1) select 0),true]; };
+
+		if(isNil "WMT_Local_LeftTime") then {
+			WMT_Local_LeftTime=[diag_tickTime, wmt_param_MissionTime,false];
+		};
+
 		[] spawn {
 			waitUntil{!isNil {player}};
 			
