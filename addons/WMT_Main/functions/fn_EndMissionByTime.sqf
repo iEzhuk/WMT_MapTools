@@ -37,7 +37,7 @@ while {diag_tickTime-_startTime<(wmt_param_MissionTime*60)} do {
 
 	WMT_Local_LeftTime = [diag_tickTime, _leftTime, true];
 
-	sleep 60;
+	sleep 30;
 };
 
 [[[_winSide, _message], {_this call WMT_fnc_EndMission;}], "bis_fnc_spawn"] call bis_fnc_mp;			

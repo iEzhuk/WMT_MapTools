@@ -318,6 +318,30 @@
 				<Original>Mission start</Original>
 				<Russian>Начало миссии</Russian>
 			</Key>
+			<Key ID="STR_WMT_TimeIncreased">
+				<Original>Time mission is increased by %1 minutes (%2:00)</Original>
+				<Russian>Время на миссию увеличено на %1 минут (%2:00)</Russian>
+			</Key>
+			<Key ID="STR_WMT_TimeReduced">
+				<Original>Time mission is reduced by %1 minutes (%2:00)</Original>
+				<Russian>Время на миссию уменьшено на %1 минут (%2:00)</Russian>
+			</Key>
+			<Key ID="STR_WMT_TimeLeft">
+				<Original>Time left</Original>
+				<Russian>Оставшееся время</Russian>
+			</Key>
+			<Key ID="STR_WMT_Add5Min">
+				<Original>+ 5 min</Original>
+				<Russian>+ 5 мин</Russian>
+			</Key>
+			<Key ID="STR_WMT_Add10Min">
+				<Original>+ 10 min</Original>
+				<Russian>+ 10 мин</Russian>
+			</Key>			
+			<Key ID="STR_WMT_Sub5Min">
+				<Original>- 5 min</Original>
+				<Russian>- 5 мин</Russian>
+			</Key>
 		</Container>
 	</Package>
 </Project>

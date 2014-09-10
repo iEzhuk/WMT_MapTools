@@ -26,6 +26,8 @@ switch (_event) do
 		PR(_dialog) = _arg select 0;
 		uiNamespace setVariable ["WMT_Dialog_Menu", _dialog];
 		_dialog displayAddEventHandler ["MouseMoving", "true"];
+
+		["loop", _dialog] call WMT_fnc_HandlerAdminPanel;
 	};
 	case "close": {
 		uiNamespace setVariable ["WMT_Dialog_Menu", nil];
@@ -65,6 +67,71 @@ switch (_event) do
 		};
 
 		closeDialog 0;
+	};
+	case "loop" : {
+		[_arg] spawn {
+			disableSerialization;
+
+			PR(_dialog) = _this select 0;
+			PR(_ctrlTime) = _dialog displayCtrl IDD_ADMINPANEL_TEXTTIME;
+
+			if (isNil "wmt_param_MissionTime") then {
+				_ctrlTime ctrlSetText format ["%1:   --:--",localize "STR_WMT_TimeLeft"];
+			} else {
+				while {(uiNamespace getVariable ["WMT_Dialog_Menu",displayNull]) == _dialog} do {
+					PR(_leftTime) = (WMT_Local_LeftTime select 1);
+
+					if (WMT_Local_LeftTime select 2) then {
+						_leftTime = _leftTime - (diag_tickTime - (WMT_Local_LeftTime select 0));
+					};
+
+					_leftTime = 0 max _leftTime;
+
+					PR(_min) = floor(_leftTime/60);
+					PR(_sec) = floor(_leftTime%60);
+					PR(_text) = "";
+
+					if(_sec<10) then {
+						_text = format ["%1:   %2:0%3",localize "STR_WMT_TimeLeft", _min, _sec];
+					} else {
+						_text = format ["%1:   %2:%3",localize "STR_WMT_TimeLeft", _min, _sec];
+					};
+
+					_ctrlTime ctrlSetText _text;
+					sleep 0.1;
+				};
+			};
+		};
+
+	};
+	case "changeTime" : {
+		if !(isNil "wmt_param_MissionTime") then {
+			PR(_deltaTime) = _arg; // minutes
+
+			// Change mission time
+			wmt_param_MissionTime = wmt_param_MissionTime + _deltaTime;
+			publicVariable "wmt_param_MissionTime";
+
+			// Syncronize time left for spectators
+			PR(_timeLeft) = ((WMT_Local_LeftTime select 1) + _deltaTime*60);
+			if (WMT_Local_LeftTime select 2) then {
+				_timeLeft = _timeLeft - (diag_tickTime - (WMT_Local_LeftTime select 0));
+			};
+
+			WMT_Local_LeftTime = [diag_tickTime, _timeLeft, (WMT_Local_LeftTime select 2)];
+			WMT_Global_LeftTime = [_timeLeft];
+			publicVariable "WMT_Global_LeftTime";
+
+			// Announcement
+			if(_deltaTime>0) then {
+				WMT_Global_Announcement = format [localize "STR_WMT_TimeIncreased", _deltaTime, wmt_param_MissionTime];
+			} else {
+				WMT_Global_Announcement = format [localize "STR_WMT_TimeReduced", -_deltaTime, wmt_param_MissionTime];
+			};
+
+			WMT_Global_Announcement call WMT_fnc_Announcement;
+			publicVariable "WMT_Global_Announcement";
+		};	
 	};
 };
 _return
