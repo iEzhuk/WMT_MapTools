@@ -33,6 +33,19 @@ PR(_friendlyVehs)=[];
 PR(_enemyVehs)=[];
 PR(_friendlySquads)=[];
 
+PR(_units) = (group player) getVariable ["WMT_BriefingUnitsInfo", []];
+if (count _units != 0 ) then {
+	_marker = format ["WMT_PrepareTime_%1_%2", playerSide, groupID group player];
+	PR(_myTxt) = format ["<font color='#c7861b'><marker name='%2'>%1:</marker></font><br/>", groupID group player, _marker];
+	{
+		_myTxt = _myTxt + getText (configFile >> "CfgVehicles" >> format["%1",(_x select 0)] >> "Displayname")+ ":  " + (_x select 1);
+		_myTxt = _myTxt + "<br/>";
+	} foreach _units;
+	_myTxt = _myTxt + "<br/>";
+	["diary",localize "STR_WMT_MySquad", _myTxt] call WMT_fnc_CreateDiaryRecord;
+
+};
+
 {
 	if ( (_x select 0) == "V") then {
 		_pos = _x select 1;
@@ -99,7 +112,6 @@ if (count _enemyVehs != 0 ) then {
 	["diary",localize "STR_WMT_EnemyVehicles", _enemyVehTxt] call WMT_fnc_CreateDiaryRecord; 
 };
 
-
 if (count _friendlyVehs != 0 ) then {
 	_friendlyVehs=_friendlyVehs call BIS_fnc_consolidateArray;
 	{
@@ -111,18 +123,7 @@ if (count _friendlyVehs != 0 ) then {
 	["diary",localize "STR_WMT_Vehicles", _vehicleTxt] call WMT_fnc_CreateDiaryRecord; 
 };
 
-PR(_units) = (group player) getVariable ["WMT_BriefingUnitsInfo", []];
-if (count _units != 0 ) then {
-	_marker = format ["WMT_PrepareTime_%1_%2", playerSide, groupID group player];
-	PR(_myTxt) = format ["<font color='#c7861b'><marker name='%2'>%1:</marker></font><br/>", groupID group player, _marker];
-	{
-		_myTxt = _myTxt + getText (configFile >> "CfgVehicles" >> format["%1",(_x select 0)] >> "Displayname")+ ":  " + (_x select 1);
-		_myTxt = _myTxt + "<br/>";
-	} foreach _units;
-	_myTxt = _myTxt + "<br/>";
-	["diary",localize "STR_WMT_MySquad", _myTxt] call WMT_fnc_CreateDiaryRecord;
 
-};
 
 
 waitUntil {time > 900 and (diag_tickTime - _beginTime > 900)};
