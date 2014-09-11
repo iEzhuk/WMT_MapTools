@@ -40,7 +40,7 @@ PR(_friendlySquads)=[];
 		_side = _x select 3;
 		_vehname = format ["%1", getText (configFile >> "CfgVehicles" >> _class >> "displayName") ];
 		
-		// ксли дружественные, то
+		// если дружественные, то
 		if (_side in _friendlySides) then {
 			// маркер на технику
 			
@@ -91,7 +91,7 @@ PR(_friendlySquads)=[];
 if (count _enemyVehs != 0 ) then {
 	_enemyVehs=_enemyVehs call BIS_fnc_consolidateArray;
 	{
-		_enemyVehTxt = _enemyVehTxt + format ["<font color='#c7861b'>%1</font> - %2",_x select 0,_x select 1];
+		_enemyVehTxt = _enemyVehTxt + format ["%1 - <font color='#c7861b'>%2</font>",_x select 0,_x select 1];
 		_enemyVehTxt = _enemyVehTxt + "<br/>";
 
 	} foreach _enemyVehs;
@@ -103,7 +103,7 @@ if (count _enemyVehs != 0 ) then {
 if (count _friendlyVehs != 0 ) then {
 	_friendlyVehs=_friendlyVehs call BIS_fnc_consolidateArray;
 	{
-		_vehicleTxt = _vehicleTxt + format ["<font color='#c7861b'>%1</font> - %2",_x select 0,_x select 1];
+		_vehicleTxt = _vehicleTxt + format ["%1 - <font color='#c7861b'>%2</font>",_x select 0,_x select 1];
 		_vehicleTxt = _vehicleTxt + "<br/>";
 
 	} foreach _friendlyVehs;
