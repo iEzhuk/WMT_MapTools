@@ -24,7 +24,7 @@ PR(_killer) = _this select 1;
 PR(_killerName) = _killer getVariable ["WMT_PlayerName", localize "STR_WMT_Unknow"];
 PR(_killerSide) = _killer getVariable ["WMT_PlayerSide", sideLogic];
 
-WMT_Local_Killer    = [_killerName, _killerSide];
+WMT_Local_Killer = [_killerName, _killerSide];
 
 if (not isnil '_killer' and {not isnull _killer}) then {
 	[ [ [WMT_Local_PlayerName,playerSide], { WMT_Local_Kills pushback (_this); } ],"bis_fnc_spawn",_killer] call bis_fnc_mp;

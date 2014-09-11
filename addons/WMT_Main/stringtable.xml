@@ -182,6 +182,10 @@
 				<Original>Civilian</Original>
 				<Russian>Гражданские</Russian>
 			</Key>
+				<Key ID="STR_WMT_Civilian_m">
+				<Original>Civilian</Original>
+				<Russian>Гражданский</Russian>
+			</Key>	
 			<Key ID="STR_WMT_Message">
 				<Original>Message</Original>
 				<Russian>Сообщение</Russian>
@@ -353,7 +357,7 @@
 			<Key ID="STR_WMT_ExtendedBriefingInfo">
 				<Original>Shows additional info regarding vehicles and squads</Original>
 				<Russian>Показывать на брифинге информацию об отрядах и технике</Russian>
-			</Key>						
+			</Key>
 		</Container>
 	</Package>
 </Project>
