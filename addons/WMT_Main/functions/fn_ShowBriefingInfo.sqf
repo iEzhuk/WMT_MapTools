@@ -101,7 +101,7 @@ if (count _units != 0 ) then {
 
 ["diary",localize "STR_WMT_Squads", _squadTxt] call WMT_fnc_CreateDiaryRecord;
 
-if (count _enemyVehs != 0 and getNumber(MissionConfigFile >> "WMT_Param" >> "CampaignMarkersMode") != 1) then {
+if (count _enemyVehs != 0 and getNumber(MissionConfigFile >> "WMT_Param" >> "CampaignBriefingMode") != 1) then {
 	_enemyVehs=_enemyVehs call BIS_fnc_consolidateArray;
 	{
 		_enemyVehTxt = _enemyVehTxt + format ["%1 - <font color='#c7861b'>%2</font>",_x select 0,_x select 1];
