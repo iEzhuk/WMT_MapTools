@@ -139,6 +139,7 @@ if(_activated) then {
 			"WMT_Global_Announcement" addPublicVariableEventHandler { (_this select 1) call WMT_fnc_Announcement };
 
 			// briefing
+			[] call WMT_fnc_BriefingMissionParameters;
 			if (wmt_param_ExtendedBriefing == 1) then {
 				[] spawn wmt_fnc_showbriefinginfo;
 			};
