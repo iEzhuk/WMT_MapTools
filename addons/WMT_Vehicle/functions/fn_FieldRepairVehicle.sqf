@@ -19,13 +19,17 @@
 #define DEFAULT_FREE_REPAIRS 1
 #define DEFAULT_FIELDREPAIR_EACH_PART_TIME 30
 #define DEFAULT_FIELDREPAIR_EACH_HARDPART_TIME 100
+#define DISTANCE_TO_REPAIRVEHICLE 15
 		
 PR(_fnc_hastk) = {
-	private ["_ret"];
+	private ["_ret","_objs","_truck"];
 	_ret = 0;
 	if ("ToolKit" in (items player)) then {_ret = 1;};
 	if ("ToolKit" in (itemCargo _veh)) then {_ret = 2;};
 	if ( (_veh getVariable ["wmt_fieldrepair_times",0] ) < DEFAULT_FREE_REPAIRS) then {_ret = 3;};
+
+	_objs = nearestObjects [player, ["Car","Tank","Air","Ship"], DISTANCE_TO_REPAIRVEHICLE];
+	{ if ( alive _x and {_x getVariable ["wmt_repair_cargo", -1] > -0.5} ) then {_ret = 4;}; } foreach _objs;
 	_ret;
 };
 
