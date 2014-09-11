@@ -5,9 +5,9 @@ class CfgFunctions
 		class Vehicle
 		{
 			file="WMT_Vehicle\functions";
-			class PrecompileVehicle{preInit=1};
-
+			class PrecompileVehicle{preInit=1;};
 			class ProgressBar{};
 		};
 	};
 };
+

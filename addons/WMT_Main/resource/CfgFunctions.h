@@ -5,8 +5,7 @@ class CfgFunctions
 		class Main
 		{
 			file = "WMT_Main\functions";
-			class PrecompileMain{preInit=1};
-			
+			class PrecompileMain{preInit=1;};
 			class BoundingBoxMarker{};
 			class CreateDiaryRecord{};
 			class CreateLocalMarker{};
