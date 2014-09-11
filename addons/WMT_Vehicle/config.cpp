@@ -11,9 +11,9 @@ class CfgPatches
 		requiredAddons[] = {"A3_Characters_F_BLUFOR","A3_Characters_F_OPFOR","A3_Characters_F_Gamma","A3_Characters_F_INDEP","A3_Characters_F_Civil"};
 		authorUrl = "https://github.com/iEzhuk/WOG3_MapTools";
 		author[]= {"Zealot, Ezhuk"}; 		
-		version = 1.1.0;
-		versionStr = "1.1.0";
-		versionAr[] = {1,1,0};
+		version = 1.2.0;
+		versionStr = "1.2.0";
+		versionAr[] = {1,2,0};
 
 	};
 };
