@@ -17,8 +17,6 @@
 WMT_fnc_Announcement				= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\fn_Announcement.sqf");
 WMT_fnc_ArrayToString				= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\fn_ArrayToString.sqf");
 WMT_fnc_BriefingMissionParameters 	= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\fn_Announcement.sqf");
-WMT_fnc_BriefingSquads 				= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\fn_BriefingSquads.sqf");
-WMT_fnc_BriefingVehicles			= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\fn_BriefingVehicles.sqf");
 WMT_fnc_DefaultFreqsClient			= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\fn_DefaultFreqsClient.sqf"); 
 WMT_fnc_DefaultFreqsServer			= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\fn_DefaultFreqsServer.sqf"); 
 WMT_fnc_DisableAI					= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\fn_DisableAI.sqf");
@@ -53,5 +51,6 @@ WMT_fnc_PrepareTime_server			= compileFinal preprocessFileLineNumbers  ("WMT_Mai
 WMT_fnc_RatingControl				= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\fn_RatingControl.sqf");
 WMT_fnc_RemoveBots					= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\fn_RemoveBots.sqf");
 WMT_fnc_ShowStatistic				= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\fn_ShowStatistic.sqf");
-WMT_fnc_SpotMarkers					= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\fn_SpotMarkers.sqf");
 WMT_fnc_UpdateMainActions			= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\fn_UpdateMainActions.sqf");
+WMT_fnc_PrepareBriefingInfo			= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\fn_PrepareBriefingInfo.sqf");
+WMT_fnc_ShowBriefingInfo			= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\fn_ShowBriefingInfo.sqf");

@@ -342,6 +342,18 @@
 				<Original>- 5 min</Original>
 				<Russian>- 5 мин</Russian>
 			</Key>
+			<Key ID="STR_WMT_MySquad">
+				<Original>My Squad</Original>
+				<Russian>Мое отделение</Russian>
+			</Key>
+			<Key ID="STR_WMT_ExtendedBriefing">
+				<Original>Extended Briefing</Original>
+				<Russian>Расширеный брифинг</Russian>
+			</Key>						
+			<Key ID="STR_WMT_ExtendedBriefingInfo">
+				<Original>Shows additional info regarding vehicles and squads</Original>
+				<Russian>Показывать на брифинге информацию об отрядах и технике</Russian>
+			</Key>						
 		</Container>
 	</Package>
 </Project>

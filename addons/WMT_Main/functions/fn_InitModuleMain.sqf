@@ -53,6 +53,15 @@ if(_activated) then {
 	if(isNil "wmt_param_Statistic") then {
 		wmt_param_Statistic = _logic getVariable "Statistic";
 	};
+	if(isNil "wmt_param_ExtendedBriefing") then {
+		wmt_param_ExtendedBriefing = _logic getVariable "ExtendedBriefing";
+		if (isNil "wmt_param_ExtendedBriefing") then {
+			wmt_param_ExtendedBriefing = 1;
+		};
+	};
+
+
+	
 	
 	wmt_param_MaxViewDistance  = 10 max wmt_param_MaxViewDistance;
 	wmt_param_HeavyLossesCoeff = 0 max wmt_param_HeavyLossesCoeff;
@@ -73,6 +82,12 @@ if(_activated) then {
 			["vehicle", [(wmt_param_TI==1)]] call WMT_fnc_DisableTI;
 
 			[wmt_param_HeavyLossesCoeff] spawn WMT_fnc_HeavyLossesCheck;
+
+			// briefing
+			if (wmt_param_ExtendedBriefing == 1) then {
+				[] spawn wmt_fnc_preparebriefinginfo;
+			};
+
 		};
 	}; 
 
@@ -124,25 +139,10 @@ if(_activated) then {
 			"WMT_Global_Announcement" addPublicVariableEventHandler { (_this select 1) call WMT_fnc_Announcement };
 
 			// briefing
-			[] call WMT_fnc_BriefingMissionParameters;
-			if(wmt_param_ShowVehiclesBriefing == 1) then {
-				[wmt_param_ShowEnemyVehiclesInNotes] call WMT_fnc_BriefingVehicles;
-			};
-			if(wmt_param_ShowSquadsBriefing == 1) then {
-				[] call WMT_fnc_BriefingSquads;
+			if (wmt_param_ExtendedBriefing == 1) then {
+				[] spawn wmt_fnc_showbriefinginfo;
 			};
 
-			// Draw markers on start position vehicles and groups
-			if ( wmt_param_ShowVehiclesBriefing != 0 or wmt_param_ShowSquadsBriefing != 0 ) then {
-				[] spawn {
-					PR(_markerPool) = [] call WMT_fnc_SpotMarkers;
-					sleep 0.1;
-					if (!isNil "WMT_pub_frzState") then {
-						waitUntil{sleep 1.05; WMT_pub_frzState>=3};
-					};
-					{deleteMarkerLocal _x;} foreach _markerPool;
-				};
-			};
 			// Show frequencies
 			if (wmt_param_GenerateFrequencies == 1) then {
 				[] spawn WMT_fnc_DefaultFreqsClient;

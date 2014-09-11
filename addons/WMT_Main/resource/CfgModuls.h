@@ -51,6 +51,18 @@ class CfgVehicles
 					class Disable 		{name = "$STR_WMT_TI_Disable"; value = 2;};
 				};
 			};
+			class ExtendedBriefing
+			{
+				displayName = "$STR_WMT_ExtendedBriefing";
+				description = "$STR_WMT_ExtendedBriefingInfo";
+				typeName = "NUMBER";
+				class values
+				{
+					class Disable 	{name = "$STR_WMT_Disable"; value = 0;};
+					class Enable	{name = "$STR_WMT_Enable"; value = 1; default = 1;};
+				};
+			};
+
 			class NameTag
 			{
 				displayName = "$STR_WMT_NameTag";
@@ -71,39 +83,6 @@ class CfgVehicles
 				{
 					class Disable 	{name = "$STR_WMT_Disable"; value = 0;};
 					class Enable	{name = "$STR_WMT_Enable"; value = 1; default = 1;};
-				};
-			};
-			class ShowSquadsBriefing
-			{
-				displayName = "$STR_WMT_ShowSquadsBriefingShort";
-				description = "$STR_WMT_ShowSquadsBriefing";
-				typeName = "NUMBER";
-				class values
-				{
-					class Disable 	{name = "$STR_WMT_Disable"; value = 0; };
-					class Enable	{name = "$STR_WMT_Enable"; value = 1; default = 1;};
-				};
-			};
-			class ShowVehiclesBriefing
-			{
-				displayName = "$STR_WMT_ShowVehsBriefingShort";
-				description = "$STR_WMT_ShowVehsBriefing";
-				typeName = "NUMBER";
-				class values
-				{
-					class Disable 	{name = "$STR_WMT_Disable"; value = 0; };
-					class Enable	{name = "$STR_WMT_Enable"; value = 1; default = 1;};
-				};
-			};
-			class ShowEnemyVehiclesInNotes
-			{
-				displayName = "$STR_WMT_ShowEnemyVehsNotes";
-				description = "$STR_WMT_ShowEnemyVehsNotes_Desc";
-				typeName = "NUMBER";
-				class values
-				{
-					class Disable 	{name = "$STR_WMT_Disable"; value = 0; default = 0;};
-					class Enable	{name = "$STR_WMT_Enable"; value = 1;};
 				};
 			};
 			class GenerateFrequencies
