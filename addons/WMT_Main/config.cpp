@@ -17,9 +17,9 @@ class CfgPatches
 		requiredAddons[] = {};
 		author[] = {"Ezhuk","Zealot"};
 		authorUrl = "https://github.com/iEzhuk/WOG3_MapTools";
-		version = 1.2.0;
-		versionStr = "1.2.0";
-		versionAr[] = {1,2,0};	
+		version = 1.2.1;
+		versionStr = "1.2.1";
+		versionAr[] = {1,2,1};	
 	};
 };
 
