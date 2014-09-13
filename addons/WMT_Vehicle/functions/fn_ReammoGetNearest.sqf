@@ -18,7 +18,7 @@
 private ["_res","_objs"];
 _res = objNull;
 
-_objs = nearestObjects [player, ["Car","Tank","Air","Ship"], DISTANCE_TO_REAMMOVEHICLE];
+_objs = nearestObjects [player, ["Car","Tank","Air","Ship","ReammoBox_F"], DISTANCE_TO_REAMMOVEHICLE];
 { if ( alive _x and {_x getVariable ["wmt_ammo_cargo", -1] > 0} ) then {_res = _x;}; } foreach _objs;
 
 _res
