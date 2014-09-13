@@ -15,9 +15,10 @@
 */
 #define DISTANCE_TO_REAMMOVEHICLE 15
 
-private ["_res"];
+private ["_res","_objs"];
 _res = objNull;
-{
-	if( player distance _x < DISTANCE_TO_REAMMOVEHICLE) exitWith {_res = _x;};
-} foreach (wmt_ammoCargoVehs);
+
+_objs = nearestObjects [player, ["Car","Tank","Air","Ship"], DISTANCE_TO_REAMMOVEHICLE];
+{ if ( alive _x and {_x getVariable ["wmt_ammo_cargo", -1] > 0} ) then {_res = _x;}; } foreach _objs;
+
 _res
