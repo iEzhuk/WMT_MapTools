@@ -128,4 +128,4 @@ if (count _friendlyVehs != 0 ) then {
 
 waitUntil {time > 900 and (diag_tickTime - _beginTime > 900)};
 
-{deleteMarkerLocal _x;} foreach _markerPool;
+{deleteMarkerLocal _x;} foreach _markersPool;
