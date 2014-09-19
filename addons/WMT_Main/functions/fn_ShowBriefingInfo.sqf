@@ -125,7 +125,11 @@ if (count _friendlyVehs != 0 ) then {
 
 
 
+if (isNil "WMT_pub_frzState") then {
+	waitUntil {time > 300 and (diag_tickTime - _beginTime) > 300};
 
-waitUntil {time > 900 and (diag_tickTime - _beginTime > 900)};
-
+} else {
+	waitUntil {WMT_pub_frzState >= 3};
+	sleep 300;
+};
 {deleteMarkerLocal _x;} foreach _markersPool;
