@@ -168,7 +168,7 @@ class CfgVehicles
 				displayName = "$STR_WMT_PrepareTime";
 				description = "";
 				typeName = "NUMBER";
-				defaultValue = 3;
+				defaultValue = 5;
 			};
 			class StartZone 
 			{
@@ -182,7 +182,7 @@ class CfgVehicles
 				displayName = "$STR_WMT_RemoveBots";
 				description = "";
 				typeName = "NUMBER";
-				defaultValue = 3;
+				defaultValue = 5;
 			};
 		};
 	};
