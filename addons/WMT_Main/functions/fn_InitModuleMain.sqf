@@ -70,6 +70,7 @@ if(_activated) then {
 		[] call WMT_fnc_DisableAI;
 	};
 
+	setViewDistance wmt_param_MaxViewDistance;
 	//================================================
 	//					SERVER
 	//================================================
