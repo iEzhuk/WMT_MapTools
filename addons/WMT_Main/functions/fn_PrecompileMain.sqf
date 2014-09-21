@@ -16,7 +16,7 @@
 
 WMT_fnc_Announcement				= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\fn_Announcement.sqf");
 WMT_fnc_ArrayToString				= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\fn_ArrayToString.sqf");
-WMT_fnc_BriefingMissionParameters 	= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\fn_Announcement.sqf");
+WMT_fnc_BriefingMissionParameters 	= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\fn_BriefingMissionParameters.sqf");
 WMT_fnc_DefaultFreqsClient			= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\fn_DefaultFreqsClient.sqf"); 
 WMT_fnc_DefaultFreqsServer			= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\fn_DefaultFreqsServer.sqf"); 
 WMT_fnc_DisableAI					= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\fn_DisableAI.sqf");

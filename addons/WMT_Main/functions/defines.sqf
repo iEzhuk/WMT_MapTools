@@ -149,6 +149,7 @@
 
 #define PARAM(X,Y,Z) private ['X']; X=[_this, Y, Z] call BIS_fnc_param;
 
+
 #ifdef WMT_DEBUG
 
 	if (isnil "wmt_debug_array") then {

@@ -1,0 +1,1 @@
+#define DBGMSGX(X) format ["T %1 TT %2 FN %3 FL %4 MSG %5",time,diag_tickTime, diag_frameno,__FILE__+":"+str(__LINE__),  X]

@@ -8,6 +8,7 @@
 		Initialize main module
 */
 #include "defines.sqf"
+#include "debug.hpp"
 
 PR(_logic) = [_this,0,objNull,[objNull]] call BIS_fnc_param;
 PR(_units) = [_this,1,[],[[]]] call BIS_fnc_param;
@@ -97,7 +98,9 @@ if(_activated) then {
 	//================================================
 	if(!isDedicated) then {
 		[] spawn {
-			waitUntil{!isNil {player}};
+			waitUntil{!isNull player};
+
+			"WMT_fnc_InitModuleMain started" call Bis_fnc_log;
 
 			WMT_Local_PlayerName = name player;
 
@@ -140,6 +143,7 @@ if(_activated) then {
 			"WMT_Global_Announcement" addPublicVariableEventHandler { (_this select 1) call WMT_fnc_Announcement };
 
 			// briefing
+
 			[] call WMT_fnc_BriefingMissionParameters;
 			if (wmt_param_ExtendedBriefing == 1) then {
 				[] spawn wmt_fnc_showbriefinginfo;

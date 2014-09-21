@@ -15,6 +15,9 @@
 
 #define PR(x) private ['x']; x
 
+
+"WMT_fnc_BriefingMissionParameters" call Bis_fnc_log;
+
 PR(_text) = "";
 
 if(!isNil "wmt_param_MaxViewDistance") then {
