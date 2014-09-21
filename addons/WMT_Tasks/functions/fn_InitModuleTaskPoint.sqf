@@ -114,7 +114,7 @@ if(_activated) then {
 			PR(_easyCapture)  = _logic getVariable "EasyCapture";
 
 
-			PR(_arrMarkers) = [_markerStr] call WMT_fnc_StringToArray;
+			PR(_arrMarkers) = [_markerStr,","] call Bis_fnc_splitString;
 			PR(_arrTrgs)	= [];
 			PR(_brush) 		= if(count _arrMarkers == 1)then{"SolidBorder"}else{"Solid"};
 
