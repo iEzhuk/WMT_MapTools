@@ -296,11 +296,11 @@
 			</Key>	
 			<Key ID="STR_WMT_Statistic">
 				<Original>Show statistic</Original>
-				<Russian>Показывать статистики</Russian>
+				<Russian>Показывать статистику</Russian>
 			</Key>
 			<Key ID="STR_WMT_Statistic_Desc">
 				<Original>Show statistic after death by pressing [end]</Original>
-				<Russian>Показывать статистики после смерти по нажатию на [end]</Russian>
+				<Russian>Показывать статистику после смерти по нажатию на [end]</Russian>
 			</Key>
 			<Key ID="STR_WMT_IndetifyTheBody">
 				<Original>Identify the body</Original>
