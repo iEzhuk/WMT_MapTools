@@ -27,7 +27,6 @@ switch (_event) do
 {
 	case "init": {	
 		PR(_dialog) = _arg select 0;
-		PR(_slider) = [IDC_OPTIONS_FOOT_SLIDER,IDC_OPTIONS_VEH_SLIDER,IDC_OPTIONS_AIR_SLIDER,IDC_OPTIONS_SHIP_SLIDER,IDC_OPTIONS_SPECT_SLIDER];
 		disableSerialization;
 		uiNamespace setVariable ["WMT_Dialog_Menu", _dialog];
 		['update'] call WMT_fnc_HandlerOptions;
@@ -66,7 +65,6 @@ switch (_event) do
 		(_dialog displayCtrl IDC_OPTIONS_VEH_VAR) ctrlSetText str(wmt_param_MaxViewDistance min (WMT_Options_ViewDistance select 1));
 		(_dialog displayCtrl IDC_OPTIONS_AIR_VAR) ctrlSetText str(wmt_param_MaxViewDistance min (WMT_Options_ViewDistance select 2));
 		(_dialog displayCtrl IDC_OPTIONS_SHIP_VAR) ctrlSetText str(wmt_param_MaxViewDistance min (WMT_Options_ViewDistance select 3));
-		(_dialog displayCtrl IDC_OPTIONS_SPECT_VAR) ctrlSetText str(MAX_DISTANCE min (WMT_Options_ViewDistance select 4));
 
 
 		(_dialog displayCtrl IDC_OPTIONS_FOOT_SLIDER) sliderSetSpeed [100,100];
@@ -84,10 +82,6 @@ switch (_event) do
 		(_dialog displayCtrl IDC_OPTIONS_SHIP_SLIDER) sliderSetSpeed [100,100];
 		(_dialog displayCtrl IDC_OPTIONS_SHIP_SLIDER) slidersetRange [100,wmt_param_MaxViewDistance];
 		(_dialog displayCtrl IDC_OPTIONS_SHIP_SLIDER) sliderSetPosition (wmt_param_MaxViewDistance min (WMT_Options_ViewDistance select 3));
-
-		(_dialog displayCtrl IDC_OPTIONS_SPECT_SLIDER) sliderSetSpeed [100,100];
-		(_dialog displayCtrl IDC_OPTIONS_SPECT_SLIDER) slidersetRange [100,MAX_DISTANCE];
-		(_dialog displayCtrl IDC_OPTIONS_SPECT_SLIDER) sliderSetPosition (MAX_DISTANCE min (WMT_Options_ViewDistance select 4));
 	};
 	case "loop": {
 		disableSerialization;
@@ -96,22 +90,16 @@ switch (_event) do
 
 		_fnc_state = {
 			PR(_veh) = vehicle player;
-			PR(_spectator) = uiNamespace getVariable "HIA3_DisaplaySpectator";
-			if(!(isNil "_spectator"))exitWith{4};
 			if(_veh isKindOf "Air")exitWith{2};
 			if(_veh isKindOf "LandVehicle")exitWith{1};
 			if(_veh isKindOf "Ship")exitWith{3};
 			0
 		};
 
-		WMT_Options_ViewDistance = profileNamespace getVariable ["HIA3_BG_ViewDistance",
-		[MAX_DISTANCE, MAX_DISTANCE, MAX_DISTANCE, MAX_DISTANCE, MAX_DISTANCE]];
+		WMT_Options_ViewDistance = [wmt_param_MaxViewDistance, wmt_param_MaxViewDistance, wmt_param_MaxViewDistance, wmt_param_MaxViewDistance];
 
 		while{true} do {
-			_spectator = uiNamespace getVariable "HIA3_DisaplaySpectator";
-			_maxDist = if(isNil "_spectator")then{wmt_param_MaxViewDistance}else{MAX_DISTANCE};
-
-			_dist = _maxDist min (WMT_Options_ViewDistance select ([] call _fnc_state));
+			_dist = wmt_param_MaxViewDistance min (WMT_Options_ViewDistance select ([] call _fnc_state));
 
 			if(viewDistance != _dist) then {
 				setViewDistance _dist;

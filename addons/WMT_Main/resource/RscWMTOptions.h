@@ -11,11 +11,8 @@
 #define IDC_OPTIONS_SHIP_TEXT 		17004
 #define IDC_OPTIONS_SHIP_SLIDER 	17014
 #define IDC_OPTIONS_SHIP_VAR 		17024
-#define IDC_OPTIONS_SPECT_TEXT 		17005
-#define IDC_OPTIONS_SPECT_SLIDER 	17015
-#define IDC_OPTIONS_SPECT_VAR 		17025
 #define IDC_OPTIONS_MAX				17090
-#define IDC_OPTIONS_CLOSE 			17091 
+#define IDC_OPTIONS_CLOSE 			17091
 
 class RscWMTOptions {
 	movingEnable = 1;
@@ -29,7 +26,7 @@ class RscWMTOptions {
 			x = 0.0;
 			y = 0.35;
 			w = 0.6;
-			h = 0.43;
+			h = 0.37;
 		};
 		class BackgroundHead: RscText {
 			colorBackground[] = {	"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.69])",
@@ -143,41 +140,17 @@ class RscWMTOptions {
 			h = 0.04;
 			text = "";
 		};
-		class Text_Spectator : RscText {
-			idc = IDC_OPTIONS_SPECT_TEXT;
-			x = 0.05;
-			y = 0.68;
-			w = 0.4;
-			h = 0.04;
-			text = $STR_WMT_Spectator;
-		};
-		class Slider_Spectator : RscWMTXSliderH_ext {
-			idc = IDC_OPTIONS_SPECT_SLIDER;
-			x = 0.05;
-			y = 0.72;
-			w = 0.4;
-			h = 0.04;
-			onSliderPosChanged = "['setDistance',[_this,4]] call WMT_fnc_HandlerOptions";
-		};
-		class Var_Spectator : RscText {
-			idc = IDC_OPTIONS_SPECT_VAR;
-			x = 0.48;
-			y = 0.72;
-			w = 0.1;
-			h = 0.04;
-			text = "";
-		};
 		class ButtonMaxDistance : RscWMTButton_ext {
 			idc = IDC_OPTIONS_MAX;
 			x = 0.0;
-			y = 0.785;
+			y = 0.725;
 			text = $STR_WMT_MaxDistance;
 			action = "['max'] call WMT_fnc_HandlerOptions";
 		};
 		class ButtonClose : RscWMTButton_ext {
 			idc = IDC_OPTIONS_CLOSE;
 			x = 0.44;
-			y = 0.785;
+			y = 0.725;
 			text = $STR_WMT_Close;
 			action = "closedialog 0;";
 		};
