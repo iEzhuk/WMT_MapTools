@@ -31,20 +31,8 @@
 				<Russian>Пешком</Russian>
 			</Key>
 			<Key ID="STR_WMT_InLandVehicle">
-				<Original>In a land vehicle</Original>
-				<Russian>В наземной технике</Russian>
-			</Key>
-			<Key ID="STR_WMT_InAirVehicle">
-				<Original>In an air vehicle</Original>
-				<Russian>В воздушной технике</Russian>
-			</Key>
-			<Key ID="STR_WNT_OnShip">
-				<Original>On a ship</Original>
-				<Russian>На лодке</Russian>
-			</Key>
-			<Key ID="STR_WMT_Spectator">
-				<Original>Spectator</Original>
-				<Russian>Спектатор</Russian>
+				<Original>In vehicle</Original>
+				<Russian>В технике</Russian>
 			</Key>
 			<Key ID="STR_WMT_Announcement">
 				<Original>Announcement</Original>

@@ -17,8 +17,6 @@
 
 #include "defines.sqf"
 
-#define MAX_DISTANCE 10000
-
 PR(_event) = _this select 0;
 PR(_arg) = _this select 1;
 PR(_return) = false;
@@ -49,13 +47,9 @@ switch (_event) do
 
 		(_dialog displayCtrl _ctrlVar) ctrlSetText str(_dist);
 		(_dialog displayCtrl _ctrlSlider) sliderSetPosition _dist;
-
-		profileNamespace setVariable ["HIA3_BG_ViewDistance",WMT_Options_ViewDistance];
 	};
 	case "max": {
-		WMT_Options_ViewDistance = 
-		[MAX_DISTANCE, MAX_DISTANCE, MAX_DISTANCE, MAX_DISTANCE, MAX_DISTANCE];
-		profileNamespace setVariable ["HIA3_BG_ViewDistance",WMT_Options_ViewDistance];
+		WMT_Options_ViewDistance = [wmt_param_MaxViewDistance, wmt_param_MaxViewDistance, wmt_param_MaxViewDistance, wmt_param_MaxViewDistance];
 
 		['update'] call WMT_fnc_HandlerOptions;
 	};
@@ -63,9 +57,6 @@ switch (_event) do
 		PR(_dialog) = uiNamespace getVariable "WMT_Dialog_Menu";
 		(_dialog displayCtrl IDC_OPTIONS_FOOT_VAR) ctrlSetText str(wmt_param_MaxViewDistance min (WMT_Options_ViewDistance select 0));
 		(_dialog displayCtrl IDC_OPTIONS_VEH_VAR) ctrlSetText str(wmt_param_MaxViewDistance min (WMT_Options_ViewDistance select 1));
-		(_dialog displayCtrl IDC_OPTIONS_AIR_VAR) ctrlSetText str(wmt_param_MaxViewDistance min (WMT_Options_ViewDistance select 2));
-		(_dialog displayCtrl IDC_OPTIONS_SHIP_VAR) ctrlSetText str(wmt_param_MaxViewDistance min (WMT_Options_ViewDistance select 3));
-
 
 		(_dialog displayCtrl IDC_OPTIONS_FOOT_SLIDER) sliderSetSpeed [100,100];
 		(_dialog displayCtrl IDC_OPTIONS_FOOT_SLIDER) slidersetRange [100,wmt_param_MaxViewDistance];
@@ -74,32 +65,17 @@ switch (_event) do
 		(_dialog displayCtrl IDC_OPTIONS_VEH_SLIDER) sliderSetSpeed [100,100];
 		(_dialog displayCtrl IDC_OPTIONS_VEH_SLIDER) slidersetRange [100,wmt_param_MaxViewDistance];
 		(_dialog displayCtrl IDC_OPTIONS_VEH_SLIDER) sliderSetPosition (wmt_param_MaxViewDistance min (WMT_Options_ViewDistance select 1));
-
-		(_dialog displayCtrl IDC_OPTIONS_AIR_SLIDER) sliderSetSpeed [100,100];
-		(_dialog displayCtrl IDC_OPTIONS_AIR_SLIDER) slidersetRange [100,wmt_param_MaxViewDistance];
-		(_dialog displayCtrl IDC_OPTIONS_AIR_SLIDER) sliderSetPosition (wmt_param_MaxViewDistance min (WMT_Options_ViewDistance select 2));
-
-		(_dialog displayCtrl IDC_OPTIONS_SHIP_SLIDER) sliderSetSpeed [100,100];
-		(_dialog displayCtrl IDC_OPTIONS_SHIP_SLIDER) slidersetRange [100,wmt_param_MaxViewDistance];
-		(_dialog displayCtrl IDC_OPTIONS_SHIP_SLIDER) sliderSetPosition (wmt_param_MaxViewDistance min (WMT_Options_ViewDistance select 3));
 	};
 	case "loop": {
 		disableSerialization;
 
-		private["_dist","_maxDist","_spectator","_fnc_state"];
-
-		_fnc_state = {
-			PR(_veh) = vehicle player;
-			if(_veh isKindOf "Air")exitWith{2};
-			if(_veh isKindOf "LandVehicle")exitWith{1};
-			if(_veh isKindOf "Ship")exitWith{3};
-			0
-		};
+		private["_dist","_maxDist","_spectator","_state"];
 
 		WMT_Options_ViewDistance = [wmt_param_MaxViewDistance, wmt_param_MaxViewDistance, wmt_param_MaxViewDistance, wmt_param_MaxViewDistance];
 
 		while{true} do {
-			_dist = wmt_param_MaxViewDistance min (WMT_Options_ViewDistance select ([] call _fnc_state));
+			_state = if(vehicle player == player ) then {0} else {1};
+			_dist = wmt_param_MaxViewDistance min (WMT_Options_ViewDistance select _state);
 
 			if(viewDistance != _dist) then {
 				setViewDistance _dist;
