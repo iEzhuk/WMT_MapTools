@@ -113,13 +113,14 @@ if(_activated) then {
 			PR(_captureCount) = _logic getVariable "CaptureCount";
 			PR(_easyCapture)  = _logic getVariable "EasyCapture";
 
+			// Remove spaces 
+			_markerStr = toString ((toArray _markerStr) - [32]);
 
 			PR(_arrMarkers) = [_markerStr,","] call Bis_fnc_splitString;
 			PR(_arrTrgs)	= [];
 			PR(_brush) 		= if(count _arrMarkers == 1)then{"SolidBorder"}else{"Solid"};
 
 			// Init point
-
 			for "_i" from 0 to ((count _arrMarkers)-1) do {
 				PR(_marker) = _arrMarkers select _i;
 
