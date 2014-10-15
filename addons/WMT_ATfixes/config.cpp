@@ -53,12 +53,12 @@ class CfgAmmo
 	
 	
 	class M_Titan_AT_Hard : M_Titan_AT {
-		weaponLockSystem = "1+2+4+16";
+		weaponLockSystem = "2+4+16";
         irLock = 0;
     };
 	
 	class M_Titan_AT_static_Hard : M_Titan_AT_static {
-		weaponLockSystem = "2 + 16 + 4";
+		weaponLockSystem = "2+4+16";
 		irLock = 0;
     };
 };
@@ -83,7 +83,6 @@ class CfgWeapons
     };
 	
 	class launch_Titan_short_base : launch_Titan_base {
-		weaponLockSystem = "1+4";
 		magazines[] = {"Titan_AT", "Titan_AP","Titan_AT_Hard"};
 	};
 	
