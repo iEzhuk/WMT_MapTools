@@ -6,6 +6,12 @@ class CfgPatches
 		weapons[] = {"launch_Titan_short_base","missiles_titan_static","missiles_titan"};
 		requiredVersion = 0.1;
 		requiredAddons[] = {"A3_Weapons_F","A3_Weapons_F_NATO","A3_Weapons_F_Launchers_Titan"};
+		authorUrl = "https://github.com/iEzhuk/WOG3_MapTools";
+		author[]= {"Zealot, Ezhuk"}; 		
+		version = 1.2.3;
+		versionStr = "1.2.3";
+		versionAr[] = {1,2,3};
+
 	};
 };
 
