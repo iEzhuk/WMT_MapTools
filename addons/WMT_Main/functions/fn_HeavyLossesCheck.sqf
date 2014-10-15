@@ -65,7 +65,8 @@ while {not _endtimer} do {
 
 				if (_endtimer) then {
 					PR(_enemy) = if ( count (([_x] call BIS_fnc_enemySides) - wmtPlayerCountEmptySides) > 0) then {(([_x] call BIS_fnc_enemySides) - wmtPlayerCountEmptySides) select 0} else {sideUnknown};
-					[[_enemy,format[localize "STR_WMT_HLSWinLoseMSG",([_enemy]call BIS_fnc_sideName)]],"wmt_fnc_endmission"] call BIS_fnc_MP;
+					[ [ [_enemy], { [_enemy,format[localize "STR_WMT_HLSWinLoseMSG",([_this select 0] call BIS_fnc_sideName)]] call wmt_fnc_endmission; } ],"bis_fnc_spawn"] call BIS_fnc_MP;
+
 				};
 			};
 		};
