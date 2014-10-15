@@ -2,10 +2,10 @@ class CfgPatches
 {
 	class ATFixes
 	{
-		units[] = {};
+		units[] = {"MRAP_01_gmg_base_F","MRAP_03_hmg_base_F","MRAP_02_hmg_base_F","MRAP_03_base_F"};
 		weapons[] = {"launch_Titan_short_base","missiles_titan_static","missiles_titan"};
 		requiredVersion = 0.1;
-		requiredAddons[] = {"A3_Weapons_F","A3_Weapons_F_NATO","A3_Weapons_F_Launchers_Titan"};
+		requiredAddons[] = {"A3_Weapons_F","A3_Weapons_F_NATO","A3_Weapons_F_Launchers_Titan","A3_Soft_F"};
 		authorUrl = "https://github.com/iEzhuk/WOG3_MapTools";
 		author[]= {"Zealot, Ezhuk"}; 		
 		version = 1.2.3;
@@ -59,12 +59,12 @@ class CfgAmmo
 	
 	
 	class M_Titan_AT_Hard : M_Titan_AT {
-		weaponLockSystem = "2+4+16";
+
         irLock = 0;
     };
 	
 	class M_Titan_AT_static_Hard : M_Titan_AT_static {
-		weaponLockSystem = "2+4+16";
+
 		irLock = 0;
     };
 };
@@ -93,3 +93,63 @@ class CfgWeapons
 	};
 	
 };
+
+
+class RenderTargets;
+class Gunner_display;
+class commander_display ;
+class CameraView1;
+
+class CfgVehicles {
+	class MRAP_01_base_F;
+	class MRAP_02_base_F;
+	class Car_F;
+
+	class MRAP_01_gmg_base_F : MRAP_01_base_F {
+		class RenderTargets {
+            class Gunner_display {
+                class CameraView1 {
+                    renderVisionMode = 0;
+  
+                };
+            };
+        };
+	};
+	
+	class MRAP_03_base_F : Car_F {
+		class RenderTargets {
+			class commander_display {
+                class CameraView1 {
+                    renderVisionMode = 0;
+                };
+            };
+		};
+	};
+	
+	class MRAP_03_hmg_base_F : MRAP_03_base_F {
+		class RenderTargets {
+			class commander_display {
+                class CameraView1 {
+                    renderVisionMode = 0;
+                };
+            };		
+			class gunner_display {
+                class CameraView1 {
+                    renderVisionMode = 0;
+                };
+            };
+		};
+	};
+	
+	class MRAP_02_hmg_base_F : MRAP_02_base_F {
+		class RenderTargets {
+			class gunner_display {
+                class CameraView1 {
+                    renderVisionMode = 0;
+                };
+            };
+		}; 
+	};
+};
+
+
