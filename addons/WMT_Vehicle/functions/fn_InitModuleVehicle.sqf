@@ -80,20 +80,12 @@ if(_activated) then {
 
 			_playerClass= toUpper (typeof player);
 			switch ( true ) do {
-				case (_playerClass in ["B_CREW_F","I_CREW_F","O_CREW_F"]) : {
-					WMT_Local_fullRepairClasses = ["Car","Tank","Ship"];
-					WMT_Local_fullRepairEnabled = true; 
-				};
-				case (_playerClass in ["O_ENGINEER_F","B_ENGINEER_F","I_ENGINEER_F","B_SOLDIER_REPAIR_F","I_SOLDIER_REPAIR_F","O_SOLDIER_REPAIR_F","B_G_ENGINEER_F"]) : {
+				case (_playerClass in [
+					"O_ENGINEER_F","B_ENGINEER_F","I_ENGINEER_F","B_SOLDIER_REPAIR_F","I_SOLDIER_REPAIR_F","O_SOLDIER_REPAIR_F","B_G_ENGINEER_F", "B_CREW_F",
+					"I_CREW_F","O_CREW_F", "O_PILOT_F","B_PILOT_F","I_PILOT_F","O_HELICREW_F","I_HELICREW_F","B_HELICREW_F","O_HELIPILOT_F","B_HELIPILOT_F","I_HELIPILOT_F"
+					"O_SOLDIER_UAV_F","I_SOLDIER_UAV_F","B_SOLDIER_UAV_F"
+					]) : {
 					WMT_Local_fullRepairClasses = ["Car","Tank","Ship","Air"];
-					WMT_Local_fullRepairEnabled = true; 
-				};
-				case (_playerClass in ["O_PILOT_F","B_PILOT_F","I_PILOT_F","O_HELICREW_F","I_HELICREW_F","B_HELICREW_F","O_HELIPILOT_F","B_HELIPILOT_F","I_HELIPILOT_F"]) : {
-					WMT_Local_fullRepairClasses = ["Car","Tank","Ship","Air"];
-					WMT_Local_fullRepairEnabled = true; 
-				};
-				case (_playerClass in ["O_SOLDIER_UAV_F","I_SOLDIER_UAV_F","B_SOLDIER_UAV_F"]) : {
-					WMT_Local_fullRepairClasses = ["UGV_01_base_F","UAV_01_base_F","UAV_02_base_F"];
 					WMT_Local_fullRepairEnabled = true; 
 				};
 			};
@@ -102,9 +94,10 @@ if(_activated) then {
 		// Rearm system
 		if (wmt_param_Reammo==0) then {
 			WMT_Local_ReammoEnable = 	switch (true) do {
-									case (["engineer", str(typeOf player)] call BIS_fnc_inString):{true};
-									case (["crew" 	 , str(typeOf player)] call BIS_fnc_inString):{true};
-									case (["pilot"	 , str(typeOf player)] call BIS_fnc_inString):{true};
+									case (["engineer", toLower(typeOf player)] call BIS_fnc_inString):{true};
+									case (["crew" 	 , toLower(typeOf player)] call BIS_fnc_inString):{true};
+									case (["pilot"	 , toLower(typeOf player)] call BIS_fnc_inString):{true};
+									case (["uav"	 , toLower(typeOf player)] call BIS_fnc_inString):{true};
 									default {false};
 								};
 		};
