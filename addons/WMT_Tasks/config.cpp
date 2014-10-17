@@ -3,7 +3,7 @@
 
 class CfgPatches 
 {
-	class WMT_Main
+	class WMT_Tasks
 	{
 		units[] = {};
 		weapons[] = {};

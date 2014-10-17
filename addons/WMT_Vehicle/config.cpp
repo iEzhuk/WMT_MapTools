@@ -3,7 +3,7 @@
 
 class CfgPatches 
 {
-	class wog_mt_vehicle 
+	class WMT_Vehicle 
 	{
 		units[] = {};
 		weapons[] = {};
