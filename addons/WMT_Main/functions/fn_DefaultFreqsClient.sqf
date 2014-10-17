@@ -37,7 +37,11 @@ PR(_sideToColor) = {
 
 PR(_spawnSetLrChannel) = {
 	if (leader group player == player) then {
-		_this spawn {					
+
+		_this spawn {	
+			// Need to avoid error in TFAR since 0.9.4
+			waituntil {sleep 0.3; !(isNil "currentUnit")};
+
 			waituntil {sleep 0.3;(player call TFAR_fnc_haveLRRadio) or time > 10};
 			sleep 0.5;
 			PR(_val) = str (_this);					
