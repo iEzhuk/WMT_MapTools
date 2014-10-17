@@ -82,7 +82,7 @@ if(_activated) then {
 			switch ( true ) do {
 				case (_playerClass in [
 					"O_ENGINEER_F","B_ENGINEER_F","I_ENGINEER_F","B_SOLDIER_REPAIR_F","I_SOLDIER_REPAIR_F","O_SOLDIER_REPAIR_F","B_G_ENGINEER_F", "B_CREW_F",
-					"I_CREW_F","O_CREW_F", "O_PILOT_F","B_PILOT_F","I_PILOT_F","O_HELICREW_F","I_HELICREW_F","B_HELICREW_F","O_HELIPILOT_F","B_HELIPILOT_F","I_HELIPILOT_F"
+					"I_CREW_F","O_CREW_F", "O_PILOT_F","B_PILOT_F","I_PILOT_F","O_HELICREW_F","I_HELICREW_F","B_HELICREW_F","O_HELIPILOT_F","B_HELIPILOT_F","I_HELIPILOT_F",
 					"O_SOLDIER_UAV_F","I_SOLDIER_UAV_F","B_SOLDIER_UAV_F"
 					]) : {
 					WMT_Local_fullRepairClasses = ["Car","Tank","Ship","Air"];
