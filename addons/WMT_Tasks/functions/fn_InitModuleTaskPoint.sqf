@@ -131,7 +131,7 @@ if(_activated) then {
 			};
 
 			// Set variable
-			_logic setVariable ["WMT_PointOwner", _owner];
+			_logic setVariable ["WMT_PointOwner", _owner, true];
 
 			sleep _delay;
 
@@ -188,7 +188,7 @@ if(_activated) then {
 
 					if (diag_tickTime - _timeB >= _timer) then {
 						// Capture the zone
-						_logic setVariable ["WMT_PointOwner", _cs];
+						_logic setVariable ["WMT_PointOwner", _cs, true];
 						{_x setMarkerColor (_cs call _func_sideToColor)} forEach _arrMarkers;
 
 						if(_message != "") then {
