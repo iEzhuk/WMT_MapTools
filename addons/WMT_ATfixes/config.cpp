@@ -59,12 +59,12 @@ class CfgAmmo
 	
 	
 	class M_Titan_AT_Hard : M_Titan_AT {
-
+		weaponLockSystem = "2+4+16";
         irLock = 0;
     };
 	
 	class M_Titan_AT_static_Hard : M_Titan_AT_static {
-
+		weaponLockSystem = "2+4+16";
 		irLock = 0;
     };
 };
