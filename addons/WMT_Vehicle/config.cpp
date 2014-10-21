@@ -3,7 +3,7 @@
 
 class CfgPatches 
 {
-	class WMT_Vehicle 
+	class wog_mt_vehicle  
 	{
 		units[] = {};
 		weapons[] = {};
@@ -11,9 +11,9 @@ class CfgPatches
 		requiredAddons[] = {"A3_Characters_F_BLUFOR","A3_Characters_F_OPFOR","A3_Characters_F_Gamma","A3_Characters_F_INDEP","A3_Characters_F_Civil"};
 		authorUrl = "https://github.com/iEzhuk/WOG3_MapTools";
 		author[]= {"Zealot, Ezhuk"}; 		
-		version = 1.2.4;
-		versionStr = "1.2.4";
-		versionAr[] = {1,2,4};
+		version = 1.2.5;
+		versionStr = "1.2.5";
+		versionAr[] = {1,2,5};
 
 	};
 };
