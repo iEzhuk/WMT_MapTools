@@ -15,7 +15,9 @@ PR(_units) = [_this,1,[],[[]]] call BIS_fnc_param;
 PR(_activated) = [_this,2,true,[true]] call BIS_fnc_param;
 
 if(_activated) then {
-	if ( not isnil "wmt_Main_ModuleRunning" ) exitWith {};
+	if ( not isnil "wmt_Main_ModuleRunning" ) exitWith {
+		diag_log "WMT_fnc_InitModuleMain: double initialization";
+	};
 	wmt_Main_ModuleRunning = true;
 
 	if(isNil "wmt_param_TI") then {
@@ -28,10 +30,7 @@ if(_activated) then {
 		wmt_param_NameTag = _logic getVariable "NameTag";
 	};
 	if(isNil "wmt_param_IndetifyTheBody") then {
-		wmt_param_IndetifyTheBody = _logic getVariable "IndetifyTheBody";
-		if(isNil "wmt_param_IndetifyTheBody") then {
-			wmt_param_IndetifyTheBody = 1;
-		};
+		wmt_param_IndetifyTheBody = _logic getVariable ["IndetifyTheBody",1];
 	};
 	if(isNil "wmt_param_HeavyLossesCoeff") then {
 		wmt_param_HeavyLossesCoeff = _logic getVariable "HeavyLossesCoeff";
@@ -55,10 +54,7 @@ if(_activated) then {
 		wmt_param_Statistic = _logic getVariable "Statistic";
 	};
 	if(isNil "wmt_param_ExtendedBriefing") then {
-		wmt_param_ExtendedBriefing = _logic getVariable "ExtendedBriefing";
-		if (isNil "wmt_param_ExtendedBriefing") then {
-			wmt_param_ExtendedBriefing = 1;
-		};
+		wmt_param_ExtendedBriefing = _logic getVariable ["ExtendedBriefing",1];
 	};
 
 

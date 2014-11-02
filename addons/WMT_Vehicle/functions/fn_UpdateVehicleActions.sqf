@@ -21,8 +21,10 @@ if (wmt_param_FullRepair==0) then {
 };
 
 // Reammo system
-if (WMT_Local_ReammoEnable) then {
-	player addAction[ format ["<t color='#0353f5'>%1</t>", (localize "STR_ACTION_REAMMO")], wmt_fnc_Reammo, [], 1, false, true, '', '[] call wmt_fnc_ReammoCond'];
+if (wmt_param_Reammo==0) then {
+	if (WMT_Local_ReammoEnable) then {
+		player addAction[ format ["<t color='#0353f5'>%1</t>", (localize "STR_ACTION_REAMMO")], wmt_fnc_Reammo, [], 1, false, true, '', '[] call wmt_fnc_ReammoCond'];
+	};
 };
 
 // Push boat 
