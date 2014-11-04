@@ -55,3 +55,4 @@ WMT_fnc_UpdateMainActions			= compileFinal preprocessFileLineNumbers  ("WMT_Main
 WMT_fnc_PrepareBriefingInfo			= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\fn_PrepareBriefingInfo.sqf");
 WMT_fnc_ShowBriefingInfo			= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\fn_ShowBriefingInfo.sqf");
 WMT_fnc_BriefingMap					= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\fn_BriefingMap.sqf");
+WMT_fnc_GetVehicles					= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\fn_GetVehicles.sqf");
