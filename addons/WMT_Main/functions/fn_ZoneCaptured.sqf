@@ -39,12 +39,14 @@ PR(_playerside) = if (isNull player ) then {_side} else {playerSide};
 PR(_notifyType) = if ( [_playerSide ,_side] call BIS_fnc_areFriendly ) then {"TaskSucceeded"} else {"TaskFailed"};
 [_notifyType,[0, _text]] call bis_fnc_showNotification;
 {
-	switch (markerSHape _x) do {
-		case ("ICON") : {
-			["destroyed"+str(time)+str(_x),getMarkerPos _x, "", _mcolor, "mil_objective" ] call WMT_fnc_CreateLocalMarker;
-		};
-		default {
-			_x setMarkerColorLocal _mcolor;
+	if ( markerAlpha _x != 0 ) then {
+		switch (markerSHape _x) do {
+			case ("ICON") : {
+				["destroyed"+str(time)+str(_x),getMarkerPos _x, "", _mcolor, "mil_objective" ] call WMT_fnc_CreateLocalMarker;
+			};
+			default {
+				_x setMarkerColorLocal _mcolor;
+			};
 		};
 	};
 } foreach _markers;
