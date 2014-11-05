@@ -19,6 +19,7 @@ disableSerialization;
 
 PR(_dialog) = _this select 0;
 PR(_ctrl) = _dialog displayCtrl IDC_NAMETAG_TEXT;
+PR(_friendlySides) = [playerSide] call BIS_fnc_friendlySides;
 
 sleep 0.1;
 
@@ -30,7 +31,7 @@ while { true } do {
 	if(alive player) then {
 		if(!visibleMap) then {
 			if(player != _unit) then {
-				if(side _unit in ([playerSide] call BIS_fnc_friendlySides)) then {
+				if(side _unit in _friendlySides) then {
 					if(alive _unit) then {
 						if(_unit distance player < 10) then {
 							if(!(["Error:", name _unit] call BIS_fnc_inString)) then {
