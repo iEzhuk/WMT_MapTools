@@ -2,10 +2,10 @@ class CfgPatches
 {
 	class ATFixes
 	{
-		units[] = {"MRAP_01_gmg_base_F","MRAP_03_hmg_base_F","MRAP_02_hmg_base_F","MRAP_03_base_F"};
+		units[] = {"MRAP_01_gmg_base_F","MRAP_03_hmg_base_F","MRAP_02_hmg_base_F","MRAP_03_base_F","Boat_Armed_01_base_F"};
 		weapons[] = {"launch_Titan_short_base","missiles_titan_static","missiles_titan"};
 		requiredVersion = 0.1;
-		requiredAddons[] = {"A3_Weapons_F","A3_Weapons_F_NATO","A3_Weapons_F_Launchers_Titan","A3_Soft_F"};
+		requiredAddons[] = {"A3_Weapons_F","A3_Weapons_F_NATO","A3_Weapons_F_Launchers_Titan","A3_Soft_F","A3_Boat_F_Boat_Armed_01","A3_Boat_F"};
 		authorUrl = "https://github.com/iEzhuk/WOG3_MapTools";
 		author[]= {"Zealot, Ezhuk"}; 		
 		version = 1.2.5;
@@ -104,6 +104,17 @@ class CfgVehicles {
 	class MRAP_01_base_F;
 	class MRAP_02_base_F;
 	class Car_F;
+	class Boat_F;
+	
+	class Boat_Armed_01_base_F : Boat_F {
+		class RenderTargets {
+            class Gunner_TV {
+                class CameraView1 {
+                    renderVisionMode = 1;
+                };
+			};
+		};
+	};
 
 	class MRAP_01_gmg_base_F : MRAP_01_base_F {
 		class RenderTargets {
