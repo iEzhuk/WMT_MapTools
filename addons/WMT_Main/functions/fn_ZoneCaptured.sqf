@@ -20,7 +20,7 @@
 #include "defines.sqf"
 
 
-PR(_side) = if (isNull player ) then {civilian} else {playerSide};
+PR(_side) = if (isNull player ) then {sideUnknown} else {playerSide};
 PR(_text) = "";
 PR(_markers) = [] ;
 for "_x" from 0 to (count _this)-1 do {
