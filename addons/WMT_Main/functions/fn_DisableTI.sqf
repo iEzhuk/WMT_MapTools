@@ -19,6 +19,8 @@
 PR(_event) = _this select 0;
 PR(_arg) = _this select 1;
 PR(_return) = false;
+PR(_vehicles)= (call WMT_fnc_GetVehicles);
+
 
 switch (_event) do 
 {
@@ -28,7 +30,7 @@ switch (_event) do
 			if(_x getVariable ["WMT_DisableTI",false] || _force) then {
 				_x disableTIEquipment true;
 			};
-		} foreach vehicles;
+		} foreach _vehicles;
 	};
 	case "full": {
 		disableSerialization;

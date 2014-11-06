@@ -1,3 +1,4 @@
+
   /*
  	Name:  
  	
@@ -30,7 +31,7 @@ PR(_side) = civilian;
 PR(_units) = [];
 PR(_group) = [];
 PR(_playersGr) = 0;
-
+PR(_vehicles)= (call WMT_fnc_GetVehicles);
 
 // данные техники ["V", [координаты], "класс", сторона]
 {
@@ -43,7 +44,7 @@ PR(_playersGr) = 0;
 
  		_tempData pushback _vehinfo;
  	};
-} foreach vehicles;
+} foreach _vehicles;
 
 // данные отряда ["S", [координаты], "GroupID", сторона, число игроков, "имя лидера",[юниты] ]
 

@@ -16,7 +16,7 @@
 
 PR(_distance) 	 = [_this, 0, 150] call BIS_fnc_param;
 PR(_maxdistance) = _distance + 20;
-
+PR(_vehicles)= (call WMT_fnc_GetVehicles);
 PR(_startpos) = getpos player;
 
 if (isNil "wmt_freeze_startpos") then {
@@ -46,7 +46,7 @@ PR(_vehs) = [];
 	}];
 	_x setVariable ["wmtfrzEngine", _handler];
 
-} foreach vehicles;
+} foreach _vehicles;
 
 // Check UAV terminal
 [] spawn {
