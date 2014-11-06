@@ -2,10 +2,10 @@ class CfgPatches
 {
 	class ATFixes
 	{
-		units[] = {"MRAP_01_gmg_base_F","MRAP_03_hmg_base_F","MRAP_02_hmg_base_F","MRAP_03_base_F","Boat_Armed_01_base_F"};
+		units[] = {"MRAP_01_gmg_base_F","MRAP_03_hmg_base_F","MRAP_02_hmg_base_F","MRAP_03_base_F","Boat_Armed_01_base_F", "Land_Pallet_static_F", "Land_Pallet_vertical_static_F"};
 		weapons[] = {"launch_Titan_short_base","missiles_titan_static","missiles_titan"};
 		requiredVersion = 0.1;
-		requiredAddons[] = {"A3_Weapons_F","A3_Weapons_F_NATO","A3_Weapons_F_Launchers_Titan","A3_Soft_F","A3_Boat_F_Boat_Armed_01","A3_Boat_F"};
+		requiredAddons[] = {"A3_Weapons_F","A3_Weapons_F_NATO","A3_Weapons_F_Launchers_Titan","A3_Soft_F","A3_Boat_F_Boat_Armed_01","A3_Boat_F","A3_Structures_F_Civ_Constructions","A3_Data_F"};
 		authorUrl = "https://github.com/iEzhuk/WOG3_MapTools";
 		author[]= {"Zealot, Ezhuk"}; 		
 		version = 1.2.5;
@@ -105,6 +105,37 @@ class CfgVehicles {
 	class MRAP_02_base_F;
 	class Car_F;
 	class Boat_F;
+	class NonStrategic;
+	
+	class Land_Pallet_static_F : NonStrategic {
+		mapSize = 2.25;
+		author = "$STR_A3_Bohemia_Interactive";
+		_generalMacro = "Land_Pallet_F";
+		scope = 2;
+		scopeCurator = 2;
+		displayName = "$STR_A3_CfgVehicles_Land_Pallet_F0";
+		model = "\A3\Structures_F\Civ\Constructions\Pallet_F.p3d";
+		icon = "iconObject_1x1";
+		vehicleClass = "Cargo";
+		destrType = "DestructNo";
+		cost = 100;
+		class DestructionEffects{};
+	};
+	
+	class Land_Pallet_vertical_static_F : NonStrategic {
+		mapSize = 1.53;
+		author = "$STR_A3_Bohemia_Interactive";
+		_generalMacro = "Land_Pallet_vertical_F";
+		scope = 2;
+		scopeCurator = 2;
+		displayName = "$STR_A3_CfgVehicles_Land_Pallet_vertical_F0";
+		model = "\A3\Structures_F\Civ\Constructions\Pallet_vertical_F.p3d";
+		icon = "iconObject_10x1";
+		vehicleClass = "Cargo";
+		destrType = "DestructNo";
+		cost = 100;
+		class DestructionEffects{};
+	};
 	
 	class Boat_Armed_01_base_F : Boat_F {
 		class RenderTargets {
