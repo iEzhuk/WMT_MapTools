@@ -123,7 +123,7 @@ if (count _friendlyVehs != 0 ) then {
 	["diary",localize "STR_WMT_Vehicles", _vehicleTxt] call WMT_fnc_CreateDiaryRecord; 
 };
 
-waitUntil {time > 0};
+sleep 0.01; 
 
 if (isNil "WMT_pub_frzState") then {
 	waitUntil {time > 300 and (diag_tickTime - _beginTime) > 300};
