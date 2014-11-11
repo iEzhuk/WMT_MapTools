@@ -8,9 +8,9 @@ class CfgPatches
 		requiredAddons[] = {"A3_Weapons_F","A3_Weapons_F_NATO","A3_Weapons_F_Launchers_Titan","A3_Soft_F","A3_Boat_F_Boat_Armed_01","A3_Boat_F","A3_Structures_F_Civ_Constructions","A3_Data_F"};
 		authorUrl = "https://github.com/iEzhuk/WOG3_MapTools";
 		author[]= {"Zealot, Ezhuk"}; 		
-		version = 1.2.5;
-		versionStr = "1.2.5";
-		versionAr[] = {1,2,5};
+		version = 1.3.0;
+		versionStr = "1.3.0";
+		versionAr[] = {1,3,0};
 
 	};
 };
