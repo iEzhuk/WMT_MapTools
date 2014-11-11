@@ -12,7 +12,7 @@
 #define IDD_ADMINPANEL_FREEZEADD5	62010
 #define IDD_ADMINPANEL_FREEZEADD10	62011
 #define IDD_ADMINPANEL_FREEZESUB	62012	
-
+#define IDD_ADMINPANEL_FREEZEBK		62013
 
 class RscWMTAdminPanel {
 	movingEnable = 1;
@@ -39,7 +39,7 @@ class RscWMTAdminPanel {
 		
 		class Background3: RscText {
 			colorBackground[] = {0, 0, 0, 0.75};
-			idc = -1;
+			idc = IDD_ADMINPANEL_FREEZEBK;
 			x = 0.0;
 			y = 0.65;
 			w = 0.7;

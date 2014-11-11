@@ -32,6 +32,7 @@ switch (_event) do
 			(_dialog displayCtrl IDD_ADMINPANEL_FREEZEADD5) ctrlShow false;
 			(_dialog displayCtrl IDD_ADMINPANEL_FREEZEADD10) ctrlShow false;
 			(_dialog displayCtrl IDD_ADMINPANEL_FREEZESUB) ctrlShow false;
+			(_dialog displayCtrl IDD_ADMINPANEL_FREEZEBK) ctrlShow false;
 		};
 
 		["loop", _dialog] call WMT_fnc_HandlerAdminPanel;
