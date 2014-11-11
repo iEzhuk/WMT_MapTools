@@ -16,7 +16,7 @@
 
 PR(_triggers) = [];
 
-if (leader player == player) then {
+if (leader player == player || serverCommandAvailable('#kick') ) then {
 	_triggers =  [
 		[true, 0, "ALPHA", "PRESENT","this","[] call WMT_fnc_FreezeVoteStart ","",localize "STR_WMT_FreezeVoteStart"] call WMT_fnc_CreateTrigger,
 		[true, 0, "BRAVO", "PRESENT","this","[] call WMT_fnc_FreezeVoteWait ","",localize "STR_WMT_FreezeVoteWait"] call WMT_fnc_CreateTrigger
@@ -24,8 +24,8 @@ if (leader player == player) then {
 };
 
 sleep 0.01;
-
 while {WMT_pub_frzState < 3} do {
+
 	PR(_time3) = round(WMT_pub_frzTimeLeft);
 	PR(_sec) = 0;
 	if (WMT_pub_frzState == 2) then {

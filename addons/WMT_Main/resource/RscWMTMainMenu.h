@@ -2,6 +2,8 @@
 #define IDC_MENU_OPTION 61001 
 #define IDC_MENU_ADMIN 61002
 #define IDC_MENU_CLOSE 61003
+#define IDC_MENU_TEAM_READY 61004
+#define IDC_MENU_TEAM_NOT_READY 61005
 
 class RscWMTMainMenu {
 	idd = IDD_DSIAPLAY_MAINMENU;
@@ -42,6 +44,21 @@ class RscWMTMainMenu {
 			y = 0.465;
 			text = $STR_WMT_Close;
 			action = "closeDialog 0;";
+		};
+		class Button_TeamReady : RscWMTButtonMenu_ext {
+			idc = IDC_MENU_TEAM_READY;
+			x = -0.46;
+			y = 0.255;
+			text = $STR_WMT_FreezeVoteStart;
+			action = "['teamready',_this] call WMT_fnc_HandlerMenu";
+		};
+		class Button_TeamNotReady : RscWMTButtonMenu_ext {
+			idc = IDC_MENU_TEAM_NOT_READY;
+			x = -0.46;
+			y = 0.360;
+			h = 0.15;
+			text = $STR_WMT_FreezeVoteWait;
+			action = "['teamnotready',_this] call WMT_fnc_HandlerMenu";
 		};
 	};
 };

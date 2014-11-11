@@ -8,6 +8,12 @@
 #define IDD_ADMINPANEL_ADD10		62007
 #define IDD_ADMINPANEL_SUB			62008	
 
+#define IDD_ADMINPANEL_FREEZETIME	62009
+#define IDD_ADMINPANEL_FREEZEADD5	62010
+#define IDD_ADMINPANEL_FREEZEADD10	62011
+#define IDD_ADMINPANEL_FREEZESUB	62012	
+
+
 class RscWMTAdminPanel {
 	movingEnable = 1;
 	idd = IDD_ADMINPANEL;
@@ -30,6 +36,16 @@ class RscWMTAdminPanel {
 			w = 0.7;
 			h = 0.09;
 		};
+		
+		class Background3: RscText {
+			colorBackground[] = {0, 0, 0, 0.75};
+			idc = -1;
+			x = 0.0;
+			y = 0.65;
+			w = 0.7;
+			h = 0.09;
+		};
+		
 		class BackgroundHead: RscText {
 			colorBackground[] = {	"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.69])",
 									"(profilenamespace getvariable ['GUI_BCG_RGB_G',0.75])",
@@ -107,6 +123,38 @@ class RscWMTAdminPanel {
 			w = 0.22;
 			text = $STR_WMT_Sub5Min;
 			action = "['changeTime',-5] call WMT_fnc_HandlerAdminPanel";
+		};
+		
+		class freezeText_Time : RscText {
+			idc = IDD_ADMINPANEL_FREEZETIME;
+			x = 0.05;
+			y = 0.675;
+			w = 0.4;
+			text = "Left freezetime: 45:12"; 
+		};
+		class Button_freezeAddTime10: RscWMTButton_ext{
+			idc = IDD_ADMINPANEL_FREEZEADD10;
+			x = 0.48;
+			y = 0.745;
+			w = 0.22;
+			text = $STR_WMT_Add10Min;
+			action = "['freezeTime',10] call WMT_fnc_HandlerAdminPanel";
+		};
+		class Button_freezeAddTime5: RscWMTButton_ext{
+			idc = IDD_ADMINPANEL_FREEZEADD5;
+			x = 0.24;
+			y = 0.745;
+			w = 0.22;
+			text = $STR_WMT_Add5Min;
+			action = "['freezeTime',5] call WMT_fnc_HandlerAdminPanel";
+		};
+		class Button_freezeSubtractTime: RscWMTButton_ext{
+			idc = IDD_ADMINPANEL_FREEZESUB;
+			x = 0.0;
+			y = 0.745;
+			w = 0.22;
+			text = $STR_WMT_Sub5Min;
+			action = "['freezeTime',-5] call WMT_fnc_HandlerAdminPanel";
 		};
 	};
 };

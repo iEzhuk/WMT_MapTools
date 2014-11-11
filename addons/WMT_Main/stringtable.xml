@@ -318,9 +318,21 @@
 				<Original>Time mission is reduced by %1 minutes (%2:00)</Original>
 				<Russian>Время на миссию уменьшено на %1 минут (%2:00)</Russian>
 			</Key>
+			<Key ID="STR_WMT_TimeIncreasedFreeze">
+				<Original>Freezetime is increased by %1 minutes (%2:00)</Original>
+				<Russian>Время фризтайма увеличено на %1 минут (%2:00)</Russian>
+			</Key>
+			<Key ID="STR_WMT_TimeReducedFreeze">
+				<Original>Freezetime is reduced by %1 minutes (%2:00)</Original>
+				<Russian>Время фризтайма уменьшено на %1 минут (%2:00)</Russian>
+			</Key>
 			<Key ID="STR_WMT_TimeLeft">
 				<Original>Time left</Original>
 				<Russian>Оставшееся время</Russian>
+			</Key>
+			<Key ID="STR_WMT_TimeLeftFreeze">
+				<Original>Freezetime left</Original>
+				<Russian>Время фризтайма</Russian>
 			</Key>
 			<Key ID="STR_WMT_Add5Min">
 				<Original>+ 5 min</Original>

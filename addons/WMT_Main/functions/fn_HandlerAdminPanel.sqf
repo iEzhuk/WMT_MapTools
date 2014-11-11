@@ -26,6 +26,13 @@ switch (_event) do
 		PR(_dialog) = _arg select 0;
 		uiNamespace setVariable ["WMT_Dialog_Menu", _dialog];
 		_dialog displayAddEventHandler ["MouseMoving", "true"];
+		
+		if ( WMT_pub_frzState >= 3 ) then {
+			(_dialog displayCtrl IDD_ADMINPANEL_FREEZETIME) ctrlShow false;
+			(_dialog displayCtrl IDD_ADMINPANEL_FREEZEADD5) ctrlShow false;
+			(_dialog displayCtrl IDD_ADMINPANEL_FREEZEADD10) ctrlShow false;
+			(_dialog displayCtrl IDD_ADMINPANEL_FREEZESUB) ctrlShow false;
+		};
 
 		["loop", _dialog] call WMT_fnc_HandlerAdminPanel;
 	};
@@ -102,7 +109,34 @@ switch (_event) do
 				};
 			};
 		};
-
+		[_arg] spawn  {
+			disableSerialization;
+			PR(_dialog) = _this select 0;
+			PR(_ctrlTime) = _dialog displayCtrl IDD_ADMINPANEL_FREEZETIME;
+			while {(uiNamespace getVariable ["WMT_Dialog_Menu",displayNull]) == _dialog && WMT_pub_frzState < 3} do {
+			
+				PR(_leftTime) = 0 max WMT_pub_frzTimeLeft;
+				PR(_min) = floor(_leftTime/60);
+				PR(_sec) = floor(_leftTime%60);
+				PR(_text) = "";
+				
+				if(_sec<10) then {
+					_text = format ["%1:   %2:0%3",localize "STR_WMT_TimeLeftFreeze", _min, _sec];
+				} else {
+					_text = format ["%1:   %2:%3",localize "STR_WMT_TimeLeftFreeze", _min, _sec];
+				};
+	
+				_ctrlTime ctrlSetText _text;
+				sleep 0.1;
+	
+			};
+			if ((uiNamespace getVariable ["WMT_Dialog_Menu",displayNull]) == _dialog) then {
+				(_dialog displayCtrl IDD_ADMINPANEL_FREEZETIME) ctrlShow false;
+				(_dialog displayCtrl IDD_ADMINPANEL_FREEZEADD5) ctrlShow false;
+				(_dialog displayCtrl IDD_ADMINPANEL_FREEZEADD10) ctrlShow false;
+				(_dialog displayCtrl IDD_ADMINPANEL_FREEZESUB) ctrlShow false;
+			};
+		};
 	};
 	case "changeTime" : {
 		if !(isNil "wmt_param_MissionTime") then {
@@ -132,6 +166,20 @@ switch (_event) do
 			WMT_Global_Announcement call WMT_fnc_Announcement;
 			publicVariable "WMT_Global_Announcement";
 		};	
+	};
+	
+	case "freezeTime" : {
+		PR(_deltaTime) = _arg; // minutes
+		WMT_pub_frzTimeLeft = WMT_pub_frzTimeLeft + _deltaTime * 60;
+		publicVariable "WMT_pub_frzTimeLeft";
+		
+		if(_deltaTime>0) then {
+			WMT_Global_Announcement = format [localize "STR_WMT_TimeIncreasedFreeze", _deltaTime, round(WMT_pub_frzTimeLeft/60)];
+		} else {
+			WMT_Global_Announcement = format [localize "STR_WMT_TimeReducedFreeze", -_deltaTime, round(WMT_pub_frzTimeLeft/60)];
+		};
+		WMT_Global_Announcement call WMT_fnc_Announcement;
+		publicVariable "WMT_Global_Announcement";
 	};
 };
 _return

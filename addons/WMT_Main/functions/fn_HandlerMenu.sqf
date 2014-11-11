@@ -29,7 +29,25 @@ switch (_event) do
 			
 			(_dialog displayCtrl IDC_MENU_ADMIN) ctrlSetText localize 'STR_WMT_AdminPanel';
 		};
+		if ( WMT_pub_frzState < 3 && (leader player == player || serverCommandAvailable('#kick')) ) then {
+			(_dialog displayCtrl IDC_MENU_TEAM_READY) ctrlShow true;
+			(_dialog displayCtrl IDC_MENU_TEAM_NOT_READY) ctrlShow true;
+		} else {
+			(_dialog displayCtrl IDC_MENU_TEAM_READY) ctrlShow false;
+			(_dialog displayCtrl IDC_MENU_TEAM_NOT_READY) ctrlShow false;
+
+		};
 	};
+	case "teamready" :{
+		closeDialog 0;
+		[] call WMT_fnc_FreezeVoteStart;
+	};
+	
+	case "teamnotready" : {
+		closeDialog 0;
+		[] call WMT_fnc_FreezeVoteWait;
+	};
+	
 	case "close": {
 		uiNamespace setVariable ["WMT_Dialog_Menu", nil];
 	};

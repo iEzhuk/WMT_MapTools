@@ -2,7 +2,10 @@
 
 PR(_rtime) = [_this, 0, 300] call BIS_fnc_param;
 
-waitUntil{sleep 0.725; time > _rtime};
+
+
+waitUntil{!isNil "WMT_pub_frzState"};
+waitUntil{sleep 0.725; time > _rtime && WMT_pub_frzState >= 3};
 
 {
 	PR(_isplayer) = _x getVariable ["WMT_PlayerName", nil];

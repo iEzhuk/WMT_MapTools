@@ -24,6 +24,7 @@ if (isNil "WMT_pub_frzVoteWait") then { WMT_pub_frzVoteWait = []; };
 if (isNil "WMT_pub_frzVoteStart") then { WMT_pub_frzVoteStart = []; };
 if (isNil "WMT_pub_frzTimeLeftForced") then { WMT_pub_frzTimeLeftForced = 30; };
 if (isNil "WMT_pub_frzTimeLeft") then { WMT_pub_frzTimeLeft = _freeztime; };
+if (isNil "WMT_frzBeginDate") then {WMT_frzBeginDate = date;};
 
 if (_freeztime ==0 ) then { WMT_pub_frzState = 3; };
 
@@ -50,4 +51,8 @@ while {WMT_pub_frzState < 3} do
 	WMT_pub_frzTimeLeft = WMT_pub_frzTimeLeft - 1;
 	if (round(WMT_pub_frzTimeLeft) % 10 == 0) then {publicVariable "WMT_pub_frzTimeLeft";};
 };	
+
+setDate WMT_frzBeginDate;
+
+
 
