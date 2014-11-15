@@ -35,7 +35,14 @@ switch (_event) do
 		} else {
 			(_dialog displayCtrl IDC_MENU_TEAM_READY) ctrlShow false;
 			(_dialog displayCtrl IDC_MENU_TEAM_NOT_READY) ctrlShow false;
+		};
 
+		if(isNil "WMT_global_EnableConsole") then {
+			WMT_global_EnableConsole = [];
+		};
+		
+		if (!((getPlayerUID player) in WMT_global_EnableConsole) && !serverCommandAvailable('#kick')) then {
+			(_dialog displayCtrl IDC_MENU_CONSOLE) ctrlShow false;
 		};
 	};
 	case "teamready" :{
@@ -63,6 +70,9 @@ switch (_event) do
 			createDialog "RscWMTFeedback";
 		};
 	};
-
+	case "console": {
+		closeDialog 0;
+		createDialog "RscDisplayDebugPublic";
+	};
 };
 _return
