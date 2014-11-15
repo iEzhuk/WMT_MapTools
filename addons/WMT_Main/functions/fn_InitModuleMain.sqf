@@ -100,8 +100,13 @@ if(_activated) then {
 
 			WMT_Local_PlayerName = name player;
 
-			player setVariable ["WMT_PlayerName",WMT_Local_PlayerName,true];
-			player setVariable ["WMT_PlayerSide",playerSide,true];
+			if (isNil {player getVariable "PlayerName"}) then {
+				player setVariable ["PlayerName",WMT_Local_PlayerName,true];
+			};
+
+			if (isNil {player getVariable "PlayerSide"}) then {
+				player setVariable ["PlayerSide",playerSide,true];
+			};
 
 			WMT_Local_Killer = [];
 			WMT_Local_Kills = [];

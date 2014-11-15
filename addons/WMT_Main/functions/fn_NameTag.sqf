@@ -28,14 +28,23 @@ while { true } do {
 	_unit = cursorTarget;
 	_text = "";
 
-	if(alive player) then {
-		if(!visibleMap) then {
-			if(player != _unit) then {
-				if(side _unit in _friendlySides) then {
-					if(alive _unit) then {
-						if(_unit distance player < 10) then {
-							if(!(["Error:", name _unit] call BIS_fnc_inString)) then {
-								_text = format [ "<t color='#b1f240' shadow=2>%1</t>", name _unit];
+	if (!(_unit isKindOf "Animal")) then {
+		if (count (crew _unit) > 0) then {
+			_unit = (crew _unit) select 0;
+			if (alive player) then {
+				if (!visibleMap) then {
+					if (player != _unit) then {
+						if (alive _unit) then {
+							PR(_side) = _unit getVariable ["PlayerSide", side _unit];
+							if (_side in _friendlySides) then {
+								if (_unit distance player < 10) then {
+									PR(_name) = _unit getVariable ["PlayerName", name _unit];
+									if (isPlayer _unit) then {
+										_text = format [ "<t color='#b1f240' shadow=2>%1</t>", _name];
+									} else {
+										_text = format [ "<t color='#b1f240' shadow=2>%1 [AI]</t>", _name];
+									};
+								};
 							};
 						};
 					};
