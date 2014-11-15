@@ -40,9 +40,9 @@ while { true } do {
 								if (_unit distance player < 10) then {
 									PR(_name) = _unit getVariable ["PlayerName", name _unit];
 									if (isPlayer _unit) then {
-										_text = format [ "<t color='#b1f240' shadow=2>%1</t>", _name];
+										_text = format [ "<t color='#b2f341' shadow=2>%1</t>", _name];
 									} else {
-										_text = format [ "<t color='#b1f240' shadow=2>%1 [AI]</t>", _name];
+										_text = format [ "<t color='#b2f341' shadow=2>%1 [AI]</t>", _name];
 									};
 								};
 							};
@@ -56,5 +56,5 @@ while { true } do {
 	_ctrl ctrlSetStructuredText (parseText _text);
 	_ctrl ctrlCommit 0;
 
-	sleep 0.3; 
+	sleep 0.2; 
 };

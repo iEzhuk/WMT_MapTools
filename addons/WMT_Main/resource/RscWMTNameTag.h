@@ -16,13 +16,13 @@ class RscWMTNameTag
 			idc 	= IDC_NAMETAG_TEXT;
 			type 	= 13;
 			style 	= 0;
-			x 		= 0.30 * safezoneW + safezoneX;
-			y 		= 0.70 * safezoneH + safezoneY;
-			w 		= 0.40 * safezoneW;
-			h 		= 0.05 * safezoneH;
+			x 		= 0.55;
+			y 		= 0.45;
+			w 		= 0.40;
+			h 		= 0.05;
 			font 	= "puristaMedium";
-			sizeEx 	= 0.045;
-			size 	= 0.045;
+			sizeEx 	= 0.028;
+			size 	= 0.028;
 			text 	= "";
 
 			colorText[] 		= {1,1,1,1};
@@ -30,7 +30,7 @@ class RscWMTNameTag
 
 			class Attributes {
 				font 			= "PuristaMedium"; 
-				align 			= "center"; 
+				align 			= "left"; 
 				valign 			= "middle"; 
 			};
 		};
