@@ -11,7 +11,7 @@
 	Parameters:
  		0: object
  		1: color (opt)
-
+		2: alpha (opt)
  	Returns:
 		Nothing 
 

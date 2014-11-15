@@ -1,14 +1,16 @@
 /*
  	Name:  
+ 		WMT_fnc_BriefingMap
  	
  	Author(s):
 		Zealot
 
  	Description:
-		 
+		Add map for player in briefing time and remove after start
 
 	Parameters:
  		Nothing
+ 	
  	Returns:
 		Nothing 
 */
