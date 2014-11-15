@@ -358,6 +358,10 @@
 				<Original>Shows additional info regarding vehicles and squads</Original>
 				<Russian>Показывать на брифинге информацию об отрядах и технике</Russian>
 			</Key>
+			<Key ID="STR_WMT_Console">
+				<Original>Console</Original>
+				<Russian>Консоль</Russian>
+			</Key>
 		</Container>
 	</Package>
 </Project>
