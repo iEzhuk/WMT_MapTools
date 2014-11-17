@@ -55,12 +55,14 @@ if(_activated) then {
 		// Reammo 
 		if (isNil "wmt_ammoCargoVehs") then {wmt_ammoCargoVehs = [];};
 		{
-			_ammoCargo = getAmmoCargo _x ;
-			if (_ammoCargo > 0 and _ammoCargo < 2) then {
-				wmt_ammoCargoVehs set [count wmt_ammoCargoVehs, _x];
-				_x setAmmoCargo 0;
-				_x setVariable ["wmt_ammo_cargo", 1, true]; 
-			};	
+			_ammoCargo = getAmmoCargo _x;
+			if (isNil "_ammoCargo") then {
+				if (_ammoCargo > 0 and _ammoCargo < 2) then {
+					wmt_ammoCargoVehs set [count wmt_ammoCargoVehs, _x];
+					_x setAmmoCargo 0;
+					_x setVariable ["wmt_ammo_cargo", 1, true]; 
+				};	
+			};
 		} foreach _vehicles;
 
 	};
