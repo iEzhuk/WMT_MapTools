@@ -14,7 +14,7 @@ v 1.3.0 - 11.11.2014
 v 1.2.3 - 15.10.2014
 
 + поддержка телепортации на фризтайме
-+ снаряд EP для титанов
++ снаряд EP для титанов (классы Titan_AT_Hard 5Rnd_GAT_missiles_hard 1Rnd_GAT_missiles_hard 2Rnd_GAT_missiles_hard)
 
 v 1.2.1 - 13.09.2014
 
