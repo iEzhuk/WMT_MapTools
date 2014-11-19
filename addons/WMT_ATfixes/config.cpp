@@ -5,7 +5,7 @@ class CfgPatches
 		units[] = {"MRAP_01_gmg_base_F","MRAP_03_hmg_base_F","MRAP_02_hmg_base_F","MRAP_03_base_F","Boat_Armed_01_base_F", "Land_Pallet_static_F", "Land_Pallet_vertical_static_F"};
 		weapons[] = {"launch_Titan_short_base","missiles_titan_static","missiles_titan"};
 		requiredVersion = 0.1;
-		requiredAddons[] = {"A3_Weapons_F","A3_Weapons_F_NATO","A3_Weapons_F_Launchers_Titan","A3_Soft_F","A3_Boat_F_Boat_Armed_01","A3_Boat_F","A3_Structures_F_Civ_Constructions","A3_Data_F"};
+		requiredAddons[] = {"A3_Weapons_F","A3_Weapons_F_NATO","A3_Weapons_F_Launchers_Titan","A3_Soft_F","A3_Boat_F_Boat_Armed_01","A3_Boat_F","A3_Structures_F_Civ_Constructions","A3_Data_F","A3_Weapons_F_Explosives"};
 		authorUrl = "https://github.com/iEzhuk/WOG3_MapTools";
 		author[]= {"Zealot, Ezhuk"}; 		
 		version = 1.3.0;
@@ -67,6 +67,61 @@ class CfgAmmo
 		weaponLockSystem = "2+4+16";
 		irLock = 0;
     };
+	
+	class Default;
+	class TimeBombCore;
+	class DirectionalBombCore;
+	class DirectionalBombBase: DirectionalBombCore{};
+	class APERSTripMine_Wire_Ammo: DirectionalBombBase
+	{
+		soundActivation[] = {};
+		soundDeactivation[] = {};
+	};
+	class MineCore;
+	class MineBase;
+	class APERSMine_Range_Ammo: MineBase
+	{
+		soundActivation[] = {};
+		soundDeactivation[] = {};
+	};
+	class BoundingMineCore: TimeBombCore{};
+	class BoundingMineBase: BoundingMineCore
+	{
+		soundActivation[] = {};
+		soundDeactivation[] = {};
+	};
+	class APERSBoundingMine_Range_Ammo: BoundingMineBase
+	{
+		soundActivation[] = {};
+		soundDeactivation[] = {};
+	};
+	class ATMine_Range_Ammo: MineBase
+	{
+		soundActivation[] = {};
+		soundDeactivation[] = {};
+	};
+	class PipeBombCore;
+	class PipeBombBase;
+	class SatchelCharge_Remote_Ammo: PipeBombBase
+	{
+		soundActivation[] = {};
+		soundDeactivation[] = {};
+	};
+	class SLAMDirectionalMine_Wire_Ammo: DirectionalBombBase
+	{
+		soundActivation[] = {};
+		soundDeactivation[] = {};
+	};
+	class DemoCharge_Remote_Ammo: PipeBombBase
+	{
+		soundActivation[] = {};
+		soundDeactivation[] = {};
+	};
+	class ClaymoreDirectionalMine_Remote_Ammo: DirectionalBombBase
+	{
+		soundActivation[] = {};
+		soundDeactivation[] = {};
+	};
 };
 
 class CfgWeapons
