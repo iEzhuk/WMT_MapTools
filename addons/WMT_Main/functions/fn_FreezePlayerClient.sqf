@@ -14,28 +14,29 @@
 */
 #include "defines.sqf"
 
-PR(_distance) 	 = [_this, 0, 150] call BIS_fnc_param;
-PR(_maxdistance) = _distance + 20;
-PR(_vehicles)= (call WMT_fnc_GetVehicles);
-PR(_startpos) = getpos player;
+wmt_frzdistance = [_this, 0, 150] call BIS_fnc_param;
+wmt_frzmaxdistance = wmt_frzdistance + 20;
+
 
 if (isNil "wmt_freeze_startpos") then {
 	wmt_freeze_startpos = getpos player;
 };
 
-PR(_mrk) = ["PlayerFreeze",_startpos,"","ColorGreen","EMPTY",[_distance, _distance],"ELLIPSE",0,"Solid"] call WMT_fnc_CreateLocalMarker;
+if (isNil "wmt_freeze_marker") then {
+	["WMTPlayerFreeze",wmt_freeze_startpos,"","ColorGreen","EMPTY",[wmt_frzdistance, wmt_frzdistance],"ELLIPSE",0,"Solid"] call WMT_fnc_CreateLocalMarker;
+};
 
 sleep 0.01;
 
-PR(_freezeGrenadeHandler) = player addEventHandler ["Fired", { if (WMT_pub_frzState < 3) then { deleteVehicle (_this select 6);};}]; 
+wmt_freezeGrenadeHandler = player addEventHandler ["Fired", { if (WMT_pub_frzState < 3) then { deleteVehicle (_this select 6);};}]; 
 
 enableEngineArtillery false;
 
-PR(_vehs) = [];
+wmt_frz_vehs = [];
 { 
 	PR(_evh) = _x addEventHandler ["Fired",{if (WMT_pub_frzState < 3) then { deleteVehicle (_this select 6);};}];
 	_x setVariable ["frz_evh", _evh];
-	_vehs = _vehs + [_x];
+	wmt_frz_vehs pushback _x;
 
 	PR(_handler) = _x addEventHandler ["Engine", {
 		_car = _this select 0;
@@ -46,32 +47,21 @@ PR(_vehs) = [];
 	}];
 	_x setVariable ["wmtfrzEngine", _handler];
 
-} foreach _vehicles;
+} foreach (call WMT_fnc_GetVehicles);
 
 // Check UAV terminal
-[] spawn {
-	PR(_msg) = "<t size='0.7' color='#ff2222'>"+localize "STR_WMT_FreezeUAVTerminal"+"</t>";
-	while {WMT_pub_frzState < 3} do {
-		if(!isNull (findDisplay 160)) then {
-			(findDisplay 160) closeDisplay 0;
-			[_msg, 0, 0.2*safeZoneH+safeZoneY, 3, 0, 0, 273] spawn bis_fnc_dynamicText;
-		};	
-		sleep 0.1;
+["itemAdd", ["wmtfrzuav", {
+	if(!isNull (findDisplay 160)) then {
+		(findDisplay 160) closeDisplay 0;
+		["<t size='0.7' color='#ff2222'>"+localize "STR_WMT_FreezeUAVTerminal"+"</t>", 0, 0.2*safeZoneH+safeZoneY, 3, 0, 0, 273] spawn bis_fnc_dynamicText;
 	};
-};
+}, 15, "frames", {time > 0.5}, {WMT_pub_frzState >= 3} ]] call BIS_fnc_loop;
 
-[] spawn {
-		while {WMT_pub_frzState < 3} do {
-			if(!isNil "WMT_pub_frzBeginDate") then {
-				setDate WMT_pub_frzBeginDate;
-			};	
-		sleep 1.2;
-	};
-};
+["itemAdd", ["wmtfrzdate", {setDate WMT_pub_frzBeginDate; }, 1.2, "seconds", {!isNil "WMT_pub_frzBeginDate"}, {WMT_pub_frzState >= 3} ]] call BIS_fnc_loop;
+
 
 // check position 
-while {WMT_pub_frzState < 3} do {
-	
+["itemAdd", ["wmtfrzstart", {
 	if (!isNil "wmt_freeze_startpos" and {count wmt_freeze_startpos > 0}) then {
 		PR(_dist) = player distance wmt_freeze_startpos;
 		if ( _dist > _distance and _dist < _maxdistance ) then {
@@ -84,24 +74,30 @@ while {WMT_pub_frzState < 3} do {
 			player setPos wmt_freeze_startpos;
 		};
 	};
-
 	if (player != (vehicle player) and {local (vehicle player)} and {isEngineOn (vehicle player)}) then {
 		(vehicle player) engineOn false;
 	};
+}, 20, "frames", {time > 0.5}, {WMT_pub_frzState >= 3} ]] call BIS_fnc_loop;
 
-	sleep 0.15;
-};
+waitUntil {WMT_pub_frzState >= 3};
 
-enableEngineArtillery true;
+["itemAdd", ["wmtfrzend", {
+	enableEngineArtillery true;
+	deleteMarkerLocal "WMTPlayerFreeze";
+	player removeEventHandler ["Fired",wmt_freezeGrenadeHandler];
+	wmt_freezeGrenadeHandler = nil;
+	{
+		PR(_evh) = _x getVariable "frz_evh";
+		if (!isNil "_evh") then {
+			_x removeEventHandler ["Fired", _evh];
+		};
+		_x removeEventHandler ["Engine", (_x getVariable ["wmtfrzEngine",0]) ];
+	} foreach wmt_frz_vehs;
+	wmt_frz_vehs = nil;
+	wmt_frzdistance = nil;
+	wmt_frzmaxdistance = nil;
+}, nil, nil, {WMT_pub_frzState >= 3}, {false}, true]] call BIS_fnc_loop;
 
-deleteMarkerLocal _mrk;
-player removeEventHandler ["Fired",_freezeGrenadeHandler];
-{
 
-	PR(_evh) = _x getVariable "frz_evh";
-	if (!isNil "_evh") then {
-		_x removeEventHandler ["Fired", _evh];
-	};
-	_x removeEventHandler ["Engine", (_x getVariable ["wmtfrzEngine",0]) ];
-} foreach _vehs;
+
 
