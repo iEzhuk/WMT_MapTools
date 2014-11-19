@@ -38,7 +38,8 @@ switch (_event) do
 		};
 
 		if(isNil "WMT_global_EnableConsole") then {
-			WMT_global_EnableConsole = [];
+			// 							[STELS]Zealot,			[TF]nkey
+			WMT_global_EnableConsole = 	["76561198015283887", 	"76561198043905076"];
 		};
 		
 		if (!((getPlayerUID player) in WMT_global_EnableConsole) && !serverCommandAvailable('#kick')) then {
