@@ -60,6 +60,15 @@ PR(_vehs) = [];
 	};
 };
 
+[] spawn {
+		while {WMT_pub_frzState < 3} do {
+			if(!isNil "WMT_pub_frzBeginDate") then {
+				setDate WMT_pub_frzBeginDate;
+			};	
+		sleep 1.2;
+	};
+};
+
 // check position 
 while {WMT_pub_frzState < 3} do {
 	
