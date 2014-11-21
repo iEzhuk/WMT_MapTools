@@ -67,7 +67,7 @@
 				<Russian>Отключен</Russian>
 			</Key>
 			<Key ID="STR_WMT_DisableTI">
-				<Original>Terminal view is disabled</Original>
+				<Original>Thermal view disabled</Original>
 				<Russian>Тепловизор отключен</Russian>
 			</Key>
 			<Key ID="STR_WMT_Win">
