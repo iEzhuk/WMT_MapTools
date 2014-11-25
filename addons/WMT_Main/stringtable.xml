@@ -83,11 +83,11 @@
 				<Russian>Адмистратор прервал миссию</Russian>
 			</Key>
 			<Key ID="STR_WMT_ViewDistance">
-				<Original>Veiw distance</Original>
+				<Original>View distance</Original>
 				<Russian>Дальность видимости</Russian>
 			</Key>			
 			<Key ID="STR_WMT_ViewDistance_Desc">
-				<Original>Max veiw distance</Original>
+				<Original>Max view distance</Original>
 				<Russian>Максимальная дальность видимости</Russian>
 			</Key>
 			<Key ID="STR_WMT_TI">
@@ -112,7 +112,7 @@
 			</Key>
 			<Key ID="STR_WMT_NameTag">
 				<Original>Name tags</Original>
-				<Russian>Подсветка имени</Russian>
+				<Russian>Подсветка ников</Russian>
 			</Key>
 			<Key ID="STR_WMT_Vehicles">
 				<Original>Vehicles</Original>
@@ -163,7 +163,7 @@
 				<Russian>Восток</Russian>
 			</Key>
 			<Key ID="STR_WMT_Resistance">
-				<Original>Independant</Original>
+				<Original>Independent</Original>
 				<Russian>Независимые</Russian>
 			</Key>
 			<Key ID="STR_WMT_Civilian">
@@ -179,7 +179,7 @@
 				<Russian>Сообщение</Russian>
 			</Key>
 			<Key ID="STR_WMT_Message_Desc">
-				<Original>Message about end of mission</Original>
+				<Original>Message end of mission</Original>
 				<Russian>Сообщение о окончании миссии</Russian>
 			</Key>
 			<Key ID="STR_WMT_PrepareTime">
@@ -204,7 +204,7 @@
 			</Key>
 			<Key ID="STR_WMT_FreezeUAVTerminal">
 				<Original>UAV will be available after the game starts!</Original>
-				<Russian>UAV терминал будет доступен после старта игры!</Russian>
+				<Russian>UAV терминал будет доступен после окончания подготовки!</Russian>
 			</Key>
 			<Key ID="STR_WMT_FreezeVoteStart">
 				<Original>My team is ready!</Original>
@@ -227,7 +227,7 @@
 				<Russian>Старт!</Russian>
 			</Key>	
 			<Key ID="STR_WMT_EndTime">
-				<Original>End time</Original>
+				<Original>Time is end</Original>
 				<Russian>Время вышло</Russian>
 			</Key>
 			<Key ID="STR_WMT_HeavyLossesCoeff">
@@ -291,12 +291,12 @@
 				<Russian>Показывать статистику после смерти по нажатию на [end]</Russian>
 			</Key>
 			<Key ID="STR_WMT_IndetifyTheBody">
-				<Original>Identify the body</Original>
-				<Russian>Распознование мертвых</Russian>
+				<Original>Identify bodies</Original>
+				<Russian>Опознание мертвых</Russian>
 			</Key>
 			<Key ID="STR_WMT_IndetifyTheBody_Action">
-				<Original>Identify the body</Original>
-				<Russian>Распознать тело</Russian>
+				<Original>Identify body</Original>
+				<Russian>Опознать тело</Russian>
 			</Key>
 			<Key ID="STR_WMT_MissionParameters">
 				<Original>Mission parameters</Original>
