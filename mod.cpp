@@ -1,1 +1,1 @@
-name = "WOG Map Tools";
+name = "WMT Map Tools";
