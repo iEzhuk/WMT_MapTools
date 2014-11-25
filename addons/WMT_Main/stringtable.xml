@@ -362,6 +362,10 @@
 				<Original>Console</Original>
 				<Russian>Консоль</Russian>
 			</Key>
+			<Key ID="STR_WMT_DontRemove">
+				<Original>Dont remove bot</Original>
+				<Russian>Не удалять бота</Russian>
+			</Key>			
 		</Container>
 	</Package>
 </Project>
