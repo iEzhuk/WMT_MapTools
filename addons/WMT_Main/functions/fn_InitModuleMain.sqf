@@ -102,6 +102,10 @@ if(_activated) then {
 
 			if (isNil {player getVariable "PlayerName"}) then {
 				player setVariable ["PlayerName",WMT_Local_PlayerName,true];
+			} else {
+				if (player getVariable "PlayerName" != WMT_Local_PlayerName) then {
+					player setVariable ["PlayerName",WMT_Local_PlayerName,true];
+				};
 			};
 
 			if (isNil {player getVariable "PlayerSide"}) then {
