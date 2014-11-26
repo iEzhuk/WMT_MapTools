@@ -14,7 +14,7 @@
  	Returns:
 		STRING: short name of the group 
 */	
-#include "defines.sqf"
+#define PR(x) private ['x']; x
 
 PR(_longGr) = _this;
 PR(_arr) = [_longGr, " -"] call BIS_fnc_splitString;

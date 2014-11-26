@@ -16,9 +16,7 @@
  	Returns:
 		Nothing
 */
-
-#include "defines.sqf"
-
+#define PR(x) private ['x']; x
 
 PR(_side) = if (isNull player ) then {sideUnknown} else {playerSide};
 PR(_text) = "";

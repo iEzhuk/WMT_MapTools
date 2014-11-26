@@ -7,13 +7,14 @@
  	Description:
 		Initialize main module
 */
-#include "defines.sqf"
-#include "debug.hpp"
+#include "defines_WMT.sqf"
+#include "defines_IDC.sqf"
 
 PR(_logic) = [_this,0,objNull,[objNull]] call BIS_fnc_param;
 PR(_units) = [_this,1,[],[[]]] call BIS_fnc_param;
 PR(_activated) = [_this,2,true,[true]] call BIS_fnc_param;
-
+systemChat str(_this);
+diag_log str(_this);
 if(_activated) then {
 	if ( not isnil "wmt_Main_ModuleRunning" ) exitWith {
 		diag_log "WMT_fnc_InitModuleMain: double initialization";

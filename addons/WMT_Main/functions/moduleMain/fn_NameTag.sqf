@@ -13,7 +13,8 @@
  	Returns:
 		Nothing
 */	
-#include "defines.sqf"
+#include "defines_WMT.sqf"
+#include "defines_IDC.sqf"
 
 disableSerialization;
 

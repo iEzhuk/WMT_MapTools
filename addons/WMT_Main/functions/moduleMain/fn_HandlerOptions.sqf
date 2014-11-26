@@ -15,7 +15,8 @@
 		BOOL: for standart handlers 
 */
 
-#include "defines.sqf"
+#include "defines_WMT.sqf"
+#include "defines_IDC.sqf"
 
 PR(_event) = _this select 0;
 PR(_arg) = _this select 1;

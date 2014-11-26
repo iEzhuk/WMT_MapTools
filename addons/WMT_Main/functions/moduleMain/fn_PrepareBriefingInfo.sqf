@@ -13,12 +13,7 @@
  	Returns:
 		Nothing 
 */
-
-
 #define PR(x) private ['x']; x
-
-
-
 
 if (not isServer) exitWith {};
 wmt_global_srvBrfData = [];

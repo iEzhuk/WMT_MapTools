@@ -13,7 +13,7 @@
  	Returns:
 		Nothing
 */
-#include "defines.sqf"
+#define PR(x) private ['x']; x
 
 if(wmt_param_Statistic==0)exitWith{};
 

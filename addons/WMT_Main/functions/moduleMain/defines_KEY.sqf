@@ -1,52 +1,3 @@
-#define FAST_START 30
-
-#define IDD_MENU_MAINMENU 	61000
-#define IDC_MENU_OPTION 	61001 
-#define IDC_MENU_ADMIN 		61002
-#define IDC_MENU_CLOSE 		61003
-#define IDC_MENU_TEAM_READY	61004
-#define IDC_MENU_TEAM_NOT_READY	61005
-#define IDC_MENU_CONSOLE 61006
-
-#define IDD_OPTIONS_OPTIONS 		17000
-#define IDC_OPTIONS_FOOT_TEXT 		17001
-#define IDC_OPTIONS_FOOT_SLIDER 	17011
-#define IDC_OPTIONS_FOOT_VAR 		17021
-#define IDC_OPTIONS_VEH_TEXT 		17002
-#define IDC_OPTIONS_VEH_SLIDER 		17012
-#define IDC_OPTIONS_VEH_VAR 		17022
-#define IDC_OPTIONS_MAX				17090
-#define IDC_OPTIONS_CLOSE 			17091
-
-#define IDD_ADMINPANEL				62000
-#define IDC_ADMINPANEL_TEXT 		62001 
-#define IDD_ADMINPANEL_CLOSE 		62002
-#define IDD_ADMINPANEL_ANNOUNCEMENT 62003
-#define IDD_ADMINPANEL_ENDMISSION 	62004
-#define IDD_ADMINPANEL_TEXTTIME		62005
-#define IDD_ADMINPANEL_ADD5			62006
-#define IDD_ADMINPANEL_ADD10		62007
-#define IDD_ADMINPANEL_SUB			62008	
-
-#define IDD_ADMINPANEL_FREEZETIME	62009
-#define IDD_ADMINPANEL_FREEZEADD5	62010
-#define IDD_ADMINPANEL_FREEZEADD10	62011
-#define IDD_ADMINPANEL_FREEZESUB	62012	
-#define IDD_ADMINPANEL_FREEZEBK		62013
-
-#define IDD_FEEDBACK			63000
-#define IDC_FEEDBACK_TEXT 		63001 
-#define IDC_FEEDBACK_CLOSE 		63002
-#define IDC_FEEDBACK_ADMIN	 	63003
-#define IDC_FEEDBACK_ADMINNAME 	63004
-#define IDC_FEEDBACK_SEND	 	63005
-
-#define IDD_DISABLETI		59000
-#define IDD_DISABLETI_TEXT	59001
-
-#define IDD_NAMETAG 		59100
-#define IDC_NAMETAG_TEXT 	59101
-
 #define KEY_ESCAPE          0x01
 #define KEY_1               0x02
 #define KEY_2               0x03
@@ -144,19 +95,3 @@
 
 #define MOUSE_LEFT			0
 #define MOUSE_RIGHT			1
-
-#define PR(x) private ['x']; x
-
-#define PARAM(X,Y,Z) private ['X']; X=[_this, Y, Z] call BIS_fnc_param;
-
-
-#ifdef WMT_DEBUG
-
-	if (isnil "wmt_debug_array") then {
-		wmt_debug_array = [];
-	};
-
-	#define DBGMSG(X) wmt_debug_array set [ count wmt_debug_array, format ["T %1 TT %2 FN %3 FL %4 MSG %5",time,diag_tickTime, diag_frameno,__FILE__+":"+str(__LINE__),  X]];
-#else
-	#define DBGMSG(X)
-#endif

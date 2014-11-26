@@ -16,7 +16,7 @@
  	Returns:
 		Nothing
 */
-#include "defines.sqf"
+#define PR(x) private ['x']; x
 
 if(!isNil "WMT_Local_MissionEnd") exitWith {diag_log "WARNING!!! WMT_Local_MissionEnd - multiple call";};
 WMT_Local_MissionEnd = true; 

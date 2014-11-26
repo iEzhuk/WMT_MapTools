@@ -12,7 +12,7 @@
  	Returns:
 		Nothing
 */
-#include "defines.sqf"
+#define PR(x) private ['x']; x
 
 PR(_triggers) = [];
 PR(_action) = -1;

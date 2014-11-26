@@ -1,12 +1,7 @@
-#include "defines.sqf"
-
+private["_isplayer"];
 {
-	PR(_isplayer) = _x getVariable ["PlayerName", nil];
+	_isplayer = _x getVariable ["PlayerName", nil];
 	if (isNil "_isplayer") then {
 		deleteVehicle _x;
 	};
 } forEach playableUnits;
-
-
-
-

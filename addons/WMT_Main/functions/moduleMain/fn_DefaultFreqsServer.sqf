@@ -13,10 +13,9 @@
  	Returns:
 		Nothing
 */
-#include "defines.sqf"
+#define PR(x) private ['x']; x
 
 if (not isClass (configFile >> "CfgPatches" >> "task_force_radio_items")) exitwith {diag_log "DefaultFreqServer TF radio not initialized"};
-DBGMSG("S1")
 
 tf_same_sw_frequencies_for_side = false;
 tf_same_lr_frequencies_for_side = true;		
@@ -57,8 +56,6 @@ PR(_genFreqArray) = {
 
 PR(_freqList) = [];
 
-DBGMSG("S2")
-
 {
 	_num = 0;
 	switch true do {
@@ -77,18 +74,13 @@ DBGMSG("S2")
 	_freqList set [count _freqList,  _data];
 } foreach [east, west, resistance];
 
-DBGMSG("S3")
-
 
 if (isNil "TF_MAX_CHANNELS") then {
 	call compile preprocessFileLineNumbers "\task_force_radio\functions\common.sqf";
 };
 
 
-
 call TFAR_fnc_processGroupFrequencySettings;
-
-DBGMSG("S5")
 
 {
 	_num = [1] call _genFreqArray ;
@@ -101,4 +93,3 @@ DBGMSG("S5")
 wmt_global_freqList = _freqList;
 publicVariable "wmt_global_freqList";
 
-DBGMSG("S6")

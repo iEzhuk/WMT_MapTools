@@ -7,6 +7,7 @@ class CfgFunctions
 			file = "WMT_Main\functions";
 			class PrecompileMain{preInit=1;};
 			class BoundingBoxMarker{};
+			class BriefingMap{};
 			class CreateDiaryRecord{};
 			class CreateLocalMarker{};
 			class CreateTrigger{};

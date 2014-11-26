@@ -15,7 +15,7 @@
  	Returns:
 		Nothing 
 */
-#include "defines.sqf"
+#define PR(x) private ['x']; x
 
 PR(_time) = _this select 0;
 PR(_winSide) = _this select 1; 

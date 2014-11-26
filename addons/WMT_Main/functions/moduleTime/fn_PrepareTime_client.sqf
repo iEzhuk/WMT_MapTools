@@ -15,7 +15,7 @@
  	Returns:
 		Nothing 
 */
-#include "defines.sqf"
+#define PR(x) private ['x']; x
 
 PR(_freeztime) = (_this select 0)*60;
 PR(_distance) = _this select 1;

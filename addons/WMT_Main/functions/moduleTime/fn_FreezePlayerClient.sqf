@@ -12,7 +12,7 @@
  	Returns:
 		Nothing
 */
-#include "defines.sqf"
+#define PR(x) private ['x']; x
 
 wmt_frzdistance = [_this, 0, 150] call BIS_fnc_param;
 wmt_frzmaxdistance = wmt_frzdistance + 20;
