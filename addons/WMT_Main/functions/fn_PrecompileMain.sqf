@@ -41,7 +41,6 @@ WMT_fnc_KeyUp						= compileFinal preprocessFileLineNumbers  ("WMT_Main\function
 WMT_fnc_NameTag						= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\moduleMain\fn_NameTag.sqf");
 WMT_fnc_PlayerKilled				= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\moduleMain\fn_PlayerKilled.sqf");
 WMT_fnc_PrepareBriefingInfo			= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\moduleMain\fn_PrepareBriefingInfo.sqf");
-WMT_fnc_RatingControl				= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\moduleMain\fn_RatingControl.sqf");
 WMT_fnc_ShowBriefingInfo			= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\moduleMain\fn_ShowBriefingInfo.sqf");
 WMT_fnc_ShowStatistic				= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\moduleMain\fn_ShowStatistic.sqf");
 WMT_fnc_UpdateMainActions			= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\moduleMain\fn_UpdateMainActions.sqf");

@@ -128,9 +128,9 @@ if(_activated) then {
 			if(wmt_param_NameTag>0) then {
 				IDD_NAMETAG cutRsc ["RscWMTNameTag","PLAIN"];
 			};
-			//#define IDD_NAMETAG 		59100
-
-			[] spawn WMT_fnc_RatingControl;
+			
+			// Save positive rating 
+			player addEventHandler ["HandleRating","if((rating player)<-(_this select 1))then{-(rating player)}else{_this}"];
 
 			[] spawn {
 				waitUntil {!(isNull (findDisplay 46))};
