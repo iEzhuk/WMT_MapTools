@@ -186,6 +186,51 @@ class CfgVehicles
 			};
 		};
 	};
+	//=======================================================================================
+	//									MAIN MODULE
+	//=======================================================================================
+	class WMT_StartPosition: Module_F
+	{
+		scope = 2;
+		author = "Ezhuk";
+		displayName = "Start Position";
+		category = "WMT";
+		function = "WMT_fnc_InitModuleStartPosition";
+		icon = "";
+		functionPriority = 1;
+		isGlobal = 1;
+		isTriggerActivated = 0;
+		class Arguments: ArgumentsBaseUnits
+		{
+			class Owner
+			{
+				displayName = "Owner";
+				description = "Выбор юнита, который выбирает стартовую позицию. Если не выбрано, то стартовая позиция выбирается случайно";
+				typeName = "STRING"; 
+				defaultValue = "";
+			};
+			class Positions
+			{
+				displayName = "Позиции";
+				description = "Введите названия маркеров через запятую.";
+				typeName = "STRING";
+				defaultValue = "";
+			};
+			class HideFromEnemy 
+			{
+				displayName = "Hide from enemy";
+				description = "Hide marker from enemy";
+				typeName = "NUMBER";
+				class values
+				{
+					class Empty	{name = "Показывать маркера всем"; value = 0; default = 1;};
+					class East 	{name = "Показывать только союзникам"; value = 1;};
+				};
+			};
+		};
+	};
+
+	// Change priority to default module for create diary
 	class ModuleCreateDiaryRecord_F : Module_F 
 	{
 		functionPriority = 5;
