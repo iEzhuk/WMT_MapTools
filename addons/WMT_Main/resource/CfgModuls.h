@@ -187,7 +187,7 @@ class CfgVehicles
 		};
 	};
 	//=======================================================================================
-	//									MAIN MODULE
+	//									Start Position
 	//=======================================================================================
 	class WMT_StartPosition: Module_F
 	{
@@ -196,7 +196,6 @@ class CfgVehicles
 		displayName = "Start Position";
 		category = "WMT";
 		function = "WMT_fnc_InitModuleStartPosition";
-		icon = "";
 		functionPriority = 1;
 		isGlobal = 1;
 		isTriggerActivated = 0;
@@ -205,27 +204,41 @@ class CfgVehicles
 			class Owner
 			{
 				displayName = "Owner";
-				description = "Выбор юнита, который выбирает стартовую позицию. Если не выбрано, то стартовая позиция выбирается случайно";
+				description = "";
+				typeName = "STRING"; 
+				defaultValue = "";
+			};
+			class CenterObject 
+			{
+				displayName = "Center";
+				description = "";
 				typeName = "STRING"; 
 				defaultValue = "";
 			};
 			class Positions
 			{
-				displayName = "Позиции";
-				description = "Введите названия маркеров через запятую.";
+				displayName = "Pos";
+				description = "";
 				typeName = "STRING";
 				defaultValue = "";
 			};
 			class HideFromEnemy 
 			{
-				displayName = "Hide from enemy";
-				description = "Hide marker from enemy";
+				displayName = "Show markers";
+				description = "";
 				typeName = "NUMBER";
 				class values
 				{
-					class Empty	{name = "Показывать маркера всем"; value = 0; default = 1;};
-					class East 	{name = "Показывать только союзникам"; value = 1;};
+					class Empty	{name = "All"; value = 0; default = 1;};
+					class East 	{name = "Only ally"; value = 1;};
 				};
+			};
+			class Time 
+			{
+				displayName = "Time for choose";
+				description = "";
+				typeName = "NUMBER";
+				defaultValue = 3;
 			};
 		};
 	};
