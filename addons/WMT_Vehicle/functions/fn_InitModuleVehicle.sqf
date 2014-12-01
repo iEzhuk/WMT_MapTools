@@ -12,7 +12,6 @@
 PR(_logic) = [_this,0,objNull,[objNull]] call BIS_fnc_param;
 PR(_units) = [_this,1,[],[[]]] call BIS_fnc_param;
 PR(_activated) = [_this,2,true,[true]] call BIS_fnc_param;
-PR(_vehicles)= (call WMT_fnc_GetVehicles);
 
 if(_activated) then {
 	if ( not isnil "wmt_Vehicle_ModuleRunning" ) exitWith {};
@@ -49,21 +48,21 @@ if(_activated) then {
 					_x setRepairCargo 0;
 					_x setVariable ["wmt_repair_cargo", 1, true]; 
 				};
-			} foreach _vehicles;
+			} foreach vehicles;
 		};
 
 		// Reammo 
 		if (isNil "wmt_ammoCargoVehs") then {wmt_ammoCargoVehs = [];};
 		{
 			_ammoCargo = getAmmoCargo _x;
-			if (isNil "_ammoCargo") then {
+			if (!isNil "_ammoCargo") then {
 				if (_ammoCargo > 0 and _ammoCargo < 2) then {
 					wmt_ammoCargoVehs set [count wmt_ammoCargoVehs, _x];
 					_x setAmmoCargo 0;
 					_x setVariable ["wmt_ammo_cargo", 1, true]; 
 				};	
 			};
-		} foreach _vehicles;
+		} foreach vehicles;
 
 	};
 
