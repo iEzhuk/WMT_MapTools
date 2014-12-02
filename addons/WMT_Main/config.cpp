@@ -17,9 +17,9 @@ class CfgPatches
 		requiredAddons[] = {};
 		author[] = {"Ezhuk","Zealot"};
 		authorUrl = "https://github.com/iEzhuk/WMT_MapTools";
-		version = 1.3.5;
-		versionStr = "1.3.5";
-		versionAr[] = {1,3,5};	
+		version = 1.3.6;
+		versionStr = "1.3.6";
+		versionAr[] = {1,3,6};	
 	};
 };
 
