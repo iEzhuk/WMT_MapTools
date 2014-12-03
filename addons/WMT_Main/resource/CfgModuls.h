@@ -201,6 +201,13 @@ class CfgVehicles
 		isTriggerActivated = 0;
 		class Arguments: ArgumentsBaseUnits
 		{
+			class Text
+			{
+				displayName = "Text";
+				description = "Text of actions";
+				typeName = "STRING";
+				defaultValue = "";
+			};
 			class Owner
 			{
 				displayName = "Owner";
