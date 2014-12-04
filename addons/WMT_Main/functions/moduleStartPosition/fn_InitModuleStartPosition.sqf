@@ -7,7 +7,7 @@
  	Description:
 		Initialize main module
 */
-#define ERROR(x) systemChat x; x call BIS_fnc_error; x call BIS_fnc_log; 
+#define ERROR(x) hint x; systemChat x; x call BIS_fnc_error; x call BIS_fnc_log; 
 
 private ["_logic", "_units", "_activated", "_obj"];
 
@@ -33,6 +33,7 @@ if(_activated) then {
 	_logic setVariable ["Markers",_arrMarkers];
 
 	
+	// Check parameters
 	_valid = true;
 	if (_text == "") then {
 		ERROR("WMT_fnc_InitModuleStartPosition: field text is empty");
@@ -40,7 +41,7 @@ if(_activated) then {
 	};
 
 	// Check owner and markers
-	_moduleSide = sideLogic;
+	_moduleSide = _logic getVariable ["WMT_Side",sideLogic];;
 	if (_owner != "") then {
 		if(call compile format ["isNil {%1}",_owner]) then {
 				ERROR(format ["WMT_fnc_InitModuleStartPosition: object <%1> is not exist", _owner]);
@@ -89,18 +90,11 @@ if(_activated) then {
 	};
 
 	if(_valid) then {
-		//================================================
-		//					SERVER
-		//================================================
 		if(isServer) then {
 			[_logic, _syncObjs, _owner, _center, _arrMarkers, _time, _moduleSide] spawn WMT_fnc_startPosition_server;
 		}; 
 
-		//================================================
-		//					CLIENT
-		//================================================
 		if(!isDedicated) then {
-			systemChat "CLIENT";
 			[_logic, _syncObjs, _owner, _arrMarkers, _hideFromEnemy, _time, _moduleSide, _text] spawn WMT_fnc_startPosition_client;
 		};
 	};

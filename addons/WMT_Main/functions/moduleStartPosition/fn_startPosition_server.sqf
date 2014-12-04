@@ -5,6 +5,20 @@
 		Ezhuk
 */
 
+private ["_fnc_RotatePoint"];
+
+_fnc_RotatePoint = {
+	private ["_pX0", "_pY0","_a","_pX1", "_pY1"];
+	_pX0 = _this select 0;
+	_pY0 = _this select 1;
+	_a   = _this select 2;
+
+	_pX1 = _pX0*cos(_a) - _pY0*sin(_a);
+	_pY1 = _pY0*cos(_a) + _pX0*sin(_a);
+	
+	[_pX1,_pY1]
+};
+
 
 private ["_logic", "_units", "_owner", "_center", "_markers" , "_time", "_moduleSide", "_indexPos", "_map", "_centerPos", "_centerDir", "_object", "_offset"];
 
@@ -22,17 +36,16 @@ _moduleSide = _this select 6;
 
 // Calculate offets by center for all bjects 
 _map = [];
-_centerPos = getMarkerPos _center;
-_centerDir = getMarkerDir _center;
+_centerPos = markerPos _center;
+_centerDir = markerDir _center;
 
 for "_i" from 0 to ((count _units)-1) do {
 	_obj = _units select _i;
 	_pos = getPos _obj;
-	_offset = _centerPos vectorDiff (getPos _obj);
+	_offset = (getPos _obj) vectorDiff _centerPos;
 	_offset set [2, 0];
-	_map pushBack [_obj, _offset];
+	_map pushBack [_obj, _offset, getDir _obj];
 };
-_logic setVariable ["Map", _map];
 
 
 //===================================================
@@ -62,22 +75,27 @@ _indexPos = 0 max _indexPos;
 
 
 // Get position of marker
-_markerPos = getMarkerPos (_markers select _indexPos);
-_markerdir = getMarkerDir (_markers select _indexPos);
+_markerPos = markerPos (_markers select _indexPos);
+_markerdir = markerDir  (_markers select _indexPos);
 
 // Teleport 
 for "_i" from 0 to ((count _map)-1) do {
 	_object = (_map select _i) select 0;
 	_offset = (_map select _i) select 1;
-	_offset = _offset 
-
+	_sDir	= (_map select _i) select 2;
 	
 	if (vehicle _object != _object) then {
 		_object action ["getout", vehicle _object];
 	};
+	systemChat format ["O: %1 %2 %3",_centerDir, _markerdir, _centerDir - _markerdir];
+	systemChat format ["O2: %1 %2",_offset, [_offset select 0, _offset select 1, _centerDir - _markerdir] call _fnc_RotatePoint];
+	_offset = [_offset select 0, _offset select 1, _centerDir - _markerdir] call _fnc_RotatePoint;
+	_offset set [2,0];
 
 	_object setPos (_markerPos vectorAdd _offset);
-	_object setDir _markerdir;
+	_object setDir -(_sDir + _centerDir - _markerdir);
+
+systemChat format ["D: %1 %2 %3 %4",_sDir, _centerDir, _markerdir, _centerDir - _markerdir, _sDir + (_centerDir - _markerdir)];
 };
 
 
