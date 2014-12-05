@@ -18,9 +18,8 @@ switch (_event) do
 	case "init":{		
 		PR(_display) = _arg select 0;
 		uiNamespace setVariable ['WMT_StartPos_Disaplay', _display];
-		PR(_ctrl) = _display displayCtrl IDC_STARTPOS_TEXT;
 
-		_ctrl ctrlSetText wmt_startPos_text;
+		(_display displayCtrl IDC_STARTPOS_TEXT) ctrlSetText wmt_startPos_text;
 
 		onMapSingleClick "['mapClick',_pos] call WMT_fnc_chooseMarker_handler";
 	};
@@ -41,15 +40,13 @@ switch (_event) do
 		createDialog "RscWMTChooseMarker";
 	};
 	case "mapClick":{
-		private ["_pos", "_nearestMarker", "_nearestDist", "_dist", "_marker"];
-
-		_pos = _arg;
-		_nearestMarker = -1;
-		_nearestDist = 300;
+		PR(_pos) = _arg;
+		PR(_nearestMarker) = -1;
+		PR(_nearestDist) = 300;
 
 		for "_i" from 0 to ((count wmt_startPos_marker)-1) do {
-			_marker = wmt_startPos_marker select _i;
-			_dist = _pos distance (getMarkerPos _marker);
+			PR(_marker) = wmt_startPos_marker select _i;
+			PR(_dist) = _pos distance (getMarkerPos _marker);
 			if (_dist < _nearestDist) then {
 				_nearestDist = _dist;
 				_nearestMarker = _i;
@@ -58,7 +55,7 @@ switch (_event) do
 
 		if (_nearestMarker != -1) then {
 			for "_i" from 0 to ((count wmt_startPos_marker)-1) do {
-				_marker = wmt_startPos_marker select _i;
+				PR(_marker) = wmt_startPos_marker select _i;
 				_marker setMarkerAlphaLocal 0.7;
 			};
 			(wmt_startPos_marker select _nearestMarker) setMarkerAlphaLocal 1.0;

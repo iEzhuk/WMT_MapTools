@@ -87,15 +87,12 @@ for "_i" from 0 to ((count _map)-1) do {
 	if (vehicle _object != _object) then {
 		_object action ["getout", vehicle _object];
 	};
-	systemChat format ["O: %1 %2 %3",_centerDir, _markerdir, _centerDir - _markerdir];
-	systemChat format ["O2: %1 %2",_offset, [_offset select 0, _offset select 1, _centerDir - _markerdir] call _fnc_RotatePoint];
+
 	_offset = [_offset select 0, _offset select 1, _centerDir - _markerdir] call _fnc_RotatePoint;
 	_offset set [2,0];
 
 	_object setPos (_markerPos vectorAdd _offset);
-	_object setDir -(_sDir + _centerDir - _markerdir);
-
-systemChat format ["D: %1 %2 %3 %4",_sDir, _centerDir, _markerdir, _centerDir - _markerdir, _sDir + (_centerDir - _markerdir)];
+	_object setDir _markerdir - _sDir - _centerDir;
 };
 
 
