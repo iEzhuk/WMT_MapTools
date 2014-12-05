@@ -21,8 +21,8 @@ class RscWMTNameTag
 			w 		= 0.40;
 			h 		= 0.05;
 			font 	= "puristaMedium";
-			sizeEx 	= 0.028;
-			size 	= 0.028;
+			sizeEx 	= 0.035;
+			size 	= 0.035;
 			text 	= "";
 
 			colorText[] 		= {1,1,1,1};
