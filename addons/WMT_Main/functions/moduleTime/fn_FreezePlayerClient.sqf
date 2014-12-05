@@ -64,12 +64,12 @@ wmt_frz_vehs = [];
 ["itemAdd", ["wmtfrzstart", {
 	if (!isNil "wmt_freeze_startpos" and {count wmt_freeze_startpos > 0}) then {
 		PR(_dist) = player distance wmt_freeze_startpos;
-		if ( _dist > _distance and _dist < _maxdistance ) then {
+		if ( _dist > wmt_frzdistance and _dist < wmt_frzmaxdistance ) then {
 			_msg = "<t size='0.75' color='#ff0000'>"+localize "STR_WMT_FreezeZoneFlee" +"</t>";
 			[_msg, 0, 0.25, 3, 0, 0, 27] spawn bis_fnc_dynamicText;
 
 		};
-		if (_dist > _maxdistance) then {
+		if (_dist > wmt_frzmaxdistance) then {
 			player setVelocity [0,0,0];
 			player setPos wmt_freeze_startpos;
 		};
