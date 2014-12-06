@@ -28,7 +28,9 @@ switch (_event) do
 		uiNamespace setVariable ["WMT_Dialog_Menu", _dialog];
 		_dialog displayAddEventHandler ["MouseMoving", "true"];
 		
-		if ( WMT_pub_frzState >= 3 ) then {
+
+
+		if ( missionNamespace getVariable ["WMT_pub_frzState", 100] >= 3 ) then {
 			(_dialog displayCtrl IDD_ADMINPANEL_FREEZETIME) ctrlShow false;
 			(_dialog displayCtrl IDD_ADMINPANEL_FREEZEADD5) ctrlShow false;
 			(_dialog displayCtrl IDD_ADMINPANEL_FREEZEADD10) ctrlShow false;
@@ -115,7 +117,7 @@ switch (_event) do
 			disableSerialization;
 			PR(_dialog) = _this select 0;
 			PR(_ctrlTime) = _dialog displayCtrl IDD_ADMINPANEL_FREEZETIME;
-			while {(uiNamespace getVariable ["WMT_Dialog_Menu",displayNull]) == _dialog && WMT_pub_frzState < 3} do {
+			while {(uiNamespace getVariable ["WMT_Dialog_Menu",displayNull]) == _dialog && missionNamespace getVariable ['WMT_pub_frzState',100] < 3} do {
 			
 				PR(_leftTime) = 0 max WMT_pub_frzTimeLeft;
 				PR(_min) = floor(_leftTime/60);

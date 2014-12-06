@@ -30,7 +30,9 @@ switch (_event) do
 			
 			(_dialog displayCtrl IDC_MENU_ADMIN) ctrlSetText localize 'STR_WMT_AdminPanel';
 		};
-		if ( WMT_pub_frzState < 3 && (leader player == player || serverCommandAvailable('#kick')) ) then {
+
+		
+		if ( missionNamespace getVariable ["WMT_pub_frzState", 100] < 3 && (leader player == player || serverCommandAvailable('#kick')) ) then {
 			(_dialog displayCtrl IDC_MENU_TEAM_READY) ctrlShow true;
 			(_dialog displayCtrl IDC_MENU_TEAM_NOT_READY) ctrlShow true;
 		} else {
