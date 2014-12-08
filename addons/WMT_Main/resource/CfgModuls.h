@@ -229,15 +229,18 @@ class CfgVehicles
 				typeName = "STRING";
 				defaultValue = "";
 			};
-			class HideFromEnemy 
+			class MarkerSide 
 			{
 				displayName = "Show markers";
 				description = "";
 				typeName = "NUMBER";
 				class values
 				{
-					class Empty	{name = "All"; value = 0; default = 1;};
-					class East 	{name = "Only ally"; value = 1;};
+					class All  {name = "All"; value = 0; default = 1;};
+					class East {name = "$STR_WMT_East"; value = 1;};
+					class West {name = "$STR_WMT_West"; value = 2;};
+					class Guer {name = "$STR_WMT_Resistance"; value = 3;};
+					class Civ  {name = "$STR_WMT_Civilian"; value = 4;};
 				};
 			};
 			class Time 

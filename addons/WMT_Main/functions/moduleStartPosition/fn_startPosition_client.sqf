@@ -5,15 +5,14 @@
 		Ezhuk
 */
 #include "defines_WMT.sqf"
-private ["_logic", "_units", "_owner", "_center", "_markers", "_hideFromEnemy", "_time", "_moduleSide", "_action"];
+private ["_logic", "_units", "_owner", "_center", "_markers", "_hideFromEnemy", "_time", "_markerSide", "_action"];
 
 _logic = _this select 0;
 _units = _this select 1;
 _owner = _this select 2;
 _markers = _this select 3;
-_hideFromEnemy = _this select 4;
 _time = _this select 5;
-_moduleSide = _this select 6;
+_markerSide = _this select 6;
 _text = _this select 7;
 
 
@@ -24,7 +23,7 @@ _friendsSide = ([playerSide] call BIS_fnc_friendlySides) - [civilian];
 if(_logic getVariable ["Finished", false]) exitWith {};
 
 // Hide marker for enemy side
-_alpha = if (_moduleSide in _friendsSide && _hideFromEnemy==0)then{0.7}else{0};
+_alpha = if (_markerSide in _friendsSide || _markerSide == sideLogic)then{0.7}else{0};
 for "_i" from 0 to ((count _markers)-1) do {
 	(_markers select _i) setMarkerAlphaLocal _alpha;
 };
@@ -35,31 +34,32 @@ if (_owner!="") then {
 		wmt_fnc_openChooseMap = {
 			["openMap", 
 				[
-					(_this select 3) select 0,
-					(_this select 3) select 1,
-					(_this select 3) select 2,
-					(_this select 3) select 3
+					(_this select 3) select 0, // markers
+					(_this select 3) select 1, // module 
+					(_this select 3) select 2, // function
+					(_this select 3) select 3  // text
 				]
 			] call WMT_fnc_chooseMarker_handler;
 		};
 
 		sleep 1;
-		_action = player addAction [format ["<t color='#0353f5'>%1</t>", _text],
-							wmt_fnc_openChooseMap, 
-							[
-								_markers,
-								_logic,
-								{
-									(_this select 0) setVariable ["IndexPosition", (_this select 1), true];
-								},
-								_text
-							],
-							10, 
-							true, 
-							true, 
-							'', 
-							'true'
-						];
+		_action = player addAction [
+										format ["<t color='#0353f5'>%1</t>", _text],
+										wmt_fnc_openChooseMap, 
+										[
+											_markers,
+											_logic,
+											{
+												(_this select 0) setVariable ["IndexPosition", (_this select 1), true];
+											},
+											_text
+										],
+										10, 
+										true, 
+										true, 
+										'', 
+										'true'
+									];
 
 		
 		//===================================================

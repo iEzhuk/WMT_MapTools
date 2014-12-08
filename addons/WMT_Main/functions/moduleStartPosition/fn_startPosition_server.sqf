@@ -20,7 +20,7 @@ _fnc_RotatePoint = {
 };
 
 
-private ["_logic", "_units", "_owner", "_center", "_markers" , "_time", "_moduleSide", "_indexPos", "_map", "_centerPos", "_centerDir", "_object", "_offset"];
+private ["_logic", "_units", "_owner", "_center", "_markers" , "_time", "_indexPos", "_map", "_centerPos", "_centerDir", "_object", "_offset"];
 
 
 _logic   = _this select 0;
@@ -29,7 +29,7 @@ _owner   = _this select 2;
 _center  = _this select 3;
 _markers = _this select 4;
 _time    = _this select 5;
-_moduleSide = _this select 6;
+
 //===================================================
 // 					INIT
 //===================================================
