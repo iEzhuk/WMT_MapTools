@@ -165,7 +165,7 @@ switch (_event) do
 			if(_deltaTime>0) then {
 				WMT_Global_Announcement = format [localize "STR_WMT_TimeIncreased", _deltaTime, wmt_param_MissionTime];
 			} else {
-				WMT_Global_Announcement = format [localize "STR_WMT_TimeReduced", -_deltaTime, wmt_param_MissionTime];
+				WMT_Global_Announcement = format [localize "STR_WMT_TimeReduced", -_deltaTime, 0 max wmt_param_MissionTime];
 			};
 
 			WMT_Global_Announcement call WMT_fnc_Announcement;
@@ -181,7 +181,7 @@ switch (_event) do
 		if(_deltaTime>0) then {
 			WMT_Global_Announcement = format [localize "STR_WMT_TimeIncreasedFreeze", _deltaTime, round(WMT_pub_frzTimeLeft/60)];
 		} else {
-			WMT_Global_Announcement = format [localize "STR_WMT_TimeReducedFreeze", -_deltaTime, round(WMT_pub_frzTimeLeft/60)];
+			WMT_Global_Announcement = format [localize "STR_WMT_TimeReducedFreeze", -_deltaTime, 0 max round(WMT_pub_frzTimeLeft/60)];
 		};
 		WMT_Global_Announcement call WMT_fnc_Announcement;
 		publicVariable "WMT_Global_Announcement";
