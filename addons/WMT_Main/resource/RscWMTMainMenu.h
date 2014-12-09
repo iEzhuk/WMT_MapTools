@@ -42,7 +42,7 @@ class RscWMTMainMenu {
 		class Button_Console : RscWMTButtonMenu_ext {
 			idc = IDC_MENU_CONSOLE;
 			x = 0.02;
-			y = 0.465570;
+			y = 0.465;
 			text = $STR_WMT_Console;
 			action = "['console',_this] call WMT_fnc_HandlerMenu";
 		};
