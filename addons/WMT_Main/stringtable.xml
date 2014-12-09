@@ -365,7 +365,51 @@
 			<Key ID="STR_WMT_DontRemove">
 				<Original>Dont remove bot</Original>
 				<Russian>Не удалять бота</Russian>
-			</Key>			
+			</Key>	
+			<Key ID="STR_WMT_Text">
+				<Original>Text</Original>
+				<Russian>Текст</Russian>
+			</Key>		
+			<Key ID="STR_WMT_SP_Text_Desc">
+				<Original>This string will be used for Action Menu</Original>
+				<Russian>Эта строка будет использована в Action Menu</Russian>
+			</Key>
+			<Key ID="STR_WMT_SP_Owner">
+				<Original>Owner</Original>
+				<Russian>Основной юнит</Russian>
+			</Key>	
+			<Key ID="STR_WMT_SP_Owner_Desc">
+				<Original>This unit will select start position</Original>
+				<Russian>Этот юнит будет иметь возможность ввыбирать стартовую позицию</Russian>
+			</Key>
+			<Key ID="STR_WMT_SP_Center">
+				<Original>Center</Original>
+				<Russian>Центер</Russian>
+			</Key>	
+			<Key ID="STR_WMT_SP_Center_Desc">
+				<Original>Offset of objects relative to the marker used for calculate position of object around slected position</Original>
+				<Russian>мещение относительно этого маркера используется для подсчета координат относительно выбранной позиции</Russian>
+			</Key>
+			<Key ID="STR_WMT_SP_Positions">
+				<Original>List of positons</Original>
+				<Russian>Список позиций</Russian>
+			</Key>	
+			<Key ID="STR_WMT_SP_ShowMarkers">
+				<Original>Show markers</Original>
+				<Russian>Видимость маркеров</Russian>
+			</Key>	
+			<Key ID="STR_WMT_All">
+				<Original>All</Original>
+				<Russian>се</Russian>
+			</Key>
+			<Key ID="STR_WMT_SP_Time">
+				<Original>Time (sec)</Original>
+				<Russian>Время (сек)</Russian>
+			</Key>	
+			<Key ID="STR_WMT_SP_Time_Desc">
+				<Original>Time for select position in case without freezetime</Original>
+				<Russian>Время на выбор позиции в случая отсутвия времени на подготовку</Russian>
+			</Key>
 		</Container>
 	</Package>
 </Project>

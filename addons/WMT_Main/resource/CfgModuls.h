@@ -203,40 +203,40 @@ class CfgVehicles
 		{
 			class Text
 			{
-				displayName = "Text";
-				description = "Text of actions";
+				displayName = "$STR_WMT_Text";
+				description = "$STR_WMT_SP_Text_Desc";
 				typeName = "STRING";
 				defaultValue = "";
 			};
 			class Owner
 			{
-				displayName = "Owner";
-				description = "";
+				displayName = "$STR_WMT_SP_Owner";
+				description = "$STR_WMT_SP_Owner_Desc";
 				typeName = "STRING"; 
 				defaultValue = "";
 			};
 			class CenterObject 
 			{
-				displayName = "Center";
-				description = "";
+				displayName = "$STR_WMT_SP_Center";
+				description = "$STR_WMT_SP_Center_Desc";
 				typeName = "STRING"; 
 				defaultValue = "";
 			};
 			class Positions
 			{
-				displayName = "Pos";
+				displayName = "$STR_WMT_SP_Positions";
 				description = "";
 				typeName = "STRING";
 				defaultValue = "";
 			};
 			class MarkerSide 
 			{
-				displayName = "Show markers";
+				displayName = "$STR_WMT_SP_ShowMarkers";
 				description = "";
 				typeName = "NUMBER";
 				class values
 				{
-					class All  {name = "All"; value = 0; default = 1;};
+					class All  {name = "$STR_WMT_All"; value = 0; default = 1;};
 					class East {name = "$STR_WMT_East"; value = 1;};
 					class West {name = "$STR_WMT_West"; value = 2;};
 					class Guer {name = "$STR_WMT_Resistance"; value = 3;};
@@ -245,8 +245,8 @@ class CfgVehicles
 			};
 			class Time 
 			{
-				displayName = "Time for choose";
-				description = "";
+				displayName = "$STR_WMT_SP_Time";
+				description = "$STR_WMT_SP_Time_Desc";
 				typeName = "NUMBER";
 				defaultValue = 3;
 			};
