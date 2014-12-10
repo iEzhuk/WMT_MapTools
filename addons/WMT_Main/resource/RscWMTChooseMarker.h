@@ -1,6 +1,4 @@
-#define IDD_STARTPOS				62100
-#define IDC_STARTPOS_MAP	 		62101 
-#define IDC_STARTPOS_TEXT			62102
+#include "..\functions\moduleStartPosition\defines_IDC.sqf"
 
 class RscMap;
 class RscMapControl;
@@ -12,7 +10,7 @@ class RscWMTChooseMarker: RscMap {
 	class controls {
 		class bgpic
 		{
-			idc = 62103;
+			idc = IDC_STARTPOS_TABLET;
 			text = "\WMT_Main\pic\tablet.paa";
 			x = -0.57575;
 			y = -0.1916;
@@ -32,7 +30,7 @@ class RscWMTChooseMarker: RscMap {
 
 		class hddpic
 		{
-			idc = 62104;
+			idc = IDC_STARTPOS_LEDHDD;
 			text = "\wmt_main\pic\led_red.paa";
 			x = -0.194948;
 			y = 0.7;
@@ -52,7 +50,7 @@ class RscWMTChooseMarker: RscMap {
 
 		class netpic
 		{
-			idc = 62105;
+			idc = IDC_STARTPOS_LEDNET;
 			text = "\wmt_main\pic\led_blue.paa";
 			x = -0.197096;
 			y = 0.653604;
