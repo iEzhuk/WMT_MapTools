@@ -10,21 +10,32 @@ class RscWMTChooseMarker: RscMap {
 	onUnload = "['close',_this] call WMT_fnc_chooseMarker_handler";
 	onKeyUp = "['keyUp',_this] call WMT_fnc_chooseMarker_handler";
 	class controls {
-		class Background : RscText{
-			colorBackground[] = {0, 0, 0, 0.75};
-			idc = -1;
-			x 	= 0.0 * safezoneW + safezoneX;
-			y 	= 0.0 * safezoneH + safezoneY;
-			w 	= 1.0 * safezoneW;
-			h 	= 1.0 * safezoneH;
+		class bgpic
+		{
+			idc = 62103;
+			text = "\WMT_Main\pic\tablet.paa";
+			x = 0.0563018 * safezoneW + safezoneX;
+			y = 0.119519 * safezoneH + safezoneY;
+			w = 0.897187 * safezoneW;
+			h = 0.807521 * safezoneH;
+			access = 0;
+			type = 0;
+			style = 48;
+			colorBackground[] = {0,0,0,0};
+			colorText[] = {1,1,1,1};
+			font = "TahomaB";
+			sizeEx = 0;
+			lineSpacing = 0;
+			fixedWidth = 0;
+			shadow = 0;
 		};
-
+    
 		class Map : RscMapControl{
 			idc = IDC_STARTPOS_MAP;
-			x 	= 0.2 * safezoneW + safezoneX;
-			y 	= 0.2 * safezoneH + safezoneY;
-			w 	= 0.6 * safezoneW;
-			h 	= 0.6 * safezoneH;
+			x 	= 0.29375 * safezoneW + safezoneX;
+			y 	= 0.225 * safezoneH + safezoneY;
+			w 	= 0.4125 * safezoneW;
+			h 	= 0.55 * safezoneH;
 			sizeExNames = 0.044;
 		};
 
