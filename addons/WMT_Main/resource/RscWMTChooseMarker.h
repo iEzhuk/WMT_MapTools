@@ -14,10 +14,50 @@ class RscWMTChooseMarker: RscMap {
 		{
 			idc = 62103;
 			text = "\WMT_Main\pic\tablet.paa";
-			x = 0.0563018 * safezoneW + safezoneX;
-			y = 0.119519 * safezoneH + safezoneY;
-			w = 0.897187 * safezoneW;
-			h = 0.807521 * safezoneH;
+			x = -0.57575;
+			y = -0.1916;
+			w = 2.175;
+			h = 1.46822;
+			access = 0;
+			type = 0;
+			style = 48;
+			colorBackground[] = {0,0,0,0};
+			colorText[] = {1,1,1,1};
+			font = "TahomaB";
+			sizeEx = 0;
+			lineSpacing = 0;
+			fixedWidth = 0;
+			shadow = 0;
+		};
+
+		class hddpic
+		{
+			idc = 62104;
+			text = "\wmt_main\pic\led_red.paa";
+			x = -0.194948;
+			y = 0.7;
+			w = 0.194949;
+			h = 0.2;
+			access = 0;
+			type = 0;
+			style = 48;
+			colorBackground[] = {0,0,0,0};
+			colorText[] = {1,1,1,1};
+			font = "TahomaB";
+			sizeEx = 0;
+			lineSpacing = 0;
+			fixedWidth = 0;
+			shadow = 0;
+		};
+
+		class netpic
+		{
+			idc = 62105;
+			text = "\wmt_main\pic\led_blue.paa";
+			x = -0.197096;
+			y = 0.653604;
+			w = 0.2;
+			h = 0.2;
 			access = 0;
 			type = 0;
 			style = 48;
@@ -32,10 +72,10 @@ class RscWMTChooseMarker: RscMap {
     
 		class Map : RscMapControl{
 			idc = IDC_STARTPOS_MAP;
-			x 	= 0.29375 * safezoneW + safezoneX;
-			y 	= 0.225 * safezoneH + safezoneY;
-			w 	= 0.4125 * safezoneW;
-			h 	= 0.55 * safezoneH;
+			x 	= 0.0124995;
+			y 	= 0.00999999;
+			w 	= 0.982322;
+			h 	= 0.98148;
 			sizeExNames = 0.044;
 		};
 
