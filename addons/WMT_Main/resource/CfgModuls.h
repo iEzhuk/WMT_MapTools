@@ -196,6 +196,7 @@ class CfgVehicles
 		displayName = "Start Position";
 		category = "WMT";
 		function = "WMT_fnc_InitModuleStartPosition";
+		icon = "\WMT_main\pic\startPos.paa";
 		functionPriority = 1;
 		isGlobal = 1;
 		isTriggerActivated = 0;
