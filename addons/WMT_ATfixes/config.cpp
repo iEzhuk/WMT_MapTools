@@ -122,6 +122,16 @@ class CfgAmmo
 		soundActivation[] = {};
 		soundDeactivation[] = {};
 	};
+	class FlareCore;
+	class FlareBase: FlareCore
+	{
+		intensity = 500000;
+	};
+	class Flare_82mm_AMOS_White: FlareCore
+	{
+		intensity = 1000000;
+	};
+
 };
 
 class CfgWeapons
