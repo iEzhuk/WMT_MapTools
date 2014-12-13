@@ -82,7 +82,7 @@ if(_activated) then {
 				{
 					private ["_side", "_unit", "_id"];
 					_unit = _x;
-					_pos  = getPos _unit;
+					_pos  = if(surfaceIsWater getPos _unit)then{getPosASL _unit}else{getPosATL _unit};
 
 					if(_pos select 2 > _minZ && _pos select 2 < _maxZ) then {
 						_side = side _unit;
