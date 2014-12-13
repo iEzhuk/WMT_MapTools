@@ -86,10 +86,10 @@ if(_activated) then {
 
 					if(_pos select 2 > _minZ && _pos select 2 < _maxZ) then {
 						_side = side _unit;
-						_id = [WEST, EAST, RESISTANCE, CIVILIAN] find _side;
+						_id = [west, east, resistance, civilian] find _side;
 
 						if(_id != -1 ) then {
-							_sideUnits set [_id, (_sideUnits select 0) + ({isPlayer _x && alive _x} count (crew _unit))];
+							_sideUnits set [_id, (_sideUnits select _id) + ({isPlayer _x && alive _x} count (crew _unit))];
 						};
 					};
 				}forEach ([_arrTrg] call _getUnitList);
@@ -102,7 +102,7 @@ if(_activated) then {
 			PR(_delay) = _this select 2;
 
 			PR(_markerStr) 	= _logic getVariable "Marker";
-			PR(_owner)		= [east,west,resistance,civilian,sideLogic] select (_logic getVariable "Owner");
+			PR(_owner)		= [west,east,resistance,civilian,sideLogic] select (_logic getVariable "Owner");
 			PR(_message)	= _logic getVariable "Message";
 			PR(_defCount)	= _logic getVariable "DefCount";
 			PR(_lock)		= _logic getVariable "Lock";
@@ -112,6 +112,7 @@ if(_activated) then {
 			PR(_timer) 		= _logic getVariable ["Timer",0];
 			PR(_captureCount) = _logic getVariable "CaptureCount";
 			PR(_easyCapture)  = _logic getVariable "EasyCapture";
+
 
 			// Remove spaces 
 			_markerStr = toString ((toArray _markerStr) - [32]);
@@ -144,7 +145,8 @@ if(_activated) then {
 				PR(_unitCount) = [_arrTrgs, _minHeight, _maxHeight] call _getCountUnits;
 				PR(_curOwner)  = _logic getVariable "WMT_PointOwner";
 
-				PR(_dc) = _unitCount select ([WEST, EAST, RESISTANCE, CIVILIAN, sideLogic] find _curOwner);
+				systemChat str(_unitCount);
+				PR(_dc) = _unitCount select ([west, east, resistance, civilian, sideLogic] find _curOwner);
 				PR(_cs) = sideLogic;
 				PR(_cc) = 0;
 
@@ -156,7 +158,7 @@ if(_activated) then {
 							_cs = _x;
 						};
 					};
-				} foreach [WEST, EAST, RESISTANCE, CIVILIAN];
+				} foreach [west, east, resistance, civilian];
 
 				PR(_captured) = 0;
 
@@ -172,7 +174,7 @@ if(_activated) then {
 					};
 					// Auto lose
 					case (_dc==0 && _autoLose != -1) : {
-						_cs = [east,west,resistance,civilian,sideLogic] select _autoLose;
+						_cs = [west, east, resistance, civilian, sideLogic] select _autoLose;
 						if(_cs != _curOwner) then {
 							_captured = 3;
 						};
