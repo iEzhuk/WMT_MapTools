@@ -11,9 +11,9 @@ _logic = _this select 0;
 _units = _this select 1;
 _owner = _this select 2;
 _markers = _this select 3;
-_time = _this select 5;
-_markerSide = _this select 6;
-_text = _this select 7;
+_time = _this select 4;
+_markerSide = _this select 5;
+_text = _this select 6;
 
 
 waitUntil{!isNil {player}};
