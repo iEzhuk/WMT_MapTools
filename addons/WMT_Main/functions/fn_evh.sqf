@@ -1,6 +1,10 @@
 // by [STELS]Zealot
 
 
+// Example:
+// ["push","Id123","FreezeEnded", {hint "hello";}] call wmt_fnc_evh;
+// ["CALL",""FreezeEnded"] call wmt_fnc_evh;
+
 private ['_id','_ehname','_code','_ehvarname','_evhs','_allevhs','_i','_params'];
 
 _action = _this select 0; 
