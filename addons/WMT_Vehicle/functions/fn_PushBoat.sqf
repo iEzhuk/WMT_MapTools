@@ -29,7 +29,7 @@ if (_withcrew) exitwith {titleText [localize("STR_BOAT_ERR"),"PLAIN",1];};
 
 // Push 
 _dir = direction player;
-[[ [_veh,owner player],{(_this select 0) setOwner (_this select 1)); }] ,"bis_fnc_spawn", false] call bis_fnc_mp;
+[[ [_veh,owner player],{(_this select 0) setOwner (_this select 1);}] ,"bis_fnc_spawn", false] call bis_fnc_mp;
 sleep 0.3;
 _veh setVelocity [(sin _dir)*_spd, (cos _dir)*_spd, 0]; 
 
