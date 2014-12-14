@@ -19,6 +19,7 @@
 WMT_fnc_Announcement				= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\fn_Announcement.sqf");
 WMT_fnc_ArrayToString				= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\fn_ArrayToString.sqf");
 WMT_fnc_GetVehicles					= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\fn_GetVehicles.sqf");
+WMT_fnc_Evh 						= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\fn_evh.sqf");
 
 
 // Module Main
@@ -57,3 +58,4 @@ WMT_fnc_FreezeVoteWait				= compileFinal preprocessFileLineNumbers  ("WMT_Main\f
 WMT_fnc_PrepareTime_client			= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\moduleTime\fn_PrepareTime_client.sqf");
 WMT_fnc_PrepareTime_server			= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\moduleTime\fn_PrepareTime_server.sqf");
 WMT_fnc_RemoveBots					= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\moduleTime\fn_RemoveBots.sqf");
+
