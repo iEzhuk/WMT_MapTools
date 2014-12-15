@@ -135,6 +135,9 @@ if(_activated) then {
 				waitUntil {!(isNull (findDisplay 46))};
 				(findDisplay 46) displayAddEventHandler ["KeyDown", "_this call WMT_fnc_KeyDown"];
 				(findDisplay 46) displayAddEventHandler ["KeyUp", "_this call WMT_fnc_KeyUp"];
+				
+				// Disable chat
+				showChat false;
 			};
 
 			player addEventHandler ["killed", "_this spawn WMT_fnc_PlayerKilled"];
