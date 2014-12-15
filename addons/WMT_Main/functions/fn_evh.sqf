@@ -3,7 +3,8 @@
 
 // Example:
 // ["push","Id123","FreezeEnded", {hint "hello";}] call wmt_fnc_evh;
-// ["CALL",""FreezeEnded"] call wmt_fnc_evh;
+// ["pop", "Id123", "FreezeEnded"] call call wmt_fnc_evh;
+// ["CALL","FreezeEnded"] call wmt_fnc_evh;
 
 private ['_id','_ehname','_code','_ehvarname','_evhs','_allevhs','_i','_params'];
 
@@ -21,7 +22,7 @@ switch (toUpper (_this select 0)) do {
 		_evhs pushBack [_id, _code ];
 		missionNamespace setVariable [_ehvarname, _evhs];
 		_allevhs = missionNamespace getVariable ["wmt_evh_all",[]];
-		if (!_ehvarname in _allevhs) then {_allevhs pushBack "_ehvarname"; missionNamespace setVariable ["wmt_evh_all", _allevhs];};
+		if !(_ehvarname in _allevhs) then {_allevhs pushBack "_ehvarname"; missionNamespace setVariable ["wmt_evh_all", _allevhs];};
 
 	};
 

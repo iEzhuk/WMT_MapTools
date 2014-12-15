@@ -49,4 +49,8 @@ if (WMT_pub_frzState >= 3) exitWith {};
 }, 1.0, "seconds", {time > 0}, {WMT_pub_frzState >= 3} ]] call BIS_fnc_loop;
 
 
-["itemAdd", ["wmtfrzrmvbots", { [] call wmt_fnc_removeBots; }, nil, nil, {WMT_pub_frzState >= 3}, {false}, true]] call BIS_fnc_loop;
+["push","frzremovebots", "FreezeEnded",{[] call wmt_fnc_removeBots;}] call wmt_fnc_evh;
+
+ 
+
+

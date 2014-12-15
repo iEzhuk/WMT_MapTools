@@ -39,3 +39,6 @@ _ctrl = _display displayCtrl IDC_WMT_DOGTAGPIC;
 _ctrl ctrlSetText format ["\wmt_main\pic\dogtag%1.paa",_pic];
 _ctrl  ctrlCommit 0;
 
+["CALL","BodyIdentified",[_unit, _name]] call wmt_fnc_evh;
+
+
