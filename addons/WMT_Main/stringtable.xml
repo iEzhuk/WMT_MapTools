@@ -366,6 +366,22 @@
 				<Original>Dont remove bot</Original>
 				<Russian>Не удалять бота</Russian>
 			</Key>			
+			<Key ID="STR_WMT_MapFromAlly">
+				<Original>You use %1 map</Original>
+				<Russian>Вы используете карту %1</Russian>
+			</Key>
+			<Key ID="STR_WMT_MapFromAllyEnd">
+				<Original>You are not using %1 map, he is out</Original>
+				<Russian>Вы не используете карту %1, он отошел</Russian>
+			</Key>		
+			<Key ID="STR_WMT_MapFromVehicleCrew">
+				<Original>You are using map from one of the vehicles crew</Original>
+				<Russian>Вы используете карту, которая была у одного из ченов экипажа техники</Russian>
+			</Key>
+			<Key ID="STR_WMT_MapFromVehicle">
+				<Original>You are using map embedded in vehicle computer</Original>
+				<Russian>Вы используете карту, которая встроена в технику</Russian>
+			</Key>		
 		</Container>
 	</Package>
 </Project>
