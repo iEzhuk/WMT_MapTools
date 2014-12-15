@@ -68,6 +68,7 @@ wmt_mapadded = false;
 	if (!visibleMap && wmt_mapadded) then {
 		player unlinkItem "itemMap";
 		wmt_mapadded = false;
+		hint "";
 	};
 	if (visibleMap && wmt_mapadded) then {
 		_source = missionNamespace getVariable ["wmt_mapsource", ["man", player]];
