@@ -26,8 +26,10 @@ PR(_truck) 	= objNull;
 
 if (isNull _truck) exitWith {localize("STR_NO_REPAIR_TRUCK") call WMT_fnc_NotifyText;};
 
+/* ХЗ что такое
 PR(_canRepair) = [_veh, WMT_Local_fullRepairClasses] call WMT_fnc_CheckKindOfArray;
 if (not _canRepair) exitWith {localize("STR_NO_ENOGH_SKILLS") call WMT_fnc_NotifyText;};
+*/
 
 if (WMT_mutexAction) exitWith {
 	localize("STR_ANOTHER_ACTION") call WMT_fnc_NotifyText;
@@ -38,7 +40,9 @@ if (_truck getVariable ["wmt_repair_cargo", 0] <= 0) then {
 
 WMT_mutexAction 	= true;	
 PR(_repairFinished) = false;
-PR(_maxlength) 		= _veh getVariable["wmt_longrepairTruck",DEFAULT_FULLREPAIR_LENGTH];
+PR(_maxlength) 		= _veh getVariable["wmt_longrepairTruck",[DEFAULT_FULLREPAIR_LENGTH, serverTime]];
+if (serverTime - (_maxlength select 1) > 300 ) then { _maxlength = DEFAULT_FULLREPAIR_LENGTH;} else {_maxlength = _maxlength select 0;};
+
 PR(_vehname) 		= getText ( configFile >> "CfgVehicles" >> typeOf(_veh) >> "displayName");
 PR(_length)			= _maxlength;
 PR(_startPos)		= getPos player;
@@ -63,7 +67,8 @@ if (_repairFinished) then {
 	_veh setVariable["wmt_longrepairTruck", nil, true];
 	_veh setVariable["wmt_fullrepair_times", (_veh getVariable ["wmt_fullrepair_times",0]) + 1 , true ];
 } else {
-	_veh setVariable["wmt_longrepairTruck",_length, true];
+	_veh setVariable["wmt_longrepairTruck",[_length,serverTime], true];
+	
 };
 
 WMT_mutexAction = false;  

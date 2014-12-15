@@ -88,11 +88,12 @@ if(_activated) then {
 							case (["crew" 	 , _playerClass] call BIS_fnc_inString):{true};
 							case (["pilot"	 , _playerClass] call BIS_fnc_inString):{true};
 							case (["uav"	 , _playerClass] call BIS_fnc_inString):{true};
+							case (["repair"	 , _playerClass] call BIS_fnc_inString):{true};
 							default {false};
 						};
 
 			if(_enable) then {
-				WMT_Local_fullRepairClasses = ["Car","Tank","Ship","Air"];
+				/*WMT_Local_fullRepairClasses = ["Car","Tank","Ship","Air"];*/
 				WMT_Local_fullRepairEnabled = true; 
 			};
 		};
@@ -104,6 +105,7 @@ if(_activated) then {
 									case (["crew" 	 , _playerClass] call BIS_fnc_inString):{true};
 									case (["pilot"	 , _playerClass] call BIS_fnc_inString):{true};
 									case (["uav"	 , _playerClass] call BIS_fnc_inString):{true};
+									case (["repair"	 , _playerClass] call BIS_fnc_inString):{true};
 									default {false};
 								};
 		};
