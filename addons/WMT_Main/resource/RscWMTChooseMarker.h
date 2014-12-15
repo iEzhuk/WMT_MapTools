@@ -1,4 +1,6 @@
-#include "..\functions\moduleStartPosition\defines_IDC.sqf"
+#define IDD_STARTPOS				62100
+#define IDC_STARTPOS_MAP	 		62101 
+#define IDC_STARTPOS_TEXT			62102
 
 class RscMap;
 class RscMapControl;
