@@ -18,8 +18,15 @@
 
 [] spawn {
 	waituntil {not isNull player};
-	if ("ItemMap" in assignedItems player) exitWith {};
-	player linkItem "ItemMap";
-	sleep 0.001;
-	player unlinkItem "itemMap";
+	wmt_mapadded = false;
+	while {time < 0.1} do {
+		uisleep 0.7;
+		if !("ItemMap" in assignedItems player) then {
+			wmt_mapadded = true;
+			player linkItem "ItemMap";
+		};
+	};
+	if (wmt_mapadded) then {
+		player unlinkItem "itemMap";
+	};
 };
