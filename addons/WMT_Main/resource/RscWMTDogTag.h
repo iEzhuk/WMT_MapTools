@@ -16,14 +16,14 @@ class RscWMTDogTag
 		class RscWMTDogTagPic
 		{
 			idc = IDC_WMT_DOGTAGPIC;
-			text = "\wmt_main\pic\dogtag.paa";
+			text = "\wmt_main\pic\dogtag0.paa";
 			x = 0.0375;
-			y = 0.46;
+			y = 0.6;
 			w = 0.6;
-			h = 0.39;
+			h = 0.3;
 			fade = 0;
 			type = 0;
-			style = 48;
+			style = 2096;
 			colorBackground[] = {0,0,0,0};
 			colorText[] = {1,1,1,1};
 			font = "TahomaB";
@@ -43,18 +43,18 @@ class RscWMTDogTag
 		{
 			idc 	= IDC_WMT_DOGTAGTEXT;
 			type 	= 0;
-			style 	= 0x02;
-			x = 0.0375;
-			y = 0.46;
+			style 	= 0;
+			x = 0.2;
+			y = 0.6;
 			w = 0.6;
-			h = 0.39;
+			h = 0.3;
 			fixedWidth = 0;
 			font 	= "puristaMedium";
 			sizeEx 	= 0.04;
 			size 	= 0.04;
 			shadow	= 1;
 			text 	= "";
-			colorText[] 		= {0.565,0.549,0.533,1};
+			colorText[] 		= {0.465,0.449,0.433,1};
 			colorBackground[] 	= {0,0,0,0};
 			colorShadow[] = { 1,1,1,0.5};
 			linespacing = 1;
