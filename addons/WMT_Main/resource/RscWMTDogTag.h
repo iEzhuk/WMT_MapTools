@@ -19,7 +19,7 @@ class RscWMTDogTag
 			text = "\wmt_main\pic\dogtag.paa";
 			x = 0.0375;
 			y = 0.46;
-			w = 0.7875;
+			w = 0.6;
 			h = 0.39;
 			fade = 0;
 			type = 0;
@@ -43,11 +43,11 @@ class RscWMTDogTag
 		{
 			idc 	= IDC_WMT_DOGTAGTEXT;
 			type 	= 0;
-			style 	= 0;
-			x = 0.25;
-			y = 0.565;
+			style 	= 0x02;
+			x = 0.0375;
+			y = 0.46;
 			w = 0.6;
-			h = 0.18;
+			h = 0.39;
 			fixedWidth = 0;
 			font 	= "puristaMedium";
 			sizeEx 	= 0.04;
