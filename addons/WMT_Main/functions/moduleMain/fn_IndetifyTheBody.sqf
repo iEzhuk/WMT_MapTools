@@ -22,3 +22,5 @@ _ctrl = _display displayCtrl IDC_WMT_DOGTAGTEXT;
 _ctrl ctrlSetText  _name;
 _ctrl  ctrlCommit 0;
 
+["CALL","BodyIdentified",[_unit, _name]] call wmt_fnc_evh;
+
