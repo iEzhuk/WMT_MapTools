@@ -8,6 +8,9 @@
 #define IDC_OPTIONS_MAX				17090
 #define IDC_OPTIONS_CLOSE 			17091
 
+#define IDC_OPTIONS_TEXT_NICKNAME 	17092
+#define IDC_OPTIONS_CHECK_NICKNAME	17093
+
 class RscWMTOptions {
 	movingEnable = 1;
 	idd = IDD_OPTIONS_OPTIONS;
@@ -17,10 +20,10 @@ class RscWMTOptions {
 		class Background: RscText {
 			colorBackground[] = {0, 0, 0, 0.75};
 			idc = -1;
-			x = 0.0;
+			x = 0.0; //0,0.35,0.6,0.28
 			y = 0.35;
 			w = 0.6;
-			h = 0.22;
+			h = 0.28;
 		};
 		class BackgroundHead: RscText {
 			colorBackground[] = {	"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.69])",
@@ -84,17 +87,36 @@ class RscWMTOptions {
 			h = 0.04;
 			text = "";
 		};
+		class RscText_ShowNickname: RscText
+		{
+			idc = IDC_OPTIONS_TEXT_NICKNAME;
+			text = $STR_WMT_UIShowNickName;
+			x = 0.0550505;
+			y = 0.548417;
+			w = 0.35;
+			h = 0.06;
+		};
+		class RscCheckbox_ShowNickname: RscCheckbox
+		{
+			idc = IDC_OPTIONS_CHECK_NICKNAME;
+			onCheckedChanged = "profilenamespace setvariable ['WMT_ShowNickNameOption', (_this select 1)]";
+			x = 0.38875; 
+			y = 0.55;
+			w = 0.05;
+			h = 0.06;
+		};
+
 		class ButtonMaxDistance : RscWMTButton_ext {
 			idc = IDC_OPTIONS_MAX;
-			x = 0.0;
-			y = 0.575;
+			x = 0.0; // 0.0, 0.581, 0.16, 0.04
+			y = 0.635; // [0,0.64,0.16,0.04]
 			text = $STR_WMT_MaxDistance;
 			action = "['max'] call WMT_fnc_HandlerOptions";
 		};
 		class ButtonClose : RscWMTButton_ext {
 			idc = IDC_OPTIONS_CLOSE;
-			x = 0.44;
-			y = 0.575;
+			x = 0.44; // 0.44, 0.581, 0.16, 0.04
+			y = 0.635; // [0.4375,0.64,0.16,0.04]
 			text = $STR_WMT_Close;
 			action = "closedialog 0;";
 		};

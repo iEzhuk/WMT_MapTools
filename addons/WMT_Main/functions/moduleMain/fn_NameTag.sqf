@@ -29,7 +29,7 @@ while { true } do {
 	_unit = cursorTarget;
 	_text = "";
 
-	if ( !(profileNamespace getVariable ["AGM_showPlayerNames", false]) || isNil "agm_core_fnc_drawNameTagIcon" ) then {
+	if ( (profilenamespace getvariable ['WMT_ShowNickNameOption', 1]) == 1 ) then {
 		if (!(_unit isKindOf "Animal")) then {
 			if (count (crew _unit) > 0) then {
 				_unit = (crew _unit) select 0;

@@ -2,6 +2,7 @@ class RscButton;
 class RscButtonMenu;
 class RscText;
 class RscEdit;
+class RscCheckBox;
 
 class RscWMTButtonMenu_ext: RscButtonMenu {
 	w = 0.3;

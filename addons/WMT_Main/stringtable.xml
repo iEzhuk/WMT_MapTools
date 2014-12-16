@@ -381,7 +381,11 @@
 			<Key ID="STR_WMT_MapFromVehicle">
 				<Original>You are using map embedded in vehicle computer</Original>
 				<Russian>Вы используете карту, которая встроена в технику</Russian>
-			</Key>		
+			</Key>
+			<Key ID="STR_WMT_UIShowNickName">
+				<Original>Highlight nickname</Original>
+				<Russian>Подсвечивать ники игроков</Russian>
+			</Key>			
 		</Container>
 	</Package>
 </Project>
