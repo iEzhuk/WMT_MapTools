@@ -19,7 +19,23 @@ switch (_event) do
 		PR(_display) = _arg select 0;
 		uiNamespace setVariable ['WMT_StartPos_Disaplay', _display];
 
-		(_display displayCtrl IDC_STARTPOS_TEXT) ctrlSetText wmt_startPos_text;
+		PR(_ctrlText) = _display displayCtrl IDC_STARTPOS_TEXT;
+		_ctrlText ctrlSetText wmt_startPos_text;
+
+		// Show selected position on map 
+		PR(_selectedMarker) = wmt_startPos_param getVariable ["IndexPosition",-1];
+		if (_selectedMarker!=-1) then {
+			PR(_ctrlMap) = _display displayCtrl IDC_STARTPOS_MAP;
+			_ctrlMap ctrlMapAnimAdd [0.5, 0.3, getMarkerPos (wmt_startPos_marker select _selectedMarker)];
+			ctrlMapAnimCommit _ctrlMap;
+
+
+			PR(_textMarker) = markerText (wmt_startPos_marker select _selectedMarker);
+			if (_textMarker=="") then {
+				_textMarker = str(_selectedMarker+1);
+			};
+			_ctrlText ctrlSetText format ["You have chosen a new position - %1.",_textMarker];
+		};
 
 		onMapSingleClick "['mapClick',_pos] call WMT_fnc_chooseMarker_handler";
 	};
@@ -61,6 +77,18 @@ switch (_event) do
 			(wmt_startPos_marker select _nearestMarker) setMarkerAlphaLocal 1.0;
 
 			[wmt_startPos_param, _nearestMarker] call wmt_startPos_setIndex;
+
+
+
+			PR(_display) = uiNamespace getVariable ['WMT_StartPos_Disaplay', displayNull];
+			PR(_ctrlText) = _display displayCtrl IDC_STARTPOS_TEXT;
+
+			PR(_textMarker) = markerText (wmt_startPos_marker select _nearestMarker);
+			if (_textMarker=="") then {
+				_textMarker = str(_nearestMarker+1);
+			};
+
+			_ctrlText ctrlSetText format ["You have chosen a new position - %1.",_textMarker];
 		};
 	};
 };

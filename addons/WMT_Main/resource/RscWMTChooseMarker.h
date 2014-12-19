@@ -73,9 +73,9 @@ class RscWMTChooseMarker: RscMap {
 		class Map : RscMapControl{
 			idc = IDC_STARTPOS_MAP;
 			x 	= 0.0124995;
-			y 	= 0.00999999;
+			y 	= 0.05999999;
 			w 	= 0.982322;
-			h 	= 0.98148;
+			h 	= 0.93148;
 			sizeExNames = 0.044;
 		};
 
@@ -83,17 +83,17 @@ class RscWMTChooseMarker: RscMap {
 			idc 	= IDC_STARTPOS_TEXT;
 			type 	= 13;
 			style 	= 0;
-			x 		= 0.2 * safezoneW + safezoneX;
-			y 		= 0.1 * safezoneH + safezoneY;
-			w 		= 1.0 * safezoneW;
-			h 		= 0.6 * safezoneH;
+			x 		= 0.0124995;
+			y 		= 0.00999999;
+			w 		= 0.982322;
+			h 		= 0.05;
 			font 	= "puristaMedium";
 			sizeEx 	= 0.04;
 			size 	= 0.04;
 			text 	= "";
 
 			colorText[] 		= {1,1,1,1};
-			colorBackground[] 	= {0,0,0,0};
+			colorBackground[] 	= {0,0,0,1};
 		};
 	};
 };
