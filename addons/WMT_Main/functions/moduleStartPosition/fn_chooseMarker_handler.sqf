@@ -98,6 +98,7 @@ switch (_event) do
 
 			["net_activity", []] spawn WMT_fnc_chooseMarker_handler;
 		};
+		["hdd_activity", [0.1, 0.03, ceil(random 2)]] spawn WMT_fnc_chooseMarker_handler;
 	};
 	case "net_activity":
 	{
