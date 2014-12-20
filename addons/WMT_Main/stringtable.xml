@@ -410,6 +410,10 @@
 				<Original>Time for select position in case without freezetime</Original>
 				<Russian>Время на выбор позиции в случая отсутвия времени на подготовку</Russian>
 			</Key>
+			<Key ID="STR_WMT_SP_ChosenPosition">
+				<Original>Вы выбрали зону %1</Original>
+				<Russian>You have chosen the position %1</Russian>
+			</Key>	
 		</Container>
 	</Package>
 </Project>

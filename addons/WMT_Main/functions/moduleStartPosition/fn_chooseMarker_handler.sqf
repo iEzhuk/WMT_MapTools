@@ -34,7 +34,7 @@ switch (_event) do
 			if (_textMarker=="") then {
 				_textMarker = str(_selectedMarker+1);
 			};
-			_ctrlText ctrlSetText format ["You have chosen a new position <%1>",_textMarker];
+			_ctrlText ctrlSetText format [localize "STR_WMT_SP_ChosenPosition", _textMarker];
 		};
 
 		onMapSingleClick "['mapClick',_pos] call WMT_fnc_chooseMarker_handler";
@@ -94,7 +94,7 @@ switch (_event) do
 				_textMarker = str(_nearestMarker+1);
 			};
 
-			_ctrlText ctrlSetText format ["You have chosen a new position <%1>",_textMarker];
+			_ctrlText ctrlSetText format [localize "STR_WMT_SP_ChosenPosition", _textMarker];
 
 			["net_activity", []] spawn WMT_fnc_chooseMarker_handler;
 		};
