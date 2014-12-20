@@ -84,15 +84,20 @@ for "_i" from 0 to ((count _map)-1) do {
 	_offset = (_map select _i) select 1;
 	_sDir	= (_map select _i) select 2;
 	
-	if (vehicle _object != _object) then {
-		_object action ["getout", vehicle _object];
-	};
-
 	_offset = [_offset select 0, _offset select 1, _centerDir - _markerdir] call _fnc_RotatePoint;
 	_offset set [2,0];
 
-	_object setPos (_markerPos vectorAdd _offset);
-	_object setDir _markerdir - _sDir - _centerDir;
+	if (_object isKindOf "Man") then {
+		if (vehicle _object != _object && !(vehicle _object in _units)) then {
+			_object action ["getout", vehicle _object];
+			_object setPos (_markerPos vectorAdd _offset);
+			_object setDir _markerdir - _sDir - _centerDir;
+		};
+	} else {
+		_object setPos (_markerPos vectorAdd _offset);
+		_object setDir _markerdir - _sDir - _centerDir;
+	};
+
 };
 
 
