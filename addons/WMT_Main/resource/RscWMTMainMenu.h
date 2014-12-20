@@ -21,7 +21,7 @@ class RscWMTMainMenu {
 			h = 0.07;
 			text = $STR_WMT_MainMenu;
 		};
-	};
+	};	
 	class controls {
 		class Button_Options: RscWMTButtonMenu_ext
 		{

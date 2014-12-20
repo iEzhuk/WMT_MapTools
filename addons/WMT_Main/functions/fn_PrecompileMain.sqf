@@ -59,3 +59,10 @@ WMT_fnc_PrepareTime_client			= compileFinal preprocessFileLineNumbers  ("WMT_Mai
 WMT_fnc_PrepareTime_server			= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\moduleTime\fn_PrepareTime_server.sqf");
 WMT_fnc_RemoveBots					= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\moduleTime\fn_RemoveBots.sqf");
 
+
+// Module Start Position
+WMT_fnc_InitModuleStartPosition		= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\moduleStartPosition\fn_InitModuleStartPosition.sqf");
+WMT_fnc_startPosition_server		= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\moduleStartPosition\fn_startPosition_server.sqf");
+WMT_fnc_startPosition_client		= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\moduleStartPosition\fn_startPosition_client.sqf");
+WMT_fnc_chooseMarker_handler		= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\moduleStartPosition\fn_chooseMarker_handler.sqf");
+

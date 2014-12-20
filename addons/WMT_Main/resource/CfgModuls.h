@@ -186,6 +186,75 @@ class CfgVehicles
 			};
 		};
 	};
+	//=======================================================================================
+	//									Start Position
+	//=======================================================================================
+	class WMT_StartPosition: Module_F
+	{
+		scope = 2;
+		author = "Ezhuk";
+		displayName = "Start Position";
+		category = "WMT";
+		function = "WMT_fnc_InitModuleStartPosition";
+		icon = "\WMT_main\pic\startPos.paa";
+		functionPriority = 1;
+		isGlobal = 1;
+		isTriggerActivated = 0;
+		class Arguments: ArgumentsBaseUnits
+		{
+			class Text
+			{
+				displayName = "$STR_WMT_Text";
+				description = "$STR_WMT_SP_Text_Desc";
+				typeName = "STRING";
+				defaultValue = "";
+			};
+			class Owner
+			{
+				displayName = "$STR_WMT_SP_Owner";
+				description = "$STR_WMT_SP_Owner_Desc";
+				typeName = "STRING"; 
+				defaultValue = "";
+			};
+			class CenterObject 
+			{
+				displayName = "$STR_WMT_SP_Center";
+				description = "$STR_WMT_SP_Center_Desc";
+				typeName = "STRING"; 
+				defaultValue = "";
+			};
+			class Positions
+			{
+				displayName = "$STR_WMT_SP_Positions";
+				description = "";
+				typeName = "STRING";
+				defaultValue = "";
+			};
+			class MarkerSide 
+			{
+				displayName = "$STR_WMT_SP_ShowMarkers";
+				description = "";
+				typeName = "NUMBER";
+				class values
+				{
+					class All  {name = "$STR_WMT_All"; value = 0; default = 1;};
+					class East {name = "$STR_WMT_East"; value = 1;};
+					class West {name = "$STR_WMT_West"; value = 2;};
+					class Guer {name = "$STR_WMT_Resistance"; value = 3;};
+					class Civ  {name = "$STR_WMT_Civilian"; value = 4;};
+				};
+			};
+			class Time 
+			{
+				displayName = "$STR_WMT_SP_Time";
+				description = "$STR_WMT_SP_Time_Desc";
+				typeName = "NUMBER";
+				defaultValue = 3;
+			};
+		};
+	};
+
+	// Change priority to default module for create diary
 	class ModuleCreateDiaryRecord_F : Module_F 
 	{
 		functionPriority = 5;

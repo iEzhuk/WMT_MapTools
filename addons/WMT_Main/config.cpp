@@ -5,7 +5,7 @@
 #include "resource\RscWMTOptions.h"
 #include "resource\RscWMTAdminPanel.h"
 #include "resource\RscWMTFeedback.h"
-
+#include "resource\RscWMTChooseMarker.h"
 
 class CfgPatches 
 {
