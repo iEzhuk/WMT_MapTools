@@ -1,5 +1,5 @@
 /*
- 	Name: 
+ 	Name: WMT_fnc_chooseMarker_handler
  	
  	Author(s):
 		Ezhuk
@@ -34,10 +34,16 @@ switch (_event) do
 			if (_textMarker=="") then {
 				_textMarker = str(_selectedMarker+1);
 			};
-			_ctrlText ctrlSetText format ["You have chosen a new position - %1.",_textMarker];
+			_ctrlText ctrlSetText format ["You have chosen a new position <%1>",_textMarker];
 		};
 
 		onMapSingleClick "['mapClick',_pos] call WMT_fnc_chooseMarker_handler";
+
+		(_display displayCtrl IDC_STARTPOS_LEDHDD) ctrlShow false;
+		(_display displayCtrl IDC_STARTPOS_LEDNET) ctrlShow false;
+
+		["net_activity", [0.15, 0.1, 20]] spawn WMT_fnc_chooseMarker_handler;
+		["hdd_activity", [0.6, 0.12, ceil(random 3)+2]] spawn WMT_fnc_chooseMarker_handler;
 	};
 	case "close":{
 		uiNamespace setVariable ['WMT_StartPos_Disaplay', nil];
@@ -88,8 +94,73 @@ switch (_event) do
 				_textMarker = str(_nearestMarker+1);
 			};
 
-			_ctrlText ctrlSetText format ["You have chosen a new position - %1.",_textMarker];
+			_ctrlText ctrlSetText format ["You have chosen a new position <%1>",_textMarker];
+
+			["net_activity", []] spawn WMT_fnc_chooseMarker_handler;
 		};
 	};
+	case "net_activity":
+	{
+		disableSerialization;
+		PR(_intervalOn)  = [_arg, 0, 0.2] call BIS_fnc_param;
+		PR(_intervalOff) = [_arg, 1, 0.08] call BIS_fnc_param;
+		PR(_count)       = [_arg, 2, 7] call BIS_fnc_param;
+		PR(_stayOn)      = [_arg, 3, false] call BIS_fnc_param;
+
+		PR(_display) = uiNamespace getVariable ['WMT_StartPos_Disaplay', displayNull];
+		PR(_ctrlLed) = _display displayCtrl IDC_STARTPOS_LEDNET;
+
+		if !(isNil "wmt_startPos_netactivity_mutex") exitWith {
+			wmt_startPos_netactivity_mutex = [_intervalOn, _intervalOff, _count, _stayOn];
+		};
+
+		wmt_startPos_netactivity_mutex = [_intervalOn, _intervalOff, _count, _stayOn];
+		sleep (random 0.5);
+		while {(wmt_startPos_netactivity_mutex select 2)>0} do {
+			_ctrlLed ctrlShow true;
+			sleep (wmt_startPos_netactivity_mutex select 0);
+			_ctrlLed ctrlShow false;
+			sleep (wmt_startPos_netactivity_mutex select 1);
+
+			wmt_startPos_netactivity_mutex set [2, (wmt_startPos_netactivity_mutex select 2)-1];
+		};
+
+
+		_ctrlLed ctrlShow (wmt_startPos_netactivity_mutex select 3);
+
+		wmt_startPos_netactivity_mutex = nil;
+	};
+	case "hdd_activity":
+	{
+		disableSerialization;
+		PR(_intervalOn)  = [_arg, 0, 0.2] call BIS_fnc_param;
+		PR(_intervalOff) = [_arg, 1, 0.1] call BIS_fnc_param;
+		PR(_count)       = [_arg, 2, 2] call BIS_fnc_param;
+		PR(_stayOn)      = [_arg, 3, false] call BIS_fnc_param;
+
+		PR(_display) = uiNamespace getVariable ['WMT_StartPos_Disaplay', displayNull];
+		PR(_ctrlLed) = _display displayCtrl IDC_STARTPOS_LEDHDD;
+
+
+		if !(isNil "wmt_startPos_hddactivity_mutex") exitWith {
+			wmt_startPos_hddactivity_mutex = [_intervalOn, _intervalOff, _count, _stayOn];
+		};
+
+		wmt_startPos_hddactivity_mutex = [_intervalOn, _intervalOff, _count, _stayOn];
+		sleep (random 0.5);
+		while {wmt_startPos_hddactivity_mutex select 2 > 0} do {
+			_ctrlLed ctrlShow true;
+			sleep (wmt_startPos_hddactivity_mutex select 0);
+			_ctrlLed ctrlShow false;
+			sleep (wmt_startPos_hddactivity_mutex select 1);
+			
+			wmt_startPos_hddactivity_mutex set [2, (wmt_startPos_hddactivity_mutex select 2)-1];
+		};
+
+		_ctrlLed ctrlShow (wmt_startPos_hddactivity_mutex select 3);
+
+		wmt_startPos_hddactivity_mutex = nil;
+	};
+
 };
 _return
