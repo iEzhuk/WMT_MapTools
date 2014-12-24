@@ -88,12 +88,20 @@ for "_i" from 0 to ((count _map)-1) do {
 	_offset set [2,0];
 
 	if (_object isKindOf "Man") then {
-		if (vehicle _object != _object && !(vehicle _object in _units)) then {
-			// Push unit from vehicle that should not teleported on start position
-			_object action ["getout", vehicle _object];
+		if (vehicle _object != _object) then {
+			// In vehicle 
+			if !(vehicle _object in _units) then {
+				// vehicle is no entry in list
+				_object action ["getout", vehicle _object];
+				_object setPos (_markerPos vectorAdd _offset);
+				_object setDir _markerdir - _sDir - _centerDir;
+			};
+		} else {
+			// On foot 
+			_object setPos (_markerPos vectorAdd _offset);
+			_object setDir _markerdir - _sDir - _centerDir;
 		};
-		_object setPos (_markerPos vectorAdd _offset);
-		_object setDir _markerdir - _sDir - _centerDir;
+
 	} else {
 		_object setPos (_markerPos vectorAdd _offset);
 		_object setDir _markerdir - _sDir - _centerDir;
