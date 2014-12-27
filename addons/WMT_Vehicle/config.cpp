@@ -11,10 +11,9 @@ class CfgPatches
 		requiredAddons[] = {"A3_Characters_F_BLUFOR","A3_Characters_F_OPFOR","A3_Characters_F_Gamma","A3_Characters_F_INDEP","A3_Characters_F_Civil"};
 		authorUrl = "https://github.com/iEzhuk/WMT_MapTools";
 		author[]= {"Zealot, Ezhuk"}; 		
-		version = 1.4.0;
-		versionStr = "1.4.0";
-		versionAr[] = {1,4,0};
-
+		version = 1.4.1;
+		versionStr = "1.4.1";
+		versionAr[] = {1,4,1};
 	};
 };
 
