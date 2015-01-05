@@ -68,6 +68,10 @@ if(_activated) then {
 	};
 
 	setViewDistance wmt_param_MaxViewDistance;
+	
+	["itemAdd", ["WmtMainCallEndFreeze", { ["CALL","FreezeEnded",[time, serverTime, diag_tickTime, date]] call wmt_fnc_evh; }, nil, nil, { time > 0 && { ( missionNamespace getVariable ["WMT_pub_frzState",100] ) >= 3} }, {false}, true]] call BIS_fnc_loop;
+
+
 	//================================================
 	//					SERVER
 	//================================================
@@ -162,7 +166,7 @@ if(_activated) then {
 			[] call WMT_fnc_UpdateMainActions;
 			player addEventHandler ["Respawn", {[] call WMT_fnc_UpdateMainActions;}];
 		};
-		["itemAdd", ["WmtMainCallEndFreeze", { ["CALL","FreezeEnded",[time, serverTime, diag_tickTime, date]] call wmt_fnc_evh; }, nil, nil, { time > 0 && { ( missionNamespace getVariable ["WMT_pub_frzState",100] ) >= 3} }, {false}, true]] call BIS_fnc_loop;
+		
 	};
 };
 
