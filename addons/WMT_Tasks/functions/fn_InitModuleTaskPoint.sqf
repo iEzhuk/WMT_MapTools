@@ -145,7 +145,6 @@ if(_activated) then {
 				PR(_unitCount) = [_arrTrgs, _minHeight, _maxHeight] call _getCountUnits;
 				PR(_curOwner)  = _logic getVariable "WMT_PointOwner";
 
-				systemChat str(_unitCount);
 				PR(_dc) = _unitCount select ([west, east, resistance, civilian, sideLogic] find _curOwner);
 				PR(_cs) = sideLogic;
 				PR(_cc) = 0;
