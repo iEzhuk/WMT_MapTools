@@ -102,7 +102,7 @@ if(_activated) then {
 			PR(_delay) = _this select 2;
 
 			PR(_markerStr) 	= _logic getVariable "Marker";
-			PR(_owner)		= [west,east,resistance,civilian,sideLogic] select (_logic getVariable "Owner");
+			PR(_owner)		= [east,west,resistance,civilian,sideLogic] select (_logic getVariable "Owner");
 			PR(_message)	= _logic getVariable "Message";
 			PR(_defCount)	= _logic getVariable "DefCount";
 			PR(_lock)		= _logic getVariable "Lock";
