@@ -6,7 +6,7 @@ class RscWMTDogTag
 	idd			= -1;
 	fadeout		= 0;
 	fadein		= 0;
-	duration	= 10;
+	duration	= 2.5;
 	onLoad		= "uiNamespace setVariable ['RscWMTDogTag', _this select 0]";
 	onUnLoad	= "uiNamespace setVariable ['RscWMTDogTag', nil]";
 
@@ -19,8 +19,8 @@ class RscWMTDogTag
 			text = "\wmt_main\pic\dogtag0.paa";
 			x = 0.0375;
 			y = 0.6;
-			w = 0.6;
-			h = 0.3;
+			w = 0.52;
+			h = 0.26;
 			fade = 0;
 			type = 0;
 			style = 2096;
@@ -41,25 +41,23 @@ class RscWMTDogTag
 	{
 		class RscWMTDogTagText
 		{
-			idc 	= IDC_WMT_DOGTAGTEXT;
-			type 	= 0;
-			style 	= 0;
-			x = 0.2;
+			idc = IDC_WMT_DOGTAGTEXT;
+			type = 0;
+			style = 0;
+			x = 0.18;
 			y = 0.6;
-			w = 0.6;
-			h = 0.3;
+			w = 0.28;
+			h = 0.26;
 			fixedWidth = 0;
-			font 	= "puristaMedium";
-			sizeEx 	= 0.04;
-			size 	= 0.04;
-			shadow	= 1;
-			text 	= "";
-			colorText[] 		= {0.465,0.449,0.433,1};
-			colorBackground[] 	= {0,0,0,0};
-			colorShadow[] = { 1,1,1,0.5};
+			font = "puristaMedium";
+			sizeEx = 0.038;
+			size = 0.038;
+			shadow = 1;
+			text = "";
+			colorText[] = {0.465,0.449,0.433,1};
+			colorBackground[] = {0,0,0,0};
+			colorShadow[] = {1,1,1,0.5};
 			linespacing = 1;
-
-
 		};
 	};
 };
