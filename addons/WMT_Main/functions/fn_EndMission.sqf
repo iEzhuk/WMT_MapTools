@@ -25,7 +25,7 @@ if(count _this == 2) then {
 	PR(_winner) = _this select 0;
 	PR(_text) = _this select 1;
 
-	PR(_isPlayerWin) = 	playerSide in ( [_winner] call bis_fnc_friendlysides );
+	PR(_isPlayerWin) = (playerSide in ([_winner] call bis_fnc_friendlysides)) && (_winner != sideLogic);
 						
 	PR(_textWinner) = if(_isPlayerWin)then{localize "STR_WMT_Win"}else{localize "STR_WMT_Lose"};
 
