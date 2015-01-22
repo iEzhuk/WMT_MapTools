@@ -23,15 +23,17 @@ if(_activated) then {
 			PR(_logic) = _this select 0;
 			PR(_delay) = _this select 1;
 
-			PR(_winner)	= [east,west,resistance,civilian,sideLogic] select (_logic getVariable "Winner");
-			PR(_count)	= _logic getVariable "Count";
-			PR(_msg) 	= _logic getVariable "Message";
+			PR(_winner) = [east,west,resistance,civilian,sideLogic] select (_logic getVariable "Winner");
+			PR(_count)  = _logic getVariable "Count";
+			PR(_msg)    = _logic getVariable "Message";
+
+			PR(_condition) = compile (_logic getVariable ["Condition","true"]);
 
 			sleep _delay;
 
 			PR(_points) = WMT_Local_PointArray;
 
-			while { {_x getVariable "WMT_PointOwner" == _winner}  count _points < _count} do {
+			while { !(({_x getVariable "WMT_PointOwner" == _winner} count _points >= _count) && (call _condition)) } do {
 				sleep 2.3;
 			};
 

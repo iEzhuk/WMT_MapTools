@@ -113,6 +113,7 @@ if(_activated) then {
 			PR(_captureCount) = _logic getVariable "CaptureCount";
 			PR(_easyCapture)  = _logic getVariable "EasyCapture";
 
+			PR(_condition) = compile (_logic getVariable ["Condition","true"]);
 
 			// Remove spaces 
 			_markerStr = toString ((toArray _markerStr) - [32]);
@@ -180,7 +181,7 @@ if(_activated) then {
 					};
 				};
 
-				if (_captured > 0) then {
+				if ((_captured>0) && (call _condition)) then {
 					if (_typeB!= _captured) then {
 						// Timecount
 						_timeB = diag_tickTime;

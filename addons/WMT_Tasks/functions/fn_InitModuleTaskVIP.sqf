@@ -24,6 +24,8 @@ if(_activated) then {
 			PR(_count ) = _logic getVariable "Count";
 			PR(_msg)	= _logic getVariable "Message";
 			PR(_notice) = _logic getVariable "Notice";
+			
+			PR(_condition) = compile (_logic getVariable ["Condition","true"]);
 
 			PR(_units) = [];
 			{
@@ -34,7 +36,7 @@ if(_activated) then {
 
 			sleep _delay;
 
-			while {count _units > _count} do {
+			while { !((count _units<=_count) && (call _condition)) } do {
 				PR(_v) = _units;
 				{
 					if !(alive _x) then {

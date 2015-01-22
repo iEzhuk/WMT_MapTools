@@ -20,15 +20,18 @@ if(_activated) then {
 			PR(_units) = _this select 1;
 			PR(_delay) = _this select 2;
 
-			PR(_notice) 	= _logic getVariable "Notice";
-			PR(_message)	= _logic getVariable "Message";
-			PR(_endCount) 	= _logic getVariable "EndCount";
-			PR(_winner)		= [east,west,resistance,civilian,sideLogic] select (_logic getVariable "Winner");
+			PR(_notice)    = _logic getVariable "Notice";
+			PR(_message)   = _logic getVariable "Message";
+			PR(_endCount)  = _logic getVariable "EndCount";
+			PR(_winner)    = [east,west,resistance,civilian,sideLogic] select (_logic getVariable "Winner");
+
+			PR(_condition) = compile (_logic getVariable ["Condition","true"]);
 
 			sleep _delay;
 
 			PR(_objs) = _units;
-			while {count _objs > _endCount} do {
+
+			while { !((count _objs <= _endCount) && (call _condition)) } do {
 				PR(_o) = _objs;
 				{
 					if !(alive _x) then {

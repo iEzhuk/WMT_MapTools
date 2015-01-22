@@ -26,15 +26,17 @@ if(_activated) then {
 			PR(_message)= _logic getVariable "Message";
 			PR(_count)  = _logic getVariable "Count";
 			PR(_winner)	= [east,west,resistance,civilian,sideLogic] select (_logic getVariable "Winner");
-			
+
+			PR(_condition) = compile (_logic getVariable ["Condition","true"]);
+
 			PR(_c) = 0;
 			PR(_objs) = _units;
 
 			sleep _delay;
-			
-			while {_c < _count} do {
+
+			while { !(_c>=_count && call _condition) } do 
+			{
 				PR(_o) = _objs;
-				
 				{
 					if ([_x,_marker] call WMT_fnc_IsTheUnitInsideMarker) then {
 						private ["_name", "_text"];

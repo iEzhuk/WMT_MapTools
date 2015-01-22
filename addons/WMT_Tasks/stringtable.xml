@@ -142,6 +142,14 @@
 				<Original>Timer (sec)</Original>
 				<Russian>Таймер (сек)</Russian>
 			</Key>
+			<Key ID="STR_WMT_Condition">
+				<Original>Condition</Original>
+				<Russian>Условие</Russian>
+			</Key>
+			<Key ID="STR_WMT_Condition_desc">
+				<Original>Additional condition to complete the task</Original>
+				<Russian>Дополнительное условие для выполнение задачи</Russian>
+			</Key>
 		</Container>
 	</Package>
 </Project>

@@ -25,6 +25,13 @@ class CfgVehicles
 		isTriggerActivated = 0;
 		class Arguments: ArgumentsBaseUnits
 		{
+			class Condition
+			{
+				displayName  = "$STR_WMT_Condition";
+				description  = "$STR_WMT_Condition_Desc";
+				typeName     = "STRING";
+				defaultValue = "true";
+			};
 			class EndCount
 			{
 				displayName  = "$STR_WMT_ObjectCount";
@@ -50,7 +57,7 @@ class CfgVehicles
 			{
 				displayName  = "$STR_WMT_Message";
 				description  = "$STR_WMT_Message_Desc";
-				typeName 	 = "STRING";
+				typeName     = "STRING";
 				defaultValue = "";
 			};
 			class Notice
@@ -86,7 +93,7 @@ class CfgVehicles
 			{
 				displayName  = "$STR_WMT_Marker";
 				description  = "$STR_WMT_Marker_Arrived_Desc";
-				typeName 	 = "STRING";
+				typeName     = "STRING";
 				defaultValue = "";
 			};
 			class Count
@@ -114,7 +121,7 @@ class CfgVehicles
 			{
 				displayName  = "$STR_WMT_Message";
 				description  = "$STR_WMT_Message_Desc";
-				typeName 	 = "STRING";
+				typeName     = "STRING";
 				defaultValue = "";
 			};
 			class Notice
@@ -127,6 +134,13 @@ class CfgVehicles
 					class Enable 	{name = "$STR_WMT_Enable";  value = 1; default = 1;};
 					class Disable 	{name = "$STR_WMT_Disable"; value = 0;};
 				};
+			};
+			class Condition
+			{
+				displayName  = "$STR_WMT_Condition";
+				description  = "$STR_WMT_Condition_Desc";
+				typeName     = "STRING";
+				defaultValue = "true";
 			};
 		};
 	};
@@ -150,7 +164,7 @@ class CfgVehicles
 			{
 				displayName  = "$STR_WMT_Marker";
 				description  = "$STR_WMT_Marker_Point_Desc";
-				typeName 	 = "STRING";
+				typeName     = "STRING";
 				defaultValue = "";
 			};
 			class Owner
@@ -171,7 +185,7 @@ class CfgVehicles
 			{
 				displayName  = "$STR_WMT_Message";
 				description  = "$STR_WMT_Message_Point_Desc";
-				typeName 	 = "STRING";
+				typeName     = "STRING";
 				defaultValue = "";
 			};
 			class DefCount
@@ -246,6 +260,13 @@ class CfgVehicles
 				typeName 	 = "NUMBER";
 				defaultValue = 0;
 			};
+			class Condition
+			{
+				displayName  = "$STR_WMT_Condition";
+				description  = "$STR_WMT_Condition_Desc";
+				typeName     = "STRING";
+				defaultValue = "true";
+			};
 		};
 	};
 //=======================================================================================
@@ -289,8 +310,15 @@ class CfgVehicles
 			{
 				displayName  = "$STR_WMT_Message";
 				description  = "$STR_WMT_Message_Desc";
-				typeName 	 = "STRING";
+				typeName     = "STRING";
 				defaultValue = "";
+			};
+			class Condition
+			{
+				displayName  = "$STR_WMT_Condition";
+				description  = "$STR_WMT_Condition_Desc";
+				typeName     = "STRING";
+				defaultValue = "true";
 			};
 		};
 	};
@@ -314,7 +342,7 @@ class CfgVehicles
 			{
 				displayName  = "$STR_WMT_Marker";
 				description  = "$STR_WMT_Marker_VIP_Desc";
-				typeName 	 = "STRING";
+				typeName     = "STRING";
 				defaultValue = "";
 			};
 			class Winner
@@ -342,7 +370,7 @@ class CfgVehicles
 			{
 				displayName  = "$STR_WMT_Message";
 				description  = "$STR_WMT_Message_Desc";
-				typeName 	 = "STRING";
+				typeName     = "STRING";
 				defaultValue = "";
 			};
 			class ReturnTime
@@ -362,6 +390,13 @@ class CfgVehicles
 					class Enable 	{name = "$STR_WMT_Enable";  value = 1; default = 1;};
 					class Disable 	{name = "$STR_WMT_Disable"; value = 0;};
 				};
+			};
+			class Condition
+			{
+				displayName  = "$STR_WMT_Condition";
+				description  = "$STR_WMT_Condition_Desc";
+				typeName     = "STRING";
+				defaultValue = "true";
 			};
 		};
 	};
