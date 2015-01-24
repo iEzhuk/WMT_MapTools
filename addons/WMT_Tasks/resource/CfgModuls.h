@@ -410,7 +410,7 @@ class CfgVehicles
 		displayName = "Task: Compose";
 		category = "WMT";
 		function = "WMT_fnc_InitModuleTaskCompose";
-		// icon = "\WMT_Tasks\pic\capture.paa";
+		icon = "\WMT_Tasks\pic\compose.paa";
 		functionPriority = 10;
 		isGlobal = 1;
 		isTriggerActivated = 0;
