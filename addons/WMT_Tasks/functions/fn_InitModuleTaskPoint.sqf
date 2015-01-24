@@ -212,8 +212,11 @@ if(_activated) then {
 
 				sleep 3.12;
 			};
+
 			//Remove trigers
 			{deleteVehicle  _x} foreach _arrTrgs; 
+			
+			_logic setVariable ["WMT_TaskEnd", true, true];
 		};
 	};
 	//===============================================================

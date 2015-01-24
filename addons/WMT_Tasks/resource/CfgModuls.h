@@ -400,4 +400,57 @@ class CfgVehicles
 			};
 		};
 	};
+//=======================================================================================
+//									Compose
+//=======================================================================================
+	class WMT_Task_Compose: Module_F
+	{
+		scope = 2;
+		author = "Ezhuk";
+		displayName = "Task: Compose";
+		category = "WMT";
+		function = "WMT_fnc_InitModuleTaskCompose";
+		// icon = "\WMT_Tasks\pic\capture.paa";
+		functionPriority = 10;
+		isGlobal = 1;
+		isTriggerActivated = 0;
+		class Arguments: ArgumentsBaseUnits
+		{
+			class Winner
+			{
+				displayName = "$STR_WMT_WinnerSide";
+				description = "";
+				typeName 	= "NUMBER";
+				class values
+				{
+					class Empty	{name = "$STR_WMT_Nobody"; 		value = 4;  default = 1;};
+					class East 	{name = "$STR_WMT_East"; 		value = 0;};
+					class West	{name = "$STR_WMT_West"; 		value = 1;};
+					class Guer 	{name = "$STR_WMT_Resistance"; 	value = 2;};
+					class Civ 	{name = "$STR_WMT_Civilian"; 	value = 3;};
+				};
+			};
+			class Count
+			{
+				displayName  = "$STR_WMT_ComposeCount";
+				description  = "$STR_WMT_ComposeCount_Desc";
+				typeName 	 = "NUMBER";
+				defaultValue = 1;
+			};
+			class Message
+			{
+				displayName  = "$STR_WMT_Message";
+				description  = "$STR_WMT_Message_Desc";
+				typeName     = "STRING";
+				defaultValue = "";
+			};
+			class Condition
+			{
+				displayName  = "$STR_WMT_Condition";
+				description  = "$STR_WMT_Condition_Desc";
+				typeName     = "STRING";
+				defaultValue = "true";
+			};
+		};
+	};
 };

@@ -53,9 +53,13 @@ if(_activated) then {
 
 				sleep 3.12;
 			};
-
-			// End mission
-			[[[_winner, _message], {_this call WMT_fnc_EndMission;}], "bis_fnc_spawn"] call bis_fnc_mp;
+			
+			if ( {typeOf _x == "WMT_Task_Compose"} count synchronizedObjects _logic == 0) then {
+				// End mission
+				[[[_winner, _message], {_this call WMT_fnc_EndMission;}], "bis_fnc_spawn"] call bis_fnc_mp;
+			} else {
+				_logic setVariable ["WMT_TaskEnd", true, true];
+			};
 		};
 	};
 	//===============================================================

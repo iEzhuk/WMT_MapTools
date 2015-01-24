@@ -1,5 +1,5 @@
 /*
- 	Name: WMT_fnc_InitModuleTaskCapturePoints
+ 	Name: WMT_fnc_InitModuleTaskCompose
 
  	Author(s):
 		Ezhuk
@@ -28,21 +28,28 @@ if(_activated) then {
 			PR(_msg)    = _logic getVariable "Message";
 
 			PR(_condition) = compile (_logic getVariable ["Condition","true"]);
+			
+			PR(_tasks) = [];
+
+			{
+				if (typeOf _x in ["WMT_Task_Destroy","WMT_Task_Arrive","WMT_Task_Point","WMT_Task_CapturePoint","WMT_Task_VIP"]) then {
+					_tasks pushback _x;
+				};
+			} foreach (synchronizedObjects _logic);
+
+		
 
 			sleep _delay;
-
+			hint str(_tasks);
+			systemChat str(_tasks);
 			PR(_points) = WMT_Local_PointArray;
 
-			while { !(({_x getVariable "WMT_PointOwner" == _winner} count _points >= _count) && (call _condition)) } do {
+			while { !(({_x getVariable ["WMT_TaskEnd", false]} count _tasks >= _count) && (call _condition)) } do {
 				sleep 2.3;
 			};
-
-			if ( {typeOf _x == "WMT_Task_Compose"} count synchronizedObjects _logic == 0) then {
-				// End mission
-				[[[_winner, _msg], {_this call WMT_fnc_EndMission;}], "bis_fnc_spawn"] call bis_fnc_mp;
-			} else {
-				_logic setVariable ["WMT_TaskEnd", true, true];
-			};
+			systemChat format["%1 %2",_winner , _msg];
+			// End mission
+			[[[_winner, _msg], {_this call WMT_fnc_EndMission;}], "bis_fnc_spawn"] call bis_fnc_mp;
 		};
 	};
 };

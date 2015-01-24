@@ -150,6 +150,14 @@
 				<Original>Additional condition to complete the task</Original>
 				<Russian>Дополнительное условие для выполнение задачи</Russian>
 			</Key>
+			<Key ID="STR_WMT_ComposeCount">
+				<Original>Number of task</Original>
+				<Russian>Кол-во задач</Russian>
+			</Key>
+			<Key ID="STR_WMT_ComposeCount_Desc">
+				<Original>Number of completed tasks to win</Original>
+				<Russian>Количество выполенных задач для попеды</Russian>
+			</Key>
 		</Container>
 	</Package>
 </Project>

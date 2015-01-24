@@ -13,3 +13,4 @@ WMT_fnc_InitModuleTaskCapturePoints = compileFinal preprocessFile  ("WMT_Tasks\f
 WMT_fnc_InitModuleTaskDestroy		= compileFinal preprocessFile  ("WMT_Tasks\functions\fn_InitModuleTaskDestroy.sqf");
 WMT_fnc_InitModuleTaskPoint 		= compileFinal preprocessFile  ("WMT_Tasks\functions\fn_InitModuleTaskPoint.sqf");
 WMT_fnc_InitModuleTaskVIP			= compileFinal preprocessFile  ("WMT_Tasks\functions\fn_InitModuleTaskVIP.sqf");
+WMT_fnc_InitModuleTaskCompose		= compileFinal preprocessFile  ("WMT_Tasks\functions\fn_InitModuleTaskCompose.sqf");
