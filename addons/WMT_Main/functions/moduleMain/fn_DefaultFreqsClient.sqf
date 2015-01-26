@@ -13,18 +13,10 @@
  	Returns:
 		Nothing
 */
+
 #define PR(x) private ['x']; x
 
 if (not isClass (configFile >> "CfgPatches" >> "task_force_radio_items")) exitwith {diag_log "DefaultFreqClient TF radio not initialized"};
-
-
-tf_same_sw_frequencies_for_side = false;
-tf_same_lr_frequencies_for_side = true;	
-
-if (playerside == civilian) exitwith {};
-
-waitUntil {!isNil "wmt_global_freqList" or time > 10};
-
 
 PR(_sideToColor) = {
 	switch(_this select 0) do {
@@ -35,61 +27,26 @@ PR(_sideToColor) = {
 	};
 };
 
-PR(_spawnSetLrChannel) = {
-	if (leader group player == player) then {
-
-		_this spawn {	
-			// Need to avoid error in TFAR since 0.9.4
-			waituntil {sleep 0.3; !(isNil "currentUnit")};
-
-			waituntil {sleep 0.3;(player call TFAR_fnc_haveLRRadio) or time > 10};
-			sleep 0.5;
-			PR(_val) = str (_this);					
-			[(call TFAR_fnc_activeLrRadio) select 0, (call TFAR_fnc_activeLrRadio) select 1, _val] call TFAR_fnc_setLrFrequency;
-			if (dialog) then {
-				call TFAR_fnc_updateLRDialogToChannel;
-			};
-		};
-	};
-};
-
-PR(_printFrq) = {
-	PR(_str) = _this;
-	PR(_txt) = "";
-	PR(_arrFrq) = _str select 1;
-
-	switch ( typename (_str select 0)) do {
-		case ("SIDE") : {
-			_txt = "<font>" + format[localize "STR_WMT_FREQ_LR",_arrFrq select 0, _arrFrq select 1,_arrFrq select 2] + "</font><br/><br/>";
-		 };
-		case ("GROUP") : {
-			PR(_leader) = leader (_str select 0);
-			PR(_tcolor) = [side (_str select 0)] call _sideToColor;
-			_txt = format["<font color='%3'>%1 %2</font><br/>", (groupid(_str select 0)) call wmt_fnc_LongGroupNameToShort, if(isPLayer _leader)then{name _leader}else {""}, _tcolor ];
-			_txt = _txt + format[localize "STR_WMT_FREQ_SR", _arrFrq select 0,_arrFrq select 1,_arrFrq select 2] +
-				"<br/><br/>";
-		};
-	};
-	_txt;
-};
-
+private ['_lr_settings','_sw_settings','_txt1'];
 
 PR(_friends) = ([side player] call BIS_fnc_friendlySides) - [civilian];
 PR(_friendsids) = [];
 PR(_playersideid) = [playerside] call BIS_fnc_sideID;
 PR(_txt) = "";
 
-_txt = (wmt_global_freqList select _playersideid) call _printFrq;
+waitUntil {!isNil {(group player) getVariable "tf_lr_frequency"}};
+_lr_settings = ((group player) getVariable "tf_lr_frequency") select 2;
+_txt = "<font>" + format[localize "STR_WMT_FREQ_LR",_lr_settings select 0, _lr_settings select 1, _lr_settings select 2 ] + "</font><br/><br/>";
 
 {
-//if ( typename (_x select 0) == typename grpNull and {side (_x select 0) in _friends} and { leader (_x select 0) in playableunits} ) then {		
-	if ( typename (_x select 0) == typename grpNull and {side (_x select 0) in _friends} and { leader (_x select 0) in allUnits} ) then {		
-		_txt = _txt + (_x call _printFrq);
+	if (side _x in _friends) then {
+		waitUntil {!isNil {_x getVariable "tf_sw_frequency"}};
+		_sw_settings = (_x getVariable "tf_sw_frequency") select 2;
+		PR(_leader) = leader _x;
+		PR(_tcolor) = [side _x] call _sideToColor;
+		_txt1 = format["<font color='%3'>%1 %2</font><br/>", (groupid(_x)) call wmt_fnc_LongGroupNameToShort, if(isPLayer _leader)then{name _leader}else {""}, _tcolor ];
+		_txt = _txt + _txt1 + format[localize "STR_WMT_FREQ_SR", _sw_settings select 0,_sw_settings select 1,_sw_settings select 2] + "<br/><br/>";
 	};
-} foreach wmt_global_freqList;
-
-
-(((wmt_global_freqList select _playersideid) select 1) select 0) call _spawnSetLrChannel;
-
+} foreach allGroups;
 
 ["diary",localize "STR_WMT_FREQ_HDR", _txt] call WMT_fnc_CreateDiaryRecord;

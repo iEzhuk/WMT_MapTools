@@ -14,10 +14,16 @@
 PR(_playerratio) =  [_this, 0, 0.1] call BIS_fnc_param; 
 PR(_aftertime) = [_this, 1, 30] call BIS_fnc_param; 
 
+
+
+
 //if (_playerratio == 0) exitWith {};
 if (not isServer) exitWith {diag_log "PALYERCOUNT.SQF NOT SERVER";};
 waitUntil { time > _aftertime };
 
+if (isNil "wmt_hl_ratio") then {
+	wmt_hl_ratio = [_playerratio,_playerratio,_playerratio];
+};
 
 if (isNil "wmt_hl_sidelimits") then {
 	wmt_hl_sidelimits = [0,0,0];
@@ -45,8 +51,6 @@ wmtPlayerCountEmptySides = [civilian];
 	};
 } foreach [east, west, resistance];
 
-
-
 while {not _endtimer} do {
 	wmt_PlayerCountNow = [
 		{side _x == east and isPlayer _x} count playableUnits,
@@ -54,7 +58,7 @@ while {not _endtimer} do {
 		{side _x == resistance and isPlayer _x} count playableUnits
 	];
 	{
-		
+		_playerratio = wmt_hl_ratio select _foreachindex;
 		if ( not _endtimer and {_x in [east,west] or _resistanceFriendSide == sideUnknown} ) then {
 			PR(_playersActualBegin) = (wmt_playerCountInit select _foreachindex) + ( if (_x == _resistanceFriendSide) then {wmt_playerCountInit select 2} else {0} );
 			PR(_playersActualNow) = (wmt_PlayerCountNow select _foreachindex) + ( if (_x == _resistanceFriendSide) then {wmt_PlayerCountNow select 2} else {0} );

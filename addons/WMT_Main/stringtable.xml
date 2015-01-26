@@ -279,8 +279,8 @@
 				<Russian>Частоты</Russian>
 			</Key>	
 			<Key ID="STR_WMT_MOD_GENFREQS">
-				<Original>Generate frequencies</Original>
-				<Russian>Генерировать частоты</Russian>
+				<Original>Show frequencies</Original>
+				<Russian>Показывать частоты</Russian>
 			</Key>	
 			<Key ID="STR_WMT_Statistic">
 				<Original>Show statistic</Original>

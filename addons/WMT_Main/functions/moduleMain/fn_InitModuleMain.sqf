@@ -77,10 +77,6 @@ if(_activated) then {
 	//================================================
 	if(isServer) then {
 		[] spawn {
-			if (wmt_param_GenerateFrequencies == 1) then {
-				[] spawn WMT_fnc_DefaultFreqsServer;
-			};
-	
 			["vehicle", [(wmt_param_TI>0)]] call WMT_fnc_DisableTI;
 
 			[wmt_param_HeavyLossesCoeff] spawn WMT_fnc_HeavyLossesCheck;
@@ -143,8 +139,7 @@ if(_activated) then {
 				
 			};
 			// Disable chat
-			["push","disablechatafterfrz", "FreezeEnded",{showChat false;}] call wmt_fnc_evh;
-				
+			["itemAdd", ["wmtfrzrmvbots", {[] spawn {sleep 1; showChat false;};}, nil, nil, {WMT_pub_frzState >= 3}, {false}, true]] call BIS_fnc_loop;
 
 			player addEventHandler ["killed", "_this spawn WMT_fnc_PlayerKilled"];
 
