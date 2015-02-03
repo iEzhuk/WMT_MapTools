@@ -37,6 +37,9 @@ if(_activated) then {
 	};
 	WMT_mutexAction = false;
 
+	WMT_Local_hardFieldRepairParts 	= ["HitEngine", "HitLTrack","HitRTrack"];
+	WMT_Local_fieldRepairHps 		= ["HitLFWheel","HitLBWheel","HitLMWheel","HitLF2Wheel","HitRFWheel","HitRBWheel","HitRMWheel","HitRF2Wheel"] + WMT_Local_hardFieldRepairParts;
+	
 	//===============================================================
 	// 							Server part
 	//===============================================================
@@ -80,8 +83,6 @@ if(_activated) then {
 			private ["_enable"];
 			WMT_Local_fullRepairClasses 	= [];
 			WMT_Local_fullRepairEnabled 	= false;
-			WMT_Local_hardFieldRepairParts 	= ["HitEngine", "HitLTrack","HitRTrack"];
-			WMT_Local_fieldRepairHps 		= ["HitLFWheel","HitLBWheel","HitLMWheel","HitLF2Wheel","HitRFWheel","HitRBWheel","HitRMWheel","HitRF2Wheel"] + WMT_Local_hardFieldRepairParts;
 
 			_enable = 	switch (true) do {
 							case (["engineer", _playerClass] call BIS_fnc_inString):{true};
