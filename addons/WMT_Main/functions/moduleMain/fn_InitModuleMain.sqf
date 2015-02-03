@@ -77,6 +77,10 @@ if(_activated) then {
 	//================================================
 	if(isServer) then {
 		[] spawn {
+			if (wmt_param_GenerateFrequencies == 1) then {
+				[] spawn WMT_fnc_DefaultFreqsServer;
+			};
+
 			["vehicle", [(wmt_param_TI>0)]] call WMT_fnc_DisableTI;
 
 			[wmt_param_HeavyLossesCoeff] spawn WMT_fnc_HeavyLossesCheck;
