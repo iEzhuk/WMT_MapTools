@@ -82,8 +82,10 @@ wmt_frz_vehs = [];
 ["itemAdd", ["wmtfrzend", {
 	enableEngineArtillery true;
 	deleteMarkerLocal "WMTPlayerFreeze";
-	player removeEventHandler ["Fired",wmt_freezeGrenadeHandler];
-	wmt_freezeGrenadeHandler = nil;
+	if !(isNil "wmt_freezeGrenadeHandler") then {
+		player removeEventHandler ["Fired",wmt_freezeGrenadeHandler];
+		wmt_freezeGrenadeHandler = nil;
+	};
 	{
 		PR(_evh) = _x getVariable "frz_evh";
 		if (!isNil "_evh") then {

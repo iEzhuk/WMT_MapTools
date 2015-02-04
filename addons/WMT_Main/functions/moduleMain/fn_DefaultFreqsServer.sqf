@@ -20,6 +20,8 @@ if (not isClass (configFile >> "CfgPatches" >> "task_force_radio_items")) exitwi
 tf_same_sw_frequencies_for_side = false;
 tf_same_lr_frequencies_for_side = false;		
 
+sleep 0.1; 
+
 PR(_radio) = [-2,2,32,64,100,400];
 PR(_genFreq) = {
 	private ["_state","_num","_isinbl","_l1","_l2"];

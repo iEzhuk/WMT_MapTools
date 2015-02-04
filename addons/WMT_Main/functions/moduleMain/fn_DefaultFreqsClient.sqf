@@ -19,7 +19,7 @@ if (not isClass (configFile >> "CfgPatches" >> "task_force_radio_items")) exitwi
 
 if (playerside == civilian) exitwith {};
 
-waitUntil {sleep 1; !isNil "wmt_global_freqList" or time > 10};
+waitUntil {sleep 1; !isNil "wmt_global_freqList" or time > 30};
 
 if(isNil "wmt_global_freqList" ) exitwith {diag_log "WMT_fnc_DefaultFreqsClient: wmt_global_freqList is null"};
 
