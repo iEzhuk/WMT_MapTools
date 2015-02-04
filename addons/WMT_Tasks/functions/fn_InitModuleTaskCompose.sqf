@@ -37,17 +37,14 @@ if(_activated) then {
 				};
 			} foreach (synchronizedObjects _logic);
 
-		
-
 			sleep _delay;
-			hint str(_tasks);
-			systemChat str(_tasks);
+
 			PR(_points) = WMT_Local_PointArray;
 
 			while { !(({_x getVariable ["WMT_TaskEnd", false]} count _tasks >= _count) && (call _condition)) } do {
 				sleep 2.3;
 			};
-			systemChat format["%1 %2",_winner , _msg];
+
 			// End mission
 			[[[_winner, _msg], {_this call WMT_fnc_EndMission;}], "bis_fnc_spawn"] call bis_fnc_mp;
 		};
