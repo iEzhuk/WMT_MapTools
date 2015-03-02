@@ -14,6 +14,7 @@
 		Nothing
 */
 
+
 {
 	_x disableAI "AUTOTARGET";
 	_x disableAI "TARGET";
@@ -25,4 +26,4 @@
 	_x allowFleeing 0;
 	_x disableConversation true;
 	_x setVariable ["BIS_noCoreConversations", false];
-}forEach playableUnits;
+}forEach (if (count playableUnits == 0) then {allUnits} else {playableUnits});
