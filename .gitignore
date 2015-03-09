@@ -1,5 +1,6 @@
 *.pbo
 *.bak
+*.bak?
 *.dll
 *.exe
 *.zip

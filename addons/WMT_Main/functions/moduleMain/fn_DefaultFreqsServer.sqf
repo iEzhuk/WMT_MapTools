@@ -96,7 +96,7 @@ call TFAR_fnc_processGroupFrequencySettings;
 	};
 
 	_vl4 = _x getVariable "tf_lr_frequency";
-	(_vl4 select 2) set [0, str (_num2 select 1)];
+	(_vl4 select 2) set [0, str ((_num2 select 1) select 0)];
 	_x setVariable["tf_lr_frequency", _vl4, true];
 } foreach allgroups;
 
