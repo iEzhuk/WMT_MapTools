@@ -43,7 +43,8 @@ wmt_mapadded = false;
 				if (side _x == playerSide && {"ItemMap" in assignedItems _x}) then {
 					wmt_mapadded = true;
 					0 spawn {waituntil{!visibleMap};player unlinkItem "itemMap";wmt_mapadded = false;hint "";};
-					wmt_mapsource = ["man",_x];                 
+					wmt_mapsource = ["man",_x];
+					closeDialog 1; //закроем диалог чтобы карту не открывали с открытым инвентарем
 					player linkItem "ItemMap";        
 					hint format [localize "STR_WMT_MapFromAlly", name _x];
 					breakOut "loop1";
@@ -54,6 +55,7 @@ wmt_mapadded = false;
 			_hasgps = getNumber ( configFile >> "CfgVehicles" >> typeOf(vehicle player) >> "enableGPS");
 			if (_hasgps > 0) then {
 				wmt_mapadded = true; player linkItem "ItemMap"; wmt_mapsource = ["veh",vehicle player];
+				closeDialog 1;
 				0 spawn {waituntil{!visibleMap};player unlinkItem "itemMap";wmt_mapadded = false;hint "";};
 				hint localize "STR_WMT_MapFromVehicle";
 			} else {
@@ -62,6 +64,7 @@ wmt_mapadded = false;
 					if ("ItemMap" in assignedItems _x) then {
 						wmt_mapadded = true;
 						wmt_mapsource = ["veh",vehicle player];
+						closeDialog 1;
 						player linkItem "ItemMap";
 						0 spawn {waituntil{!visibleMap};player unlinkItem "itemMap";wmt_mapadded = false;hint "";};
 						hint localize "STR_WMT_MapFromVehicleCrew";
