@@ -95,9 +95,10 @@ call TFAR_fnc_processGroupFrequencySettings;
 		default { _num2 = _freqList select 2;};
 	};
 
+/*
 	_vl4 = _x getVariable "tf_lr_frequency";
 	(_vl4 select 2) set [0, str ((_num2 select 1) select 0)];
-	_x setVariable["tf_lr_frequency", _vl4, true];
+	_x setVariable["tf_lr_frequency", _vl4, true]; */
 } foreach allgroups;
 
 wmt_global_freqList = _freqList;
