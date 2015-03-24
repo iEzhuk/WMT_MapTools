@@ -95,25 +95,33 @@ for "_i" from 0 to ((count _map)-1) do {
 			// In vehicle 
 			if !(vehicle _object in _units) then {
 				// vehicle is no entry in list
-				_object action ["getout", vehicle _object];
-				_object setPos _pos;
-				_object setDir _dir;
 
-				[[[_object, _pos, _dir], {(_this select 0) action ["getout", vehicle (_this select 0)]; sleep 0.3; (_this select 0) setPos (_this select 1); (_this select 0) setDir (_this select 2);}], "bis_fnc_spawn", _object] call bis_fnc_mp;
+				if(local _object) then {
+					_object action ["getout", vehicle _object];
+					sleep 0.3;
+					_object setPos _pos;
+					_object setDir _dir;
+				} else {
+					[[[_object, _pos, _dir], {(_this select 0) action ["getout", vehicle (_this select 0)]; sleep 0.3; (_this select 0) setPos (_this select 1); (_this select 0) setDir (_this select 2);}], "bis_fnc_spawn", _object] call bis_fnc_mp;
+				};
 			};
 		} else {
 			// On foot 
-			_object setPos _pos;
-			_object setDir _dir;
-
-			[[[_object, _pos, _dir], {(_this select 0) setPos (_this select 1); (_this select 0) setDir (_this select 2);}], "bis_fnc_spawn", _object] call bis_fnc_mp;
+			if(local _object) then {
+				_object setPos _pos;
+				_object setDir _dir;
+			} else {
+				[[[_object, _pos, _dir], {(_this select 0) setPos (_this select 1); (_this select 0) setDir (_this select 2);}], "bis_fnc_spawn", _object] call bis_fnc_mp;
+			};
 		};
 
 	} else {
-		_object setPos _pos;
-		_object setDir _dir;
-
-		[[[_pos, _dir], {(_this select 0) setPos (_this select 1); (_this select 0) setDir (_this select 2);}], "bis_fnc_spawn", _object] call bis_fnc_mp;
+		if(local _object) then {
+			_object setPos _pos;
+			_object setDir _dir;
+		} else {
+			[[[_object, _pos, _dir], {(_this select 0) setPos (_this select 1); (_this select 0) setDir (_this select 2);}], "bis_fnc_spawn", _object] call bis_fnc_mp;
+		};
 	};
 };
 
