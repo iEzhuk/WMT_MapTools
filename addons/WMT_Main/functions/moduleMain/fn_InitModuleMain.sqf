@@ -143,7 +143,7 @@ if(_activated) then {
 				
 			};
 			// Disable chat
-			["itemAdd", ["wmtfrzrmvbots", {[] spawn {sleep 1; showChat false;};}, nil, nil, {WMT_pub_frzState >= 3}, {false}, true]] call BIS_fnc_loop;
+			["itemAdd", ["wmtfrzdisablechat", {[] spawn { if (isnil "wmt_flg_dontDisableChat") then {sleep 15; showChat false;};};}, nil, nil, { (missionNamespace getVariable ["WMT_pub_frzState",0]) >= 3}, {false}, true]] call BIS_fnc_loop;
 
 			player addEventHandler ["killed", "_this spawn WMT_fnc_PlayerKilled"];
 

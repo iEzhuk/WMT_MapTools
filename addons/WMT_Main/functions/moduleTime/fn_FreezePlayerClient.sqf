@@ -96,6 +96,7 @@ wmt_frz_vehs = [];
 	wmt_frz_vehs = nil;
 	wmt_frzdistance = nil;
 	wmt_frzmaxdistance = nil;
+	playSound "wmt_beep";
 }, nil, nil, {WMT_pub_frzState >= 3}, {false}, true]] call BIS_fnc_loop;
 
 

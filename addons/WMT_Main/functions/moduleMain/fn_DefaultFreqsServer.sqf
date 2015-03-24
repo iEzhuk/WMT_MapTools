@@ -17,10 +17,7 @@
 
 if (not isClass (configFile >> "CfgPatches" >> "task_force_radio_items")) exitwith {diag_log "DefaultFreqServer TF radio not initialized"};
 
-tf_same_sw_frequencies_for_side = false;
-tf_same_lr_frequencies_for_side = false;		
-
-sleep 0.1; 
+tf_same_sw_frequencies_for_side = false;tf_same_lr_frequencies_for_side = true;	f_same_dd_frequencies_for_side = true;	
 
 PR(_radio) = [-2,2,32,64,100,400];
 PR(_genFreq) = {
@@ -90,6 +87,18 @@ call TFAR_fnc_processGroupFrequencySettings;
 	_vl3 = _x getVariable "tf_sw_frequency"; 			
 	(_vl3 select 2) set [0, str (_num select 0)];
 	_x setVariable["tf_sw_frequency", _vl3, true];
+
+	_num2 = [];
+	switch (side _x) do {
+		case west: { _num2 = _freqList select 1;};
+		case east: { _num2 = _freqList select 0;};
+		default { _num2 = _freqList select 2;};
+	};
+
+/*
+	_vl4 = _x getVariable "tf_lr_frequency";
+	(_vl4 select 2) set [0, str ((_num2 select 1) select 0)];
+	_x setVariable["tf_lr_frequency", _vl4, true]; */
 } foreach allgroups;
 
 wmt_global_freqList = _freqList;
