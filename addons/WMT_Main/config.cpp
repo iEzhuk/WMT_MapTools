@@ -14,7 +14,7 @@ class CfgPatches
 		units[] = {};
 		weapons[] = {};
 		requiredVersion = 1.0;
-		requiredAddons[] = {};
+		requiredAddons[] = {"a3_ui_f"};
 		author[] = {"Ezhuk","Zealot"};
 		authorUrl = "https://github.com/iEzhuk/WMT_MapTools";
 		version = 1.4.3;
