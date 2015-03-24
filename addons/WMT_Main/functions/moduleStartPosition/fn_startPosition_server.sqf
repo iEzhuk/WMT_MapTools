@@ -66,7 +66,7 @@ if (not isNil "WMT_pub_frzState") then {
 // Get selected start position
 if (_owner == "") then {
 	// Random position
-	_indexPos = floor(random (count _markers-0.01));
+	_indexPos = [0,(count _markers) - 1] call BIS_fnc_randomInt;
 } else {
 	// Choosing position
 	_indexPos = _logic getVariable ["IndexPosition",-1];
@@ -87,26 +87,34 @@ for "_i" from 0 to ((count _map)-1) do {
 	_offset = [_offset select 0, _offset select 1, _centerDir - _markerdir] call _fnc_RotatePoint;
 	_offset set [2,0];
 
+	_pos = _markerPos vectorAdd _offset;
+	_dir = _markerdir - _sDir - _centerDir;
+
 	if (_object isKindOf "Man") then {
 		if (vehicle _object != _object) then {
 			// In vehicle 
 			if !(vehicle _object in _units) then {
 				// vehicle is no entry in list
 				_object action ["getout", vehicle _object];
-				_object setPos (_markerPos vectorAdd _offset);
-				_object setDir _markerdir - _sDir - _centerDir;
+				_object setPos _pos;
+				_object setDir _dir;
+
+				[[[_object, _pos, _dir], {(_this select 0) action ["getout", vehicle (_this select 0)]; sleep 0.3; (_this select 0) setPos (_this select 1); (_this select 0) setDir (_this select 2);}], "bis_fnc_spawn", _object] call bis_fnc_mp;
 			};
 		} else {
 			// On foot 
-			_object setPos (_markerPos vectorAdd _offset);
-			_object setDir _markerdir - _sDir - _centerDir;
+			_object setPos _pos;
+			_object setDir _dir;
+
+			[[[_object, _pos, _dir], {(_this select 0) setPos (_this select 1); (_this select 0) setDir (_this select 2);}], "bis_fnc_spawn", _object] call bis_fnc_mp;
 		};
 
 	} else {
-		_object setPos (_markerPos vectorAdd _offset);
-		_object setDir _markerdir - _sDir - _centerDir;
-	};
+		_object setPos _pos;
+		_object setDir _dir;
 
+		[[[_pos, _dir], {(_this select 0) setPos (_this select 1); (_this select 0) setDir (_this select 2);}], "bis_fnc_spawn", _object] call bis_fnc_mp;
+	};
 };
 
 

@@ -400,7 +400,7 @@
 			</Key>	
 			<Key ID="STR_WMT_SP_Owner_Desc">
 				<Original>This unit will select start position</Original>
-				<Russian>Этот юнит будет иметь возможность ввыбирать стартовую позицию</Russian>
+				<Russian>Этот юнит будет иметь возможность выбирать стартовую позицию</Russian>
 			</Key>
 			<Key ID="STR_WMT_SP_Center">
 				<Original>Center</Original>
@@ -408,7 +408,7 @@
 			</Key>	
 			<Key ID="STR_WMT_SP_Center_Desc">
 				<Original>Offset of objects relative to the marker used for calculate position of object around slected position</Original>
-				<Russian>мещение относительно этого маркера используется для подсчета координат относительно выбранной позиции</Russian>
+				<Russian>Смещение относительно этого маркера используется для подсчета координат относительно выбранной позиции</Russian>
 			</Key>
 			<Key ID="STR_WMT_SP_Positions">
 				<Original>List of positons</Original>
