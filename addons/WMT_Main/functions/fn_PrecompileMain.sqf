@@ -36,6 +36,7 @@ WMT_fnc_HandlerMenu					= compileFinal preprocessFileLineNumbers  ("WMT_Main\fun
 WMT_fnc_HandlerOptions				= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\moduleMain\fn_HandlerOptions.sqf");
 WMT_fnc_HeavyLossesCheck			= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\moduleMain\fn_HeavyLossesCheck.sqf");
 WMT_fnc_HideSideMarkers				= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\moduleMain\fn_HideSideMarkers.sqf");
+WMT_fnc_HideUserMarkers				= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\moduleMain\fn_HideUserMarkers.sqf");
 WMT_fnc_IndetifyTheBody				= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\moduleMain\fn_IndetifyTheBody.sqf");
 WMT_fnc_KeyDown						= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\moduleMain\fn_KeyDown.sqf");
 WMT_fnc_KeyUp						= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\moduleMain\fn_KeyUp.sqf");

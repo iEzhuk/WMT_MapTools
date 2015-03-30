@@ -10,6 +10,7 @@ class CfgFunctions
 			class BriefingMap{};
 			class CreateDiaryRecord{};
 			class CreateLocalMarker{};
+			class CreateGlobalMarker{};
 			class CreateTrigger{};
 			class EndMission{};
 			class LongGroupNameToShort{};

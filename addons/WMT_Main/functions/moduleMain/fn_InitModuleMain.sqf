@@ -115,6 +115,7 @@ if(_activated) then {
 			WMT_Local_Kills = [];
 
 			[] call WMT_fnc_HideSideMarkers;
+			[] call WMT_fnc_HideUserMarkers;
 
 			// Control veiw distance 
 			["loop"] spawn WMT_fnc_handlerOptions;
@@ -142,6 +143,7 @@ if(_activated) then {
 				
 				
 			};
+
 			// Disable chat
 			["itemAdd", ["wmtfrzdisablechat", {[] spawn { if (isnil "wmt_flg_dontDisableChat") then {sleep 15; showChat false;};};}, nil, nil, { (missionNamespace getVariable ["WMT_pub_frzState",0]) >= 3}, {false}, true]] call BIS_fnc_loop;
 
