@@ -85,7 +85,7 @@
 			<Key ID="STR_WMT_ViewDistance">
 				<Original>View distance</Original>
 				<Russian>Дальность видимости</Russian>
-			</Key>			
+			</Key>
 			<Key ID="STR_WMT_ViewDistance_Desc">
 				<Original>Max view distance</Original>
 				<Russian>Максимальная дальность видимости</Russian>
@@ -93,15 +93,15 @@
 			<Key ID="STR_WMT_TI">
 				<Original>Thermal Image</Original>
 				<Russian>Тепловизор</Russian>
-			</Key>			
+			</Key>
 			<Key ID="STR_WMT_TI_Enable">
 				<Original>Default settings</Original>
 				<Russian>Стандартные настройки</Russian>
-			</Key>	
+			</Key>
 			<Key ID="STR_WMT_TI_DisableInVehicle">
 				<Original>Disabled in vehicles</Original>
 				<Russian>Отключен в технике</Russian>
-			</Key>	
+			</Key>
 			<Key ID="STR_WMT_TI_Disable">
 				<Original>Disabled</Original>
 				<Russian>Отключен</Russian>
@@ -173,7 +173,7 @@
 				<Key ID="STR_WMT_Civilian_m">
 				<Original>Civilian</Original>
 				<Russian>Гражданский</Russian>
-			</Key>	
+			</Key>
 			<Key ID="STR_WMT_Message">
 				<Original>Message</Original>
 				<Russian>Сообщение</Russian>
@@ -213,11 +213,11 @@
 			<Key ID="STR_WMT_FreezeVoteWait">
 				<Original>My team is not ready!</Original>
 				<Russian>Отложить старт</Russian>
-			</Key>	
+			</Key>
 			<Key ID="STR_WMT_FreezeVoteStartCaption">
 				<Original>Teams ready: </Original>
 				<Russian>За старт игры: </Russian>
-			</Key>			
+			</Key>
 			<Key ID="STR_WMT_FreezeVoteWaitCaption">
 				<Original>Teams are not ready: </Original>
 				<Russian>За продолжение подготовки: </Russian>
@@ -225,7 +225,7 @@
 			<Key ID="STR_WMT_FreezeStart">
 				<Original>Start!</Original>
 				<Russian>Старт!</Russian>
-			</Key>	
+			</Key>
 			<Key ID="STR_WMT_EndTime">
 				<Original>Time is end</Original>
 				<Russian>Время вышло</Russian>
@@ -253,7 +253,7 @@
 			<Key ID="STR_WMT_ShowVehsBriefingShort">
 				<Original>Show friendly vehicles</Original>
 				<Russian>Показывать технику</Russian>
-			</Key>			
+			</Key>
 			<Key ID="STR_WMT_ShowSquadsBriefing">
 				<Original>Show squads in game briefing and notes</Original>
 				<Russian>Показывать список отрядов в заметках и отмечать метками на карте</Russian>
@@ -277,11 +277,11 @@
 			<Key ID="STR_WMT_FREQ_HDR">
 				<Original>Frequencies</Original>
 				<Russian>Частоты</Russian>
-			</Key>	
+			</Key>
 			<Key ID="STR_WMT_MOD_GENFREQS">
 				<Original>Show frequencies</Original>
 				<Russian>Показывать частоты</Russian>
-			</Key>	
+			</Key>
 			<Key ID="STR_WMT_Statistic">
 				<Original>Show statistic</Original>
 				<Russian>Показывать статистику</Russian>
@@ -341,7 +341,7 @@
 			<Key ID="STR_WMT_Add10Min">
 				<Original>+ 10 min</Original>
 				<Russian>+ 10 мин</Russian>
-			</Key>			
+			</Key>
 			<Key ID="STR_WMT_Sub5Min">
 				<Original>- 5 min</Original>
 				<Russian>- 5 мин</Russian>
@@ -353,7 +353,7 @@
 			<Key ID="STR_WMT_ExtendedBriefing">
 				<Original>Extended Briefing</Original>
 				<Russian>Расширеный брифинг</Russian>
-			</Key>						
+			</Key>
 			<Key ID="STR_WMT_ExtendedBriefingInfo">
 				<Original>Shows additional info regarding vehicles and squads</Original>
 				<Russian>Показывать на брифинге информацию об отрядах и технике</Russian>
@@ -365,7 +365,7 @@
 			<Key ID="STR_WMT_DontRemove">
 				<Original>Dont remove bot</Original>
 				<Russian>Не удалять бота</Russian>
-			</Key>			
+			</Key>
 			<Key ID="STR_WMT_MapFromAlly">
 				<Original>You use %1 map</Original>
 				<Russian>Вы используете карту %1</Russian>
@@ -373,7 +373,7 @@
 			<Key ID="STR_WMT_MapFromAllyEnd">
 				<Original>You are not using %1 map, he is out</Original>
 				<Russian>Вы не используете карту %1, он отошел</Russian>
-			</Key>		
+			</Key>
 			<Key ID="STR_WMT_MapFromVehicleCrew">
 				<Original>You are using map from one of the vehicles crew</Original>
 				<Russian>Вы используете карту, которая была у одного из ченов экипажа техники</Russian>
@@ -385,11 +385,11 @@
 			<Key ID="STR_WMT_UIShowNickName">
 				<Original>Highlight nickname</Original>
 				<Russian>Подсвечивать ники игроков</Russian>
-			</Key>			
+			</Key>
 			<Key ID="STR_WMT_Text">
 				<Original>Text</Original>
 				<Russian>Текст</Russian>
-			</Key>		
+			</Key>
 			<Key ID="STR_WMT_SP_Text_Desc">
 				<Original>This string will be used for Action Menu</Original>
 				<Russian>Эта строка будет использована в Action Menu</Russian>
@@ -397,7 +397,7 @@
 			<Key ID="STR_WMT_SP_Owner">
 				<Original>Owner</Original>
 				<Russian>Основной юнит</Russian>
-			</Key>	
+			</Key>
 			<Key ID="STR_WMT_SP_Owner_Desc">
 				<Original>This unit will select start position</Original>
 				<Russian>Этот юнит будет иметь возможность выбирать стартовую позицию</Russian>
@@ -405,7 +405,7 @@
 			<Key ID="STR_WMT_SP_Center">
 				<Original>Center</Original>
 				<Russian>Центер</Russian>
-			</Key>	
+			</Key>
 			<Key ID="STR_WMT_SP_Center_Desc">
 				<Original>Offset of objects relative to the marker used for calculate position of object around slected position</Original>
 				<Russian>Смещение относительно этого маркера используется для подсчета координат относительно выбранной позиции</Russian>
@@ -413,19 +413,19 @@
 			<Key ID="STR_WMT_SP_Positions">
 				<Original>List of positons</Original>
 				<Russian>Список позиций</Russian>
-			</Key>	
+			</Key>
 			<Key ID="STR_WMT_SP_ShowMarkers">
 				<Original>Show markers</Original>
 				<Russian>Видимость маркеров</Russian>
-			</Key>	
+			</Key>
 			<Key ID="STR_WMT_All">
 				<Original>All</Original>
-				<Russian>се</Russian>
+				<Russian>Все</Russian>
 			</Key>
 			<Key ID="STR_WMT_SP_Time">
 				<Original>Time (sec)</Original>
 				<Russian>Время (сек)</Russian>
-			</Key>	
+			</Key>
 			<Key ID="STR_WMT_SP_Time_Desc">
 				<Original>Time for select position in case without freezetime</Original>
 				<Russian>Время на выбор позиции в случая отсутвия времени на подготовку</Russian>
@@ -433,7 +433,19 @@
 			<Key ID="STR_WMT_SP_ChosenPosition">
 				<Original>Вы выбрали зону %1</Original>
 				<Russian>You have chosen the position %1</Russian>
-			</Key>	
+			</Key>
+			<Key ID="STR_WMT_PlaySoundOnFreezeEnd">
+				<Original>Play beep after freezetime end</Original>
+				<Russian>Сигнал в конце фризтайма</Russian>
+			</Key>
+			<Key ID="STR_WMT_MuteSoundInVehs">
+				<Original>Mute sound inside vehicles</Original>
+				<Russian>Приглушать звуки внутри техники</Russian>
+			</Key>
+			<Key ID="STR_WMT_DontEnforceMaxVD">
+				<Original>Set VD on max on mission start</Original>
+				<Russian>Макс. ДВ на старте миссии</Russian>
+			</Key>
 		</Container>
 	</Package>
 </Project>

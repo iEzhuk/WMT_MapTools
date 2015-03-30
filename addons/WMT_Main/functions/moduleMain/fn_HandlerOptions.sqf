@@ -28,7 +28,15 @@ switch (_event) do
 		PR(_dialog) = _arg select 0;
 		disableSerialization;
 		uiNamespace setVariable ["WMT_Dialog_Menu", _dialog];
+		if (isNil "WMT_Options_ViewDistance") then {
+			WMT_Options_ViewDistance = [viewDistance, viewDistance, viewDistance, viewDistance];
+		};
+		if (isNil "wmt_optionsHandle") then {wmt_optionsHandle = scriptNull;};
+		if (isNull wmt_optionsHandle) then {
+			wmt_optionsHandle = ["loop"] spawn WMT_fnc_handlerOptions;
+		};
 		['update'] call WMT_fnc_HandlerOptions;
+		
 	};
 	case "close": {
 		uiNamespace setVariable ["WMT_Dialog_Menu", nil];
@@ -68,21 +76,37 @@ switch (_event) do
 		(_dialog displayCtrl IDC_OPTIONS_VEH_SLIDER) sliderSetPosition (wmt_param_MaxViewDistance min (WMT_Options_ViewDistance select 1));
 
 		(_dialog displayCtrl IDC_OPTIONS_CHECK_NICKNAME) cbSetChecked ((profilenamespace getvariable ['WMT_ShowNickNameOption', 1]) == 1);
+		(_dialog displayCtrl IDC_OPTIONS_CHECK_FRZBEEP) cbSetChecked ((profilenamespace getvariable ['WMT_BeepAfterFreezeOption', 0]) == 1);
+
+		(_dialog displayCtrl IDC_OPTIONS_CHECK_MAXVD) cbSetChecked ((profilenamespace getvariable ['WMT_MaxVDonmissionStart', 1]) == 1);
+		(_dialog displayCtrl IDC_OPTIONS_CHECK_MUTE) cbSetChecked ((profilenamespace getvariable ['WMT_MuteSoundsInVeh', 0]) == 1);
 
 	};
+
 	case "loop": {
 		disableSerialization;
 
 		private["_dist","_maxDist","_spectator","_state"];
-
-		WMT_Options_ViewDistance = [wmt_param_MaxViewDistance, wmt_param_MaxViewDistance, wmt_param_MaxViewDistance, wmt_param_MaxViewDistance];
+		if (isNil "wmt_soundsmute") then {wmt_soundsmute = false;};
 
 		while{true} do {
 			_state = if(vehicle player == player ) then {0} else {1};
 			_dist = wmt_param_MaxViewDistance min (WMT_Options_ViewDistance select _state);
+			
 
 			if(viewDistance != _dist) then {
 				setViewDistance _dist;
+			};
+
+			if (((profilenamespace getvariable ['WMT_MuteSoundsInVeh', 0]) == 1) && {!wmt_soundsmute && (vehicle player != player )}) then {
+				5 fadeSound 0.5;
+				missionNameSpace setVariable ["AGM_Hearing_disableVolumeUpdate", true];
+				wmt_soundsmute=true;
+			};
+			if (wmt_soundsmute && {vehicle player == player}) then {
+				5 fadeSound 1;
+				missionNameSpace setVariable ["AGM_Hearing_disableVolumeUpdate", false];
+				wmt_soundsmute=false;
 			};
 
 			sleep 0.1;

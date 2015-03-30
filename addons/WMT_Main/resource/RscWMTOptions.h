@@ -10,6 +10,14 @@
 
 #define IDC_OPTIONS_TEXT_NICKNAME 	17092
 #define IDC_OPTIONS_CHECK_NICKNAME	17093
+#define IDC_OPTIONS_TEXT_FRZBEEP 	17094
+#define IDC_OPTIONS_CHECK_FRZBEEP	17095
+#define IDC_OPTIONS_TEXT_MAXVD	 	17096
+#define IDC_OPTIONS_CHECK_MAXVD		17097
+#define IDC_OPTIONS_TEXT_MUTE	 	17098
+#define IDC_OPTIONS_CHECK_MUTE		17099
+
+
 
 class RscWMTOptions {
 	movingEnable = 1;
@@ -23,7 +31,7 @@ class RscWMTOptions {
 			x = 0.0; //0,0.35,0.6,0.28
 			y = 0.35;
 			w = 0.6;
-			h = 0.28;
+			h = 0.49;
 		};
 		class BackgroundHead: RscText {
 			colorBackground[] = {	"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.69])",
@@ -62,7 +70,7 @@ class RscWMTOptions {
 			w = 0.1;
 			h = 0.04;
 			text = "";
-		};		
+		};
 		class Text_Vehicle : RscText {
 			idc = IDC_OPTIONS_VEH_TEXT;
 			x = 0.05;
@@ -100,8 +108,65 @@ class RscWMTOptions {
 		{
 			idc = IDC_OPTIONS_CHECK_NICKNAME;
 			onCheckedChanged = "profilenamespace setvariable ['WMT_ShowNickNameOption', (_this select 1)]";
-			x = 0.38875; 
+			x = 0.38875;
 			y = 0.55;
+			w = 0.05;
+			h = 0.06;
+		};
+
+		class RscText_FrzBeep:RscText
+		{
+			idc = IDC_OPTIONS_TEXT_FRZBEEP;
+			text = $STR_WMT_PlaySoundOnFreezeEnd;
+			x = 0.0550505;
+			y = 0.61;
+			w = 0.35;
+			h = 0.06;
+		};
+		class RscCheckbox_FrzBeep: RscCheckbox
+		{
+			idc = IDC_OPTIONS_CHECK_FRZBEEP;
+			onCheckedChanged = "profilenamespace setvariable ['WMT_BeepAfterFreezeOption', (_this select 1)]";
+			x = 0.38875;
+			y = 0.61;
+			w = 0.05;
+			h = 0.06;
+		};
+
+		class RscText_MaxVD:RscText
+		{
+			idc = IDC_OPTIONS_TEXT_MAXVD;
+			text = $STR_WMT_DontEnforceMaxVD;
+			x = 0.0550505;
+			y = 0.68;
+			w = 0.35;
+			h = 0.06;
+		};
+		class RscCheckbox_MaxVD: RscCheckbox
+		{
+			idc = IDC_OPTIONS_CHECK_MAXVD;
+			onCheckedChanged = "profilenamespace setvariable ['WMT_MaxVDonmissionStart', (_this select 1)]";
+			x = 0.38875;
+			y = 0.68;
+			w = 0.05;
+			h = 0.06;
+		};
+
+		class RscText_Mute:RscText
+		{
+			idc = IDC_OPTIONS_TEXT_MUTE;
+			text = $STR_WMT_MuteSoundInVehs;
+			x = 0.0550505;
+			y = 0.75;
+			w = 0.35;
+			h = 0.06;
+		};
+		class RscCheckbox_Mute: RscCheckbox
+		{
+			idc = IDC_OPTIONS_CHECK_MUTE;
+			onCheckedChanged = "profilenamespace setvariable ['WMT_MuteSoundsInVeh', (_this select 1)]";
+			x = 0.38875;
+			y = 0.75;
 			w = 0.05;
 			h = 0.06;
 		};
@@ -109,17 +174,16 @@ class RscWMTOptions {
 		class ButtonMaxDistance : RscWMTButton_ext {
 			idc = IDC_OPTIONS_MAX;
 			x = 0.0; // 0.0, 0.581, 0.16, 0.04
-			y = 0.635; // [0,0.64,0.16,0.04]
+			y = 0.845; // [0,0.64,0.16,0.04]
 			text = $STR_WMT_MaxDistance;
 			action = "['max'] call WMT_fnc_HandlerOptions";
 		};
 		class ButtonClose : RscWMTButton_ext {
 			idc = IDC_OPTIONS_CLOSE;
 			x = 0.44; // 0.44, 0.581, 0.16, 0.04
-			y = 0.635; // [0.4375,0.64,0.16,0.04]
+			y = 0.845; // [0.4375,0.64,0.16,0.04]
 			text = $STR_WMT_Close;
 			action = "closedialog 0;";
 		};
 	};
 };
-

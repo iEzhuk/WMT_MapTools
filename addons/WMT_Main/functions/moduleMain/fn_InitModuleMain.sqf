@@ -67,7 +67,7 @@ if(_activated) then {
 		[] call WMT_fnc_DisableAI;
 	};
 
-	setViewDistance wmt_param_MaxViewDistance;
+
 	
 	["itemAdd", ["WmtMainCallEndFreeze", { ["CALL","FreezeEnded",[time, serverTime, diag_tickTime, date]] call wmt_fnc_evh; }, nil, nil, { time > 0 && { ( missionNamespace getVariable ["WMT_pub_frzState",100] ) >= 3} }, {false}, true]] call BIS_fnc_loop;
 
@@ -77,6 +77,7 @@ if(_activated) then {
 	//================================================
 	if(isServer) then {
 		[] spawn {
+			setViewDistance wmt_param_MaxViewDistance;
 			if (wmt_param_GenerateFrequencies == 1) then {
 				[] spawn WMT_fnc_DefaultFreqsServer;
 			};
@@ -118,7 +119,10 @@ if(_activated) then {
 			[] call WMT_fnc_HideUserMarkers;
 
 			// Control veiw distance 
-			["loop"] spawn WMT_fnc_handlerOptions;
+			// ["loop"] spawn WMT_fnc_handlerOptions;
+			if ((profilenamespace getvariable ['WMT_MaxVDonmissionStart', 1]) == 1 || viewDistance > wmt_param_MaxViewDistance) then {
+				setViewDistance wmt_param_MaxViewDistance;
+			};
 
 			// Update information about admin (1 time in 15s)
 			["loop"] spawn WMT_fnc_handlerFeedback;
@@ -140,8 +144,7 @@ if(_activated) then {
 				waitUntil {!(isNull (findDisplay 46))};
 				(findDisplay 46) displayAddEventHandler ["KeyDown", "_this call WMT_fnc_KeyDown"];
 				(findDisplay 46) displayAddEventHandler ["KeyUp", "_this call WMT_fnc_KeyUp"];
-				
-				
+			
 			};
 
 			// Disable chat

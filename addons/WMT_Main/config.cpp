@@ -29,7 +29,7 @@ class CfgSounds
 	class wmt_beep
 	{
 		name = "WMT Freeze end beep";
-		sound[] = {"\wmt_main\sounds\beep.ogg", 1, 1};
+		sound[] = {"\wmt_main\sounds\buzz.ogg", 1db, 1};
 		titles[]={};
 	};
 };
