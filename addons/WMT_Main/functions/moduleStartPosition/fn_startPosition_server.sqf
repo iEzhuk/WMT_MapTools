@@ -49,18 +49,6 @@ for "_i" from 0 to ((count _units)-1) do {
 
 
 //===================================================
-// 					WAIT
-//===================================================
-sleep 1;
-if (not isNil "WMT_pub_frzState") then {
-	waitUntil {sleep 2; WMT_pub_frzState >= 3};
-} else {
-	sleep _time;
-};
-
-
-
-//===================================================
 // 					TELEPORT
 //===================================================
 // Get selected start position
@@ -69,6 +57,12 @@ if (_owner == "") then {
 	_indexPos = [0,(count _markers) - 1] call BIS_fnc_randomInt;
 } else {
 	// Choosing position
+	if (not isNil "WMT_pub_frzState") then {
+		waitUntil {sleep 2; WMT_pub_frzState >= 3};
+	} else {
+		sleep _time;
+	};
+
 	_indexPos = _logic getVariable ["IndexPosition",-1];
 };
 _indexPos = 0 max _indexPos;
