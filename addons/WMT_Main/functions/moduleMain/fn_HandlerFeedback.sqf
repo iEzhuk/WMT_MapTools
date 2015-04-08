@@ -51,7 +51,7 @@ switch (_event) do
 		};
 
 		PR(_dialog) = uiNamespace getVariable "WMT_Dialog_Menu";
-		PR(_text) = ctrlText (_dialog displayCtrl IDC_ADMINPANEL_TEXT);
+		PR(_text) = ctrlText (_dialog displayCtrl IDC_FEEDBACK_TEXT);
 
 		if(_text != "") then {
 			WMT_Global_ToAdmin = _text;
