@@ -57,6 +57,7 @@ if (_owner == "") then {
 	_indexPos = [0,(count _markers) - 1] call BIS_fnc_randomInt;
 } else {
 	// Choosing position
+	sleep 1;
 	if (not isNil "WMT_pub_frzState") then {
 		waitUntil {sleep 2; WMT_pub_frzState >= 3};
 	} else {
