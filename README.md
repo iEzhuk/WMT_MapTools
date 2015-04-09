@@ -6,6 +6,9 @@ WMT - WMT Map Tools
 
 Подробную справку смотрите [здесь](https://github.com/iEzhuk/WOG3_MapTools/wiki)
 
+v. 1.4.4 - 09.04.2015
+- TBD
+
 v. 1.4.3 - 04.02.2015
 + поле Condition для модулей задач
 + модуль Compose для композиции задач
