@@ -1,7 +1,7 @@
 #include "resource\CfgModuls.h"
 #include "resource\CfgFunctions.h"
 
-class CfgPatches 
+class CfgPatches
 {
 	class WMT_Tasks
 	{
@@ -11,9 +11,9 @@ class CfgPatches
 		requiredAddons[] = {"WMT_Main"};
 		author[] = {"Ezhuk","Zealot"};
 		authorUrl = "https://github.com/iEzhuk/WMT_MapTools";
-		version = 1.4.3;
-		versionStr = "1.4.3";
-		versionAr[] = {1,4,3};
+		version = 1.4.4;
+		versionStr = "1.4.4";
+		versionAr[] = {1,4,4};
 	};
 };
 
