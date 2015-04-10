@@ -7,8 +7,8 @@ WMT - WMT Map Tools
 Подробную справку смотрите [здесь](https://github.com/iEzhuk/WOG3_MapTools/wiki)
 
 Авторы:<br>
-_Ezhuk_  
-_Zealot_ <zealot at red-bear.ru>
+__Ezhuk__  
+__Zealot__ &lt;zealot at red-bear.ru&gt;
 
 Вопросы по WMT можно задавать по e-mail.
 
