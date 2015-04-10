@@ -6,7 +6,7 @@ WMT - WMT Map Tools
 
 Подробную справку смотрите [здесь](https://github.com/iEzhuk/WOG3_MapTools/wiki)
 
-Авторы:
+Авторы:<br>
 Ezhuk  
 Zealot <zealot at red-bear.ru>
 
