@@ -6,12 +6,6 @@ WMT - WMT Map Tools
 
 Подробную справку смотрите [здесь](https://github.com/iEzhuk/WOG3_MapTools/wiki)
 
-Авторы:<br>
-__Ezhuk__  
-__Zealot__ &lt;zealot at red-bear.ru&gt;
-
-Вопросы по WMT можно задавать по e-mail.
-
 v. 1.4.4 - 09.04.2015
 * фикс отключения чата
 * фикс панели связи с администратором
