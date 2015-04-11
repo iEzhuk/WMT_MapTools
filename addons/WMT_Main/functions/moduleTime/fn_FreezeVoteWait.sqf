@@ -23,3 +23,4 @@ if ((name player) in WMT_pub_frzVoteStart) then {
 		publicVariable "WMT_pub_frzVoteWait";
 	};
 };
+0 call WMT_fnc_FreezeVoteInfo;

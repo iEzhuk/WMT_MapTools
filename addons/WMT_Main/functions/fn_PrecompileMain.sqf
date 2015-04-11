@@ -56,6 +56,7 @@ WMT_fnc_FreezePlayerClient			= compileFinal preprocessFileLineNumbers  ("WMT_Mai
 WMT_fnc_FreezeUI					= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\moduleTime\fn_FreezeUI.sqf");
 WMT_fnc_FreezeVoteStart				= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\moduleTime\fn_FreezeVoteStart.sqf");
 WMT_fnc_FreezeVoteWait				= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\moduleTime\fn_FreezeVoteWait.sqf");
+WMT_fnc_FreezeVoteInfo				= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\moduleTime\fn_FreezeVoteInfo.sqf");
 WMT_fnc_PrepareTime_client			= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\moduleTime\fn_PrepareTime_client.sqf");
 WMT_fnc_PrepareTime_server			= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\moduleTime\fn_PrepareTime_server.sqf");
 WMT_fnc_RemoveBots					= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\moduleTime\fn_RemoveBots.sqf");
