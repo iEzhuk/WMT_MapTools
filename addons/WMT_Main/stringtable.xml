@@ -446,6 +446,10 @@
 				<Original>Set VD on max on mission start</Original>
 				<Russian>Макс. ДВ на старте миссии</Russian>
 			</Key>
+			<Key ID="STR_WMT_FreezeAIINv">
+				<Original>Open AI Inventory</Original>
+				<Russian>Инвентарь бота</Russian>
+			</Key>
 		</Container>
 	</Package>
 </Project>

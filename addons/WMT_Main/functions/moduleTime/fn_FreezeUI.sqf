@@ -15,10 +15,16 @@
 #define PR(x) private ['x']; x
 
 PR(_action) = -1;
+PR(_gearaction)=-1;
+
 
 if (leader player == player || serverCommandAvailable('#kick') ) then {
 	// добавить - действие - не удалять бота
 	_action = player addAction ["<t color='#0353f5'>"+localize('STR_WMT_DontRemove')+"</t>",{cursorTarget setVariable ["PlayerName", "AI", true];}, [], -1, false, true, "", 'cursorTarget isKindOf "Man" && {cursorTarget in (units group player)} && {(cursorTarget getVariable ["PlayerName",""]) == "" } '];  
+    _gearaction = player addAction ["<t color='#0353f5'>"+localize('STR_WMT_FreezeAIINv')+"</t>",
+        {player action ["Gear", cursorTarget];}, 
+        [], -1, false, true, "", 
+        'cursorTarget isKindOf "Man" && {cursorTarget in (units group player)} && {!isplayer cursorTarget}'];
 };
 
 sleep 0.01;
@@ -43,6 +49,6 @@ while {WMT_pub_frzState < 3} do {
 
 ["<t size='1' color='#ff0000'>"+localize "STR_WMT_FreezeStart"+"</t>", 0,safeZoneY+0.01,5,0,0,3] spawn bis_fnc_dynamicText;
 player removeAction _action;
-
+player removeAction _gearaction;
 
  
