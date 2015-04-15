@@ -346,6 +346,14 @@
 				<Original>- 5 min</Original>
 				<Russian>- 5 мин</Russian>
 			</Key>
+			<Key ID="STR_WMT_Add1Min">
+				<Original>+ 1 min</Original>
+				<Russian>+ 1 мин</Russian>
+			</Key>
+			<Key ID="STR_WMT_Sub1Min">
+				<Original>- 1 min</Original>
+				<Russian>- 1 мин</Russian>
+			</Key>
 			<Key ID="STR_WMT_MySquad">
 				<Original>My Squad</Original>
 				<Russian>Мой отряд</Russian>

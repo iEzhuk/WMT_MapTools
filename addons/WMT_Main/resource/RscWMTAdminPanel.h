@@ -9,8 +9,8 @@
 #define IDD_ADMINPANEL_SUB			62008	
 
 #define IDD_ADMINPANEL_FREEZETIME	62009
-#define IDD_ADMINPANEL_FREEZEADD5	62010
-#define IDD_ADMINPANEL_FREEZEADD10	62011
+#define IDD_ADMINPANEL_FREEZEADD1	62010
+#define IDD_ADMINPANEL_FREEZEADD5	62011
 #define IDD_ADMINPANEL_FREEZESUB	62012	
 #define IDD_ADMINPANEL_FREEZEBK		62013
 
@@ -132,29 +132,29 @@ class RscWMTAdminPanel {
 			w = 0.4;
 			text = "Left freezetime: 45:12"; 
 		};
-		class Button_freezeAddTime10: RscWMTButton_ext{
-			idc = IDD_ADMINPANEL_FREEZEADD10;
-			x = 0.48;
-			y = 0.745;
-			w = 0.22;
-			text = $STR_WMT_Add10Min;
-			action = "['freezeTime',10] call WMT_fnc_HandlerAdminPanel";
-		};
 		class Button_freezeAddTime5: RscWMTButton_ext{
 			idc = IDD_ADMINPANEL_FREEZEADD5;
-			x = 0.24;
+			x = 0.48;
 			y = 0.745;
 			w = 0.22;
 			text = $STR_WMT_Add5Min;
 			action = "['freezeTime',5] call WMT_fnc_HandlerAdminPanel";
+		};
+		class Button_freezeAddTime1: RscWMTButton_ext{
+			idc = IDD_ADMINPANEL_FREEZEADD1;
+			x = 0.24;
+			y = 0.745;
+			w = 0.22;
+			text = $STR_WMT_Add1Min;
+			action = "['freezeTime',1] call WMT_fnc_HandlerAdminPanel";
 		};
 		class Button_freezeSubtractTime: RscWMTButton_ext{
 			idc = IDD_ADMINPANEL_FREEZESUB;
 			x = 0.0;
 			y = 0.745;
 			w = 0.22;
-			text = $STR_WMT_Sub5Min;
-			action = "['freezeTime',-5] call WMT_fnc_HandlerAdminPanel";
+			text = $STR_WMT_Sub1Min;
+			action = "['freezeTime',-1] call WMT_fnc_HandlerAdminPanel";
 		};
 	};
 };
