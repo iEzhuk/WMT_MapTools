@@ -21,10 +21,12 @@ PR(_gearaction)=-1;
 if (leader player == player || serverCommandAvailable('#kick') ) then {
 	// добавить - действие - не удалять бота
 	_action = player addAction ["<t color='#0353f5'>"+localize('STR_WMT_DontRemove')+"</t>",{cursorTarget setVariable ["PlayerName", "AI", true];}, [], -1, false, true, "", 'cursorTarget isKindOf "Man" && {cursorTarget in (units group player)} && {(cursorTarget getVariable ["PlayerName",""]) == "" } '];  
+    if(isNil "WMT_flg_NotAllowGearActionWhileFreeze") then {
     _gearaction = player addAction ["<t color='#0353f5'>"+localize('STR_WMT_FreezeAIINv')+"</t>",
-        {player action ["Gear", cursorTarget];}, 
-        [], -1, false, true, "", 
-        'cursorTarget isKindOf "Man" && {cursorTarget in (units group player)} && {!isplayer cursorTarget}'];
+            {player action ["Gear", cursorTarget];}, 
+            [], -1, false, true, "", 
+            'cursorTarget isKindOf "Man" && {cursorTarget in (units group player)} && {!isplayer cursorTarget}'];
+        };
 };
 
 sleep 0.01;
