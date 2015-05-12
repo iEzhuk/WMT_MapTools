@@ -54,9 +54,9 @@ switch (_event) do
 		PR(_text) = ctrlText (_dialog displayCtrl IDC_FEEDBACK_TEXT);
 
 		if(_text != "") then {
-			WMT_Global_ToAdmin = _text;
+			WMT_Global_ToAdmin = format ["%1: %2", WMT_Local_PlayerName, _text];
 
-			publicVariable "WMT_Global_ToAdmin";
+			(owner (WMT_Global_Admin select 0)) publicVariable "WMT_Global_ToAdmin";
 
 			closeDialog 0;
 		}else{
