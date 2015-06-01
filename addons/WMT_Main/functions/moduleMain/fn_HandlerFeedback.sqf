@@ -56,7 +56,7 @@ switch (_event) do
 		if(_text != "") then {
 			WMT_Global_ToAdmin = format ["%1: %2", WMT_Local_PlayerName, _text];
 
-			(owner (WMT_Global_Admin select 0)) publicVariable "WMT_Global_ToAdmin";
+			publicVariable "WMT_Global_ToAdmin";
 
 			closeDialog 0;
 		}else{
