@@ -26,4 +26,5 @@
 	_x allowFleeing 0;
 	_x disableConversation true;
 	_x setVariable ["BIS_noCoreConversations", false];
+    _x setSpeaker "NoVoice";
 }forEach (if (count playableUnits == 0) then {allUnits} else {playableUnits});
