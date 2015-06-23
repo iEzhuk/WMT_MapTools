@@ -55,14 +55,14 @@ class RscWMTMainMenu {
 		};
 		class Button_TeamReady : RscWMTButtonMenu_ext {
 			idc = IDC_MENU_TEAM_READY;
-			x = -0.46;
+			x = 0.7;
 			y = 0.255;
 			text = $STR_WMT_FreezeVoteStart;
 			action = "['teamready',_this] call WMT_fnc_HandlerMenu";
 		};
 		class Button_TeamNotReady : RscWMTButtonMenu_ext {
 			idc = IDC_MENU_TEAM_NOT_READY;
-			x = -0.46;
+			x = 0.7;
 			y = 0.360;
 			h = 0.15;
 			text = $STR_WMT_FreezeVoteWait;
