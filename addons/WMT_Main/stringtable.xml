@@ -392,7 +392,7 @@
 			</Key>
 			<Key ID="STR_WMT_UIShowNickName">
 				<Original>Highlight nickname</Original>
-				<Russian>Подсвечивать ники игроков</Russian>
+				<Russian>Подсвечивать имена</Russian>
 			</Key>
 			<Key ID="STR_WMT_Text">
 				<Original>Text</Original>
@@ -439,24 +439,52 @@
 				<Russian>Время на выбор позиции в случая отсутвия времени на подготовку</Russian>
 			</Key>
 			<Key ID="STR_WMT_SP_ChosenPosition">
-				<Original>Вы выбрали зону %1</Original>
-				<Russian>You have chosen the position %1</Russian>
+				<Original>You have chosen the position %1</Original>
+				<Russian>Вы выбрали зону %1</Russian>
 			</Key>
 			<Key ID="STR_WMT_PlaySoundOnFreezeEnd">
-				<Original>Play beep after freezetime end</Original>
+				<Original>Beep after freeze time</Original>
 				<Russian>Сигнал в конце фризтайма</Russian>
 			</Key>
 			<Key ID="STR_WMT_MuteSoundInVehs">
 				<Original>Mute sound inside vehicles</Original>
 				<Russian>Приглушать звуки внутри техники</Russian>
 			</Key>
-			<Key ID="STR_WMT_DontEnforceMaxVD">
+			<Key ID="STR_WMT_EnforceMaxVD">
 				<Original>Set VD on max on mission start</Original>
-				<Russian>Макс. ДВ на старте миссии</Russian>
+				<Russian>Макс. видимость на старте</Russian>
 			</Key>
 			<Key ID="STR_WMT_FreezeAIINv">
 				<Original>Open AI Inventory</Original>
 				<Russian>Инвентарь бота</Russian>
+			</Key>
+			<Key ID="STR_WMT_Preset1">
+				<Original>Preset 1</Original>
+				<Russian>Пресет 1</Russian>
+			</Key>
+			<Key ID="STR_WMT_Preset2">
+				<Original>Preset 2</Original>
+				<Russian>Пресет 2</Russian>
+			</Key>
+			<Key ID="STR_WMT_Preset3">
+				<Original>Preset 3</Original>
+				<Russian>Пресет 3</Russian>
+			</Key>
+			<Key ID="STR_WMT_SoundSettings">
+				<Original>Sound settings</Original>
+				<Russian>Настройки звука</Russian>
+			</Key>
+			<Key ID="STR_WMT_Muting">
+				<Original>Muting</Original>
+				<Russian>Приглушение</Russian>
+			</Key>
+			<Key ID="STR_WMT_ReducedSound">
+				<Original>Reduced sound level\n %1</Original>
+				<Russian>Звук приглушен\n %1</Russian>
+			</Key>
+			<Key ID="STR_WMT_RestoredSound">
+				<Original>Restored sound level</Original>
+				<Russian>Уровень звука востановлен</Russian>
 			</Key>
 		</Container>
 	</Package>
