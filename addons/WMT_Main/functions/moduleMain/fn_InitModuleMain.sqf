@@ -156,8 +156,10 @@ if(_activated) then {
 			"WMT_Global_Announcement" addPublicVariableEventHandler { (_this select 1) call WMT_fnc_Announcement };
 			
 			"WMT_Global_ToAdmin" addPublicVariableEventHandler { 
-				(_this select 1) call WMT_fnc_Announcement; 
-				diag_log (_this select 1); 
+				if(serverCommandAvailable("#kick")) then {
+					(_this select 1) call WMT_fnc_Announcement; 
+					diag_log (_this select 1); 
+				};
 			};
 
 			// briefing
