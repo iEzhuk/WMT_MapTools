@@ -33,18 +33,23 @@ PR(_friendlyVehs)=[];
 PR(_enemyVehs)=[];
 PR(_friendlySquads)=[];
 
-PR(_units) = (group player) getVariable ["WMT_BriefingUnitsInfo", []];
-if (count _units != 0 ) then {
-	_marker = format ["WMT_PrepareTime_%1_%2", playerSide, groupID group player];
-	PR(_myTxt) = format ["<font color='#c7861b'><marker name='%2'>%1:</marker></font><br/>", groupID group player, _marker];
-	{
-		_myTxt = _myTxt + getText (configFile >> "CfgVehicles" >> format["%1",(_x select 0)] >> "Displayname")+ ":  " + (_x select 1);
+if (getClientState != "BRIEFING READ" || getClientState == "NONE") then {
+	// Show on briefing information about group's ammo
+	[] call WMT_fnc_SquadInfoExt;
+} else {
+	PR(_units) = (group player) getVariable ["WMT_BriefingUnitsInfo", []];
+	if (count _units != 0 ) then {
+		_marker = format ["WMT_PrepareTime_%1_%2", playerSide, groupID group player];
+		PR(_myTxt) = format ["<font color='#c7861b'><marker name='%2'>%1:</marker></font><br/>", groupID group player, _marker];
+		{
+			_myTxt = _myTxt + getText (configFile >> "CfgVehicles" >> str(_x select 0) >> "Displayname")+ ":  " + (_x select 1);
+			_myTxt = _myTxt + "<br/>";
+		} foreach _units;
 		_myTxt = _myTxt + "<br/>";
-	} foreach _units;
-	_myTxt = _myTxt + "<br/>";
-	["diary",localize "STR_WMT_MySquad", _myTxt] call WMT_fnc_CreateDiaryRecord;
-
+		["diary",localize "STR_WMT_MySquad", _myTxt] call WMT_fnc_CreateDiaryRecord;
+	};
 };
+
 
 {
 	if ( (_x select 0) == "V") then {

@@ -43,6 +43,7 @@ WMT_fnc_PlayerKilled				= compileFinal preprocessFileLineNumbers  ("WMT_Main\fun
 WMT_fnc_PrepareBriefingInfo			= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\moduleMain\fn_PrepareBriefingInfo.sqf");
 WMT_fnc_ShowBriefingInfo			= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\moduleMain\fn_ShowBriefingInfo.sqf");
 WMT_fnc_ShowStatistic				= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\moduleMain\fn_ShowStatistic.sqf");
+WMT_fnc_SquadInfoExt				= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\moduleMain\fn_SquadInfoExt.sqf");
 WMT_fnc_UpdateMainActions			= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\moduleMain\fn_UpdateMainActions.sqf");
 
 
