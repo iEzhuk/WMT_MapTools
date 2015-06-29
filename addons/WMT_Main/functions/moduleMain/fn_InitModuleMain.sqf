@@ -9,6 +9,7 @@
 */
 #include "defines_WMT.sqf"
 #include "defines_IDC.sqf"
+#include "defines_KEY.sqf"
 
 PR(_logic) = [_this,0,objNull,[objNull]] call BIS_fnc_param;
 PR(_units) = [_this,1,[],[[]]] call BIS_fnc_param;
@@ -104,7 +105,7 @@ if(_activated) then {
 
 			WMT_Local_PlayerName = name player;
 
-			if ( player getVariable ["PlayerName", ""] != WMT_Local_PlayerName ) then {
+			if (player getVariable ["PlayerName", ""] != WMT_Local_PlayerName) then {
 				player setVariable ["PlayerName",WMT_Local_PlayerName,true];
 			};
 
@@ -119,11 +120,8 @@ if(_activated) then {
 			[] call WMT_fnc_HideUserMarkers;
 
 			// Control veiw distance 
-			// ["loop"] spawn WMT_fnc_handlerOptions;
-			if ((profilenamespace getvariable ['WMT_MaxVDonmissionStart', 1]) == 1 || viewDistance > wmt_param_MaxViewDistance) then {
-				setViewDistance wmt_param_MaxViewDistance;
-			};
-
+			["loop"] spawn WMT_fnc_handlerOptions;
+			
 			// Update information about admin (1 time in 15s)
 			["loop"] spawn WMT_fnc_handlerFeedback;
 
@@ -140,12 +138,8 @@ if(_activated) then {
 			// Save positive rating 
 			player addEventHandler ["HandleRating","if((rating player)<-(_this select 1))then{-(rating player)}else{_this}"];
 
-			[] spawn {
-				waitUntil {!(isNull (findDisplay 46))};
-				(findDisplay 46) displayAddEventHandler ["KeyDown", "_this call WMT_fnc_KeyDown"];
-				(findDisplay 46) displayAddEventHandler ["KeyUp", "_this call WMT_fnc_KeyUp"];
-			
-			};
+			// Key binding with cba 
+			#include "keyBinding.sqf"
 
 			// Disable chat
 			["itemAdd", ["wmtfrzdisablechat", {[] spawn { if (isnil "wmt_flg_dontDisableChat") then {sleep 15; showChat false; sleep 60; showChat false;};};}, nil, nil, { (missionNamespace getVariable ["WMT_pub_frzState",0]) >= 3}, {false}, true]] call BIS_fnc_loop;
