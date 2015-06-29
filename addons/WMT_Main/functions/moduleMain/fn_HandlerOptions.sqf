@@ -106,6 +106,8 @@ switch (_event) do
         (_dialog displayCtrl IDC_OPTIONS_CHECK_MINVD)    cbSetChecked ((profilenamespace getvariable ['WMT_MaxVDonmissionStart', 1]) == 1);
     };
     case "loop": {
+        private["_dist","_maxDist","_spectator","_state"];
+
         //disableSerialization;
         WMT_Options_ViewDistance = profilenamespace getvariable ['WMT_Profile_ViewDistance_Presets', [wmt_param_MaxViewDistance,wmt_param_MaxViewDistance,wmt_param_MaxViewDistance]];
 
@@ -118,18 +120,12 @@ switch (_event) do
         // Set max distance in first preset
         WMT_Options_ViewDistance set [0, 12000];
 
-        if ((profilenamespace getvariable ['WMT_MaxVDonmissionStart', 1]) == 1 || viewDistance > wmt_param_MaxViewDistance) then {
-            sleep 1;
-        } else {
-            sleep 20;
-        };
-        
-        private["_dist","_maxDist","_spectator","_state"];
+        sleep 1;
 
-        while{true} do {
+        while {true} do {
             _dist = wmt_param_MaxViewDistance min (WMT_Options_ViewDistance select WMT_Options_ViewDistance_Preset);
 
-            if(viewDistance != _dist) then {
+            if (viewDistance != _dist) then {
                 setViewDistance _dist;
             };
 

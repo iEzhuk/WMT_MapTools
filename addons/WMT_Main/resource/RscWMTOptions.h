@@ -1,3 +1,4 @@
+#define IDD_OPTIONS                 171000
 #define IDC_OPTIONS_PRESET_1_SLIDER 171010
 #define IDC_OPTIONS_PRESET_1_VALUE  171020
 #define IDC_OPTIONS_PRESET_2_SLIDER 171011
@@ -9,13 +10,12 @@
 #define IDC_OPTIONS_MUTING_VALUE    171051
 
 #define IDC_OPTIONS_CHECK_NICKNAME	17090
-#define IDC_OPTIONS_CHECK_MINVD		17091
 #define IDC_OPTIONS_CHECK_FRZBEEP	17092
 
 class RscButtonMenuOK;
 class RscWMTOptions {
 	movingEnable = 1;
-	idd = IDD_OPTIONS_OPTIONS;
+	idd = IDD_OPTIONS;
 	onLoad = "['init',_this] call WMT_fnc_HandlerOptions";
 	onUnload = "['close',_this] call WMT_fnc_HandlerOptions";
 	class controlsBackground {
@@ -24,7 +24,7 @@ class RscWMTOptions {
 			x = 0.04;
 			y = 0.16;
 			w = 0.45;
-			h = 0.7;
+			h = 0.57;
 			colorBackground[] = {0,0,0,0.75};
 		};
 		class Title: RscText
@@ -191,30 +191,12 @@ class RscWMTOptions {
 			h = 0.04;
 			onCheckedChanged = "profilenamespace setvariable ['WMT_ShowNickNameOption', (_this select 1)]";
 		};
-		class Text_LoadMinimalVD: RscText
-		{
-			idc = IDC_WMT_OPTIONS_RSCTEXT_1013;
-			text = $STR_WMT_EnforceMaxVD;
-			x = 0.05;
-			y = 0.67;
-			w = 0.3;
-			h = 0.04;
-		};
-		class Checkbox_LoadMinimalVD: RscCheckbox
-		{
-			idc = IDC_OPTIONS_CHECK_MINVD;
-			x = 0.4;
-			y = 0.67;
-			w = 0.04*safeZoneH/safeZoneW;
-			h = 0.04;
-			onCheckedChanged = "profilenamespace setvariable ['WMT_MaxVDonmissionStart', (_this select 1)]";
-		};
 		class Text_Beep: RscText
 		{
 			idc = IDC_WMT_OPTIONS_RSCTEXT_1014;
 			text = $STR_WMT_PlaySoundOnFreezeEnd;
 			x = 0.05;
-			y = 0.72;
+			y = 0.67;
 			w = 0.3;
 			h = 0.04;
 		};
@@ -222,7 +204,7 @@ class RscWMTOptions {
 		{
 			idc = IDC_OPTIONS_CHECK_FRZBEEP;
 			x = 0.4;
-			y = 0.72;
+			y = 0.67;
 			w = 0.04*safeZoneH/safeZoneW;
 			h = 0.04;
 			onCheckedChanged = "profilenamespace setvariable ['WMT_BeepAfterFreezeOption', (_this select 1)]";
@@ -231,7 +213,7 @@ class RscWMTOptions {
 		class ButtonClose: RscButtonMenuOK
 		{
 			x = 0.34;
-			y = 0.864;
+			y = 0.734;
 			w = 0.15;
 			h = 0.04;
 			text = $STR_WMT_Close;
