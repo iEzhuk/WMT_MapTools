@@ -37,7 +37,7 @@ switch (_event) do
         (_dialog displayCtrl IDC_OPTIONS_PRESET_3_SLIDER) slidersetRange [100,wmt_param_MaxViewDistance];
 
         (_dialog displayCtrl IDC_OPTIONS_MUTING_SLIDER) sliderSetSpeed [0.05,0.05];
-        (_dialog displayCtrl IDC_OPTIONS_MUTING_SLIDER) slidersetRange [0.05,0.95];
+        (_dialog displayCtrl IDC_OPTIONS_MUTING_SLIDER) slidersetRange [0.05,0.6];
 
         ['update'] call WMT_fnc_HandlerOptions;
     };
