@@ -486,6 +486,22 @@
 				<Original>Restored sound level</Original>
 				<Russian>Уровень звука востановлен</Russian>
 			</Key>
+			<Key ID="STR_WMT_Tooltip_preset1">
+				<Original>Key can be bind in configure addons (default F1)</Original>
+				<Russian>Клавишу можно переназначить в configure addons (по-умолчанию F1)</Russian>
+			</Key>
+			<Key ID="STR_WMT_Tooltip_preset2">
+				<Original>Key can be bind in configure addons (default F2)</Original>
+				<Russian>Клавишу можно переназначить в configure addons (по-умолчанию F2)</Russian>
+			</Key>
+			<Key ID="STR_WMT_Tooltip_preset3">
+				<Original>Key can be bind in configure addons (default F3)</Original>
+				<Russian>Клавишу можно переназначить в configure addons (по-умолчанию F3)</Russian>
+			</Key>
+			<Key ID="STR_WMT_Tooltip_mute">
+				<Original>Key can be bind in configure addons (default F4)</Original>
+				<Russian>Клавишу можно переназначить в configure addons (по-умолчанию F4)</Russian>
+			</Key>
 		</Container>
 	</Package>
 </Project>

@@ -57,6 +57,7 @@ class RscWMTOptions {
 			y = 0.23;
 			w = 0.13;
 			h = 0.04;
+			tooltip = $STR_WMT_Tooltip_preset1
 		};
 		class Slider_Preset_1: RscWMTXSliderH_ext
 		{
@@ -86,6 +87,7 @@ class RscWMTOptions {
 			y = 0.28;
 			w = 0.13;
 			h = 0.04;
+			tooltip = $STR_WMT_Tooltip_preset2
 		};
 		class Slider_Preset_2: RscWMTXSliderH_ext
 		{
@@ -115,6 +117,7 @@ class RscWMTOptions {
 			y = 0.33;
 			w = 0.13;
 			h = 0.04;
+			tooltip = $STR_WMT_Tooltip_preset3
 		};
 		class Slider_Preset_3: RscWMTXSliderH_ext
 		{
@@ -135,7 +138,7 @@ class RscWMTOptions {
 			h = 0.04;
 		};
 		//==========================
-		// Sound: Preset 1
+		// Mute sound
 		//==========================
 		class Text_sound_settings: RscText
 		{
@@ -152,6 +155,7 @@ class RscWMTOptions {
 			y = 0.5;
 			w = 0.13;
 			h = 0.04;
+			tooltip = $STR_WMT_Tooltip_mute
 		};
 		class Slider_Muting: RscWMTXSliderH_ext
 		{
