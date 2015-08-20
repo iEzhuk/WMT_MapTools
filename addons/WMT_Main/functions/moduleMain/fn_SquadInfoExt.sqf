@@ -14,6 +14,10 @@
 
 #include "defines_WMT.sqf"
 
+PR(_fixPAA) = {
+    if((toLower _this) select [count _this-4,4] == ".paa")then {_this} else {_this + ".paa"};
+};
+
 PR(_fnc_getMagazinsForWeapon) = {
     PR(_weapon) = _this select 0;
     PR(_mag) = _this select 1;
@@ -33,8 +37,8 @@ PR(_fnc_textForWeapon) = {
 
     if(_w != "") then {
         _name = getText(configFile >> "CfgWeapons" >> _w >> "displayName");
-        _pic = getText(configFile >> "CfgWeapons" >> _w >> "picture");
-        _txt = _txt + format ["<img image='%1' height=30 />", _pic];
+        _pic = getText(configFile >> "CfgWeapons" >> _w >> "picture") call _fixPAA;
+        _txt = _txt + format ["<img image='%1' height=36 />", _pic];
         _wm = [_w, _magazines] call _fnc_getMagazinsForWeapon;
         _magazines = _magazines - _wm;
 
@@ -45,10 +49,8 @@ PR(_fnc_textForWeapon) = {
 
         {
             _pic = getText(configFile >> "CfgWeapons" >> _x >> "picture");
-            _txt = _txt + format [" <img image='%1' height=24/>", _pic]; 
+            _txt = _txt + format [" <img image='%1' height=28/>", _pic]; 
         } foreach _a;
-
-        _txt = _txt + "<br/>";
     };
 };
 
@@ -58,8 +60,10 @@ PR(_units) = units group player;
 for "_i" from 0 to (count _units - 1) do {
     _unit = _units select _i;
     _unitname = if (isPlayer _unit) then {name _unit} else {"[AI]"};
-    _unitclass = getText (configFile >> "CfgVehicles" >> typeOf _unit >> "Displayname");
-    _txt = _txt + format ["%1: <font color='#c7861b'>%2</font> (%3)<br/>", _i+1, _unitname, _unitclass];
+    _unitdesc = getText (configFile >> "CfgVehicles" >> typeOf _unit >> "Displayname");
+    _wpn = if (primaryWeapon _unit == "") then {""} else {getText (configFile >> "CfgVehicles" >> primaryWeapon _unit >> "Displayname")};
+
+    _txt = _txt + format ["%1: <font color='#c7861b'>%2</font> (%3) %4<br/>", _i+1, _unitname, _unitdesc, _wpn];
 
     _magazines = magazines _unit + secondaryWeaponMagazine _unit + primaryWeaponMagazine _unit + handgunMagazine _unit;
 
@@ -67,9 +71,12 @@ for "_i" from 0 to (count _units - 1) do {
     // Weapons
     //==============================
     [primaryWeapon _unit, primaryWeaponItems _unit - [""]] call _fnc_textForWeapon;
+    _txt = _txt + "<br/>";
     [secondaryWeapon _unit, []] call _fnc_textForWeapon;
     [handgunWeapon _unit, []] call _fnc_textForWeapon;
-
+    if (secondaryWeapon _unit != "" or handgunWeapon _unit != "") then {
+        _txt = _txt + "<br/>";
+    };
     //==============================
     // Assigned Items
     //==============================
