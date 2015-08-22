@@ -32,8 +32,8 @@ if(_activated) then {
 				if(_x isKindOf "Man") then {
 					_units set [count _units,_x];
 				};
-			} foreach (synchronizedObjects _logic);
-			
+			} foreach _arr;
+
 			sleep _delay;
 
 			while { !((count _units<=_count) && (call _condition)) } do {
