@@ -29,7 +29,7 @@ if(_activated) then {
 
 			sleep _delay;
 
-			PR(_objs) = (synchronizedObjects _logic);
+			PR(_objs) = _units;
 
 			while { !((count _objs <= _endCount) && (call _condition)) } do {
 				PR(_o) = _objs;
