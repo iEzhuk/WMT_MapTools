@@ -217,6 +217,7 @@ class RscWMTOptions {
 			y = 0.57;
 			w = 0.35;
 			h = 0.04;
+			tooltip = $STR_WMT_Tooltip_Checkbox_terrain;
 		};
 		class Checkbox_SaveTerrainSettings: RscCheckbox
 		{
