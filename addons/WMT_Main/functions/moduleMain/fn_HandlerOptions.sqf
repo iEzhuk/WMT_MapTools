@@ -39,8 +39,8 @@ switch (_event) do
         (_dialog displayCtrl IDC_OPTIONS_TERRAIN_SLIDER) sliderSetSpeed [100,100];
         (_dialog displayCtrl IDC_OPTIONS_TERRAIN_SLIDER) slidersetRange [wmt_param_MaxViewDistance,wmt_param_MaxViewDistanceTerrain];
 
-        (_dialog displayCtrl IDC_OPTIONS_MUTING_SLIDER) sliderSetSpeed [0.05,0.05];
-        (_dialog displayCtrl IDC_OPTIONS_MUTING_SLIDER) slidersetRange [0.05,0.6];
+        (_dialog displayCtrl IDC_OPTIONS_MUTING_SLIDER) sliderSetSpeed [0.01,0.01];
+        (_dialog displayCtrl IDC_OPTIONS_MUTING_SLIDER) slidersetRange [0.01,0.6];
 
         ['update'] call WMT_fnc_HandlerOptions;
     };
@@ -91,7 +91,7 @@ switch (_event) do
         PR(_lvl) = _slider select 1;
         PR(_dialog) = uiNamespace getVariable "WMT_Dialog_Menu";
 
-        _lvl = floor(20*_lvl)/20;
+        _lvl = floor(100*_lvl)/100;
 
         WMT_Options_Muting = _lvl;
 
