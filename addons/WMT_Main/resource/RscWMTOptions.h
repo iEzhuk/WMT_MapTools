@@ -5,12 +5,15 @@
 #define IDC_OPTIONS_PRESET_2_VALUE  171021
 #define IDC_OPTIONS_PRESET_3_SLIDER 171012
 #define IDC_OPTIONS_PRESET_3_VALUE  171022
+#define IDC_OPTIONS_TERRAIN_SLIDER  171013
+#define IDC_OPTIONS_TERRAIN_VALUE   171023
 
 #define IDC_OPTIONS_MUTING_SLIDER   171050
 #define IDC_OPTIONS_MUTING_VALUE    171051
 
-#define IDC_OPTIONS_CHECK_NICKNAME	17090
-#define IDC_OPTIONS_CHECK_FRZBEEP	17092
+#define IDC_OPTIONS_CHECK_NICKNAME  17090
+#define IDC_OPTIONS_SAVE_TERRAIN    17091
+#define IDC_OPTIONS_CHECK_FRZBEEP   17092
 
 class RscButtonMenuOK;
 class RscWMTOptions {
@@ -46,7 +49,36 @@ class RscWMTOptions {
 			w = 0.425;
 			h = 0.04;
 		};
-
+		//==========================
+		// View distance: Terrain
+		//==========================
+		class Text_Terrain: RscText
+		{
+			text = $STR_WMT_Terrain;
+			x = 0.05;
+			y = 0.23;
+			w = 0.13;
+			h = 0.04;
+			tooltip = $STR_WMT_Tooltip_terrain
+		};
+		class Slider_Terrain: RscWMTXSliderH_ext
+		{
+			idc = IDC_OPTIONS_TERRAIN_SLIDER;
+			x = 0.19;
+			y = 0.23;
+			w = 0.2;
+			h = 0.04;
+			onSliderPosChanged = "['setDistanceTerrain',[_this]] call WMT_fnc_HandlerOptions";
+		};
+		class Value_Terrain: RscText
+		{
+			idc = IDC_OPTIONS_TERRAIN_VALUE;
+			text = "";
+			x = 0.4;
+			y = 0.23;
+			w = 0.09;
+			h = 0.04;
+		};
 		//==========================
 		// View distance: Preset 1
 		//==========================
@@ -54,7 +86,7 @@ class RscWMTOptions {
 		{
 			text = $STR_WMT_Preset1;
 			x = 0.05;
-			y = 0.23;
+			y = 0.28;
 			w = 0.13;
 			h = 0.04;
 			tooltip = $STR_WMT_Tooltip_preset1
@@ -63,7 +95,7 @@ class RscWMTOptions {
 		{
 			idc = IDC_OPTIONS_PRESET_1_SLIDER;
 			x = 0.19;
-			y = 0.23;
+			y = 0.28;
 			w = 0.2;
 			h = 0.04;
 			onSliderPosChanged = "['setDistance',[_this,0]] call WMT_fnc_HandlerOptions";
@@ -73,7 +105,7 @@ class RscWMTOptions {
 			idc = IDC_OPTIONS_PRESET_1_VALUE;
 			text = "";
 			x = 0.4;
-			y = 0.23;
+			y = 0.28;
 			w = 0.13;
 			h = 0.04;
 		};
@@ -84,7 +116,7 @@ class RscWMTOptions {
 		{
 			text = $STR_WMT_Preset2;
 			x = 0.05;
-			y = 0.28;
+			y = 0.33;
 			w = 0.13;
 			h = 0.04;
 			tooltip = $STR_WMT_Tooltip_preset2
@@ -93,7 +125,7 @@ class RscWMTOptions {
 		{
 			idc = IDC_OPTIONS_PRESET_2_SLIDER;
 			x = 0.19;
-			y = 0.28;
+			y = 0.33;
 			w = 0.2;
 			h = 0.04;
 			onSliderPosChanged = "['setDistance',[_this,1]] call WMT_fnc_HandlerOptions";
@@ -103,7 +135,7 @@ class RscWMTOptions {
 			idc = IDC_OPTIONS_PRESET_2_VALUE;
 			text = "";
 			x = 0.4;
-			y = 0.28;
+			y = 0.33;
 			w = 0.09;
 			h = 0.04;
 		};
@@ -114,7 +146,7 @@ class RscWMTOptions {
 		{
 			text = $STR_WMT_Preset3;
 			x = 0.05;
-			y = 0.33;
+			y = 0.38;
 			w = 0.13;
 			h = 0.04;
 			tooltip = $STR_WMT_Tooltip_preset3
@@ -123,7 +155,7 @@ class RscWMTOptions {
 		{
 			idc = IDC_OPTIONS_PRESET_3_SLIDER;
 			x = 0.19;
-			y = 0.33;
+			y = 0.38;
 			w = 0.2;
 			h = 0.04;
 			onSliderPosChanged = "['setDistance',[_this,2]] call WMT_fnc_HandlerOptions";
@@ -133,7 +165,7 @@ class RscWMTOptions {
 			idc = IDC_OPTIONS_PRESET_3_VALUE;
 			text = "";
 			x = 0.4;
-			y = 0.33;
+			y = 0.38;
 			w = 0.09;
 			h = 0.04;
 		};
@@ -174,22 +206,39 @@ class RscWMTOptions {
 			y = 0.5;
 			w = 0.09;
 			h = 0.04;
-		};		
+		};
 		//==========================
 		// Checkboxes
 		//==========================
+		class Text_SaveTerrainSettings: RscText
+		{
+			text = $STR_WMT_SaveTerrainSettings;
+			x = 0.05;
+			y = 0.57;
+			w = 0.35;
+			h = 0.04;
+		};
+		class Checkbox_SaveTerrainSettings: RscCheckbox
+		{
+			idc = IDC_OPTIONS_SAVE_TERRAIN;
+			x = 0.42;
+			y = 0.57;
+			w = 0.04*safeZoneH/safeZoneW;
+			h = 0.04;
+			onCheckedChanged = "profilenamespace setvariable ['WMT_Profile_ViewDistance_TerraineSave', (_this select 1)]";
+		};
 		class Text_UIShowNickName: RscText
 		{
 			text = $STR_WMT_UIShowNickName;
 			x = 0.05;
 			y = 0.62;
-			w = 0.3;
+			w = 0.35;
 			h = 0.04;
 		};
 		class Checkbox_UIShowNickName: RscCheckbox
 		{
 			idc = IDC_OPTIONS_CHECK_NICKNAME;
-			x = 0.4;
+			x = 0.42;
 			y = 0.62;
 			w = 0.04*safeZoneH/safeZoneW;
 			h = 0.04;
@@ -201,13 +250,13 @@ class RscWMTOptions {
 			text = $STR_WMT_PlaySoundOnFreezeEnd;
 			x = 0.05;
 			y = 0.67;
-			w = 0.3;
+			w = 0.35;
 			h = 0.04;
 		};
 		class Checkbox_Beep: RscCheckbox
 		{
 			idc = IDC_OPTIONS_CHECK_FRZBEEP;
-			x = 0.4;
+			x = 0.42;
 			y = 0.67;
 			w = 0.04*safeZoneH/safeZoneW;
 			h = 0.04;

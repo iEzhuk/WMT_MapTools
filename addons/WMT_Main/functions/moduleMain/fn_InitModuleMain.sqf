@@ -27,6 +27,9 @@ if(_activated) then {
 	if(isNil "wmt_param_MaxViewDistance") then {
 		wmt_param_MaxViewDistance = _logic getVariable "MaxViewDistance";
 	};
+	if(isNil "wmt_param_MaxViewDistanceTerrain") then {
+		wmt_param_MaxViewDistanceTerrain = _logic getVariable ["MaxViewDistanceTerrain", 10000];
+	};
 	if(isNil "wmt_param_NameTag") then {
 		wmt_param_NameTag = _logic getVariable "NameTag";
 	};
@@ -142,7 +145,7 @@ if(_activated) then {
 			#include "keyBinding.sqf"
 
 			// Disable chat
-			["itemAdd", ["wmtfrzdisablechat", {[] spawn { if (isnil "wmt_flg_dontDisableChat") then {sleep 15; showChat false; sleep 60; showChat false;};};}, nil, nil, { (missionNamespace getVariable ["WMT_pub_frzState",0]) >= 3}, {false}, true]] call BIS_fnc_loop;
+			["itemAdd", ["wmtfrzdisablechat", {[] spawn { if (isnil "wmt_flg_dontDisableChat") then {sleep 15; showChat false; sleep 120; showChat false;};};}, nil, nil, { (missionNamespace getVariable ["WMT_pub_frzState",0]) >= 3}, {false}, true]] call BIS_fnc_loop;
 
 			player addEventHandler ["killed", "_this spawn WMT_fnc_PlayerKilled"];
 

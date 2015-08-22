@@ -90,6 +90,14 @@
 				<Original>Max view distance</Original>
 				<Russian>Максимальная дальность видимости</Russian>
 			</Key>
+			<Key ID="STR_WMT_ViewDistanceTerrain">
+				<Original>View distance</Original>
+				<Russian>Дальность видимости поверхности</Russian>
+			</Key>
+			<Key ID="STR_WMT_ViewDistanceTerrain_Desc">
+				<Original>Max view terrain distance</Original>
+				<Russian>Максимальная дальность видимости поверхности земли</Russian>
+			</Key>
 			<Key ID="STR_WMT_TI">
 				<Original>Thermal Image</Original>
 				<Russian>Тепловизор</Russian>
@@ -486,6 +494,10 @@
 				<Original>Restored sound level</Original>
 				<Russian>Уровень звука востановлен</Russian>
 			</Key>
+			<Key ID="STR_WMT_Terrain">
+				<Original>Terrain</Original>
+				<Russian>Земля</Russian>
+			</Key>
 			<Key ID="STR_WMT_Tooltip_preset1">
 				<Original>Key can be bind in configure addons (default F1)</Original>
 				<Russian>Клавишу можно переназначить в configure addons (по-умолчанию F1)</Russian>
@@ -501,6 +513,18 @@
 			<Key ID="STR_WMT_Tooltip_mute">
 				<Original>Key can be bind in configure addons (default F4)</Original>
 				<Russian>Клавишу можно переназначить в configure addons (по-умолчанию F4)</Russian>
+			</Key>
+			<Key ID="STR_WMT_Tooltip_terrain">
+				<Original>Works only for preset 1</Original>
+				<Russian>Только для перового пресета</Russian>
+			</Key>
+			<Key ID="STR_WMT_Tooltip_Checkbox_terrain">
+				<Original>Save view terrein distance</Original>
+				<Russian>Сохранять дальность прорисовки земли</Russian>
+			</Key>
+			<Key ID="STR_WMT_SaveTerrainSettings">
+				<Original>Save terrain settings</Original>
+				<Russian>Сохранять настроки земли</Russian>
 			</Key>
 		</Container>
 	</Package>

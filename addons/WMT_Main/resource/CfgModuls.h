@@ -32,6 +32,13 @@ class CfgVehicles
 				typeName = "NUMBER";
 				defaultValue = 2500;
 			};
+			class MaxViewDistanceTerrain 
+			{
+				displayName = "$STR_WMT_ViewDistanceTerrain";
+				description = "$STR_WMT_ViewDistanceTerrain_Desc";
+				typeName = "NUMBER";
+				defaultValue = 10000;
+			};
 			class HeavyLossesCoeff
 			{
 				displayName = "$STR_WMT_HeavyLossesCoeff";
