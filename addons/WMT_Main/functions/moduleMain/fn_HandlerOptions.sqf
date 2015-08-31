@@ -67,6 +67,7 @@ switch (_event) do
         };
         
         profilenamespace setvariable ['WMT_Profile_ViewDistance_Presets', WMT_Options_ViewDistance];
+        ['updateViewDistance'] call WMT_fnc_HandlerOptions;
     };
     case "setDistanceTerrain": {
         PR(_slider) = _arg select 0;
@@ -83,6 +84,7 @@ switch (_event) do
         (_dialog displayCtrl _ctrlSlider) sliderSetPosition (wmt_param_MaxViewDistanceTerrain min _dist);
 
         profilenamespace setvariable ['WMT_Profile_ViewDistance_Terrain', WMT_Options_ViewDistanceTerrain];
+        ['updateViewDistance'] call WMT_fnc_HandlerOptions;
     };
     case "setMutingLevel": {
         private ["_slider","_index"];
@@ -99,12 +101,13 @@ switch (_event) do
         (_dialog displayCtrl IDC_OPTIONS_MUTING_VALUE)  ctrlSetText str(WMT_Options_Muting);
 
         profilenamespace setvariable ['WMT_Profile_Muting', WMT_Options_Muting];
-    };
-    // case "max": {
-    //     WMT_Options_ViewDistance = [wmt_param_MaxViewDistance, wmt_param_MaxViewDistance, wmt_param_MaxViewDistance, wmt_param_MaxViewDistance];
 
-    //     ['update'] call WMT_fnc_HandlerOptions;
-    // };
+        if (WMT_Options_Muted) then {
+            0.1 fadeSound WMT_Options_Muting;
+            missionNameSpace setVariable ["AGM_Hearing_disableVolumeUpdate", true];
+            WMT_SoundCurrentLevel = WMT_Options_Muting;
+        };
+    };
     case "update": {
         PR(_dialog) = uiNamespace getVariable "WMT_Dialog_Menu";
 
@@ -128,7 +131,19 @@ switch (_event) do
         (_dialog displayCtrl IDC_OPTIONS_CHECK_FRZBEEP)  cbSetChecked ((profilenamespace getvariable ['WMT_BeepAfterFreezeOption', 0]) == 1);
         (_dialog displayCtrl IDC_OPTIONS_SAVE_TERRAIN)   cbSetChecked ((profilenamespace getvariable ['WMT_Profile_ViewDistance_TerraineSave', 0]) == 1);
     };
-    case "loop": {
+    case "updateViewDistance": {
+        PR(_dist) = wmt_param_MaxViewDistance min (WMT_Options_ViewDistance select WMT_Options_ViewDistance_Preset);
+        PR(_distterrain) = (wmt_param_MaxViewDistanceTerrain min WMT_Options_ViewDistanceTerrain);
+
+        if (WMT_Options_ViewDistance_Preset == 0) then {
+            setObjectViewDistance _dist;
+            setViewDistance _distterrain;
+        } else {
+            setObjectViewDistance _dist;
+            setViewDistance _dist;
+        };
+    };
+    case "preinit": {
         private["_dist","_maxDist","_spectator","_state"];
 
         WMT_Options_ViewDistance = profilenamespace getvariable ['WMT_Profile_ViewDistance_Presets', [wmt_param_MaxViewDistance,wmt_param_MaxViewDistance,wmt_param_MaxViewDistance]];
@@ -146,46 +161,36 @@ switch (_event) do
         WMT_SoundCurrentLevel = 1;
 
         // Set max distance in first preset
-        WMT_Options_ViewDistance set [0, 12000];
-
-        sleep 1;
-
-        while {true} do {
-            _dist = wmt_param_MaxViewDistance min (WMT_Options_ViewDistance select WMT_Options_ViewDistance_Preset);
-            _distterrain = (wmt_param_MaxViewDistanceTerrain min WMT_Options_ViewDistanceTerrain);
-
-            if (WMT_Options_ViewDistance_Preset == 0) then {
-                setObjectViewDistance _dist;
-                setViewDistance _distterrain;
-            } else {
-                setObjectViewDistance _dist;
-                setViewDistance _dist;
-            };
-
-            if (WMT_Options_Muted && {wmt_SoundCurrentLevel != WMT_Options_Muting}) then {
-                0.1 fadeSound WMT_Options_Muting;
-                missionNameSpace setVariable ["AGM_Hearing_disableVolumeUpdate", true];
-                WMT_SoundCurrentLevel = WMT_Options_Muting;
-            };
-            if (!WMT_Options_Muted && {wmt_SoundCurrentLevel != 1}) then {
-                0.1 fadeSound 1;
-                missionNameSpace setVariable ["AGM_Hearing_disableVolumeUpdate", false];
-                WMT_SoundCurrentLevel = 1;
-            };
-
-            sleep 0.1;
-        };
+        WMT_Options_ViewDistance set [0, wmt_param_MaxViewDistance];
     };
     case 'action_vd_preset': {
         WMT_Options_ViewDistance_Preset = _arg;
         hint format ["%1:\n%2", localize"STR_WMT_ViewDistance", wmt_param_MaxViewDistance min (WMT_Options_ViewDistance select WMT_Options_ViewDistance_Preset)];
+
+        _dist = wmt_param_MaxViewDistance min (WMT_Options_ViewDistance select WMT_Options_ViewDistance_Preset);
+        _distterrain = (wmt_param_MaxViewDistanceTerrain min WMT_Options_ViewDistanceTerrain);
+
+        if (WMT_Options_ViewDistance_Preset == 0) then {
+            setViewDistance _distterrain;
+            setObjectViewDistance _dist;
+        } else {
+           setViewDistance _dist;
+           setObjectViewDistance _dist; 
+        };
     };
     case 'action_muting': {
         WMT_Options_Muted = !WMT_Options_Muted;
+
         if (WMT_Options_Muted) then {
             hint format [localize "STR_WMT_ReducedSound", WMT_Options_Muting];
+            0.1 fadeSound WMT_Options_Muting;
+            missionNameSpace setVariable ["AGM_Hearing_disableVolumeUpdate", true];
+            WMT_SoundCurrentLevel = WMT_Options_Muting;
         } else {
             hint localize "STR_WMT_RestoredSound";
+            0.1 fadeSound 1;
+            missionNameSpace setVariable ["AGM_Hearing_disableVolumeUpdate", false];
+            WMT_SoundCurrentLevel = 1;
         };
     };
 };

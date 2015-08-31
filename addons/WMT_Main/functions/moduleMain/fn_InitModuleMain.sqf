@@ -121,9 +121,8 @@ if(_activated) then {
 
 			[] call WMT_fnc_HideSideMarkers;
 			[] call WMT_fnc_HideUserMarkers;
-
-			// Control veiw distance 
-			["loop"] spawn WMT_fnc_handlerOptions;
+ 
+			["preinit"] spawn WMT_fnc_handlerOptions;
 			
 			// Update information about admin (1 time in 15s)
 			["loop"] spawn WMT_fnc_handlerFeedback;
