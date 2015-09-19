@@ -57,7 +57,7 @@ wmt_frz_vehs = [];
 	};
 }, 15, "frames", {time > 0.5}, {WMT_pub_frzState >= 3} ]] call BIS_fnc_loop;
 
-["itemAdd", ["wmtfrzdate", {setDate WMT_pub_frzBeginDate; }, 0.1, "seconds", {!isNil "WMT_pub_frzBeginDate"}, {WMT_pub_frzState >= 3} ]] call BIS_fnc_loop;
+["itemAdd", ["wmtfrzdate", {setDate WMT_pub_frzBeginDate; }, 1.2, "seconds", {!isNil "WMT_pub_frzBeginDate"}, {WMT_pub_frzState >= 3} ]] call BIS_fnc_loop;
 
 
 // check position 
