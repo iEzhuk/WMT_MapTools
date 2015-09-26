@@ -31,6 +31,14 @@ PR(_fnc_getMagazinsForWeapon) = {
     _res
 };
 
+PR(_fnc_fixPicName) = {
+    PR(_res)=_this;
+    if(count (_res) < 4) exitwith{_res};
+    PR(_ext)=_res select [count _res  - 4,1];
+    if(_ext!=".") then {_res=_res+".paa";};
+    _res
+};
+
 PR(_fnc_textForWeapon) = {
     _w = _this select 0;
     _a = _this select 1;
@@ -38,18 +46,18 @@ PR(_fnc_textForWeapon) = {
     if(_w != "") then {
         _name = getText(configFile >> "CfgWeapons" >> _w >> "displayName");
         _pic = getText(configFile >> "CfgWeapons" >> _w >> "picture") call _fixPAA;
-        _txt = _txt + format ["<img image='%1' height=36 />", _pic];
+        _txt = _txt + format ["<img image='%1' height=36 />", _pic call _fnc_fixPicName];
         _wm = [_w, _magazines] call _fnc_getMagazinsForWeapon;
         _magazines = _magazines - _wm;
 
         {
             _pic = getText(configFile >> "CfgMagazines" >> (_x select 0) >> "picture");
-            _txt = _txt + format [" <img image='%1' height=24/>x%2", _pic, _x select 1]; 
+            _txt = _txt + format [" <img image='%1' height=24/>x%2", _pic call _fnc_fixPicName, _x select 1]; 
         } foreach (_wm call BIS_fnc_consolidateArray);
 
         {
             _pic = getText(configFile >> "CfgWeapons" >> _x >> "picture");
-            _txt = _txt + format [" <img image='%1' height=28/>", _pic]; 
+            _txt = _txt + format [" <img image='%1' height=28/>", _pic call _fnc_fixPicName]; 
         } foreach _a;
     };
 };
@@ -82,7 +90,7 @@ for "_i" from 0 to (count _units - 1) do {
     //==============================
     {
         _pic = getText(configFile >> "CfgWeapons" >> (_x select 0) >> "picture");
-        _txt = _txt + format ["<img image='%1' height=24/>x%2  ", _pic, _x select 1];
+        _txt = _txt + format ["<img image='%1' height=24/>x%2  ", _pic call _fnc_fixPicName, _x select 1];
     } foreach ((assignedItems _unit) call BIS_fnc_consolidateArray);
     _txt = _txt + "<br/>";    
 
@@ -91,12 +99,12 @@ for "_i" from 0 to (count _units - 1) do {
     //==============================
     {
         _pic = getText(configFile >> "CfgMagazines" >> (_x select 0) >> "picture");
-        _txt = _txt + format ["<img image='%1' height=24/>x%2 ", _pic, _x select 1]; 
+        _txt = _txt + format ["<img image='%1' height=24/>x%2 ", _pic call _fnc_fixPicName, _x select 1]; 
     } foreach (_magazines call BIS_fnc_consolidateArray);
 
     {
         _pic = getText(configFile >> "CfgWeapons" >> (_x select 0) >> "picture");
-        _txt = _txt + format ["<img image='%1' height=24/>x%2 ", _pic, _x select 1]; 
+        _txt = _txt + format ["<img image='%1' height=24/>x%2 ", _pic call _fnc_fixPicName, _x select 1]; 
     } foreach ((items _unit) call BIS_fnc_consolidateArray);
 
     _txt = _txt + "<br/><br/>";
