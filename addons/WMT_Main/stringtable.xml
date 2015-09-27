@@ -526,6 +526,10 @@
 				<Original>Save terrain settings</Original>
 				<Russian>Сохранять настроки земли</Russian>
 			</Key>
+			<Key ID="STR_WMT_Squad_Equipment">
+				<Original>Equipment</Original>
+				<Russian>Снаряжение</Russian>
+			</Key>
 		</Container>
 	</Package>
 </Project>
