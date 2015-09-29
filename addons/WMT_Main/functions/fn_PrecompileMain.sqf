@@ -20,6 +20,7 @@ WMT_fnc_Announcement				= compileFinal preprocessFileLineNumbers  ("WMT_Main\fun
 WMT_fnc_ArrayToString				= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\fn_ArrayToString.sqf");
 WMT_fnc_GetVehicles					= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\fn_GetVehicles.sqf");
 WMT_fnc_Evh 						= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\fn_evh.sqf");
+WMT_fnc_briefingTimer			= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\fn_briefingtimer.sqf");
 
 
 // Module Main
@@ -66,4 +67,6 @@ WMT_fnc_InitModuleStartPosition		= compileFinal preprocessFileLineNumbers  ("WMT
 WMT_fnc_startPosition_server		= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\moduleStartPosition\fn_startPosition_server.sqf");
 WMT_fnc_startPosition_client		= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\moduleStartPosition\fn_startPosition_client.sqf");
 WMT_fnc_chooseMarker_handler		= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\moduleStartPosition\fn_chooseMarker_handler.sqf");
+
+
 

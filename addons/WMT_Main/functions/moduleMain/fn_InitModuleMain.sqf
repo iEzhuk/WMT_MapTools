@@ -10,6 +10,7 @@
 #include "defines_WMT.sqf"
 #include "defines_IDC.sqf"
 #include "..\defines_KEY.sqf"
+#include "..\..\features.inc"
 
 PR(_logic) = [_this,0,objNull,[objNull]] call BIS_fnc_param;
 PR(_units) = [_this,1,[],[[]]] call BIS_fnc_param;
@@ -143,8 +144,18 @@ if(_activated) then {
 			// Key binding with cba 
 			#include "keyBinding.sqf"
 
+
+			#ifdef FEATURE_BRIEF_TIMER
+			0 call WMT_fnc_briefTimer; 
+			#endif
+			
 			// Disable chat
-			["itemAdd", ["wmtfrzdisablechat", {[] spawn { if (isnil "wmt_flg_dontDisableChat") then {sleep 15; showChat false; sleep 120; showChat false;};};}, nil, nil, { (missionNamespace getVariable ["WMT_pub_frzState",0]) >= 3}, {false}, true]] call BIS_fnc_loop;
+			
+			 
+			0 spawn {
+				waitUntil {sleep 1.2;(missionNamespace getVariable ["WMT_pub_frzState",3]) >= 3 };
+				if (isnil "wmt_flg_dontDisableChat") then {sleep 15; showChat false; sleep 120; showChat false;};
+			};
 
 			player addEventHandler ["killed", "_this spawn WMT_fnc_PlayerKilled"];
 
