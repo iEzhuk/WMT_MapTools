@@ -13,9 +13,20 @@
 		Nothing
 */
 #define PR(x) private ['x']; x
+#include "..\..\features.inc"
 
 PR(_action) = -1;
 PR(_gearaction)=-1;
+
+
+#ifdef FEATURE_FREEZE_LEGACY_ACTIONS
+if (leader player == player || serverCommandAvailable('#kick') ) then {
+	_action = player addAction ["<t color='#0353f5'>"+localize('STR_WMT_DontRemove')+"</t>",{cursorTarget setVariable ["PlayerName", "AI", true];}, [], -1, false, true, "", 'cursorTarget isKindOf "Man" && {cursorTarget in (units group player)} && {(cursorTarget getVariable ["PlayerName",""]) == "" } '];  
+	if(isNil "WMT_flg_NotAllowGearActionWhileFreeze") then {  
+		_gearaction = player addAction ["<t color='#0353f5'>"+localize('STR_WMT_FreezeAIINv')+"</t>", {player action ["Gear", cursorTarget];},  [], -1, false, true, "", 'cursorTarget isKindOf "Man" && {cursorTarget in (units group player)} && {!isplayer cursorTarget}'];
+        };
+};
+#endif 
 
 sleep 0.01;
 while {WMT_pub_frzState < 3} do {
