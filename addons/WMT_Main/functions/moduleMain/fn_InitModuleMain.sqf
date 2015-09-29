@@ -9,7 +9,7 @@
 */
 #include "defines_WMT.sqf"
 #include "defines_IDC.sqf"
-#include "defines_KEY.sqf"
+#include "..\defines_KEY.sqf"
 
 PR(_logic) = [_this,0,objNull,[objNull]] call BIS_fnc_param;
 PR(_units) = [_this,1,[],[[]]] call BIS_fnc_param;

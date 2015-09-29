@@ -7,7 +7,7 @@
 
 #include "defines_WMT.sqf"
 #include "defines_IDC.sqf"
-#include "defines_KEY.sqf"
+#include "..\defines_KEY.sqf"
 
 PR(_event) = _this select 0;
 PR(_arg) = _this select 1;
