@@ -1,6 +1,6 @@
 /*
  	Name: WMT_fnc_InitModuleMain
- 	
+
  	Author(s):
 		Ezhuk
 
@@ -62,9 +62,9 @@ if(_activated) then {
 		wmt_param_ExtendedBriefing = _logic getVariable ["ExtendedBriefing",1];
 	};
 
+	// TODO: temporary fix #104
+	wmt_param_MaxViewDistanceTerrain = wmt_param_MaxViewDistance;
 
-	
-	
 	wmt_param_MaxViewDistance  = 10 max wmt_param_MaxViewDistance;
 	wmt_param_HeavyLossesCoeff = 0 max wmt_param_HeavyLossesCoeff;
 
@@ -73,7 +73,7 @@ if(_activated) then {
 	};
 
 
-	
+
 	["itemAdd", ["WmtMainCallEndFreeze", { ["CALL","FreezeEnded",[time, serverTime, diag_tickTime, date]] call wmt_fnc_evh; }, nil, nil, { time > 0 && { ( missionNamespace getVariable ["WMT_pub_frzState",100] ) >= 3} }, {false}, true]] call BIS_fnc_loop;
 
 
@@ -96,7 +96,7 @@ if(_activated) then {
 				[] spawn wmt_fnc_preparebriefinginfo;
 			};
 		};
-	}; 
+	};
 
 	//================================================
 	//					CLIENT
@@ -122,13 +122,13 @@ if(_activated) then {
 
 			[] call WMT_fnc_HideSideMarkers;
 			[] call WMT_fnc_HideUserMarkers;
- 
+
 			["preinit"] spawn WMT_fnc_handlerOptions;
-			
+
 			// Update information about admin (1 time in 15s)
 			["loop"] spawn WMT_fnc_handlerFeedback;
 
-			// Disable TI with using RscTitle 
+			// Disable TI with using RscTitle
 			if(wmt_param_TI == 2) then {
 				IDD_DISABLETI cutRsc ["RscWMTDisableTI","PLAIN"];
 			};
@@ -137,21 +137,21 @@ if(_activated) then {
 			if(wmt_param_NameTag>0) then {
 				IDD_NAMETAG cutRsc ["RscWMTNameTag","PLAIN"];
 			};
-			
-			// Save positive rating 
+
+			// Save positive rating
 			player addEventHandler ["HandleRating","if((rating player)<-(_this select 1))then{-(rating player)}else{_this}"];
 
-			// Key binding with cba 
+			// Key binding with cba
 			#include "keyBinding.sqf"
 
 
 			#ifdef FEATURE_BRIEF_TIMER
-			0 call WMT_fnc_briefTimer; 
+			0 call WMT_fnc_briefTimer;
 			#endif
-			
+
 			// Disable chat
-			
-			 
+
+
 			0 spawn {
 				waitUntil {sleep 1.2;(missionNamespace getVariable ["WMT_pub_frzState",3]) >= 3 };
 				if (isnil "wmt_flg_dontDisableChat") then {sleep 15; showChat false; sleep 120; showChat false;};
@@ -159,13 +159,13 @@ if(_activated) then {
 
 			player addEventHandler ["killed", "_this spawn WMT_fnc_PlayerKilled"];
 
-			// Public variable handlers 
+			// Public variable handlers
 			"WMT_Global_Announcement" addPublicVariableEventHandler { (_this select 1) call WMT_fnc_Announcement };
-			
-			"WMT_Global_ToAdmin" addPublicVariableEventHandler { 
+
+			"WMT_Global_ToAdmin" addPublicVariableEventHandler {
 				if(serverCommandAvailable("#kick")) then {
-					(_this select 1) call WMT_fnc_Announcement; 
-					diag_log (_this select 1); 
+					(_this select 1) call WMT_fnc_Announcement;
+					diag_log (_this select 1);
 				};
 			};
 
@@ -184,7 +184,6 @@ if(_activated) then {
 			[] call WMT_fnc_UpdateMainActions;
 			player addEventHandler ["Respawn", {[] call WMT_fnc_UpdateMainActions;}];
 		};
-		
+
 	};
 };
-
