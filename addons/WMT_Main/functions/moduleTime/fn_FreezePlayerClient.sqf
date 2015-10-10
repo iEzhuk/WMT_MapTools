@@ -49,19 +49,23 @@ wmt_frz_vehs = [];
 
 } foreach (call WMT_fnc_GetVehicles);
 
-// Check UAV terminal
-["itemAdd", ["wmtfrzuav", {
+
+
+0 spawn {
+	while {WMT_pub_frzState < 3} do {
+		setDate WMT_pub_frzBeginDate;
+		sleep 12.2;
+	};
+};
+
+
+while {WMT_pub_frzState < 3} do {
+	// Check UAV terminal
 	if(!isNull (findDisplay 160)) then {
 		(findDisplay 160) closeDisplay 0;
 		["<t size='0.7' color='#ff2222'>"+localize "STR_WMT_FreezeUAVTerminal"+"</t>", 0, 0.2*safeZoneH+safeZoneY, 3, 0, 0, 273] spawn bis_fnc_dynamicText;
 	};
-}, 15, "frames", {time > 0.5}, {WMT_pub_frzState >= 3} ]] call BIS_fnc_loop;
-
-["itemAdd", ["wmtfrzdate", {setDate WMT_pub_frzBeginDate; },15.2, "seconds", {!isNil "WMT_pub_frzBeginDate"}, {WMT_pub_frzState >= 3} ]] call BIS_fnc_loop;
-
-
-// check position 
-["itemAdd", ["wmtfrzstart", {
+	// check position 
 	if (!isNil "wmt_freeze_startpos" and {count wmt_freeze_startpos > 0}) then {
 		PR(_dist) = player distance wmt_freeze_startpos;
 		if ( _dist > wmt_frzdistance and _dist < wmt_frzmaxdistance ) then {
@@ -77,27 +81,33 @@ wmt_frz_vehs = [];
 	if (player != (vehicle player) and {local (vehicle player)} and {isEngineOn (vehicle player)}) then {
 		(vehicle player) engineOn false;
 	};
-}, 20, "frames", {time > 0.5}, {WMT_pub_frzState >= 3} ]] call BIS_fnc_loop;
+	sleep 1.05;
+};
 
-["itemAdd", ["wmtfrzend", {
-	enableEngineArtillery true;
-	deleteMarkerLocal "WMTPlayerFreeze";
-	if !(isNil "wmt_freezeGrenadeHandler") then {
-		player removeEventHandler ["Fired",wmt_freezeGrenadeHandler];
-		wmt_freezeGrenadeHandler = nil;
+setDate WMT_pub_frzBeginDate;
+enableEngineArtillery true;
+deleteMarkerLocal "WMTPlayerFreeze";
+if !(isNil "wmt_freezeGrenadeHandler") then {
+	player removeEventHandler ["Fired",wmt_freezeGrenadeHandler];
+	wmt_freezeGrenadeHandler = nil;
+};
+{
+	PR(_evh) = _x getVariable "frz_evh";
+	if (!isNil "_evh") then {
+		_x removeEventHandler ["Fired", _evh];
 	};
-	{
-		PR(_evh) = _x getVariable "frz_evh";
-		if (!isNil "_evh") then {
-			_x removeEventHandler ["Fired", _evh];
-		};
-		_x removeEventHandler ["Engine", (_x getVariable ["wmtfrzEngine",0]) ];
-	} foreach wmt_frz_vehs;
-	wmt_frz_vehs = nil;
-	wmt_frzdistance = nil;
-	wmt_frzmaxdistance = nil;
-	if ((profilenamespace getvariable ['WMT_BeepAfterFreezeOption', 0]) == 1) then {playSound "wmt_beep";};
-}, nil, nil, {WMT_pub_frzState >= 3}, {false}, true]] call BIS_fnc_loop;
+	_x removeEventHandler ["Engine", (_x getVariable ["wmtfrzEngine",0]) ];
+} foreach wmt_frz_vehs;
+wmt_frz_vehs = nil;
+wmt_frzdistance = nil;
+wmt_frzmaxdistance = nil;
+if ((profilenamespace getvariable ['WMT_BeepAfterFreezeOption', 0]) == 1) then {playSound "wmt_beep";};
+
+
+
+
+
+
 
 
 

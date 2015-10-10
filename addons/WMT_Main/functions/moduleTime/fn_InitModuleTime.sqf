@@ -51,7 +51,7 @@ if(_activated) then {
 	if(isServer) then {
 		[] spawn {
 
-			[wmt_param_PrepareTime] call WMT_fnc_PrepareTime_server;
+			[wmt_param_PrepareTime] spawn WMT_fnc_PrepareTime_server;
 			if(wmt_param_MissionTime>0) then {
 				[wmt_param_MissionTime,wmt_param_WinnerByTime,wmt_param_WinnerByTimeText] spawn WMT_fnc_EndMissionByTime;
 			};
