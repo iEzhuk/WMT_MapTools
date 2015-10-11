@@ -146,13 +146,13 @@ if(_activated) then {
 
 
 			#ifdef FEATURE_BRIEF_TIMER
-			0 call WMT_fnc_briefTimer;
+			[] call WMT_fnc_briefingTimer;
 			#endif
 
 			// Disable chat
 
 
-			0 spawn {
+			[] spawn {
 				waitUntil {sleep 1.2;(missionNamespace getVariable ["WMT_pub_frzState",3]) >= 3 };
 				if (isnil "wmt_flg_dontDisableChat") then {sleep 15; showChat false; sleep 120; showChat false;};
 			};
@@ -170,7 +170,6 @@ if(_activated) then {
 			};
 
 			// briefing
-
 			[] call WMT_fnc_BriefingMissionParameters;
 			if (wmt_param_ExtendedBriefing == 1) then {
 				[] spawn wmt_fnc_showbriefinginfo;
