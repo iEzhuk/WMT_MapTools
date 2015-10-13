@@ -110,4 +110,4 @@ for "_i" from 0 to (count _units - 1) do {
     _txt = _txt + "<br/><br/>";
 };
 
-player createDiaryRecord ["diary", [format ["%1 (%2)", localize "STR_WMT_MySquad", groupID group player], _txt]];
+player createDiaryRecord ["diary", [localize "STR_WMT_Squad_Equipment", _txt]];
