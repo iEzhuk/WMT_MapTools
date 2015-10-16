@@ -42,7 +42,7 @@ wmt_frz_vehs = [];
 		_car = _this select 0;
 		_engineon = _this select 1;
 		if ( WMT_pub_frzState < 3 and local _car and _engineon) then {
-			player action ["engineoff", _car];
+			player action ["engineoff", _car]; _car engineOn false;
 		};
 	}];
 	_x setVariable ["wmtfrzEngine", _handler];

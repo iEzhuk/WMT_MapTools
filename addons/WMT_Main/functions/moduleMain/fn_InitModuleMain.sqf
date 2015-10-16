@@ -10,7 +10,6 @@
 #include "defines_WMT.sqf"
 #include "defines_IDC.sqf"
 #include "..\defines_KEY.sqf"
-#include "..\..\features.inc"
 
 PR(_logic) = [_this,0,objNull,[objNull]] call BIS_fnc_param;
 PR(_units) = [_this,1,[],[[]]] call BIS_fnc_param;
@@ -144,10 +143,10 @@ if(_activated) then {
 			// Key binding with cba
 			#include "keyBinding.sqf"
 
+			if (!isnil "wmt_feature_briefTimer") then {
+				0 spawn WMT_fnc_briefingTimer;
+			};
 
-			#ifdef FEATURE_BRIEF_TIMER
-			[] call WMT_fnc_briefingTimer;
-			#endif
 
 			// Disable chat
 
