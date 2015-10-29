@@ -9,11 +9,7 @@
 */
 
 
-#define PR(x) private ['x']; x
-
-PR(_playerratio) =  [_this, 0, 0.1] call BIS_fnc_param; 
-PR(_aftertime) = [_this, 1, 30] call BIS_fnc_param; 
-
+params [["_playerratio", 0.1, [0.1]]];
 
 if (_playerratio == 0) exitWith {};
 if (not isServer) exitWith {diag_log "PALYERCOUNT.SQF NOT SERVER";};
@@ -31,8 +27,9 @@ if (isnil "wmtPlayerCountEmptySides") then { wmtPlayerCountEmptySides = [civilia
 	};
 } foreach [east, west, resistance];
 
-PR(_fnc_checkRatiosForSides) = {
-	PR(_countBegin)=0; PR(_countNow)=0; PR(_id)=0;
+private "_fnc_checkRatiosForSides";
+_fnc_checkRatiosForSides = {
+	private ["_countBegin","_countNow","_id"];
 	{
 		_id = [_x] call bis_fnc_sideid;
 		_countbegin = _countbegin + (wmt_playerCountInit select _id);
