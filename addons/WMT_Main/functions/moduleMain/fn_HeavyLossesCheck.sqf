@@ -55,8 +55,7 @@ while {isNil "wmt_hl_disable"} do {
 			_enemyratio = (_ratios select 0) / (_ratios select 1);
 			if (_enemyratio < _playerratio) then {
 				diag_log ["HeavyLosses triggered", wmt_PlayerCountNow, wmt_playerCountInit, wmtPlayerCountEmptySides, [_enemysides,_ratios,_enemyratio] ];
-				_enemy = (_enemysides - wmtPlayerCountEmptySides) select 0;
-				[ [_enemy], { [_this select 0,format[localize "STR_WMT_HLSWinLoseMSG",([_this select 0] call BIS_fnc_sideName)]] call wmt_fnc_endmission; } ] remoteExec ["bis_fnc_spawn"];
+				[ [_x], { [_this select 0,format[localize "STR_WMT_HLSWinLoseMSG",([_this select 0] call BIS_fnc_sideName)]] call wmt_fnc_endmission; } ] remoteExec ["bis_fnc_spawn"];
 				wmt_hl_disable = true;
 			
 			};
