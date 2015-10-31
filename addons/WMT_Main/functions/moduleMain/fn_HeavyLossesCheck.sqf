@@ -30,6 +30,7 @@ if (isnil "wmtPlayerCountEmptySides") then { wmtPlayerCountEmptySides = [civilia
 private "_fnc_checkRatiosForSides";
 _fnc_checkRatiosForSides = {
 	private ["_countBegin","_countNow","_id"];
+	_countbegin = 0;_countNow=0;_id=0;
 	{
 		_id = [_x] call bis_fnc_sideid;
 		_countbegin = _countbegin + (wmt_playerCountInit select _id);
