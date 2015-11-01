@@ -20,6 +20,7 @@ waitUntil { sleep 1.5; (missionNamespace getvariable ["WMT_pub_frzState",3]) >=3
 
 wmt_playerCountInit = [	{side _x == east and isPlayer _x} count playableUnits,	{side _x == west and isPlayer _x} count playableUnits,	{side _x == resistance and isPlayer _x} count playableUnits ];
 
+
 if (isnil "wmtPlayerCountEmptySides") then { wmtPlayerCountEmptySides = [civilian]; };
 {
 	if( (wmt_playerCountInit select _foreachindex) == 0) then {
@@ -56,7 +57,11 @@ while {isNil "wmt_hl_disable"} do {
 			_enemyratio = (_ratios select 0) / (_ratios select 1);
 			if (_enemyratio < _playerratio) then {
 				diag_log ["HeavyLosses triggered", wmt_PlayerCountNow, wmt_playerCountInit, wmtPlayerCountEmptySides, [_enemysides,_ratios,_enemyratio] ];
-				[ [_x], { [_this select 0,format[localize "STR_WMT_HLSWinLoseMSG",([_this select 0] call BIS_fnc_sideName)]] call wmt_fnc_endmission; } ] remoteExec ["bis_fnc_spawn"];
+				if (isNil "wmt_hl_winmsg") then {
+					[ [_x], { [_this select 0,format[localize "STR_WMT_HLSWinLoseMSG",([_this select 0] call BIS_fnc_sideName)]] call wmt_fnc_endmission; } ] remoteExec ["bis_fnc_spawn"];
+				} else {
+					[ [_x], { [_this select 0,format[ wmt_hl_winmsg select ([_this select 0] call bis_fnc_sideid),([_this select 0] call BIS_fnc_sideName)]] call wmt_fnc_endmission; } ] remoteExec ["bis_fnc_spawn"];
+				};
 				wmt_hl_disable = true;
 			
 			};

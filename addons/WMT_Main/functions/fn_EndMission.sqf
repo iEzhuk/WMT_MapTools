@@ -21,31 +21,42 @@
 if(!isNil "WMT_Local_MissionEnd") exitWith {diag_log "WARNING!!! WMT_Local_MissionEnd - multiple call";};
 WMT_Local_MissionEnd = true; 
 
-if(count _this == 2) then {
-	PR(_winner) = _this select 0;
-	PR(_text) = _this select 1;
+switch {true} do {
+	case (count _this == 2) : {
+		PR(_winner) = _this select 0;
+		PR(_text) = _this select 1;
 
-	PR(_isPlayerWin) = (playerSide in ([_winner] call bis_fnc_friendlysides)) && (_winner != sideLogic);
-						
-	PR(_textWinner) = if(_isPlayerWin)then{localize "STR_WMT_Win"}else{localize "STR_WMT_Lose"};
+		PR(_isPlayerWin) = (playerSide in ([_winner] call bis_fnc_friendlysides)) && (_winner != sideLogic);
+							
+		PR(_textWinner) = if(_isPlayerWin)then{localize "STR_WMT_Win"}else{localize "STR_WMT_Lose"};
+		PR(_config) =  (isclass (configFile / "CfgDebriefing" / _text) ||  isclass (missionConfigFile / "CfgDebriefing" / _text));
+		
+		if !(_config) then {
+			PR(_color) = if(_isPlayerWin)then{"#057f05"}else{"#7f0505"};//green or red
+			[ (format [ "<t size='1.4' color='%1'>%2</t>", _color, _textWinner]), 0, 0.3, 15, 0, 0, 30] spawn bis_fnc_dynamicText;
+			[ (format [ "<t size='1.4' color='%1'>%2</t>", _color, _text]), 0, 0.5, 15, 0, 0, 31] spawn bis_fnc_dynamicText;
+		};
 
-	PR(_color) = if(_isPlayerWin)then{"#057f05"}else{"#7f0505"};//green or red
+		// Disable damage 
+		if(player != vehicle player)then{
+			(vehicle player) addEventHandler ['HandleDamage', {false}];
+		};
+		player addEventHandler ['HandleDamage', {false}];
 
-	[ (format [ "<t size='1.4' color='%1'>%2</t>", _color, _textWinner]), 0, 0.3, 15, 0, 0, 30] spawn bis_fnc_dynamicText;
-	[ (format [ "<t size='1.4' color='%1'>%2</t>", _color, _text]), 0, 0.5, 15, 0, 0, 31] spawn bis_fnc_dynamicText;
-
-	// Disable damage 
-	if(player != vehicle player)then{
-		(vehicle player) addEventHandler ['HandleDamage', {false}];
+		if (!_config) then {
+			["end1",_isPlayerWin,10] call BIS_fnc_endMission;
+		} else {
+			[_text,_isPlayerWin,10] call BIS_fnc_endMission;
+		};
 	};
-	player addEventHandler ['HandleDamage', {false}];
+	case (count _this == 1) : {
+		PR(_text) = _this select 0;
+		[ (format [ "<t size='1.4' color='#ff9000' shadow=2 >%1</t>", localize "STR_WMT_EndMissionByAdmin"] ), 0, 0.3, 15, 0, 0, 30] spawn bis_fnc_dynamicText;
+		[ (format [ "<t size='1.4' color='#ff9000' shadow=2 >%1</t>", _text] ), 0, 0.5, 15, 0, 0, 31] spawn bis_fnc_dynamicText;
+		["end1",false,10] call BIS_fnc_endMission;	
+	};
+	default {};
 
-	["end1",_isPlayerWin,10] call BIS_fnc_endMission;
+
 };
 
-if(count _this == 1) then {
-	PR(_text) = _this select 0;
-	[ (format [ "<t size='1.4' color='#ff9000' shadow=2 >%1</t>", localize "STR_WMT_EndMissionByAdmin"] ), 0, 0.3, 15, 0, 0, 30] spawn bis_fnc_dynamicText;
-	[ (format [ "<t size='1.4' color='#ff9000' shadow=2 >%1</t>", _text] ), 0, 0.5, 15, 0, 0, 31] spawn bis_fnc_dynamicText;
-	["end1",false,10] call BIS_fnc_endMission;
-};
