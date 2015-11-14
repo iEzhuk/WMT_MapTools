@@ -149,7 +149,7 @@ switch (_event) do
         WMT_Options_ViewDistance = profilenamespace getvariable ['WMT_Profile_ViewDistance_Presets', [wmt_param_MaxViewDistance,wmt_param_MaxViewDistance,wmt_param_MaxViewDistance]];
 
         if (profilenamespace getvariable ['WMT_Profile_ViewDistance_TerraineSave', 0] == 1) then {
-            WMT_Options_ViewDistanceTerrain = WMT_Options_ViewDistance max profilenamespace getvariable ['WMT_Profile_ViewDistance_Terrain', wmt_param_MaxViewDistanceTerrain];
+            WMT_Options_ViewDistanceTerrain = wmt_param_MaxViewDistanceTerrain min (profilenamespace getvariable ['WMT_Profile_ViewDistance_Terrain', wmt_param_MaxViewDistanceTerrain]);
         } else {
             WMT_Options_ViewDistanceTerrain = wmt_param_MaxViewDistance;
         };
