@@ -1,535 +1,535 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Project ID="Arma3">
-	<Package ID="WMT">
-		<Container ID="Main">
-			<Key ID="STR_WMT_MainMenu">
-				<Original>Main menu</Original>
-				<Russian>Главное меню</Russian>
-			</Key>
-			<Key ID="STR_WMT_Options">
-				<Original>Options</Original>
-				<Russian>Настройки</Russian>
-			</Key>
-			<Key ID="STR_WMT_FeedBack">
-				<Original>Feedback</Original>
-				<Russian>Связь с админом</Russian>
-			</Key>
-			<Key ID="STR_WMT_AdminPanel">
-				<Original>Admin panel</Original>
-				<Russian>Админская</Russian>
-			</Key>
-			<Key ID="STR_WMT_MaxDistance">
-				<Original>Maximum</Original>
-				<Russian>Максимум</Russian>
-			</Key>
-			<Key ID="STR_WMT_Close">
-				<Original>Close</Original>
-				<Russian>Закрыть</Russian>
-			</Key>
-			<Key ID="STR_WMT_OnFoot">
-				<Original>On Foot</Original>
-				<Russian>Пешком</Russian>
-			</Key>
-			<Key ID="STR_WMT_InLandVehicle">
-				<Original>In vehicle</Original>
-				<Russian>В технике</Russian>
-			</Key>
-			<Key ID="STR_WMT_Announcement">
-				<Original>Announcement</Original>
-				<Russian>Объявление</Russian>
-			</Key>
-			<Key ID="STR_WMT_EndMission">
-				<Original>End mission</Original>
-				<Russian>Прервать миссию</Russian>
-			</Key>
-			<Key ID="STR_WMT_EmptyTextField">
-				<Original>Empty text field</Original>
-				<Russian>Пусто текстовое поле</Russian>
-			</Key>
-			<Key ID="STR_WMT_NoAdmin">
-				<Original>Admin is not in game</Original>
-				<Russian>Админ не в игре</Russian>
-			</Key>
-			<Key ID="STR_WMT_GameAdmin">
-				<Original>Game admin:</Original>
-				<Russian>Игровой администратор:</Russian>
-			</Key>
-			<Key ID="STR_WMT_Send">
-				<Original>Send</Original>
-				<Russian>Отправить</Russian>
-			</Key>
-			<Key ID="STR_WMT_Enable">
-				<Original>Enabled</Original>
-				<Russian>Включено</Russian>
-			</Key>
-			<Key ID="STR_WMT_Disable">
-				<Original>Disabled</Original>
-				<Russian>Отключен</Russian>
-			</Key>
-			<Key ID="STR_WMT_DisableTI">
-				<Original>Thermal view disabled</Original>
-				<Russian>Тепловизор отключен</Russian>
-			</Key>
-			<Key ID="STR_WMT_Win">
-				<Original>Victory</Original>
-				<Russian>Победа</Russian>
-			</Key>
-			<Key ID="STR_WMT_Lose">
-				<Original>Defeat</Original>
-				<Russian>Поражение</Russian>
-			</Key>
-			<Key ID="STR_WMT_EndMissionByAdmin">
-				<Original>Admin interrupted the mission</Original>
-				<Russian>Адмистратор прервал миссию</Russian>
-			</Key>
-			<Key ID="STR_WMT_ViewDistance">
-				<Original>View distance</Original>
-				<Russian>Дальность видимости</Russian>
-			</Key>
-			<Key ID="STR_WMT_ViewDistance_Desc">
-				<Original>Max view distance</Original>
-				<Russian>Максимальная дальность видимости</Russian>
-			</Key>
-			<Key ID="STR_WMT_ViewDistanceTerrain">
-				<Original>View distance</Original>
-				<Russian>Дальность видимости поверхности</Russian>
-			</Key>
-			<Key ID="STR_WMT_ViewDistanceTerrain_Desc">
-				<Original>Max view terrain distance</Original>
-				<Russian>Максимальная дальность видимости поверхности земли</Russian>
-			</Key>
-			<Key ID="STR_WMT_TI">
-				<Original>Thermal Image</Original>
-				<Russian>Тепловизор</Russian>
-			</Key>
-			<Key ID="STR_WMT_TI_Enable">
-				<Original>Default settings</Original>
-				<Russian>Стандартные настройки</Russian>
-			</Key>
-			<Key ID="STR_WMT_TI_DisableInVehicle">
-				<Original>Disabled in vehicles</Original>
-				<Russian>Отключен в технике</Russian>
-			</Key>
-			<Key ID="STR_WMT_TI_Disable">
-				<Original>Disabled</Original>
-				<Russian>Отключен</Russian>
-			</Key>
-			<Key ID="STR_WMT_AI">
-				<Original>AI</Original>
-				<Russian>ИИ</Russian>
-			</Key>
-			<Key ID="STR_WMT_NameTag">
-				<Original>Name tags</Original>
-				<Russian>Подсветка ников</Russian>
-			</Key>
-			<Key ID="STR_WMT_Vehicles">
-				<Original>Vehicles</Original>
-				<Russian>Техника</Russian>
-			</Key>
-			<Key ID="STR_WMT_Squads">
-				<Original>Squads</Original>
-				<Russian>Отряды</Russian>
-			</Key>
-			<Key ID="STR_WMT_Killer">
-				<Original>Killer</Original>
-				<Russian>Убийца</Russian>
-			</Key>
-			<Key ID="STR_WMT_Kills">
-				<Original>Kills</Original>
-				<Russian>Убиства</Russian>
-			</Key>
-			<Key ID="STR_WMT_Unknow">
-				<Original>Unknown</Original>
-				<Russian>Неизвестно</Russian>
-			</Key>
-			<Key ID="STR_WMT_Ally">
-				<Original>ally</Original>
-				<Russian>союзник</Russian>
-			</Key>
-			<Key ID="STR_WMT_MissionTime">
-				<Original>Mission time (min)</Original>
-				<Russian>Время на миссию (мин)</Russian>
-			</Key>
-			<Key ID="STR_WMT_WinnerSide">
-				<Original>Winner side</Original>
-				<Russian>Фракция</Russian>
-			</Key>
-			<Key ID="STR_WMT_WinnerSide_Desc">
-				<Original>Side that wins after end time</Original>
-				<Russian>Фракция, которая побеждает после окончания времени</Russian>
-			</Key>
-			<Key ID="STR_WMT_Nobody">
-				<Original>No one</Original>
-				<Russian>Никто</Russian>
-			</Key>
-			<Key ID="STR_WMT_West">
-				<Original>West</Original>
-				<Russian>Запад</Russian>
-			</Key>
-			<Key ID="STR_WMT_East">
-				<Original>East</Original>
-				<Russian>Восток</Russian>
-			</Key>
-			<Key ID="STR_WMT_Resistance">
-				<Original>Independent</Original>
-				<Russian>Независимые</Russian>
-			</Key>
-			<Key ID="STR_WMT_Civilian">
-				<Original>Civilian</Original>
-				<Russian>Гражданские</Russian>
-			</Key>
-				<Key ID="STR_WMT_Civilian_m">
-				<Original>Civilian</Original>
-				<Russian>Гражданский</Russian>
-			</Key>
-			<Key ID="STR_WMT_Message">
-				<Original>Message</Original>
-				<Russian>Сообщение</Russian>
-			</Key>
-			<Key ID="STR_WMT_Message_Desc">
-				<Original>Message end of mission</Original>
-				<Russian>Сообщение о окончании миссии</Russian>
-			</Key>
-			<Key ID="STR_WMT_PrepareTime">
-				<Original>Prepare time (min)</Original>
-				<Russian>Время на подготовку (мин)</Russian>
-			</Key>
-			<Key ID="STR_WMT_PrepareTime_param">
-				<Original>Prepare time</Original>
-				<Russian>Время на подготовку</Russian>
-			</Key>
-			<Key ID="STR_WMT_StartZone">
-				<Original>Size of start zone (m)</Original>
-				<Russian>Размер стартовой зоны (м)</Russian>
-			</Key>
-			<Key ID="STR_WMT_RemoveBots">
-				<Original>Remove bots (min)</Original>
-				<Russian>Удаление ботов (мин)</Russian>
-			</Key>
-			<Key ID="STR_WMT_FreezeZoneFlee">
-				<Original>You are trying to leave freeze zone! Please stop!</Original>
-				<Russian>Вы выходитe из зоны подготовки! Остановитесь немедленно!</Russian>
-			</Key>
-			<Key ID="STR_WMT_FreezeUAVTerminal">
-				<Original>UAV will be available after the game starts!</Original>
-				<Russian>UAV терминал будет доступен после окончания подготовки!</Russian>
-			</Key>
-			<Key ID="STR_WMT_FreezeVoteStart">
-				<Original>My team is ready!</Original>
-				<Russian>Старт игры</Russian>
-			</Key>
-			<Key ID="STR_WMT_FreezeVoteWait">
-				<Original>My team is not ready!</Original>
-				<Russian>Отложить старт</Russian>
-			</Key>
-			<Key ID="STR_WMT_FreezeVoteStartCaption">
-				<Original>Teams ready: </Original>
-				<Russian>За старт игры: </Russian>
-			</Key>
-			<Key ID="STR_WMT_FreezeVoteWaitCaption">
-				<Original>Teams are not ready: </Original>
-				<Russian>За продолжение подготовки: </Russian>
-			</Key>
-			<Key ID="STR_WMT_FreezeStart">
-				<Original>Start!</Original>
-				<Russian>Старт!</Russian>
-			</Key>
-			<Key ID="STR_WMT_EndTime">
-				<Original>Time is end</Original>
-				<Russian>Время вышло</Russian>
-			</Key>
-			<Key ID="STR_WMT_HeavyLossesCoeff">
-				<Original>Heavy losses ratio</Original>
-				<Russian>Доля тяжелых потерь</Russian>
-			</Key>
-			<Key ID="STR_WMT_HLSWinLoseMSG">
-				<Original>%1 Wins. Their enemies suffered heavy losses!</Original>
-				<Russian>%1 победили. Их противники понесли тяжелые потери и были вынуждены отступить!</Russian>
-			</Key>
-			<Key ID="STR_WMT_ShowEnemyVehsNotes">
-				<Original>Info about enemy vehicles</Original>
-				<Russian>Информация о противнике</Russian>
-			</Key>
-			<Key ID="STR_WMT_ShowEnemyVehsNotes_Desc">
-				<Original>Show enemy vehicles in game briefing notes</Original>
-				<Russian>Показывать информацию о вражеской технике в заметках</Russian>
-			</Key>
-			<Key ID="STR_WMT_ShowVehsBriefing">
-				<Original>Show friendly vehicles in game briefing notes and on the map</Original>
-				<Russian>Показывать дружественную технику в заметках и на карте</Russian>
-			</Key>
-			<Key ID="STR_WMT_ShowVehsBriefingShort">
-				<Original>Show friendly vehicles</Original>
-				<Russian>Показывать технику</Russian>
-			</Key>
-			<Key ID="STR_WMT_ShowSquadsBriefing">
-				<Original>Show squads in game briefing and notes</Original>
-				<Russian>Показывать список отрядов в заметках и отмечать метками на карте</Russian>
-			</Key>
-			<Key ID="STR_WMT_ShowSquadsBriefingShort">
-				<Original>Show squads</Original>
-				<Russian>Показывать отряды</Russian>
-			</Key>
-			<Key ID="STR_WMT_EnemyVehicles">
-				<Original>Enemy vehicles</Original>
-				<Russian>Техника противника</Russian>
-			</Key>
-			<Key ID="STR_WMT_FREQ_LR">
-				<Original>LR %1 MHz (Aux: %2, %3 MHz)</Original>
-				<Russian>ДВ %1 MHz (Резерв: %2, %3 MHz)</Russian>
-			</Key>
-			<Key ID="STR_WMT_FREQ_SR">
-				<Original>%1 MHz (Aux: %2, %3 MHz)</Original>
-				<Russian>%1 MHz (Резерв: %2, %3 MHz)</Russian>
-			</Key>
-			<Key ID="STR_WMT_FREQ_HDR">
-				<Original>Frequencies</Original>
-				<Russian>Частоты</Russian>
-			</Key>
-			<Key ID="STR_WMT_MOD_GENFREQS">
-				<Original>Show frequencies</Original>
-				<Russian>Показывать частоты</Russian>
-			</Key>
-			<Key ID="STR_WMT_Statistic">
-				<Original>Show statistic</Original>
-				<Russian>Показывать статистику</Russian>
-			</Key>
-			<Key ID="STR_WMT_Statistic_Desc">
-				<Original>Show statistic after death by pressing [end]</Original>
-				<Russian>Показывать статистику после смерти по нажатию на [end]</Russian>
-			</Key>
-			<Key ID="STR_WMT_IndetifyTheBody">
-				<Original>Identify bodies</Original>
-				<Russian>Опознание мертвых</Russian>
-			</Key>
-			<Key ID="STR_WMT_IndetifyTheBody_Action">
-				<Original>Identify body</Original>
-				<Russian>Опознать тело</Russian>
-			</Key>
-			<Key ID="STR_WMT_MissionParameters">
-				<Original>Mission parameters</Original>
-				<Russian>Параметры миссии</Russian>
-			</Key>
-			<Key ID="STR_WMT_MissionDuration">
-				<Original>Mission duration</Original>
-				<Russian>Продолжительность миссии</Russian>
-			</Key>
-			<Key ID="STR_WMT_MissionStart">
-				<Original>Mission start</Original>
-				<Russian>Начало миссии</Russian>
-			</Key>
-			<Key ID="STR_WMT_TimeIncreased">
-				<Original>Time mission is increased by %1 minutes (%2:00)</Original>
-				<Russian>Время на миссию увеличено на %1 минут (%2:00)</Russian>
-			</Key>
-			<Key ID="STR_WMT_TimeReduced">
-				<Original>Time mission is reduced by %1 minutes (%2:00)</Original>
-				<Russian>Время на миссию уменьшено на %1 минут (%2:00)</Russian>
-			</Key>
-			<Key ID="STR_WMT_TimeIncreasedFreeze">
-				<Original>Freezetime is increased by %1 minutes (%2:00)</Original>
-				<Russian>Время фризтайма увеличено на %1 минут (%2:00)</Russian>
-			</Key>
-			<Key ID="STR_WMT_TimeReducedFreeze">
-				<Original>Freezetime is reduced by %1 minutes (%2:00)</Original>
-				<Russian>Время фризтайма уменьшено на %1 минут (%2:00)</Russian>
-			</Key>
-			<Key ID="STR_WMT_TimeLeft">
-				<Original>Time left</Original>
-				<Russian>Оставшееся время</Russian>
-			</Key>
-			<Key ID="STR_WMT_TimeLeftFreeze">
-				<Original>Freezetime left</Original>
-				<Russian>Время фризтайма</Russian>
-			</Key>
-			<Key ID="STR_WMT_Add5Min">
-				<Original>+ 5 min</Original>
-				<Russian>+ 5 мин</Russian>
-			</Key>
-			<Key ID="STR_WMT_Add10Min">
-				<Original>+ 10 min</Original>
-				<Russian>+ 10 мин</Russian>
-			</Key>
-			<Key ID="STR_WMT_Sub5Min">
-				<Original>- 5 min</Original>
-				<Russian>- 5 мин</Russian>
-			</Key>
-			<Key ID="STR_WMT_Add1Min">
-				<Original>+ 1 min</Original>
-				<Russian>+ 1 мин</Russian>
-			</Key>
-			<Key ID="STR_WMT_Sub1Min">
-				<Original>- 1 min</Original>
-				<Russian>- 1 мин</Russian>
-			</Key>
-			<Key ID="STR_WMT_MySquad">
-				<Original>My Squad</Original>
-				<Russian>Мой отряд</Russian>
-			</Key>
-			<Key ID="STR_WMT_ExtendedBriefing">
-				<Original>Extended Briefing</Original>
-				<Russian>Расширеный брифинг</Russian>
-			</Key>
-			<Key ID="STR_WMT_ExtendedBriefingInfo">
-				<Original>Shows additional info regarding vehicles and squads</Original>
-				<Russian>Показывать на брифинге информацию об отрядах и технике</Russian>
-			</Key>
-			<Key ID="STR_WMT_Console">
-				<Original>Console</Original>
-				<Russian>Консоль</Russian>
-			</Key>
-			<Key ID="STR_WMT_DontRemove">
-				<Original>Dont remove bot</Original>
-				<Russian>Не удалять бота</Russian>
-			</Key>
-			<Key ID="STR_WMT_MapFromAlly">
-				<Original>You use %1 map</Original>
-				<Russian>Вы используете карту %1</Russian>
-			</Key>
-			<Key ID="STR_WMT_MapFromAllyEnd">
-				<Original>You are not using %1 map, he is out</Original>
-				<Russian>Вы не используете карту %1, он отошел</Russian>
-			</Key>
-			<Key ID="STR_WMT_MapFromVehicleCrew">
-				<Original>You are using map from one of the vehicles crew</Original>
-				<Russian>Вы используете карту, которая была у одного из ченов экипажа техники</Russian>
-			</Key>
-			<Key ID="STR_WMT_MapFromVehicle">
-				<Original>You are using map embedded in vehicle computer</Original>
-				<Russian>Вы используете карту, которая встроена в технику</Russian>
-			</Key>
-			<Key ID="STR_WMT_UIShowNickName">
-				<Original>Highlight nickname</Original>
-				<Russian>Подсвечивать имена</Russian>
-			</Key>
-			<Key ID="STR_WMT_Text">
-				<Original>Text</Original>
-				<Russian>Текст</Russian>
-			</Key>
-			<Key ID="STR_WMT_SP_Text_Desc">
-				<Original>This string will be used for Action Menu</Original>
-				<Russian>Эта строка будет использована в Action Menu</Russian>
-			</Key>
-			<Key ID="STR_WMT_SP_Owner">
-				<Original>Owner</Original>
-				<Russian>Основной юнит</Russian>
-			</Key>
-			<Key ID="STR_WMT_SP_Owner_Desc">
-				<Original>This unit will select start position</Original>
-				<Russian>Этот юнит будет иметь возможность выбирать стартовую позицию</Russian>
-			</Key>
-			<Key ID="STR_WMT_SP_Center">
-				<Original>Center</Original>
-				<Russian>Центер</Russian>
-			</Key>
-			<Key ID="STR_WMT_SP_Center_Desc">
-				<Original>Offset of objects relative to the marker used for calculate position of object around slected position</Original>
-				<Russian>Смещение относительно этого маркера используется для подсчета координат относительно выбранной позиции</Russian>
-			</Key>
-			<Key ID="STR_WMT_SP_Positions">
-				<Original>List of positons</Original>
-				<Russian>Список позиций</Russian>
-			</Key>
-			<Key ID="STR_WMT_SP_ShowMarkers">
-				<Original>Show markers</Original>
-				<Russian>Видимость маркеров</Russian>
-			</Key>
-			<Key ID="STR_WMT_All">
-				<Original>All</Original>
-				<Russian>Все</Russian>
-			</Key>
-			<Key ID="STR_WMT_SP_Time">
-				<Original>Time (sec)</Original>
-				<Russian>Время (сек)</Russian>
-			</Key>
-			<Key ID="STR_WMT_SP_Time_Desc">
-				<Original>Time for select position in case without freezetime</Original>
-				<Russian>Время на выбор позиции в случая отсутвия времени на подготовку</Russian>
-			</Key>
-			<Key ID="STR_WMT_SP_ChosenPosition">
-				<Original>You have chosen the position %1</Original>
-				<Russian>Вы выбрали зону %1</Russian>
-			</Key>
-			<Key ID="STR_WMT_PlaySoundOnFreezeEnd">
-				<Original>Beep after freeze time</Original>
-				<Russian>Сигнал в конце фризтайма</Russian>
-			</Key>
-			<Key ID="STR_WMT_MuteSoundInVehs">
-				<Original>Mute sound inside vehicles</Original>
-				<Russian>Приглушать звуки внутри техники</Russian>
-			</Key>
-			<Key ID="STR_WMT_EnforceMaxVD">
-				<Original>Set VD on max on mission start</Original>
-				<Russian>Макс. видимость на старте</Russian>
-			</Key>
-			<Key ID="STR_WMT_FreezeAIINv">
-				<Original>Open AI Inventory</Original>
-				<Russian>Инвентарь бота</Russian>
-			</Key>
-			<Key ID="STR_WMT_Preset1">
-				<Original>Preset 1</Original>
-				<Russian>Пресет 1</Russian>
-			</Key>
-			<Key ID="STR_WMT_Preset2">
-				<Original>Preset 2</Original>
-				<Russian>Пресет 2</Russian>
-			</Key>
-			<Key ID="STR_WMT_Preset3">
-				<Original>Preset 3</Original>
-				<Russian>Пресет 3</Russian>
-			</Key>
-			<Key ID="STR_WMT_SoundSettings">
-				<Original>Sound settings</Original>
-				<Russian>Настройки звука</Russian>
-			</Key>
-			<Key ID="STR_WMT_Muting">
-				<Original>Muting</Original>
-				<Russian>Приглушение</Russian>
-			</Key>
-			<Key ID="STR_WMT_ReducedSound">
-				<Original>Reduced sound level\n %1</Original>
-				<Russian>Звук приглушен\n %1</Russian>
-			</Key>
-			<Key ID="STR_WMT_RestoredSound">
-				<Original>Restored sound level</Original>
-				<Russian>Уровень звука востановлен</Russian>
-			</Key>
-			<Key ID="STR_WMT_Terrain">
-				<Original>Terrain</Original>
-				<Russian>Земля</Russian>
-			</Key>
-			<Key ID="STR_WMT_Tooltip_preset1">
-				<Original>Key can be bind in configure addons (default F1)</Original>
-				<Russian>Клавишу можно переназначить в configure addons (по-умолчанию F1)</Russian>
-			</Key>
-			<Key ID="STR_WMT_Tooltip_preset2">
-				<Original>Key can be bind in configure addons (default F2)</Original>
-				<Russian>Клавишу можно переназначить в configure addons (по-умолчанию F2)</Russian>
-			</Key>
-			<Key ID="STR_WMT_Tooltip_preset3">
-				<Original>Key can be bind in configure addons (default F3)</Original>
-				<Russian>Клавишу можно переназначить в configure addons (по-умолчанию F3)</Russian>
-			</Key>
-			<Key ID="STR_WMT_Tooltip_mute">
-				<Original>Key can be bind in configure addons (default F4)</Original>
-				<Russian>Клавишу можно переназначить в configure addons (по-умолчанию F4)</Russian>
-			</Key>
-			<Key ID="STR_WMT_Tooltip_terrain">
-				<Original>Works only for preset 1</Original>
-				<Russian>Только для перового пресета</Russian>
-			</Key>
-			<Key ID="STR_WMT_Tooltip_Checkbox_terrain">
-				<Original>Save view terrein distance</Original>
-				<Russian>Сохранять дальность прорисовки земли</Russian>
-			</Key>
-			<Key ID="STR_WMT_SaveTerrainSettings">
-				<Original>Save terrain settings</Original>
-				<Russian>Сохранять настроки земли</Russian>
-			</Key>
+    <Package ID="WMT">
+        <Container ID="Main">
+            <Key ID="STR_WMT_MainMenu">
+                <Original>Main menu</Original>
+                <Russian>Главное меню</Russian>
+            </Key>
+            <Key ID="STR_WMT_Options">
+                <Original>Options</Original>
+                <Russian>Настройки</Russian>
+            </Key>
+            <Key ID="STR_WMT_FeedBack">
+                <Original>Feedback</Original>
+                <Russian>Связь с админом</Russian>
+            </Key>
+            <Key ID="STR_WMT_AdminPanel">
+                <Original>Admin panel</Original>
+                <Russian>Админская</Russian>
+            </Key>
+            <Key ID="STR_WMT_MaxDistance">
+                <Original>Maximum</Original>
+                <Russian>Максимум</Russian>
+            </Key>
+            <Key ID="STR_WMT_Close">
+                <Original>Close</Original>
+                <Russian>Закрыть</Russian>
+            </Key>
+            <Key ID="STR_WMT_OnFoot">
+                <Original>On Foot</Original>
+                <Russian>Пешком</Russian>
+            </Key>
+            <Key ID="STR_WMT_InLandVehicle">
+                <Original>In vehicle</Original>
+                <Russian>В технике</Russian>
+            </Key>
+            <Key ID="STR_WMT_Announcement">
+                <Original>Announcement</Original>
+                <Russian>Объявление</Russian>
+            </Key>
+            <Key ID="STR_WMT_EndMission">
+                <Original>End mission</Original>
+                <Russian>Прервать миссию</Russian>
+            </Key>
+            <Key ID="STR_WMT_EmptyTextField">
+                <Original>Empty text field</Original>
+                <Russian>Пусто текстовое поле</Russian>
+            </Key>
+            <Key ID="STR_WMT_NoAdmin">
+                <Original>Admin is not in game</Original>
+                <Russian>Админ не в игре</Russian>
+            </Key>
+            <Key ID="STR_WMT_GameAdmin">
+                <Original>Game admin:</Original>
+                <Russian>Игровой администратор:</Russian>
+            </Key>
+            <Key ID="STR_WMT_Send">
+                <Original>Send</Original>
+                <Russian>Отправить</Russian>
+            </Key>
+            <Key ID="STR_WMT_Enable">
+                <Original>Enabled</Original>
+                <Russian>Включено</Russian>
+            </Key>
+            <Key ID="STR_WMT_Disable">
+                <Original>Disabled</Original>
+                <Russian>Отключен</Russian>
+            </Key>
+            <Key ID="STR_WMT_DisableTI">
+                <Original>Thermal view disabled</Original>
+                <Russian>Тепловизор отключен</Russian>
+            </Key>
+            <Key ID="STR_WMT_Win">
+                <Original>Victory</Original>
+                <Russian>Победа</Russian>
+            </Key>
+            <Key ID="STR_WMT_Lose">
+                <Original>Defeat</Original>
+                <Russian>Поражение</Russian>
+            </Key>
+            <Key ID="STR_WMT_EndMissionByAdmin">
+                <Original>Admin interrupted the mission</Original>
+                <Russian>Адмистратор прервал миссию</Russian>
+            </Key>
+            <Key ID="STR_WMT_ViewDistance">
+                <Original>View distance</Original>
+                <Russian>Дальность видимости</Russian>
+            </Key>
+            <Key ID="STR_WMT_ViewDistance_Desc">
+                <Original>Max view distance</Original>
+                <Russian>Максимальная дальность видимости</Russian>
+            </Key>
+            <Key ID="STR_WMT_ViewDistanceTerrain">
+                <Original>View distance</Original>
+                <Russian>Дальность видимости поверхности</Russian>
+            </Key>
+            <Key ID="STR_WMT_ViewDistanceTerrain_Desc">
+                <Original>Max view terrain distance</Original>
+                <Russian>Максимальная дальность видимости поверхности земли</Russian>
+            </Key>
+            <Key ID="STR_WMT_TI">
+                <Original>Thermal Image</Original>
+                <Russian>Тепловизор</Russian>
+            </Key>
+            <Key ID="STR_WMT_TI_Enable">
+                <Original>Default settings</Original>
+                <Russian>Стандартные настройки</Russian>
+            </Key>
+            <Key ID="STR_WMT_TI_DisableInVehicle">
+                <Original>Disabled in vehicles</Original>
+                <Russian>Отключен в технике</Russian>
+            </Key>
+            <Key ID="STR_WMT_TI_Disable">
+                <Original>Disabled</Original>
+                <Russian>Отключен</Russian>
+            </Key>
+            <Key ID="STR_WMT_AI">
+                <Original>AI</Original>
+                <Russian>ИИ</Russian>
+            </Key>
+            <Key ID="STR_WMT_NameTag">
+                <Original>Name tags</Original>
+                <Russian>Подсветка ников</Russian>
+            </Key>
+            <Key ID="STR_WMT_Vehicles">
+                <Original>Vehicles</Original>
+                <Russian>Техника</Russian>
+            </Key>
+            <Key ID="STR_WMT_Squads">
+                <Original>Squads</Original>
+                <Russian>Отряды</Russian>
+            </Key>
+            <Key ID="STR_WMT_Killer">
+                <Original>Killer</Original>
+                <Russian>Убийца</Russian>
+            </Key>
+            <Key ID="STR_WMT_Kills">
+                <Original>Kills</Original>
+                <Russian>Убиства</Russian>
+            </Key>
+            <Key ID="STR_WMT_Unknow">
+                <Original>Unknown</Original>
+                <Russian>Неизвестно</Russian>
+            </Key>
+            <Key ID="STR_WMT_Ally">
+                <Original>ally</Original>
+                <Russian>союзник</Russian>
+            </Key>
+            <Key ID="STR_WMT_MissionTime">
+                <Original>Mission time (min)</Original>
+                <Russian>Время на миссию (мин)</Russian>
+            </Key>
+            <Key ID="STR_WMT_WinnerSide">
+                <Original>Winner side</Original>
+                <Russian>Фракция</Russian>
+            </Key>
+            <Key ID="STR_WMT_WinnerSide_Desc">
+                <Original>Side that wins after end time</Original>
+                <Russian>Фракция, которая побеждает после окончания времени</Russian>
+            </Key>
+            <Key ID="STR_WMT_Nobody">
+                <Original>No one</Original>
+                <Russian>Никто</Russian>
+            </Key>
+            <Key ID="STR_WMT_West">
+                <Original>West</Original>
+                <Russian>Запад</Russian>
+            </Key>
+            <Key ID="STR_WMT_East">
+                <Original>East</Original>
+                <Russian>Восток</Russian>
+            </Key>
+            <Key ID="STR_WMT_Resistance">
+                <Original>Independent</Original>
+                <Russian>Независимые</Russian>
+            </Key>
+            <Key ID="STR_WMT_Civilian">
+                <Original>Civilian</Original>
+                <Russian>Гражданские</Russian>
+            </Key>
+                <Key ID="STR_WMT_Civilian_m">
+                <Original>Civilian</Original>
+                <Russian>Гражданский</Russian>
+            </Key>
+            <Key ID="STR_WMT_Message">
+                <Original>Message</Original>
+                <Russian>Сообщение</Russian>
+            </Key>
+            <Key ID="STR_WMT_Message_Desc">
+                <Original>Message end of mission</Original>
+                <Russian>Сообщение о окончании миссии</Russian>
+            </Key>
+            <Key ID="STR_WMT_PrepareTime">
+                <Original>Prepare time (min)</Original>
+                <Russian>Время на подготовку (мин)</Russian>
+            </Key>
+            <Key ID="STR_WMT_PrepareTime_param">
+                <Original>Prepare time</Original>
+                <Russian>Время на подготовку</Russian>
+            </Key>
+            <Key ID="STR_WMT_StartZone">
+                <Original>Size of start zone (m)</Original>
+                <Russian>Размер стартовой зоны (м)</Russian>
+            </Key>
+            <Key ID="STR_WMT_RemoveBots">
+                <Original>Remove bots (min)</Original>
+                <Russian>Удаление ботов (мин)</Russian>
+            </Key>
+            <Key ID="STR_WMT_FreezeZoneFlee">
+                <Original>You are trying to leave freeze zone! Please stop!</Original>
+                <Russian>Вы выходитe из зоны подготовки! Остановитесь немедленно!</Russian>
+            </Key>
+            <Key ID="STR_WMT_FreezeUAVTerminal">
+                <Original>UAV will be available after the game starts!</Original>
+                <Russian>UAV терминал будет доступен после окончания подготовки!</Russian>
+            </Key>
+            <Key ID="STR_WMT_FreezeVoteStart">
+                <Original>My team is ready!</Original>
+                <Russian>Старт игры</Russian>
+            </Key>
+            <Key ID="STR_WMT_FreezeVoteWait">
+                <Original>My team is not ready!</Original>
+                <Russian>Отложить старт</Russian>
+            </Key>
+            <Key ID="STR_WMT_FreezeVoteStartCaption">
+                <Original>Teams ready: </Original>
+                <Russian>За старт игры: </Russian>
+            </Key>
+            <Key ID="STR_WMT_FreezeVoteWaitCaption">
+                <Original>Teams are not ready: </Original>
+                <Russian>За продолжение подготовки: </Russian>
+            </Key>
+            <Key ID="STR_WMT_FreezeStart">
+                <Original>Start!</Original>
+                <Russian>Старт!</Russian>
+            </Key>
+            <Key ID="STR_WMT_EndTime">
+                <Original>Time is end</Original>
+                <Russian>Время вышло</Russian>
+            </Key>
+            <Key ID="STR_WMT_HeavyLossesCoeff">
+                <Original>Heavy losses ratio</Original>
+                <Russian>Доля тяжелых потерь</Russian>
+            </Key>
+            <Key ID="STR_WMT_HLSWinLoseMSG">
+                <Original>%1 Wins. Their enemies suffered heavy losses!</Original>
+                <Russian>%1 победили. Их противники понесли тяжелые потери и были вынуждены отступить!</Russian>
+            </Key>
+            <Key ID="STR_WMT_ShowEnemyVehsNotes">
+                <Original>Info about enemy vehicles</Original>
+                <Russian>Информация о противнике</Russian>
+            </Key>
+            <Key ID="STR_WMT_ShowEnemyVehsNotes_Desc">
+                <Original>Show enemy vehicles in game briefing notes</Original>
+                <Russian>Показывать информацию о вражеской технике в заметках</Russian>
+            </Key>
+            <Key ID="STR_WMT_ShowVehsBriefing">
+                <Original>Show friendly vehicles in game briefing notes and on the map</Original>
+                <Russian>Показывать дружественную технику в заметках и на карте</Russian>
+            </Key>
+            <Key ID="STR_WMT_ShowVehsBriefingShort">
+                <Original>Show friendly vehicles</Original>
+                <Russian>Показывать технику</Russian>
+            </Key>
+            <Key ID="STR_WMT_ShowSquadsBriefing">
+                <Original>Show squads in game briefing and notes</Original>
+                <Russian>Показывать список отрядов в заметках и отмечать метками на карте</Russian>
+            </Key>
+            <Key ID="STR_WMT_ShowSquadsBriefingShort">
+                <Original>Show squads</Original>
+                <Russian>Показывать отряды</Russian>
+            </Key>
+            <Key ID="STR_WMT_EnemyVehicles">
+                <Original>Enemy vehicles</Original>
+                <Russian>Техника противника</Russian>
+            </Key>
+            <Key ID="STR_WMT_FREQ_LR">
+                <Original>LR %1 MHz (Aux: %2, %3 MHz)</Original>
+                <Russian>ДВ %1 MHz (Резерв: %2, %3 MHz)</Russian>
+            </Key>
+            <Key ID="STR_WMT_FREQ_SR">
+                <Original>%1 MHz (Aux: %2, %3 MHz)</Original>
+                <Russian>%1 MHz (Резерв: %2, %3 MHz)</Russian>
+            </Key>
+            <Key ID="STR_WMT_FREQ_HDR">
+                <Original>Frequencies</Original>
+                <Russian>Частоты</Russian>
+            </Key>
+            <Key ID="STR_WMT_MOD_GENFREQS">
+                <Original>Show frequencies</Original>
+                <Russian>Показывать частоты</Russian>
+            </Key>
+            <Key ID="STR_WMT_Statistic">
+                <Original>Show statistic</Original>
+                <Russian>Показывать статистику</Russian>
+            </Key>
+            <Key ID="STR_WMT_Statistic_Desc">
+                <Original>Show statistic after death by pressing [end]</Original>
+                <Russian>Показывать статистику после смерти по нажатию на [end]</Russian>
+            </Key>
+            <Key ID="STR_WMT_IndetifyTheBody">
+                <Original>Identify bodies</Original>
+                <Russian>Опознание мертвых</Russian>
+            </Key>
+            <Key ID="STR_WMT_IndetifyTheBody_Action">
+                <Original>Identify body</Original>
+                <Russian>Опознать тело</Russian>
+            </Key>
+            <Key ID="STR_WMT_MissionParameters">
+                <Original>Mission parameters</Original>
+                <Russian>Параметры миссии</Russian>
+            </Key>
+            <Key ID="STR_WMT_MissionDuration">
+                <Original>Mission duration</Original>
+                <Russian>Продолжительность миссии</Russian>
+            </Key>
+            <Key ID="STR_WMT_MissionStart">
+                <Original>Mission start</Original>
+                <Russian>Начало миссии</Russian>
+            </Key>
+            <Key ID="STR_WMT_TimeIncreased">
+                <Original>Time mission is increased by %1 minutes (%2:00)</Original>
+                <Russian>Время на миссию увеличено на %1 минут (%2:00)</Russian>
+            </Key>
+            <Key ID="STR_WMT_TimeReduced">
+                <Original>Time mission is reduced by %1 minutes (%2:00)</Original>
+                <Russian>Время на миссию уменьшено на %1 минут (%2:00)</Russian>
+            </Key>
+            <Key ID="STR_WMT_TimeIncreasedFreeze">
+                <Original>Freezetime is increased by %1 minutes (%2:00)</Original>
+                <Russian>Время фризтайма увеличено на %1 минут (%2:00)</Russian>
+            </Key>
+            <Key ID="STR_WMT_TimeReducedFreeze">
+                <Original>Freezetime is reduced by %1 minutes (%2:00)</Original>
+                <Russian>Время фризтайма уменьшено на %1 минут (%2:00)</Russian>
+            </Key>
+            <Key ID="STR_WMT_TimeLeft">
+                <Original>Time left</Original>
+                <Russian>Оставшееся время</Russian>
+            </Key>
+            <Key ID="STR_WMT_TimeLeftFreeze">
+                <Original>Freezetime left</Original>
+                <Russian>Время фризтайма</Russian>
+            </Key>
+            <Key ID="STR_WMT_Add5Min">
+                <Original>+ 5 min</Original>
+                <Russian>+ 5 мин</Russian>
+            </Key>
+            <Key ID="STR_WMT_Add10Min">
+                <Original>+ 10 min</Original>
+                <Russian>+ 10 мин</Russian>
+            </Key>
+            <Key ID="STR_WMT_Sub5Min">
+                <Original>- 5 min</Original>
+                <Russian>- 5 мин</Russian>
+            </Key>
+            <Key ID="STR_WMT_Add1Min">
+                <Original>+ 1 min</Original>
+                <Russian>+ 1 мин</Russian>
+            </Key>
+            <Key ID="STR_WMT_Sub1Min">
+                <Original>- 1 min</Original>
+                <Russian>- 1 мин</Russian>
+            </Key>
+            <Key ID="STR_WMT_MySquad">
+                <Original>My Squad</Original>
+                <Russian>Мой отряд</Russian>
+            </Key>
+            <Key ID="STR_WMT_ExtendedBriefing">
+                <Original>Extended Briefing</Original>
+                <Russian>Расширеный брифинг</Russian>
+            </Key>
+            <Key ID="STR_WMT_ExtendedBriefingInfo">
+                <Original>Shows additional info regarding vehicles and squads</Original>
+                <Russian>Показывать на брифинге информацию об отрядах и технике</Russian>
+            </Key>
+            <Key ID="STR_WMT_Console">
+                <Original>Console</Original>
+                <Russian>Консоль</Russian>
+            </Key>
+            <Key ID="STR_WMT_DontRemove">
+                <Original>Dont remove bot</Original>
+                <Russian>Не удалять бота</Russian>
+            </Key>
+            <Key ID="STR_WMT_MapFromAlly">
+                <Original>You use %1 map</Original>
+                <Russian>Вы используете карту %1</Russian>
+            </Key>
+            <Key ID="STR_WMT_MapFromAllyEnd">
+                <Original>You are not using %1 map, he is out</Original>
+                <Russian>Вы не используете карту %1, он отошел</Russian>
+            </Key>
+            <Key ID="STR_WMT_MapFromVehicleCrew">
+                <Original>You are using map from one of the vehicles crew</Original>
+                <Russian>Вы используете карту, которая была у одного из ченов экипажа техники</Russian>
+            </Key>
+            <Key ID="STR_WMT_MapFromVehicle">
+                <Original>You are using map embedded in vehicle computer</Original>
+                <Russian>Вы используете карту, которая встроена в технику</Russian>
+            </Key>
+            <Key ID="STR_WMT_UIShowNickName">
+                <Original>Highlight nickname</Original>
+                <Russian>Подсвечивать имена</Russian>
+            </Key>
+            <Key ID="STR_WMT_Text">
+                <Original>Text</Original>
+                <Russian>Текст</Russian>
+            </Key>
+            <Key ID="STR_WMT_SP_Text_Desc">
+                <Original>This string will be used for Action Menu</Original>
+                <Russian>Эта строка будет использована в Action Menu</Russian>
+            </Key>
+            <Key ID="STR_WMT_SP_Owner">
+                <Original>Owner</Original>
+                <Russian>Основной юнит</Russian>
+            </Key>
+            <Key ID="STR_WMT_SP_Owner_Desc">
+                <Original>This unit will select start position</Original>
+                <Russian>Этот юнит будет иметь возможность выбирать стартовую позицию</Russian>
+            </Key>
+            <Key ID="STR_WMT_SP_Center">
+                <Original>Center</Original>
+                <Russian>Центер</Russian>
+            </Key>
+            <Key ID="STR_WMT_SP_Center_Desc">
+                <Original>Offset of objects relative to the marker used for calculate position of object around slected position</Original>
+                <Russian>Смещение относительно этого маркера используется для подсчета координат относительно выбранной позиции</Russian>
+            </Key>
+            <Key ID="STR_WMT_SP_Positions">
+                <Original>List of positons</Original>
+                <Russian>Список позиций</Russian>
+            </Key>
+            <Key ID="STR_WMT_SP_ShowMarkers">
+                <Original>Show markers</Original>
+                <Russian>Видимость маркеров</Russian>
+            </Key>
+            <Key ID="STR_WMT_All">
+                <Original>All</Original>
+                <Russian>Все</Russian>
+            </Key>
+            <Key ID="STR_WMT_SP_Time">
+                <Original>Time (sec)</Original>
+                <Russian>Время (сек)</Russian>
+            </Key>
+            <Key ID="STR_WMT_SP_Time_Desc">
+                <Original>Time for select position in case without freezetime</Original>
+                <Russian>Время на выбор позиции в случая отсутвия времени на подготовку</Russian>
+            </Key>
+            <Key ID="STR_WMT_SP_ChosenPosition">
+                <Original>You have chosen the position %1</Original>
+                <Russian>Вы выбрали зону %1</Russian>
+            </Key>
+            <Key ID="STR_WMT_PlaySoundOnFreezeEnd">
+                <Original>Beep after freeze time</Original>
+                <Russian>Сигнал в конце фризтайма</Russian>
+            </Key>
+            <Key ID="STR_WMT_MuteSoundInVehs">
+                <Original>Mute sound inside vehicles</Original>
+                <Russian>Приглушать звуки внутри техники</Russian>
+            </Key>
+            <Key ID="STR_WMT_EnforceMaxVD">
+                <Original>Set VD on max on mission start</Original>
+                <Russian>Макс. видимость на старте</Russian>
+            </Key>
+            <Key ID="STR_WMT_FreezeAIINv">
+                <Original>Open AI Inventory</Original>
+                <Russian>Инвентарь бота</Russian>
+            </Key>
+            <Key ID="STR_WMT_Preset1">
+                <Original>Preset 1</Original>
+                <Russian>Пресет 1</Russian>
+            </Key>
+            <Key ID="STR_WMT_Preset2">
+                <Original>Preset 2</Original>
+                <Russian>Пресет 2</Russian>
+            </Key>
+            <Key ID="STR_WMT_Preset3">
+                <Original>Preset 3</Original>
+                <Russian>Пресет 3</Russian>
+            </Key>
+            <Key ID="STR_WMT_SoundSettings">
+                <Original>Sound settings</Original>
+                <Russian>Настройки звука</Russian>
+            </Key>
+            <Key ID="STR_WMT_Muting">
+                <Original>Muting</Original>
+                <Russian>Приглушение</Russian>
+            </Key>
+            <Key ID="STR_WMT_ReducedSound">
+                <Original>Reduced sound level\n %1</Original>
+                <Russian>Звук приглушен\n %1</Russian>
+            </Key>
+            <Key ID="STR_WMT_RestoredSound">
+                <Original>Restored sound level</Original>
+                <Russian>Уровень звука востановлен</Russian>
+            </Key>
+            <Key ID="STR_WMT_Terrain">
+                <Original>Terrain</Original>
+                <Russian>Земля</Russian>
+            </Key>
+            <Key ID="STR_WMT_Tooltip_preset1">
+                <Original>Key can be bind in configure addons (default F1)</Original>
+                <Russian>Клавишу можно переназначить в configure addons (по-умолчанию F1)</Russian>
+            </Key>
+            <Key ID="STR_WMT_Tooltip_preset2">
+                <Original>Key can be bind in configure addons (default F2)</Original>
+                <Russian>Клавишу можно переназначить в configure addons (по-умолчанию F2)</Russian>
+            </Key>
+            <Key ID="STR_WMT_Tooltip_preset3">
+                <Original>Key can be bind in configure addons (default F3)</Original>
+                <Russian>Клавишу можно переназначить в configure addons (по-умолчанию F3)</Russian>
+            </Key>
+            <Key ID="STR_WMT_Tooltip_mute">
+                <Original>Key can be bind in configure addons (default F4)</Original>
+                <Russian>Клавишу можно переназначить в configure addons (по-умолчанию F4)</Russian>
+            </Key>
+            <Key ID="STR_WMT_Tooltip_terrain">
+                <Original>Works only for preset 1</Original>
+                <Russian>Только для перового пресета</Russian>
+            </Key>
+            <Key ID="STR_WMT_Tooltip_Checkbox_terrain">
+                <Original>Save view terrein distance</Original>
+                <Russian>Сохранять дальность прорисовки земли</Russian>
+            </Key>
+            <Key ID="STR_WMT_SaveTerrainSettings">
+                <Original>Save terrain settings</Original>
+                <Russian>Сохранять настроки земли</Russian>
+            </Key>
             <Key ID="STR_WMT_UseWMTOptions">
                 <Original>Use WMT options (default key: HOME)</Original>
                 <Russian>Используйте настройки WMT (по-умолчанию клавиша HOME)</Russian>
             </Key>
-		</Container>
-	</Package>
+        </Container>
+    </Package>
 </Project>

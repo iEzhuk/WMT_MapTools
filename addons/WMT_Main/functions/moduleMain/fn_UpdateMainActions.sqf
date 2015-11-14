@@ -1,11 +1,11 @@
 /*
  	Name: WMT_fnc_UpdateMainActions
- 	
+
  	Author(s):
 		Ezhuk
 
  	Description:
-		Add actions 
+		Add actions
 */
 
 if (wmt_param_IndetifyTheBody==1) then {

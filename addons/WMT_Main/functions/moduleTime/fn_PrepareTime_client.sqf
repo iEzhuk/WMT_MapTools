@@ -1,19 +1,19 @@
 /*
- 	Name: WMT_fnc_PrepareTime_client
- 	
- 	Author(s):
+	Name: WMT_fnc_PrepareTime_client
+
+	Author(s):
 		Zealot
 
- 	Description:
-		Client part of prepare time 
+	Description:
+		Client part of prepare time
 
 	Parameters:
-		0 - time 
-		1 - radius of start zone 
- 		2 - time to remove markers
+		0 - time
+		1 - radius of start zone
+		2 - time to remove markers
 
- 	Returns:
-		Nothing 
+	Returns:
+		Nothing
 */
 #define PR(x) private ['x']; x
 
@@ -39,6 +39,4 @@ if (WMT_pub_frzState == 0 and _freeztime > 0) then {
 if (WMT_pub_frzState >= 3) exitWith {};
 
 [_distance] spawn WMT_fnc_FreezePlayerClient;
-[] spawn WMT_fnc_FreezeUI;	
-
-
+[] spawn WMT_fnc_FreezeUI;

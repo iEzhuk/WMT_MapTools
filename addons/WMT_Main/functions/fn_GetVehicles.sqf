@@ -1,25 +1,25 @@
 /*
- 	Name: WMT_fnc_GetVehicles
- 	
- 	Author(s):
-		Zealot
+    Name: WMT_fnc_GetVehicles
 
- 	Description:
-		Get vehicles array
+    Author(s):
+        Zealot
 
-	Parameters:
-		NONE
- 	
- 	Returns:
-		ARRAY: vehicles 
+    Description:
+        Get vehicles array
+
+    Parameters:
+        NONE
+
+    Returns:
+        ARRAY: vehicles
 */
 
 if (isNil "WMT_Local_Vehicles") then {
-	WMT_Local_Vehicles = [];
-	{
-		if (_x isKindof "Ship" || _x isKindof "Air" || _x isKindof "LandVehicle") then {
-			WMT_Local_Vehicles pushBack _x;
-		};
-	} foreach vehicles;
+    WMT_Local_Vehicles = [];
+    {
+        if (_x isKindof "Ship" || _x isKindof "Air" || _x isKindof "LandVehicle") then {
+            WMT_Local_Vehicles pushBack _x;
+        };
+    } foreach vehicles;
 };
 WMT_Local_Vehicles

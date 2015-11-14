@@ -1,5 +1,5 @@
 /*
-    Name:  
+    Name:
         WMT_fnc_SquadInfoExt
     Author(s):
         Ezhuk
@@ -9,7 +9,7 @@
     Parameters:
         Nothing
     Returns:
-        Nothing 
+        Nothing
 */
 
 #include "defines_WMT.sqf"
@@ -52,12 +52,12 @@ PR(_fnc_textForWeapon) = {
 
         {
             _pic = getText(configFile >> "CfgMagazines" >> (_x select 0) >> "picture");
-            _txt = _txt + format [" <img image='%1' height=24/>x%2", _pic call _fnc_fixPicName, _x select 1]; 
+            _txt = _txt + format [" <img image='%1' height=24/>x%2", _pic call _fnc_fixPicName, _x select 1];
         } foreach (_wm call BIS_fnc_consolidateArray);
 
         {
             _pic = getText(configFile >> "CfgWeapons" >> _x >> "picture");
-            _txt = _txt + format [" <img image='%1' height=28/>", _pic call _fnc_fixPicName]; 
+            _txt = _txt + format [" <img image='%1' height=28/>", _pic call _fnc_fixPicName];
         } foreach _a;
     };
 };
@@ -92,19 +92,19 @@ for "_i" from 0 to (count _units - 1) do {
         _pic = getText(configFile >> "CfgWeapons" >> (_x select 0) >> "picture");
         _txt = _txt + format ["<img image='%1' height=24/>x%2  ", _pic call _fnc_fixPicName, _x select 1];
     } foreach ((assignedItems _unit) call BIS_fnc_consolidateArray);
-    _txt = _txt + "<br/>";    
+    _txt = _txt + "<br/>";
 
     //==============================
     // Other magazines and items
     //==============================
     {
         _pic = getText(configFile >> "CfgMagazines" >> (_x select 0) >> "picture");
-        _txt = _txt + format ["<img image='%1' height=24/>x%2 ", _pic call _fnc_fixPicName, _x select 1]; 
+        _txt = _txt + format ["<img image='%1' height=24/>x%2 ", _pic call _fnc_fixPicName, _x select 1];
     } foreach (_magazines call BIS_fnc_consolidateArray);
 
     {
         _pic = getText(configFile >> "CfgWeapons" >> (_x select 0) >> "picture");
-        _txt = _txt + format ["<img image='%1' height=24/>x%2 ", _pic call _fnc_fixPicName, _x select 1]; 
+        _txt = _txt + format ["<img image='%1' height=24/>x%2 ", _pic call _fnc_fixPicName, _x select 1];
     } foreach ((items _unit) call BIS_fnc_consolidateArray);
 
     _txt = _txt + "<br/><br/>";

@@ -6,5 +6,3 @@ if (count WMT_pub_frzVoteWait != 0 or count WMT_pub_frzVoteStart != 0) then {
     _infoStr5="";
 };
 [_infoStr5, 0.3, safeZoneY+0.01, 1.5, 0, 0, 4]  spawn bis_fnc_dynamicText;
-
-	
