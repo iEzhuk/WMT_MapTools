@@ -39,7 +39,7 @@ class CfgFactionClasses
     class WMT
     {
         displayName = "WMT";
-        priority = 13;
+        priority = 0;
         side = 7;
     };
 };
