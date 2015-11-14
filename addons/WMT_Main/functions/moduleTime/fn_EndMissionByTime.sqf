@@ -1,6 +1,6 @@
 /*
  	Name: WMT_fnc_EndMissionByTime
- 	
+
  	Author(s):
 		Ezhuk
 
@@ -8,17 +8,17 @@
 		End mission by time
 
 	Parameters:
-		0 - time 
+		0 - time
 		1 - winner side
 		2 - message
- 	
+
  	Returns:
-		Nothing 
+		Nothing
 */
 #define PR(x) private ['x']; x
 
 PR(_time) = _this select 0;
-PR(_winSide) = _this select 1; 
+PR(_winSide) = _this select 1;
 PR(_message) = _this select 2;
 
 sleep 1;
@@ -40,4 +40,9 @@ while {diag_tickTime-_startTime<(wmt_param_MissionTime*60)} do {
 	sleep 30;
 };
 
-[[[_winSide, _message], {_this call WMT_fnc_EndMission;}], "bis_fnc_spawn"] call bis_fnc_mp;			
+if (isNil "WMT_fnc_ChooseWinnerByTime") then {
+    [[[_winSide, _message], {_this call WMT_fnc_EndMission;}], "bis_fnc_spawn"] call bis_fnc_mp;
+} else {
+    PR(_args) = [] call WMT_fnc_ChooseWinnerByTime;
+    [[_args, {_this call WMT_fnc_EndMission;}], "bis_fnc_spawn"] call bis_fnc_mp;
+};
