@@ -174,6 +174,12 @@ if(_activated) then {
                 [] spawn WMT_fnc_DefaultFreqsClient;
             };
 
+            [] spawn {
+                waitUntil{sleep 0.36; !(isNull (findDisplay 46))};
+                // Show list of vehicle crew
+                (findDisplay 46) displayAddEventHandler ["MouseZChanged","_this call WMT_fnc_KeyHandlerShowCrew;"];
+            };
+
             [] call WMT_fnc_UpdateMainActions;
             player addEventHandler ["Respawn", {[] call WMT_fnc_UpdateMainActions;}];
         };

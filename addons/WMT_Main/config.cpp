@@ -48,6 +48,7 @@ class RscTitles {
     #include "resource\RscWMTDisableTI.h"
     #include "resource\RscWMTNameTag.h"
     #include "resource\RscWMTDogTag.h"
+    #include "resource\RscWMTVehicleCrew.h"
 };
 
 class RscDisplayOptionsVideo
