@@ -144,13 +144,6 @@ if(_activated) then {
                 0 spawn WMT_fnc_BriefingTimer;
             };
 
-
-            // Disable chat
-            [] spawn {
-                waitUntil {sleep 1.2;(missionNamespace getVariable ["WMT_pub_frzState",3]) >= 3 };
-                if (isnil "wmt_flg_dontDisableChat") then {sleep 15; showChat false; sleep 120; showChat false;};
-            };
-
             player addEventHandler ["killed", "_this spawn WMT_fnc_PlayerKilled"];
 
             // Public variable handlers

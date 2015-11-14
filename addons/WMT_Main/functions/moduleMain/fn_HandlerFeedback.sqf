@@ -10,7 +10,7 @@
     Parameters:
         0 - STR: type of event
         1 - ARRAY: argument from event
-    
+
     Returns:
         BOOL: for standart handlers
 */
@@ -78,6 +78,10 @@ switch (_event) do
                         publicVariable "WMT_Global_Admin";
                     };
                 };
+            };
+            // Disable chat
+            if (isnil "wmt_flg_dontDisableChat" and (missionNamespace getVariable ["WMT_pub_frzState",3]) >= 3) then {
+                showChat false;
             };
             sleep 15;
         };
