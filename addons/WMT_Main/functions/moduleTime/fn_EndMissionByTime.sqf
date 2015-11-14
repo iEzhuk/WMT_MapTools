@@ -43,6 +43,6 @@ while {diag_tickTime-_startTime<(wmt_param_MissionTime*60)} do {
 if (isNil "WMT_fnc_ChooseWinnerByTime") then {
     [[[_winSide, _message], {_this call WMT_fnc_EndMission;}], "bis_fnc_spawn"] call bis_fnc_mp;
 } else {
-    PR(_args) = [] call WMT_fnc_ChooseWinnerByTime;
+    PR(_args) = [_winSide, _message] call WMT_fnc_ChooseWinnerByTime;
     [[_args, {_this call WMT_fnc_EndMission;}], "bis_fnc_spawn"] call bis_fnc_mp;
 };
