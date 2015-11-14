@@ -49,3 +49,8 @@ class RscTitles {
 	#include "resource\RscWMTNameTag.h"
 	#include "resource\RscWMTDogTag.h"
 };
+
+class RscDisplayOptionsVideo
+{
+    onLoad = "['onLoad',_this,'RscDisplayOptionsVideo','GUI'] call 	(uinamespace getvariable 'BIS_fnc_initDisplay'); ['addEventHandlers', _this] call WMT_fnc_HandlerOptions;";
+};

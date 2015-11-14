@@ -61,9 +61,6 @@ if(_activated) then {
 		wmt_param_ExtendedBriefing = _logic getVariable ["ExtendedBriefing",1];
 	};
 
-	// TODO: temporary fix #104
-	wmt_param_MaxViewDistanceTerrain = wmt_param_MaxViewDistance;
-
 	wmt_param_MaxViewDistance  = 10 max wmt_param_MaxViewDistance;
 	wmt_param_HeavyLossesCoeff = 0 max wmt_param_HeavyLossesCoeff;
 
@@ -149,8 +146,6 @@ if(_activated) then {
 
 
 			// Disable chat
-
-
 			[] spawn {
 				waitUntil {sleep 1.2;(missionNamespace getVariable ["WMT_pub_frzState",3]) >= 3 };
 				if (isnil "wmt_flg_dontDisableChat") then {sleep 15; showChat false; sleep 120; showChat false;};

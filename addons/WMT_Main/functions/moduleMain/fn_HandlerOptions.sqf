@@ -1,18 +1,18 @@
 /*
     Name: WMT_fnc_HandlerOptions
-    
+
     Author(s):
         Ezhuk
 
     Description:
         Handler function for main menu
-    
+
     Parameters:
         0 - STR: type of event
         1 - ARRAY: argument from event
-    
+
     Returns:
-        BOOL: for standart handlers 
+        BOOL: for standart handlers
 */
 
 #include "defines_WMT.sqf"
@@ -22,9 +22,9 @@ PR(_event) = _this select 0;
 PR(_arg) = _this select 1;
 PR(_return) = false;
 
-switch (_event) do 
+switch (_event) do
 {
-    case "init": {  
+    case "init": {
         PR(_dialog) = _arg select 0;
         disableSerialization;
         uiNamespace setVariable ["WMT_Dialog_Menu", _dialog];
@@ -35,7 +35,7 @@ switch (_event) do
         (_dialog displayCtrl IDC_OPTIONS_PRESET_2_SLIDER) slidersetRange [100,wmt_param_MaxViewDistance];
         (_dialog displayCtrl IDC_OPTIONS_PRESET_3_SLIDER) sliderSetSpeed [100,100];
         (_dialog displayCtrl IDC_OPTIONS_PRESET_3_SLIDER) slidersetRange [100,wmt_param_MaxViewDistance];
-        
+
         (_dialog displayCtrl IDC_OPTIONS_TERRAIN_SLIDER) sliderSetSpeed [100,100];
         (_dialog displayCtrl IDC_OPTIONS_TERRAIN_SLIDER) slidersetRange [wmt_param_MaxViewDistance,wmt_param_MaxViewDistanceTerrain];
 
@@ -65,7 +65,7 @@ switch (_event) do
         if (_index == 0) then {
             (_dialog displayCtrl IDC_OPTIONS_TERRAIN_SLIDER) slidersetRange [_dist,wmt_param_MaxViewDistanceTerrain];
         };
-        
+
         profilenamespace setvariable ['WMT_Profile_ViewDistance_Presets', WMT_Options_ViewDistance];
         ['updateViewDistance'] call WMT_fnc_HandlerOptions;
     };
@@ -162,6 +162,8 @@ switch (_event) do
 
         // Set max distance in first preset
         WMT_Options_ViewDistance set [0, wmt_param_MaxViewDistance];
+
+        ["updateViewDistance"] spawn WMT_fnc_handlerOptions;
     };
     case 'action_vd_preset': {
         WMT_Options_ViewDistance_Preset = _arg;
@@ -175,7 +177,7 @@ switch (_event) do
             setObjectViewDistance _dist;
         } else {
            setViewDistance _dist;
-           setObjectViewDistance _dist; 
+           setObjectViewDistance _dist;
         };
     };
     case 'action_muting': {
@@ -191,6 +193,23 @@ switch (_event) do
             0.1 fadeSound 1;
             missionNameSpace setVariable ["AGM_Hearing_disableVolumeUpdate", false];
             WMT_SoundCurrentLevel = 1;
+        };
+    };
+    case 'addEventHandlers' : {
+        // 103 CA_ValueVisibility
+        // 104 CA_SliderVisibility
+        // 308 CA_ValueObjectVisibility
+        // 309 CA_SliderObjectVisibility
+        _display = _arg select 0;
+        if ( not isnil "wmt_Main_ModuleRunning" ) then {
+            {
+                (_display displayCtrl _x) ctrlEnable false;
+                (_display displayCtrl _x) ctrlSetTooltip localize "STR_WMT_UseWMTOptions"
+            } foreach [104, 309];
+            {
+                (_display displayCtrl _x) ctrlEnable false;
+                (_display displayCtrl _x) ctrlShow false;
+            } foreach [103,308];
         };
     };
 };

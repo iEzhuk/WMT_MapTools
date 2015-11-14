@@ -526,6 +526,10 @@
 				<Original>Save terrain settings</Original>
 				<Russian>Сохранять настроки земли</Russian>
 			</Key>
+            <Key ID="STR_WMT_UseWMTOptions">
+                <Original>Use WMT options (default key: HOME)</Original>
+                <Russian>Используйте настройки WMT (по-умолчанию клавиша HOME)</Russian>
+            </Key>
 		</Container>
 	</Package>
 </Project>
