@@ -105,6 +105,7 @@ switch (_event) do
         if (WMT_Options_Muted) then {
             0.1 fadeSound WMT_Options_Muting;
             missionNameSpace setVariable ["AGM_Hearing_disableVolumeUpdate", true];
+            missionNameSpace setVariable ["ACE_Hearing_disableVolumeUpdate", true];
             WMT_SoundCurrentLevel = WMT_Options_Muting;
         };
     };
@@ -187,11 +188,13 @@ switch (_event) do
             hint format [localize "STR_WMT_ReducedSound", WMT_Options_Muting];
             0.1 fadeSound WMT_Options_Muting;
             missionNameSpace setVariable ["AGM_Hearing_disableVolumeUpdate", true];
+            missionNameSpace setVariable ["ACE_Hearing_disableVolumeUpdate", true];
             WMT_SoundCurrentLevel = WMT_Options_Muting;
         } else {
             hint localize "STR_WMT_RestoredSound";
             0.1 fadeSound 1;
             missionNameSpace setVariable ["AGM_Hearing_disableVolumeUpdate", false];
+            missionNameSpace setVariable ["ACE_Hearing_disableVolumeUpdate", false];
             WMT_SoundCurrentLevel = 1;
         };
     };
