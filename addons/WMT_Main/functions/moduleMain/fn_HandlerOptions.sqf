@@ -198,7 +198,7 @@ switch (_event) do
             WMT_SoundCurrentLevel = 1;
         };
     };
-    case 'addEventHandlers' : {
+    case 'disableOptions' : {
         // 103 CA_ValueVisibility
         // 104 CA_SliderVisibility
         // 308 CA_ValueObjectVisibility

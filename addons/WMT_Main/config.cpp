@@ -53,5 +53,5 @@ class RscTitles {
 
 class RscDisplayOptionsVideo
 {
-    onLoad = "['onLoad',_this,'RscDisplayOptionsVideo','GUI'] call  (uinamespace getvariable 'BIS_fnc_initDisplay'); ['addEventHandlers', _this] call WMT_fnc_HandlerOptions;";
+    onLoad = "['onLoad',_this,'RscDisplayOptionsVideo','GUI'] call  (uinamespace getvariable 'BIS_fnc_initDisplay'); ['disableOptions', _this] call WMT_fnc_HandlerOptions;";
 };
