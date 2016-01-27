@@ -1,6 +1,6 @@
 /*
  	Name: WMT_fnc_InitModuleTaskPoint
- 	
+
  	Author(s):
 		Ezhuk
 */
@@ -18,7 +18,7 @@ if(_activated) then {
 		if(isNil "WMT_Local_PointArray") then {
 			WMT_Local_PointArray = [];
 		};
-		WMT_Local_PointArray set [count WMT_Local_PointArray, _logic]; 
+		WMT_Local_PointArray set [count WMT_Local_PointArray, _logic];
 
 		[_logic, _units, DELAY] spawn {
 
@@ -38,7 +38,7 @@ if(_activated) then {
 			};
 
 			PR(_func_sideToColor) = {
-				switch (_this) do 
+				switch (_this) do
 				{
 					case WEST:		{"ColorBlufor"};
 					case EAST:		{"ColorOpfor"};
@@ -53,7 +53,7 @@ if(_activated) then {
 				PR(_unitList) = [];
 
 				if(count _arrTrg > 0) then {
-					// Add units from first trigger in list 
+					// Add units from first trigger in list
 					_unitList = list (_arrTrg select 0);
 
 					for "_i" from 1 to ((count _arrTrg)-1) do {
@@ -63,7 +63,7 @@ if(_activated) then {
 							PR(_unit) = _lst select _k;
 							// Checking the  double detection
 							if !(_unit in _unitList) then {
-								// Push in unit list 
+								// Push in unit list
 								_unitList = _unitList + [_unit];
 							};
 						};
@@ -115,7 +115,7 @@ if(_activated) then {
 
 			PR(_condition) = compile (_logic getVariable ["Condition","true"]);
 
-			// Remove spaces 
+			// Remove spaces
 			_markerStr = toString ((toArray _markerStr) - [32]);
 
 			PR(_arrMarkers) = [_markerStr,","] call Bis_fnc_splitString;
@@ -158,7 +158,7 @@ if(_activated) then {
 							_cs = _x;
 						};
 					};
-				} foreach [west, east, resistance, civilian];
+				} foreach [west, east, resistance];
 
 				PR(_captured) = 0;
 
@@ -214,8 +214,8 @@ if(_activated) then {
 			};
 
 			//Remove trigers
-			{deleteVehicle  _x} foreach _arrTrgs; 
-			
+			{deleteVehicle  _x} foreach _arrTrgs;
+
 			_logic setVariable ["WMT_TaskEnd", true, true];
 		};
 	};
@@ -232,7 +232,7 @@ if(_activated) then {
 					_side  = (_this select 1) select 0;
 					_logic = (_this select 1) select 1;
 
-					_msg = _logic getVariable "Message";	
+					_msg = _logic getVariable "Message";
 
 					[_side, _msg] call WMT_fnc_ShowTaskNotification;
 				};
