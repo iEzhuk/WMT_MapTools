@@ -13,12 +13,7 @@
         Nothing
 */
 
-#define PR(x) private ['x']; x
-
-
-"WMT_fnc_BriefingMissionParameters" call Bis_fnc_log;
-
-PR(_text) = "";
+private _text = "";
 
 if(!isNil "wmt_param_MaxViewDistance") then {
     _text = _text + format ["%1 <font color='#c7861b'>%2</font><br/>",

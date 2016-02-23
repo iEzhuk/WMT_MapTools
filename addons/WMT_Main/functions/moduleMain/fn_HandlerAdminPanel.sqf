@@ -28,8 +28,6 @@ switch (_event) do
         uiNamespace setVariable ["WMT_Dialog_Menu", _dialog];
         _dialog displayAddEventHandler ["MouseMoving", "true"];
 
-
-
         if ( missionNamespace getVariable ["WMT_pub_frzState", 100] >= 3 ) then {
             (_dialog displayCtrl IDD_ADMINPANEL_FREEZETIME) ctrlShow false;
             (_dialog displayCtrl IDD_ADMINPANEL_FREEZEADD5) ctrlShow false;
