@@ -14,13 +14,16 @@
     Returns:
         STRING: short name of the group
 */
-#define PR(x) private ['x']; x
+private _longGr  = _this;
+private _arr     = [_longGr, " -"] call BIS_fnc_splitString;
+private _shortGr = _longGr;
 
-PR(_longGr) = _this;
-PR(_arr) = [_longGr, " -"] call BIS_fnc_splitString;
-PR(_shortGr) = _longGr;
-if (count _arr >= 2) then {
-    PR(_frstLttr) = [_arr select 0, 0, 0] call BIS_fnc_trimString;
+if (count _arr >= 2 and count (_arr select 0) >= 1) then {
+    private _frstLttr = (_arr select 0) select [0,1];
+    if (language == "Russian") then {
+        _frstLttr = (_arr select 0) select [0,2];
+    };
     _shortGr = _frstLttr + (_arr select 1) + "-" + (_arr select 2);
 };
+
 _shortGr;
