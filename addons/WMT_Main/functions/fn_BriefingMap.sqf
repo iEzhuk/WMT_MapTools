@@ -93,6 +93,9 @@ wmt_mapadded = false;
             };
         };
     };
+    if (!visibleMap and ("ItemMapFake_WMT" in assignedItems player)) then {
+        player unlinkItem "ItemMapFake_WMT";
+    };
 }, 50, "frames", {time > 0.5},{!alive player}]] call BIS_fnc_loop;
 
 
