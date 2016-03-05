@@ -7,11 +7,9 @@
     Description:
         Initialize time module
 */
-#define PR(x) private ['x']; x
-
-PR(_logic) = [_this,0,objNull,[objNull]] call BIS_fnc_param;
-PR(_units) = [_this,1,[],[[]]] call BIS_fnc_param;
-PR(_activated) = [_this,2,true,[true]] call BIS_fnc_param;
+private _logic = [_this,0,objNull,[objNull]] call BIS_fnc_param;
+private _units = [_this,1,[],[[]]] call BIS_fnc_param;
+private _activated = [_this,2,true,[true]] call BIS_fnc_param;
 
 if(_activated) then {
     if ( not isnil "wmt_Time_ModuleRunning" ) exitWith {};

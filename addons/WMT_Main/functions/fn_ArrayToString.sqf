@@ -14,9 +14,8 @@
     Returns:
         STRING
 */
-private ["_arr","_count","_res"];
-
-_arr = _this select 0;
+private ["_arr", "_count", "_res"];
+params ["_arr"];
 _count = count _arr;
 _res = "";
 {

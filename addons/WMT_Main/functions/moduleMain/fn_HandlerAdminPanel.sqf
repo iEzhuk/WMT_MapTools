@@ -14,17 +14,16 @@
     Returns:
         BOOL: for standart handlers
 */
-#include "defines_WMT.sqf"
 #include "defines_IDC.sqf"
 
-PR(_event) = _this select 0;
-PR(_arg) = _this select 1;
-PR(_return) = false;
+private _event = _this select 0;
+private _arg = _this select 1;
+private _return = false;
 
 switch (_event) do
 {
     case "init": {
-        PR(_dialog) = _arg select 0;
+        private _dialog = _arg select 0;
         uiNamespace setVariable ["WMT_Dialog_Menu", _dialog];
         _dialog displayAddEventHandler ["MouseMoving", "true"];
 
@@ -42,8 +41,8 @@ switch (_event) do
         uiNamespace setVariable ["WMT_Dialog_Menu", nil];
     };
     case "announcement": {
-        PR(_dialog) = uiNamespace getVariable "WMT_Dialog_Menu";
-        PR(_text) = ctrlText (_dialog displayCtrl IDC_ADMINPANEL_TEXT);
+        private _dialog = uiNamespace getVariable "WMT_Dialog_Menu";
+        private _text = ctrlText (_dialog displayCtrl IDC_ADMINPANEL_TEXT);
 
         if(_text != "")then
         {
@@ -60,35 +59,33 @@ switch (_event) do
         closeDialog 0;
     };
     case "endMission": {
-        PR(_dialog) = uiNamespace getVariable "WMT_Dialog_Menu";
-        PR(_text) = ctrlText (_dialog displayCtrl IDC_ADMINPANEL_TEXT);
+        private _dialog = uiNamespace getVariable "WMT_Dialog_Menu";
+        private _text = ctrlText (_dialog displayCtrl IDC_ADMINPANEL_TEXT);
 
         if(_text != "")then
         {
             WMT_Global_EndMission = [_text];
-
             publicVariable "WMT_Global_EndMission";
-            [ [ [WMT_Global_EndMission], {(_this select 0) call WMT_fnc_EndMission;} ],"bis_fnc_spawn"] call bis_fnc_mp;
-
+            [[[WMT_Global_EndMission], {(_this select 0) call WMT_fnc_EndMission;}], "bis_fnc_spawn"] call bis_fnc_mp;
             closeDialog 0;
         }else{
             hint localize "STR_WMT_EmptyTextField";
         };
-
         closeDialog 0;
     };
     case "loop" : {
         [_arg] spawn {
             disableSerialization;
 
-            PR(_dialog) = _this select 0;
-            PR(_ctrlTime) = _dialog displayCtrl IDD_ADMINPANEL_TEXTTIME;
+            private _dialog = _this select 0;
+            private _ctrlTime = _dialog displayCtrl IDD_ADMINPANEL_TEXTTIME;
 
             if (isNil "wmt_param_MissionTime") then {
                 _ctrlTime ctrlSetText format ["%1:   --:--",localize "STR_WMT_TimeLeft"];
             } else {
+                private ["_min", "_sec", "_text"];
                 while {(uiNamespace getVariable ["WMT_Dialog_Menu",displayNull]) == _dialog} do {
-                    PR(_leftTime) = (WMT_Local_LeftTime select 1);
+                    private _leftTime = (WMT_Local_LeftTime select 1);
 
                     if (WMT_Local_LeftTime select 2) then {
                         _leftTime = _leftTime - (diag_tickTime - (WMT_Local_LeftTime select 0));
@@ -96,9 +93,9 @@ switch (_event) do
 
                     _leftTime = 0 max _leftTime;
 
-                    PR(_min) = floor(_leftTime/60);
-                    PR(_sec) = floor(_leftTime%60);
-                    PR(_text) = "";
+                    _min = floor(_leftTime/60);
+                    _sec = floor(_leftTime%60);
+                    _text = "";
 
                     if(_sec<10) then {
                         _text = format ["%1:   %2:0%3",localize "STR_WMT_TimeLeft", _min, _sec];
@@ -113,14 +110,14 @@ switch (_event) do
         };
         [_arg] spawn  {
             disableSerialization;
-            PR(_dialog) = _this select 0;
-            PR(_ctrlTime) = _dialog displayCtrl IDD_ADMINPANEL_FREEZETIME;
+            private ["_dialog", "_ctrlTime", "_leftTime", "_min", "_sec", "_text"];
+            _dialog = _this select 0;
+            _ctrlTime = _dialog displayCtrl IDD_ADMINPANEL_FREEZETIME;
             while {(uiNamespace getVariable ["WMT_Dialog_Menu",displayNull]) == _dialog && missionNamespace getVariable ['WMT_pub_frzState',100] < 3} do {
-
-                PR(_leftTime) = 0 max WMT_pub_frzTimeLeft;
-                PR(_min) = floor(_leftTime/60);
-                PR(_sec) = floor(_leftTime%60);
-                PR(_text) = "";
+                _leftTime = 0 max WMT_pub_frzTimeLeft;
+                _min = floor(_leftTime/60);
+                _sec = floor(_leftTime%60);
+                _text = "";
 
                 if(_sec<10) then {
                     _text = format ["%1:   %2:0%3",localize "STR_WMT_TimeLeftFreeze", _min, _sec];
@@ -143,14 +140,14 @@ switch (_event) do
     };
     case "changeTime" : {
         if !(isNil "wmt_param_MissionTime") then {
-            PR(_deltaTime) = _arg; // minutes
+            private _deltaTime = _arg; // minutes
 
             // Change mission time
             wmt_param_MissionTime = wmt_param_MissionTime + _deltaTime;
             publicVariable "wmt_param_MissionTime";
 
             // Syncronize time left for spectators
-            PR(_timeLeft) = ((WMT_Local_LeftTime select 1) + _deltaTime*60);
+            private _timeLeft = ((WMT_Local_LeftTime select 1) + _deltaTime*60);
             if (WMT_Local_LeftTime select 2) then {
                 _timeLeft = _timeLeft - (diag_tickTime - (WMT_Local_LeftTime select 0));
             };
@@ -172,7 +169,7 @@ switch (_event) do
     };
 
     case "freezeTime" : {
-        PR(_deltaTime) = _arg; // minutes
+        private _deltaTime = _arg; // minutes
         WMT_pub_frzTimeLeft = WMT_pub_frzTimeLeft + _deltaTime * 60;
         publicVariable "WMT_pub_frzTimeLeft";
 

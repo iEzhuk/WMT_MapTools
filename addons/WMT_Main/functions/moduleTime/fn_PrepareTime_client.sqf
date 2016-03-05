@@ -15,10 +15,9 @@
 	Returns:
 		Nothing
 */
-#define PR(x) private ['x']; x
 
-PR(_freeztime) = (_this select 0)*60;
-PR(_distance) = _this select 1;
+private _freeztime = (_this select 0)*60;
+private _distance = _this select 1;
 
 waitUntil {not isNull player};
 
@@ -30,7 +29,7 @@ if (isNil "WMT_pub_frzTimeLeft") then { WMT_pub_frzTimeLeft = _freeztime; };
 if (isNil "WMT_pub_frzBeginDate") then {WMT_pub_frzBeginDate = date;};
 
 
-if (_freeztime ==0 ) then { WMT_pub_frzState = 3; };
+if (_freeztime == 0) then { WMT_pub_frzState = 3; };
 
 if (WMT_pub_frzState == 0 and _freeztime > 0) then {
 	WMT_pub_frzState = 1;

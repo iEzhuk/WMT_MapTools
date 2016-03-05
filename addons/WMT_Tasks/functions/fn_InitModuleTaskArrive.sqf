@@ -1,46 +1,43 @@
 /*
- 	Name: WMT_fnc_InitModuleTaskArrive
- 	
- 	Author(s):
+	 Name: WMT_fnc_InitModuleTaskArrive
+
+	 Author(s):
 		Ezhuk
 */
-
 #include "defines.sqf"
 
-PR(_logic) = [_this,0,objNull,[objNull]] call BIS_fnc_param;
-PR(_units) = [_this,1,[],[[]]] call BIS_fnc_param;
-PR(_activated) = [_this,2,true,[true]] call BIS_fnc_param;
+private _logic = [_this,0,objNull,[objNull]] call BIS_fnc_param;
+private _units = [_this,1,[],[[]]] call BIS_fnc_param;
+private _activated = [_this,2,true,[true]] call BIS_fnc_param;
 
 if(_activated) then {
-
 	//===============================================================
 	// 							Server part
 	//===============================================================
 	if(isServer) then {
 		[_logic, _units, DELAY] spawn {
-			PR(_logic) = _this select 0;
-			PR(_units) = _this select 1;
-			PR(_delay) = _this select 2;
-			
-			PR(_marker) = _logic getVariable "Marker";
-			PR(_message)= _logic getVariable "Message";
-			PR(_count)  = _logic getVariable "Count";
-			PR(_winner)	= [east,west,resistance,civilian,sideLogic] select (_logic getVariable "Winner");
+			params ["_logic", "_units", "_delay"];
+			private ["_marker", "_message", "_count", "_winner", "_condition", "", "", ""];
+			_marker = _logic getVariable "Marker";
+			_message= _logic getVariable "Message";
+			_count  = _logic getVariable "Count";
+			_winner	= [east,west,resistance,civilian,sideLogic] select (_logic getVariable "Winner");
 
-			PR(_condition) = compile (_logic getVariable ["Condition","true"]);
+			_condition = compile (_logic getVariable ["Condition","true"]);
 
-			PR(_c) = 0;
-			PR(_objs) = _units;
+			private ["_countArrived", "_objs", "_tempObjs"];
+			_countArrived = 0;
+			_objs = _units;
 
 			sleep _delay;
 
-			while { !(_c>=_count && call _condition) } do 
+			while { !(_countArrived>=_count && call _condition) } do
 			{
-				PR(_o) = _objs;
+				_tempObjs = _objs;
 				{
 					if ([_x,_marker] call WMT_fnc_IsTheUnitInsideMarker) then {
 						private ["_name", "_text"];
-						_c = _c + 1;
+						_countArrived = _countArrived + 1;
 						_objs = _objs - [_x];
 
 						WMT_Global_Notice_ObjectArrived = [_winner, _x];
@@ -52,7 +49,7 @@ if(_activated) then {
 						[_winner, _text] call WMT_fnc_ShowTaskNotification;
 
 					};
-				} foreach _o;
+				} foreach _tempObjs;
 
 				sleep 4.13;
 			};

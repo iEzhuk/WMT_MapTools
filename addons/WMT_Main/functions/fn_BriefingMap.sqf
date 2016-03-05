@@ -15,7 +15,6 @@
     Returns:
         Nothing
 */
-
 if ( not isnil "WMT_fnc_BriefingMap_Running" ) exitWith {
     diag_log "WMT_fnc_BriefingMap_Running: double initialization";
 };
@@ -95,6 +94,7 @@ wmt_mapadded = false;
     };
     if (!visibleMap and ("ItemMapFake_WMT" in assignedItems player)) then {
         player unlinkItem "ItemMapFake_WMT";
+        player removeItems "ItemMapFake_WMT";
     };
 }, 50, "frames", {time > 0.5},{!alive player}]] call BIS_fnc_loop;
 

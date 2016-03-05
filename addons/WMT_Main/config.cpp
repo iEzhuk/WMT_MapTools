@@ -44,7 +44,8 @@ class CfgFactionClasses
     };
 };
 
-class RscTitles {
+class RscTitles
+{
     #include "resource\RscWMTDisableTI.h"
     #include "resource\RscWMTNameTag.h"
     #include "resource\RscWMTDogTag.h"

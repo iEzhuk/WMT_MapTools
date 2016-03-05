@@ -16,11 +16,10 @@
     Returns:
         Nothing
 */
-#define PR(x) private ['x']; x
+private _side = if (isNull player ) then {sideUnknown} else {playerSide};
+private _text = "";
+private _markers = [];
 
-PR(_side) = if (isNull player ) then {sideUnknown} else {playerSide};
-PR(_text) = "";
-PR(_markers) = [] ;
 for "_x" from 0 to (count _this)-1 do {
     _a = _this select _x;
     switch true do {
@@ -30,14 +29,15 @@ for "_x" from 0 to (count _this)-1 do {
     };
 };
 
-PR(_mcolor) = [_side, true] call bis_fnc_sidecolor;
-PR(_tcolor) = [_side] call bis_fnc_sidecolor call BIS_fnc_colorRGBtoHTML ;
-hint composeText [parsetext format["<t size='1' align='center' color='%2'>%1</t>",_text,_tcolor]];
-PR(_playerside) = if (isNull player ) then {_side} else {playerSide};
-PR(_notifyType) = if ( [_playerSide ,_side] call BIS_fnc_areFriendly ) then {"TaskSucceeded"} else {"TaskFailed"};
-[_notifyType,[0, _text]] call bis_fnc_showNotification;
+private _mcolor = [_side, true] call bis_fnc_sidecolor;
+private _tcolor = [_side] call bis_fnc_sidecolor call BIS_fnc_colorRGBtoHTML ;
+// hint composeText [parsetext format["<t size='1' align='center' color='%2'>%1</t>",_text,_tcolor]];
+private _playerside = if (isNull player ) then {_side} else {playerSide};
+private _notifyType = if ( [_playerSide ,_side] call BIS_fnc_areFriendly ) then {"TaskSucceeded"} else {"TaskFailed"};
+[_notifyType, [0, _text]] call bis_fnc_showNotification;
+
 {
-    if ( markerAlpha _x != 0 ) then {
+    if (markerAlpha _x != 0) then {
         switch (markerSHape _x) do {
             case ("ICON") : {
                 ["destroyed"+str(time)+str(_x),getMarkerPos _x, "", _mcolor, "mil_objective" ] call WMT_fnc_CreateLocalMarker;

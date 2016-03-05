@@ -50,4 +50,9 @@ if(!isNil "wmt_param_TI") then {
     };
 };
 
+private _author = getmissionconfigvalue ["author",""];
+if (_author != "") then {
+    _text = _text + format ["<br/>%1: <font color='#c7861b'>%2</font><br/>", localize "STR_WMT_Author", _author];
+};
+
 ["diary",localize "STR_WMT_MissionParameters", _text] call WMT_fnc_CreateDiaryRecord;

@@ -4,17 +4,8 @@
     Author(s):
         Ezhuk
 */
-#include "defines_WMT.sqf"
-private ["_logic", "_units", "_owner", "_center", "_markers", "_hideFromEnemy", "_time", "_markerSide", "_action"];
-
-_logic = _this select 0;
-_units = _this select 1;
-_owner = _this select 2;
-_markers = _this select 3;
-_time = _this select 4;
-_markerSide = _this select 5;
-_text = _this select 6;
-
+private ["_center", "_hideFromEnemy", "_action"];
+params ["_logic", "_units", "_owner", "_markers", "_time", "_markerSide", "_text"];
 
 waitUntil{!isNil {player}};
 

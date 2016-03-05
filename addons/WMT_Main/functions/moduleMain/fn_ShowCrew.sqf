@@ -13,7 +13,7 @@
     Returns:
         Nothing
 */
-private ["_rsc","_veh","_text","_control"];
+private ["_rsc", "_veh", "_text", "_control", "_icon"];
 
 disableSerialization;
 
@@ -25,7 +25,6 @@ _text    = "<br/>";
 if((alive player) && (_veh != player) && (alive _veh)) then
 {
     {
-        private ["_icon"];
         _icon = switch (true) do {
                     case (_x == driver _veh): {"getindriver_ca.paa"};
                     case (_x == gunner _veh): {"getingunner_ca.paa"};
@@ -38,7 +37,6 @@ if((alive player) && (_veh != player) && (alive _veh)) then
         if(_forEachIndex == 0) then {
             _text = _text + format ["<t size='1.5' color='#eeeeff'> (%1)</t>",count crew _veh];
         };
-
         _text = _text + "<br/>";
     } forEach crew _veh;
 };

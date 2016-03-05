@@ -14,23 +14,21 @@
     Returns:
         BOOL: for standart handlers
 */
-#include "defines_WMT.sqf"
 #include "defines_IDC.sqf"
 
-PR(_event) = _this select 0;
-PR(_arg) = _this select 1;
-PR(_return) = false;
+private _event = _this select 0;
+private _arg = _this select 1;
+private _return = false;
 
 switch (_event) do
 {
     case "init": {
-        PR(_dialog) = _arg select 0;
+        private _dialog = _arg select 0;
         uiNamespace setVariable ["WMT_Dialog_Menu", _dialog];
         if(serverCommandAvailable('#kick')) then {
 
             (_dialog displayCtrl IDC_MENU_ADMIN) ctrlSetText localize 'STR_WMT_AdminPanel';
         };
-
 
         if ( missionNamespace getVariable ["WMT_pub_frzState", 100] < 3 && (leader player == player || serverCommandAvailable('#kick')) ) then {
             (_dialog displayCtrl IDC_MENU_TEAM_READY) ctrlShow true;
@@ -40,7 +38,7 @@ switch (_event) do
             (_dialog displayCtrl IDC_MENU_TEAM_NOT_READY) ctrlShow false;
         };
 
-        if(isNil "WMT_global_EnableConsole") then {
+        if (isNil "WMT_global_EnableConsole") then {
             WMT_global_EnableConsole = [];
         };
 
@@ -54,12 +52,10 @@ switch (_event) do
         closeDialog 0;
         [] call WMT_fnc_FreezeVoteStart;
     };
-
     case "teamnotready" : {
         closeDialog 0;
         [] call WMT_fnc_FreezeVoteWait;
     };
-
     case "close": {
         uiNamespace setVariable ["WMT_Dialog_Menu", nil];
     };

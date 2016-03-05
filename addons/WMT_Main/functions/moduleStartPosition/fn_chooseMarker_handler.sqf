@@ -4,33 +4,30 @@
     Author(s):
         Ezhuk
 */
-
-#include "defines_WMT.sqf"
 #include "defines_IDC.sqf"
 #include "..\defines_KEY.sqf"
 
-PR(_event) = _this select 0;
-PR(_arg) = _this select 1;
-PR(_return) = false;
+params ["_event", "_arg"];
+private _return = false;
 
 switch (_event) do
 {
     case "init":{
-        PR(_display) = _arg select 0;
+        private _display = _arg select 0;
         uiNamespace setVariable ['WMT_StartPos_Disaplay', _display];
 
-        PR(_ctrlText) = _display displayCtrl IDC_STARTPOS_TEXT;
+        private _ctrlText = _display displayCtrl IDC_STARTPOS_TEXT;
         _ctrlText ctrlSetText wmt_startPos_text;
 
         // Show selected position on map
-        PR(_selectedMarker) = wmt_startPos_param getVariable ["IndexPosition",-1];
+        private _selectedMarker = wmt_startPos_param getVariable ["IndexPosition",-1];
         if (_selectedMarker!=-1) then {
-            PR(_ctrlMap) = _display displayCtrl IDC_STARTPOS_MAP;
+            private _ctrlMap = _display displayCtrl IDC_STARTPOS_MAP;
             _ctrlMap ctrlMapAnimAdd [0.5, 0.3, getMarkerPos (wmt_startPos_marker select _selectedMarker)];
             ctrlMapAnimCommit _ctrlMap;
 
 
-            PR(_textMarker) = markerText (wmt_startPos_marker select _selectedMarker);
+            private _textMarker = markerText (wmt_startPos_marker select _selectedMarker);
             if (_textMarker=="") then {
                 _textMarker = str(_selectedMarker+1);
             };
@@ -62,13 +59,13 @@ switch (_event) do
         createDialog "RscWMTChooseMarker";
     };
     case "mapClick":{
-        PR(_pos) = _arg;
-        PR(_nearestMarker) = -1;
-        PR(_nearestDist) = 300;
+        private _pos = _arg;
+        private _nearestMarker = -1;
+        private _nearestDist = 300;
 
         for "_i" from 0 to ((count wmt_startPos_marker)-1) do {
-            PR(_marker) = wmt_startPos_marker select _i;
-            PR(_dist) = _pos distance (getMarkerPos _marker);
+            private _marker = wmt_startPos_marker select _i;
+            private _dist = _pos distance (getMarkerPos _marker);
             if (_dist < _nearestDist) then {
                 _nearestDist = _dist;
                 _nearestMarker = _i;
@@ -76,20 +73,18 @@ switch (_event) do
         };
 
         if (_nearestMarker != -1) then {
+            private ["_marker"];
             for "_i" from 0 to ((count wmt_startPos_marker)-1) do {
-                PR(_marker) = wmt_startPos_marker select _i;
+                _marker = wmt_startPos_marker select _i;
                 _marker setMarkerAlphaLocal 0.7;
             };
             (wmt_startPos_marker select _nearestMarker) setMarkerAlphaLocal 1.0;
 
             [wmt_startPos_param, _nearestMarker] call wmt_startPos_setIndex;
 
-
-
-            PR(_display) = uiNamespace getVariable ['WMT_StartPos_Disaplay', displayNull];
-            PR(_ctrlText) = _display displayCtrl IDC_STARTPOS_TEXT;
-
-            PR(_textMarker) = markerText (wmt_startPos_marker select _nearestMarker);
+            private _display = uiNamespace getVariable ['WMT_StartPos_Disaplay', displayNull];
+            private _ctrlText = _display displayCtrl IDC_STARTPOS_TEXT;
+            private _textMarker = markerText (wmt_startPos_marker select _nearestMarker);
             if (_textMarker=="") then {
                 _textMarker = str(_nearestMarker+1);
             };
@@ -103,13 +98,13 @@ switch (_event) do
     case "net_activity":
     {
         disableSerialization;
-        PR(_intervalOn)  = [_arg, 0, 0.2] call BIS_fnc_param;
-        PR(_intervalOff) = [_arg, 1, 0.08] call BIS_fnc_param;
-        PR(_count)       = [_arg, 2, 7] call BIS_fnc_param;
-        PR(_stayOn)      = [_arg, 3, false] call BIS_fnc_param;
+        private _intervalOn  = [_arg, 0, 0.2] call BIS_fnc_param;
+        private _intervalOff = [_arg, 1, 0.08] call BIS_fnc_param;
+        private _count       = [_arg, 2, 7] call BIS_fnc_param;
+        private _stayOn      = [_arg, 3, false] call BIS_fnc_param;
 
-        PR(_display) = uiNamespace getVariable ['WMT_StartPos_Disaplay', displayNull];
-        PR(_ctrlLed) = _display displayCtrl IDC_STARTPOS_LEDNET;
+        private _display = uiNamespace getVariable ['WMT_StartPos_Disaplay', displayNull];
+        private _ctrlLed = _display displayCtrl IDC_STARTPOS_LEDNET;
 
         if !(isNil "wmt_startPos_netactivity_mutex") exitWith {
             wmt_startPos_netactivity_mutex = [_intervalOn, _intervalOff, _count, _stayOn];
@@ -126,7 +121,6 @@ switch (_event) do
             wmt_startPos_netactivity_mutex set [2, (wmt_startPos_netactivity_mutex select 2)-1];
         };
 
-
         _ctrlLed ctrlShow (wmt_startPos_netactivity_mutex select 3);
 
         wmt_startPos_netactivity_mutex = nil;
@@ -134,14 +128,13 @@ switch (_event) do
     case "hdd_activity":
     {
         disableSerialization;
-        PR(_intervalOn)  = [_arg, 0, 0.2] call BIS_fnc_param;
-        PR(_intervalOff) = [_arg, 1, 0.1] call BIS_fnc_param;
-        PR(_count)       = [_arg, 2, 2] call BIS_fnc_param;
-        PR(_stayOn)      = [_arg, 3, false] call BIS_fnc_param;
+        private _intervalOn  = [_arg, 0, 0.2] call BIS_fnc_param;
+        private _intervalOff = [_arg, 1, 0.1] call BIS_fnc_param;
+        private _count       = [_arg, 2, 2] call BIS_fnc_param;
+        private _stayOn      = [_arg, 3, false] call BIS_fnc_param;
 
-        PR(_display) = uiNamespace getVariable ['WMT_StartPos_Disaplay', displayNull];
-        PR(_ctrlLed) = _display displayCtrl IDC_STARTPOS_LEDHDD;
-
+        private _display = uiNamespace getVariable ['WMT_StartPos_Disaplay', displayNull];
+        private _ctrlLed = _display displayCtrl IDC_STARTPOS_LEDHDD;
 
         if !(isNil "wmt_startPos_hddactivity_mutex") exitWith {
             wmt_startPos_hddactivity_mutex = [_intervalOn, _intervalOff, _count, _stayOn];

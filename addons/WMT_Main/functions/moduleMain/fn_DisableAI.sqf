@@ -9,12 +9,10 @@
 
     Parameters:
         Nothing
-    
+
     Returns:
         Nothing
 */
-
-
 {
     _x disableAI "AUTOTARGET";
     _x disableAI "TARGET";

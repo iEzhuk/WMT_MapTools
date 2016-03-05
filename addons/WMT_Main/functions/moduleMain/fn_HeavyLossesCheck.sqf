@@ -16,7 +16,6 @@ if (not isServer) exitWith {};
 if (!isNil "wmt_hl_disable") exitwith {diag_log "HeavyLossesCheck disabled";};
 
 sleep 60;
-waitUntil { sleep 1.5; time > 60 };
 waitUntil { sleep 1.5; (missionNamespace getvariable ["WMT_pub_frzState",3]) >=3 };
 
 wmt_playerCountInit = [ {side _x == east and isPlayer _x} count playableUnits,  {side _x == west and isPlayer _x} count playableUnits,  {side _x == resistance and isPlayer _x} count playableUnits ];
@@ -28,6 +27,7 @@ if (isnil "wmtPlayerCountEmptySides") then { wmtPlayerCountEmptySides = [civilia
         wmtPlayerCountEmptySides = wmtPlayerCountEmptySides + [_x];
     };
 } foreach [east, west, resistance];
+
 
 private "_fnc_checkRatiosForSides";
 _fnc_checkRatiosForSides = {
@@ -48,7 +48,11 @@ _fnc_checkRatiosForSides = {
 
 
 private ["_enemysides","_ratios","_enemyratio","_enemy"];
-wmt_PlayerCountNow = [{side _x == east and isPlayer _x} count playableUnits,{side _x == west and isPlayer _x} count playableUnits,{side _x == resistance and isPlayer _x} count playableUnits];
+wmt_PlayerCountNow = [
+    {side _x == east and isPlayer _x} count playableUnits,
+    {side _x == west and isPlayer _x} count playableUnits,
+    {side _x == resistance and isPlayer _x} count playableUnits
+];
 diag_log ["HeavyLosses start", wmt_PlayerCountNow, wmt_playerCountInit, wmtPlayerCountEmptySides, count playableUnits, {isplayer _x} count playableunits];
 while {isNil "wmt_hl_disable"} do {
     wmt_PlayerCountNow = [

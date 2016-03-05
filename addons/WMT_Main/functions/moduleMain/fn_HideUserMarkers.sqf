@@ -13,8 +13,6 @@
     Returns:
         Nothing
 */
-
-
 if (!hasInterface) exitWith{};
 
 ["itemAdd", ["wmthideusermarkers",

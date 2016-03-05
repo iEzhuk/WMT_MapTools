@@ -1,13 +1,8 @@
-
-  /*
+/*
     Name:
-
     Author(s):
         Zealot
-
     Description:
-
-
     Parameters:
         Nothing
     Returns:
@@ -18,7 +13,6 @@
 if (not isServer) exitWith {};
 wmt_global_srvBrfData = [];
 
-
 private _tempData = [];
 private _vehinfo = [];
 private _grpinfo = [];
@@ -26,9 +20,6 @@ private _side = civilian;
 private _units = [];
 private _group = [];
 private _playersGr = 0;
-
-
-
 
 private _vehicles = []; // vehicles to show in briefing as belong to either sides
 private _boxes = []; // ammoboxes to show in "Vehicle inventory" tab only
@@ -44,7 +35,6 @@ private _boxes = []; // ammoboxes to show in "Vehicle inventory" tab only
         };
     };
 } foreach vehicles;
-
 
 // данные техники ["V", [координаты], "класс", сторона]
 {
@@ -76,7 +66,6 @@ private _boxes = []; // ammoboxes to show in "Vehicle inventory" tab only
 } foreach _boxes;
 
 // данные отряда ["S", [координаты], "GroupID", сторона, число игроков, "имя лидера",[юниты] ]
-
 {
     if ((leader _x) in playableUnits and (_x getVariable ["wmt_show", true]) ) then {
         _grpinfo = ["S"];

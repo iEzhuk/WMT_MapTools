@@ -15,11 +15,7 @@
     Returns:
         Nothing
 */
-#define PR(x) private ['x']; x
-
-PR(_d)      = _this select 0;
-PR(_head)   = _this select 1;
-PR(_text)   = _this select 2;
+params ["_d", "_head", "_text"];
 
 if(_text != "")then{
     if(_text != "_")then{

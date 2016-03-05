@@ -13,16 +13,14 @@
     Returns:
         Nothing
 */
-#define PR(x) private ['x']; x
-
 if (not isClass (configFile >> "CfgPatches" >> "task_force_radio_items")) exitwith {diag_log "DefaultFreqServer TF radio not initialized"};
 
 tf_same_sw_frequencies_for_side = false;tf_same_lr_frequencies_for_side = true; f_same_dd_frequencies_for_side = true;
 
-PR(_radio) = [-2,2,32,64,100,400];
-PR(_genFreq) = {
+private _radio = [-2,2,32,64,100,400];
+private _genFreq = {
     private ["_state","_num","_isinbl","_l1","_l2"];
-    PR(_state) = _this select 0;
+    private _state = _this select 0;
     if (isNil "wmt_frqBlackList") then {
         wmt_frqBlackList = [0];
     };
@@ -48,13 +46,11 @@ PR(_genFreq) = {
     _num;
 };
 
-
-PR(_genFreqArray) = {
+private _genFreqArray = {
     [_this call _genFreq, _this call _genFreq, _this call _genFreq];
 };
 
-PR(_freqList) = [];
-
+private _freqList = [];
 {
     _num = 0;
     switch true do {
@@ -78,8 +74,7 @@ if (isNil "TF_MAX_CHANNELS") then {
     call compile preprocessFileLineNumbers "\task_force_radio\functions\common.sqf";
 };
 
-
-call TFAR_fnc_processGroupFrequencySettings;
+[] call TFAR_fnc_processGroupFrequencySettings;
 
 {
     _num = [1] call _genFreqArray ;

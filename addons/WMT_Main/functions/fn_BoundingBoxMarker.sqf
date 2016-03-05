@@ -19,7 +19,6 @@
         [this] call WMT_fnc_BoundingBoxMarker
         [this,"ColorGrey",0.5] call WMT_fnc_BoundingBoxMarker
 */
-
 private ["_obj","_id","_logic","_bbox","_b1","_b2","_bbx","_bby","_marker"];
 
 if(!hasInterface)exitWith{};

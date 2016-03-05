@@ -1,17 +1,17 @@
 /*
-    Name: WMT_fnc_PrecompileMain
+	Name: WMT_fnc_PrecompileMain
 
-    Author(s):
-        Ezhuk
+	Author(s):
+		Ezhuk
 
-    Description:
-        Compile functions
+	Description:
+		Compile functions
 
-    Parameters:
-        Nothing
+	Parameters:
+		Nothing
 
-    Returns:
-        Nothing
+	Returns:
+		Nothing
 */
 
 
@@ -19,7 +19,6 @@
 WMT_fnc_Announcement                = compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\fn_Announcement.sqf");
 WMT_fnc_ArrayToString               = compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\fn_ArrayToString.sqf");
 WMT_fnc_GetVehicles                 = compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\fn_GetVehicles.sqf");
-WMT_fnc_Evh                         = compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\fn_evh.sqf");
 WMT_fnc_BriefingTimer               = compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\fn_BriefingTimer.sqf");
 
 
@@ -43,6 +42,7 @@ WMT_fnc_NameTag                     = compileFinal preprocessFileLineNumbers  ("
 WMT_fnc_KeyHandlerShowCrew          = compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\moduleMain\fn_KeyHandlerShowCrew.sqf");
 WMT_fnc_PlayerKilled                = compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\moduleMain\fn_PlayerKilled.sqf");
 WMT_fnc_PrepareBriefingInfo         = compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\moduleMain\fn_PrepareBriefingInfo.sqf");
+WMT_fnc_Reequip                     = compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\fn_reequip.sqf");
 WMT_fnc_ShowBriefingInfo            = compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\moduleMain\fn_ShowBriefingInfo.sqf");
 WMT_fnc_ShowCrew                    = compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\moduleMain\fn_ShowCrew.sqf");
 WMT_fnc_ShowStatistic               = compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\moduleMain\fn_ShowStatistic.sqf");
@@ -68,8 +68,5 @@ WMT_fnc_RemoveBots                  = compileFinal preprocessFileLineNumbers  ("
 WMT_fnc_InitModuleStartPosition     = compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\moduleStartPosition\fn_InitModuleStartPosition.sqf");
 WMT_fnc_startPosition_server        = compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\moduleStartPosition\fn_startPosition_server.sqf");
 WMT_fnc_startPosition_client        = compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\moduleStartPosition\fn_startPosition_client.sqf");
-WMT_fnc_chooseMarker_handler    = compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\moduleStartPosition\fn_chooseMarker_handler.sqf");
-WMT_fnc_reEquip			= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\fn_reequip.sqf");
-WMT_fnc_GetItemConfigEntry	= compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\fn_GetItemConfigEntry.sqf");
-
-
+WMT_fnc_chooseMarker_handler        = compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\moduleStartPosition\fn_chooseMarker_handler.sqf");
+WMT_fnc_GetItemConfigEntry          = compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\fn_GetItemConfigEntry.sqf");

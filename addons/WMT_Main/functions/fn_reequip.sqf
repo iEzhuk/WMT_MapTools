@@ -1,5 +1,5 @@
 /*
-    Name: WMT_fnc_reEquip
+    Name: WMT_fnc_Reequip
 
     Author(s):
 		Ezhuk

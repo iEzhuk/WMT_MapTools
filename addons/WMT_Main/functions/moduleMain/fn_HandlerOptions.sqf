@@ -14,18 +14,16 @@
     Returns:
         BOOL: for standart handlers
 */
-
-#include "defines_WMT.sqf"
 #include "defines_IDC.sqf"
 
-PR(_event) = _this select 0;
-PR(_arg) = _this select 1;
-PR(_return) = false;
+private _event = _this select 0;
+private _arg = _this select 1;
+private _return = false;
 
 switch (_event) do
 {
     case "init": {
-        PR(_dialog) = _arg select 0;
+        private _dialog = _arg select 0;
         disableSerialization;
         uiNamespace setVariable ["WMT_Dialog_Menu", _dialog];
 
@@ -48,12 +46,12 @@ switch (_event) do
         uiNamespace setVariable ["WMT_Dialog_Menu", nil];
     };
     case "setDistance": {
-        PR(_slider) = _arg select 0;
-        PR(_index) = _arg select 1;
-        PR(_dist) = _slider select 1;
-        PR(_dialog) = uiNamespace getVariable "WMT_Dialog_Menu";
-        PR(_ctrlVar) = IDC_OPTIONS_PRESET_1_VALUE + _index;
-        PR(_ctrlSlider) = IDC_OPTIONS_PRESET_1_SLIDER + _index;
+        private _slider = _arg select 0;
+        private _index = _arg select 1;
+        private _dist = _slider select 1;
+        private _dialog = uiNamespace getVariable "WMT_Dialog_Menu";
+        private _ctrlVar = IDC_OPTIONS_PRESET_1_VALUE + _index;
+        private _ctrlSlider = IDC_OPTIONS_PRESET_1_SLIDER + _index;
 
         _dist = (floor(_dist/100))*100;
 
@@ -70,11 +68,11 @@ switch (_event) do
         ['updateViewDistance'] call WMT_fnc_HandlerOptions;
     };
     case "setDistanceTerrain": {
-        PR(_slider) = _arg select 0;
-        PR(_dist) = _slider select 1;
-        PR(_dialog) = uiNamespace getVariable "WMT_Dialog_Menu";
-        PR(_ctrlVar) = IDC_OPTIONS_TERRAIN_VALUE;
-        PR(_ctrlSlider) = IDC_OPTIONS_TERRAIN_SLIDER;
+        private _slider = _arg select 0;
+        private _dist = _slider select 1;
+        private _dialog = uiNamespace getVariable "WMT_Dialog_Menu";
+        private _ctrlVar = IDC_OPTIONS_TERRAIN_VALUE;
+        private _ctrlSlider = IDC_OPTIONS_TERRAIN_SLIDER;
 
         _dist = (floor(_dist/100))*100;
 
@@ -88,10 +86,10 @@ switch (_event) do
     };
     case "setMutingLevel": {
         private ["_slider","_index"];
-        PR(_slider) = _arg select 0;
-        PR(_index) = _arg select 1;
-        PR(_lvl) = _slider select 1;
-        PR(_dialog) = uiNamespace getVariable "WMT_Dialog_Menu";
+        private _slider = _arg select 0;
+        private _index = _arg select 1;
+        private _lvl = _slider select 1;
+        private _dialog = uiNamespace getVariable "WMT_Dialog_Menu";
 
         _lvl = floor(100*_lvl)/100;
 
@@ -110,7 +108,7 @@ switch (_event) do
         };
     };
     case "update": {
-        PR(_dialog) = uiNamespace getVariable "WMT_Dialog_Menu";
+        private _dialog = uiNamespace getVariable "WMT_Dialog_Menu";
 
         (_dialog displayCtrl IDC_OPTIONS_FOOT_VAR) ctrlSetText str(wmt_param_MaxViewDistance min (WMT_Options_ViewDistance select 0));
         (_dialog displayCtrl IDC_OPTIONS_VEH_VAR) ctrlSetText str(wmt_param_MaxViewDistance min (WMT_Options_ViewDistance select 1));
@@ -133,8 +131,8 @@ switch (_event) do
         (_dialog displayCtrl IDC_OPTIONS_SAVE_TERRAIN)   cbSetChecked ((profilenamespace getvariable ['WMT_Profile_ViewDistance_TerraineSave', 0]) == 1);
     };
     case "updateViewDistance": {
-        PR(_dist) = wmt_param_MaxViewDistance min (WMT_Options_ViewDistance select WMT_Options_ViewDistance_Preset);
-        PR(_distterrain) = (wmt_param_MaxViewDistanceTerrain min WMT_Options_ViewDistanceTerrain);
+        private _dist = wmt_param_MaxViewDistance min (WMT_Options_ViewDistance select WMT_Options_ViewDistance_Preset);
+        private _distterrain = (wmt_param_MaxViewDistanceTerrain min WMT_Options_ViewDistanceTerrain);
 
         if (WMT_Options_ViewDistance_Preset == 0) then {
             setObjectViewDistance _dist;
@@ -204,7 +202,7 @@ switch (_event) do
         // 308 CA_ValueObjectVisibility
         // 309 CA_SliderObjectVisibility
         _display = _arg select 0;
-        if ( not isnil "wmt_Main_ModuleRunning" ) then {
+        if (not isnil "wmt_Main_ModuleRunning") then {
             {
                 (_display displayCtrl _x) ctrlEnable false;
                 (_display displayCtrl _x) ctrlSetTooltip localize "STR_WMT_UseWMTOptions"

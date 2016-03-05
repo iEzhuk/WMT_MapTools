@@ -7,13 +7,12 @@
     Description:
         Initialize main module
 */
-#include "defines_WMT.sqf"
 #include "defines_IDC.sqf"
 #include "..\defines_KEY.sqf"
 
-PR(_logic) = [_this,0,objNull,[objNull]] call BIS_fnc_param;
-PR(_units) = [_this,1,[],[[]]] call BIS_fnc_param;
-PR(_activated) = [_this,2,true,[true]] call BIS_fnc_param;
+private _logic = [_this,0,objNull,[objNull]] call BIS_fnc_param;
+private _units = [_this,1,[],[[]]] call BIS_fnc_param;
+private _activated = [_this,2,true,[true]] call BIS_fnc_param;
 
 if(_activated) then {
     if ( not isnil "wmt_Main_ModuleRunning" ) exitWith {
@@ -21,62 +20,57 @@ if(_activated) then {
     };
     wmt_Main_ModuleRunning = true;
 
-    if(isNil "wmt_param_TI") then {
+    if (isNil "wmt_param_TI") then {
         wmt_param_TI = _logic getVariable "TI";
     };
-    if(isNil "wmt_param_MaxViewDistance") then {
+    if (isNil "wmt_param_MaxViewDistance") then {
         wmt_param_MaxViewDistance = _logic getVariable "MaxViewDistance";
     };
-    if(isNil "wmt_param_MaxViewDistanceTerrain") then {
+    if (isNil "wmt_param_MaxViewDistanceTerrain") then {
         wmt_param_MaxViewDistanceTerrain = _logic getVariable ["MaxViewDistanceTerrain", 10000];
     };
-    if(isNil "wmt_param_NameTag") then {
+    if (isNil "wmt_param_NameTag") then {
         wmt_param_NameTag = _logic getVariable "NameTag";
     };
-    if(isNil "wmt_param_IndetifyTheBody") then {
+    if (isNil "wmt_param_IndetifyTheBody") then {
         wmt_param_IndetifyTheBody = _logic getVariable ["IndetifyTheBody",1];
     };
-    if(isNil "wmt_param_HeavyLossesCoeff") then {
+    if (isNil "wmt_param_HeavyLossesCoeff") then {
         wmt_param_HeavyLossesCoeff = _logic getVariable "HeavyLossesCoeff";
     };
     if(isNil "wmt_param_ShowEnemyVehiclesInNotes") then {
         wmt_param_ShowEnemyVehiclesInNotes = _logic getVariable "ShowEnemyVehiclesInNotes";
     };
-    if(isNil "wmt_param_GenerateFrequencies") then {
+    if (isNil "wmt_param_GenerateFrequencies") then {
         wmt_param_GenerateFrequencies = _logic getVariable "GenerateFrequencies";
     };
-    if(isNil "wmt_param_AI") then {
+    if (isNil "wmt_param_AI") then {
         wmt_param_AI = _logic getVariable "AI";
     };
-    if(isNil "wmt_param_ShowVehiclesBriefing") then {
+    if (isNil "wmt_param_ShowVehiclesBriefing") then {
         wmt_param_ShowVehiclesBriefing = _logic getVariable "ShowVehiclesBriefing";
     };
-    if(isNil "wmt_param_ShowSquadsBriefing") then {
+    if (isNil "wmt_param_ShowSquadsBriefing") then {
         wmt_param_ShowSquadsBriefing = _logic getVariable "ShowSquadsBriefing";
     };
-    if(isNil "wmt_param_Statistic") then {
+    if (isNil "wmt_param_Statistic") then {
         wmt_param_Statistic = _logic getVariable "Statistic";
     };
-    if(isNil "wmt_param_ExtendedBriefing") then {
+    if (isNil "wmt_param_ExtendedBriefing") then {
         wmt_param_ExtendedBriefing = _logic getVariable ["ExtendedBriefing",1];
     };
 
     wmt_param_MaxViewDistance  = 10 max wmt_param_MaxViewDistance;
     wmt_param_HeavyLossesCoeff = 0 max wmt_param_HeavyLossesCoeff;
 
-    if(wmt_param_AI==0) then {
+    if (wmt_param_AI==0) then {
         [] call WMT_fnc_DisableAI;
     };
-
-
-
-    ["itemAdd", ["WmtMainCallEndFreeze", { ["CALL","FreezeEnded",[time, serverTime, diag_tickTime, date]] call wmt_fnc_evh; }, nil, nil, { time > 0 && { ( missionNamespace getVariable ["WMT_pub_frzState",100] ) >= 3} }, {false}, true]] call BIS_fnc_loop;
-
 
     //================================================
     //                  SERVER
     //================================================
-    if(isServer) then {
+    if (isServer) then {
         [] spawn {
             setViewDistance wmt_param_MaxViewDistance;
             if (wmt_param_GenerateFrequencies == 1) then {
@@ -97,7 +91,7 @@ if(_activated) then {
     //================================================
     //                  CLIENT
     //================================================
-    if(!isDedicated) then {
+    if (!isDedicated) then {
         [] spawn {
             waitUntil{!isNull player};
 
@@ -144,9 +138,7 @@ if(_activated) then {
                 0 spawn WMT_fnc_BriefingTimer;
             };
 
-            player addEventHandler ["HandleDamage", {if (alive (_this select 0)) then {WMT_Local_LastDamageSource = effectivecommander (_this select 3);};}];
             player addEventHandler ["killed", "_this spawn WMT_fnc_PlayerKilled"];
-
 
             // Public variable handlers
             "WMT_Global_Announcement" addPublicVariableEventHandler { (_this select 1) call WMT_fnc_Announcement };

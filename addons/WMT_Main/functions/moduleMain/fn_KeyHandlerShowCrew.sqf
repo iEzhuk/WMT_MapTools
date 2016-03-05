@@ -1,6 +1,6 @@
 /*
  	Name: WMT_fnc_KeyHandlerShowCrew
- 	
+
  	Author(s):
 		Ezhuk
 
@@ -13,11 +13,10 @@
  	Returns:
 		Nothing
 */
-
-if ((_this select 1) < 0)exitWith{};
+if ((_this select 1) < 0) exitWith {};
 
 if ((alive player) && (alive (vehicle player)) && (vehicle player != player)) then {
 	if(!((vehicle player) isKindOf "StaticWeapon")) then {
-		50 cutRsc ["RscWMTVehicleCrew","PLAIN"];	
-	};	
+		50 cutRsc ["RscWMTVehicleCrew","PLAIN"];
+	};
 };

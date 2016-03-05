@@ -1,14 +1,15 @@
 /*
- 	Name: WMT_fnc_InitModuleTaskPoint
+	 Name: WMT_fnc_InitModuleTaskPoint
 
- 	Author(s):
+	 Author(s):
 		Ezhuk
 */
+
 #include "defines.sqf"
 
-PR(_logic) = [_this,0,objNull,[objNull]] call BIS_fnc_param;
-PR(_units) = [_this,1,[],[[]]] call BIS_fnc_param;
-PR(_activated) = [_this,2,true,[true]] call BIS_fnc_param;
+private _logic = [_this,0,objNull,[objNull]] call BIS_fnc_param;
+private _units = [_this,1,[],[[]]] call BIS_fnc_param;
+private _activated = [_this,2,true,[true]] call BIS_fnc_param;
 
 if(_activated) then {
 	//===============================================================
@@ -21,8 +22,8 @@ if(_activated) then {
 		WMT_Local_PointArray set [count WMT_Local_PointArray, _logic];
 
 		[_logic, _units, DELAY] spawn {
-
-			PR(_func_create_trigger) = {
+			private ["_func_create_trigger", "_func_sideToColor", "_getUnitList"];
+			_func_create_trigger = {
 				private ["_trigger","_marker","_markerPos","_markerDir"];
 				_marker = _this select 0;
 				_markerPos = markerPos _marker;
@@ -37,7 +38,7 @@ if(_activated) then {
 				_trigger
 			};
 
-			PR(_func_sideToColor) = {
+			_func_sideToColor = {
 				switch (_this) do
 				{
 					case WEST:		{"ColorBlufor"};
@@ -48,19 +49,18 @@ if(_activated) then {
 				};
 			};
 
-			PR(_getUnitList) = {
-				PR(_arrTrg) = _this select 0;
-				PR(_unitList) = [];
+			_getUnitList = {
+				params ["_arrTrg"];
+				private ["_unitList", "_lst", "_unit"];
+				private _unitList = [];
 
-				if(count _arrTrg > 0) then {
+				if (count _arrTrg > 0) then {
 					// Add units from first trigger in list
 					_unitList = list (_arrTrg select 0);
-
 					for "_i" from 1 to ((count _arrTrg)-1) do {
-						PR(_lst) = list (_arrTrg select _i);
-
+						_lst = list (_arrTrg select _i);
 						for "_k" from 0 to ((count _lst)-1) do {
-							PR(_unit) = _lst select _k;
+							_unit = _lst select _k;
 							// Checking the  double detection
 							if !(_unit in _unitList) then {
 								// Push in unit list
@@ -72,13 +72,11 @@ if(_activated) then {
 				_unitList
 			};
 
-			PR(_getCountUnits) = {
-				private ["_sideUnits", "_units", "_marker", "_arrTrg", "_minZ", "_maxZ"];
-				_arrTrg  = _this select 0;
-				_minZ = _this select 1;
-				_maxZ = _this select 2;
-				_sideUnits = [0,0,0,0,0];
+			_getCountUnits = {
+				private ["_sideUnits", "_units", "_marker"];
+				params ["_arrTrg", "_minZ", "_maxZ"];
 
+				_sideUnits = [0,0,0,0,0];
 				{
 					private ["_side", "_unit", "_id"];
 					_unit = _x;
@@ -97,34 +95,32 @@ if(_activated) then {
 				_sideUnits
 			};
 
-			PR(_logic) = _this select 0;
-			PR(_units) = _this select 1;
-			PR(_delay) = _this select 2;
+			params ["_logic", "_units", "_delay"];
 
-			PR(_markerStr) 	= _logic getVariable "Marker";
-			PR(_owner)		= [east,west,resistance,civilian,sideLogic] select (_logic getVariable "Owner");
-			PR(_message)	= _logic getVariable "Message";
-			PR(_defCount)	= _logic getVariable "DefCount";
-			PR(_lock)		= _logic getVariable "Lock";
-			PR(_minHeight)	= _logic getVariable "MinHeight";
-			PR(_maxHeight)	= _logic getVariable "MaxHeight";
-			PR(_autoLose) 	= _logic getVariable "AutoLose";
-			PR(_timer) 		= _logic getVariable ["Timer",0];
-			PR(_captureCount) = _logic getVariable "CaptureCount";
-			PR(_easyCapture)  = _logic getVariable "EasyCapture";
+			private _markerStr 	  = _logic getVariable "Marker";
+			private _owner		  = [east,west,resistance,civilian,sideLogic] select (_logic getVariable "Owner");
+			private _message	  = _logic getVariable "Message";
+			private _defCount	  = _logic getVariable "DefCount";
+			private _lock		  = _logic getVariable "Lock";
+			private _minHeight	  = _logic getVariable "MinHeight";
+			private _maxHeight	  = _logic getVariable "MaxHeight";
+			private _autoLose 	  = _logic getVariable "AutoLose";
+			private _timer 		  = _logic getVariable ["Timer",0];
+			private _captureCount = _logic getVariable "CaptureCount";
+			private _easyCapture  = _logic getVariable "EasyCapture";
 
-			PR(_condition) = compile (_logic getVariable ["Condition","true"]);
+			private _condition = compile (_logic getVariable ["Condition","true"]);
 
 			// Remove spaces
 			_markerStr = toString ((toArray _markerStr) - [32]);
 
-			PR(_arrMarkers) = [_markerStr,","] call Bis_fnc_splitString;
-			PR(_arrTrgs)	= [];
-			PR(_brush) 		= if(count _arrMarkers == 1)then{"SolidBorder"}else{"Solid"};
+			private _arrMarkers = [_markerStr,","] call Bis_fnc_splitString;
+			private _arrTrgs	= [];
+			private _brush 		= if(count _arrMarkers == 1)then{"SolidBorder"}else{"Solid"};
 
 			// Init point
 			for "_i" from 0 to ((count _arrMarkers)-1) do {
-				PR(_marker) = _arrMarkers select _i;
+				private _marker = _arrMarkers select _i;
 
 				_marker setMarkerColor (_owner call _func_sideToColor);
 				_marker setMarkerBrush _brush;
@@ -137,30 +133,30 @@ if(_activated) then {
 
 			sleep _delay;
 
-			PR(_objs)   = _units;
-			PR(_locked) = false;
-			PR(_timeB)  = -1;
-			PR(_typeB)	= 0;
+			private _objs   = _units;
+			private _locked = false;
+			private _timeB  = -1;
+			private _typeB	= 0;
 
 			while {!_locked} do {
-				PR(_unitCount) = [_arrTrgs, _minHeight, _maxHeight] call _getCountUnits;
-				PR(_curOwner)  = _logic getVariable "WMT_PointOwner";
+				private _unitCount = [_arrTrgs, _minHeight, _maxHeight] call _getCountUnits;
+				private _curOwner  = _logic getVariable "WMT_PointOwner";
 
-				PR(_dc) = _unitCount select ([west, east, resistance, civilian, sideLogic] find _curOwner);
-				PR(_cs) = sideLogic;
-				PR(_cc) = 0;
+				private _dc = _unitCount select ([west, east, resistance, civilian, sideLogic] find _curOwner);
+				private _cs = sideLogic;
+				private _cc = 0;
 
 				// Calculate units and detect side that have more units in zone
 				{
-					if(_curOwner != _x) then {
-						if(_cc < _unitCount select _foreachindex) then {
+					if (_curOwner != _x) then {
+						if (_cc < _unitCount select _foreachindex) then {
 							_cc = _unitCount select _foreachindex;
 							_cs = _x;
 						};
 					};
 				} foreach [west, east, resistance];
 
-				PR(_captured) = 0;
+				private _captured = 0;
 
 				//Checking conditions
 				switch (true) do {

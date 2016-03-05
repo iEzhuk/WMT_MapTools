@@ -15,7 +15,6 @@
     Returns:
         Nothing
 */
-
 if (!hasInterface) exitwith {};
 private["_display", "_ctrl", "_timeStart", "_eh"];
 

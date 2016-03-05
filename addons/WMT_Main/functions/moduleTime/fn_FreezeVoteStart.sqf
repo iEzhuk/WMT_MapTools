@@ -13,7 +13,6 @@
     Returns:
         Nothing
 */
-
 if ((name player) in WMT_pub_frzVoteWait) then {
     WMT_pub_frzVoteWait = WMT_pub_frzVoteWait - [name player];
     publicVariable "WMT_pub_frzVoteWait";
