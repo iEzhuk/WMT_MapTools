@@ -18,7 +18,11 @@ if (!isNil "wmt_hl_disable") exitwith {diag_log "HeavyLossesCheck disabled";};
 sleep 60;
 waitUntil { sleep 1.5; (missionNamespace getvariable ["WMT_pub_frzState",3]) >=3 };
 
-wmt_playerCountInit = [ {side _x == east and isPlayer _x} count playableUnits,  {side _x == west and isPlayer _x} count playableUnits,  {side _x == resistance and isPlayer _x} count playableUnits ];
+wmt_playerCountInit = [
+    {side _x == east and isPlayer _x} count playableUnits,
+    {side _x == west and isPlayer _x} count playableUnits,
+    {side _x == resistance and isPlayer _x} count playableUnits
+];
 
 
 if (isnil "wmtPlayerCountEmptySides") then { wmtPlayerCountEmptySides = [civilian]; };
@@ -53,8 +57,9 @@ wmt_PlayerCountNow = [
     {side _x == west and isPlayer _x} count playableUnits,
     {side _x == resistance and isPlayer _x} count playableUnits
 ];
-diag_log ["HeavyLosses start", wmt_PlayerCountNow, wmt_playerCountInit, wmtPlayerCountEmptySides, count playableUnits, {isplayer _x} count playableunits];
-while {isNil "wmt_hl_disable"} do {
+
+diag_log ["HeavyLosses start", missionName, wmt_PlayerCountNow, wmt_playerCountInit, wmtPlayerCountEmptySides, count playableUnits, {isplayer _x} count playableunits];
+while {isNil "wmt_hl_disable" and isNil "WMT_Local_MissionEnd"} do {
     wmt_PlayerCountNow = [
         {side _x == east and isPlayer _x} count playableUnits,
         {side _x == west and isPlayer _x} count playableUnits,
@@ -66,9 +71,19 @@ while {isNil "wmt_hl_disable"} do {
         if ((_ratios select 1) != 0) then {
             _enemyratio = (_ratios select 0) / (_ratios select 1);
             if (_enemyratio < _playerratio) then {
-                diag_log ["HeavyLosses triggered", wmt_PlayerCountNow, wmt_playerCountInit, wmtPlayerCountEmptySides, [_enemysides,_ratios,_enemyratio] ];
+                diag_log ["HeavyLosses triggered", missionName, wmt_PlayerCountNow, wmt_playerCountInit, wmtPlayerCountEmptySides, [_enemysides,_ratios,_enemyratio]];
                 if (isNil "wmt_hl_winmsg") then {
-                    [ [_x], { [_this select 0,format[localize "STR_WMT_HLSWinLoseMSG",([_this select 0] call BIS_fnc_sideName)]] call wmt_fnc_endmission; } ] remoteExec ["bis_fnc_spawn"];
+                    [
+                        [_x, missionName],
+                        {
+                            diag_log ["HeavyLosses getMessage", _this select 1, missionName];
+                            if ((_this select 1) ==  missionName) then {
+                                diag_log ["HeavyLosses getMessage", _this select 0, _this select 1, missionName];
+                                hint str(_this);
+                            };
+                            [_this select 0, format[localize "STR_WMT_HLSWinLoseMSG", ([_this select 0] call BIS_fnc_sideName)]] call wmt_fnc_endmission;
+                        }
+                    ] remoteExec ["bis_fnc_spawn"];
                 } else {
                     [ [_x], { [_this select 0,format[ wmt_hl_winmsg select ([_this select 0] call bis_fnc_sideid),([_this select 0] call BIS_fnc_sideName)]] call wmt_fnc_endmission; } ] remoteExec ["bis_fnc_spawn"];
                 };

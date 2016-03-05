@@ -16,12 +16,6 @@
     Returns:
         Nothing
 */
-// DEBUG
-if ((missionNamespace getVariable ["WMT_pub_frzState",0]) < 3 and serverTime < 120) exitWith {
-    diag_log "WMT_fnc_EndMission: WARNING!!!: mission ended before start";
-    diag_log str(_this);
-    hint format ["Error: mission ended\n %1", _this];
-};
 
 if(!isNil "WMT_Local_MissionEnd") exitWith {diag_log "WARNING!!! WMT_Local_MissionEnd - multiple call";};
 WMT_Local_MissionEnd = true;
