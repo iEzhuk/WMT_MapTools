@@ -134,9 +134,7 @@ if(_activated) then {
             // Key binding with cba
             #include "keyBinding.sqf"
 
-            if (!isnil "wmt_feature_briefTimer") then {
-                0 spawn WMT_fnc_BriefingTimer;
-            };
+            [] spawn WMT_fnc_BriefingTimer;
 
             player addEventHandler ["killed", "_this spawn WMT_fnc_PlayerKilled"];
 
