@@ -68,6 +68,13 @@ class RscWMTMainMenu {
             text = $STR_WMT_FreezeVoteWait;
             action = "['teamnotready',_this] call WMT_fnc_HandlerMenu";
         };
-
+        class Button_Reequip : RscWMTButtonMenu_ext {
+            color[] = {0.65, 0.0, 0.0, 1.0};
+            idc = 1013123;
+            x = 0.5;
+            y = 0.570;
+            text = "Fix uniform bug";
+            action = "closeDialog 0; if (vehicle player==player) then {hint localize 'STR_WMT_20Sec'; [] spawn {sleep 20; hint localize 'STR_WMT_Ready'; [player] call wmt_fnc_reEquip; };} else {hint localize 'STR_WMT_Outside';};";
+        };
     };
 };

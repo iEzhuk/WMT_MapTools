@@ -530,6 +530,19 @@
                 <Original>Use WMT options (default key: HOME)</Original>
                 <Russian>Используйте настройки WMT (по-умолчанию клавиша HOME)</Russian>
             </Key>
+            <Key ID="STR_WMT_Outside">
+                <Original>You should be outside vehicle</Original>
+                <Russian>Вы должны быть снаружи техники</Russian>
+            </Key>
+            <Key ID="STR_WMT_Ready">
+                <Original>Ready</Original>
+                <Russian>Готово</Russian>
+            </Key>
+            <Key ID="STR_WMT_20Sec">
+                <Original>Wait 20 seconds</Original>
+                <Russian>Ждите 20 секунд</Russian>
+            </Key>
+
         </Container>
     </Package>
 </Project>
