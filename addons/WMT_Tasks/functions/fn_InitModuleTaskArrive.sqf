@@ -17,7 +17,7 @@ if(_activated) then {
 	if(isServer) then {
 		[_logic, _units, DELAY] spawn {
 			params ["_logic", "_units", "_delay"];
-			private ["_marker", "_message", "_count", "_winner", "_condition", "", "", ""];
+			private ["_marker", "_message", "_count", "_winner", "_condition"];
 			_marker = _logic getVariable "Marker";
 			_message= _logic getVariable "Message";
 			_count  = _logic getVariable "Count";
