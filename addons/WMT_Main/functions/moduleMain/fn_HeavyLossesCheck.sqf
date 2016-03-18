@@ -77,9 +77,6 @@ while {isNil "wmt_hl_disable" and isNil "WMT_Local_MissionEnd"} do {
                         [_x, missionName],
                         {
                             diag_log ["HeavyLosses getMessage", _this select 1, missionName];
-                            if ((_this select 1) ==  missionName) then {
-                                diag_log ["HeavyLosses getMessage", _this select 0, _this select 1, missionName];
-                            };
                             [_this select 0, format[localize "STR_WMT_HLSWinLoseMSG", ([_this select 0] call BIS_fnc_sideName)]] call wmt_fnc_endmission;
                         }
                     ] remoteExec ["bis_fnc_spawn"];
