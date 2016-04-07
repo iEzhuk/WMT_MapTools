@@ -1,9 +1,9 @@
-#define IDD_STARTPOS                62100
-#define IDC_STARTPOS_MAP            62101
-#define IDC_STARTPOS_TEXT           62102
-#define IDC_STARTPOS_TABLET         62103
-#define IDC_STARTPOS_LEDHDD         62104
-#define IDC_STARTPOS_LEDNET         62105
+#define IDD_STARTPOS        62100
+#define IDC_STARTPOS_MAP    62101
+#define IDC_STARTPOS_TEXT   62102
+#define IDC_STARTPOS_TABLET 62103
+#define IDC_STARTPOS_LEDHDD 62104
+#define IDC_STARTPOS_LEDNET 62105
 
 class RscMap;
 class RscMapControl;
