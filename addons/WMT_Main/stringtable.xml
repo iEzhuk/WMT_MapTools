@@ -542,6 +542,11 @@
                 <Original>Wait 20 seconds</Original>
                 <Russian>Ждите 20 секунд</Russian>
             </Key>
+            <Key ID="STR_WMT_JournalVehInventory">
+                <Original>Vehicle Inventory</Original>
+                <Russian>Инвентарь техники</Russian>
+            </Key>
+
 
         </Container>
     </Package>

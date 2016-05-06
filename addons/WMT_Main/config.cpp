@@ -65,4 +65,4 @@ class CfgWeapons
         displayName = "Fake map";
         descriptionShort = "Fake map";
     };
-}
+};

@@ -36,7 +36,7 @@ PR(_vehicles)= (call WMT_fnc_GetVehicles);
         _vehinfo pushback typeOf _x;
         _side = _x getVariable ["WMT_Side", [getNumber (configfile >> "CfgVehicles" >> typeof _x >> "side")] call BIS_fnc_sideType];
         _vehinfo pushback _side;
-
+        _vehinfo pushBack ((weaponCargo _x + magazinecargo _x + itemCargo _x + backpackCargo _x) call BIS_fnc_consolidateArray);
         _tempData pushback _vehinfo;
     };
 } foreach _vehicles;
