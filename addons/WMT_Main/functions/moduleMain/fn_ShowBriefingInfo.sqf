@@ -65,14 +65,16 @@ if (getClientState != "BRIEFING READ" || getClientState == "NONE") then {
     };
 };
 
-
+private _invVehTxt = "";
 {
     if ( (_x select 0) == "V") then {
-        private ["_pos","_class","_side","_pic","_icon","_vehname","_marker"];
+        private ["_pos","_class","_side","_pic","_icon","_vehname","_marker", "_inv"];
         _pos = _x select 1;
         _class = _x select 2;
         _side = _x select 3;
+        _inv = _x select 4;
         _vehname = format ["%1", getText (configFile >> "CfgVehicles" >> _class >> "displayName") ];
+        _pic = getText (configFile / "CfgVehicles" / _class / "picture");
 
         // если дружественные, то
         if (_side in _friendlySides) then {
@@ -81,6 +83,19 @@ if (getClientState != "BRIEFING READ" || getClientState == "NONE") then {
             _marker = _pos call _fnc_getVehMarkerName;
             _marker = [_marker,_pos,_vehname,"ColorYellow","mil_box",[1, 1],"ICON",0,"Solid"] call WMT_fnc_CreateLocalMarker;
             _markersPool pushback _marker;
+
+            _invVehTxt = _invVehTxt + format ["<br/><img image='%3' height=24/> <font color='#c7861b'><marker name='%2'>%1</marker></font><br/>",
+              format ["%1", getText (configFile >> "CfgVehicles" >> _class >> "displayName") ], _pos call _fnc_getVehMarkerName, _pic call _fnc_fixPicName];
+
+            if (!isNil "_inv") then {
+              {
+                 private _data = (_x select 0) call wmt_fnc_GetItemConfigEntry;
+                 _data params ["_pic","_text","_tooltip","_cfgPath"];
+                 _invVehTxt = _invVehTxt + format ["<img image='%1' height=24/>x%2 ", _pic call _fnc_fixPicName, _x select 1];
+              } forEach _inv;
+            };
+            _invVehTxt = _invVehTxt + "<br/>";
+
 
             _friendlyVehs pushback _class;
         };
@@ -120,35 +135,6 @@ if (getClientState != "BRIEFING READ" || getClientState == "NONE") then {
 
 } foreach wmt_global_srvBrfData;
 
-
-// второй проход для списка инвентаря
-private _invVehTxt = "";
-{
-  if ( (_x select 0) == "V") then {
-      private _side = _x select 3;
-
-      if (_side in _friendlySides) then {
-          private _marker = _pos call _fnc_getVehMarkerName;
-          private _pos = _x select 1;
-          private _class = _x select 2;
-          private _inv = _x select 4;
-          private _pic = getText (configFile / "CfgVehicles" / _class / "picture");
-          private _vehname = format ["%1", getText (configFile >> "CfgVehicles" >> _class >> "displayName") ];
-
-          _invVehTxt = _invVehTxt + format ["<br/><img image='%3' height=24/> <font color='#c7861b'><marker name='%2'>%1</marker></font><br/>", format ["%1", getText (configFile >> "CfgVehicles" >> _class >> "displayName") ], _pos call _fnc_getVehMarkerName, _pic call _fnc_fixPicName];
-
-          if (!isNil "_inv") then {
-            {
-               private _data = (_x select 0) call wmt_fnc_GetItemConfigEntry;
-               _data params ["_pic","_text","_tooltip","_cfgPath"];
-               _invVehTxt = _invVehTxt + format ["<img image='%1' height=24/>x%2 ", _pic call _fnc_fixPicName, _x select 1];
-            } forEach _inv;
-          };
-          _invVehTxt = _invVehTxt + "<br/>";
-      };
-
-  };
-} forEach wmt_global_srvBrfData;
 
 ["diary",localize "STR_WMT_JournalVehInventory", _invVehTxt] call WMT_fnc_CreateDiaryRecord;
 
