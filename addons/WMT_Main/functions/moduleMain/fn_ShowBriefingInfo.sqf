@@ -36,6 +36,9 @@ PR(_friendlySquads)=[];
 
 private _fnc_fixPicName = {
     private _res=_this;
+    if (isText (configFile / "CfgVehicleIcons" / _res)) exitwith {
+        getText (configFile / "CfgVehicleIcons" / _res)
+    };
     if(count (_res) < 4) exitwith{_res};
     private _ext = _res select [count _res  - 4,1];
     if(_ext!=".") then {_res=_res+".paa";};
@@ -68,11 +71,10 @@ if (getClientState != "BRIEFING READ" || getClientState == "NONE") then {
 private _invVehTxt = "";
 {
     if ( (_x select 0) == "V") then {
-        private ["_pos","_class","_side","_pic","_icon","_vehname","_marker", "_inv"];
-        _pos = _x select 1;
-        _class = _x select 2;
-        _side = _x select 3;
-        _inv = _x select 4;
+        private ["_pic","_marker"];
+
+        _x params ["_type","_pos","_class","_side","_inv","_isVeh"];
+//        diag_log ["Show Brif", _x, _type, _pos, _class, _side, _inv, _isVeh  ];
         _vehname = format ["%1", getText (configFile >> "CfgVehicles" >> _class >> "displayName") ];
         _pic = getText (configFile / "CfgVehicles" / _class / "picture");
 
@@ -96,10 +98,11 @@ private _invVehTxt = "";
             };
             _invVehTxt = _invVehTxt + "<br/>";
 
-
-            _friendlyVehs pushback _class;
+            if (_isVeh) then {
+                _friendlyVehs pushback _class;
+            };
         };
-        if (_side in _enemySides) then {
+        if (_side in _enemySides && _isVeh) then {
             _enemyVehs pushback _class;
         };
 
