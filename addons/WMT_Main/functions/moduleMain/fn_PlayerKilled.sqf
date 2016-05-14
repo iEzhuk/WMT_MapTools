@@ -27,7 +27,7 @@ if (isNil "_killer" || {isNull _killer}) then {
     _killer = WMT_Local_LastDamageSource;
 };
 _killerName = _killer getVariable "PlayerName";
-if (isNil "_killerName" || {isNull _killerName}) then {
+if (isNil "_killerName" || {_killerName isEqualTo ""}) then {
   _killer = WMT_Local_LastDamageSource;
   _killerName = _killer getVariable ["PlayerName", localize "STR_WMT_Unknow"];
 };
