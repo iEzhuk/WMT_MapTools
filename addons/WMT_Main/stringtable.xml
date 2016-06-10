@@ -550,6 +550,10 @@
                 <Original>Author</Original>
                 <Russian>Автор</Russian>
             </Key>
+            <Key ID="STR_WMT_FixUniformbug">
+                <Original>Fix unifrom bug</Original>
+                <Russian>Исправить форму</Russian>
+            </Key>
         </Container>
     </Package>
 </Project>
