@@ -136,6 +136,13 @@ if(_activated) then {
 
             [] spawn WMT_fnc_BriefingTimer;
 
+            player addEventHandler [
+                "HandleDamage",
+                {
+                    if (alive (_this select 0)) then {WMT_Local_LastDamageSource = effectivecommander (_this select 3);};
+                }
+            ];
+
             player addEventHandler ["killed", "_this spawn WMT_fnc_PlayerKilled"];
 
             // Public variable handlers

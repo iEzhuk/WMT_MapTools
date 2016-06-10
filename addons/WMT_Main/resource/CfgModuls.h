@@ -53,7 +53,7 @@ class CfgVehicles
                 typeName = "NUMBER";
                 class values
                 {
-                    class Enable        {name = "$STR_WMT_TI_Enable"; value = 0;};
+                    class Enable        {name = "$STR_WMT_TI_Enable"; value = 0; default = 1;};
                     class DisableInVehs {name = "$STR_WMT_TI_DisableInVehicle"; value = 1;};
                     class Disable       {name = "$STR_WMT_TI_Disable"; value = 2;};
                 };
@@ -65,7 +65,7 @@ class CfgVehicles
                 typeName = "NUMBER";
                 class values
                 {
-                    class Enable    {name = "$STR_WMT_Enable"; value = 1;};
+                    class Enable    {name = "$STR_WMT_Enable"; value = 1; default = 1;};
                     class Disable   {name = "$STR_WMT_Disable"; value = 0;};
                 };
             };
@@ -77,7 +77,7 @@ class CfgVehicles
                 typeName = "NUMBER";
                 class values
                 {
-                    class Enable    {name = "$STR_WMT_Enable"; value = 1;};
+                    class Enable    {name = "$STR_WMT_Enable"; value = 1; default = 1;};
                     class Disable   {name = "$STR_WMT_Disable"; value = 0;};
                 };
             };
@@ -88,7 +88,7 @@ class CfgVehicles
                 typeName = "NUMBER";
                 class values
                 {
-                    class Enable    {name = "$STR_WMT_Enable"; value = 1;};
+                    class Enable    {name = "$STR_WMT_Enable"; value = 1; default = 1;};
                     class Disable   {name = "$STR_WMT_Disable"; value = 0;};
                 };
             };
@@ -99,7 +99,7 @@ class CfgVehicles
                 typeName = "NUMBER";
                 class values
                 {
-                    class Enable    {name = "$STR_WMT_Enable"; value = 1;};
+                    class Enable    {name = "$STR_WMT_Enable"; value = 1; default = 1;};
                     class Disable   {name = "$STR_WMT_Disable"; value = 0;};
                 };
             };
@@ -110,7 +110,7 @@ class CfgVehicles
                 typeName = "NUMBER";
                 class values
                 {
-                    class Disable   {name = "$STR_WMT_Disable"; value = 0;};
+                    class Disable   {name = "$STR_WMT_Disable"; value = 0; default = 1;};
                     class Enable    {name = "$STR_WMT_Enable"; value = 1;};
                 };
             };
@@ -121,7 +121,7 @@ class CfgVehicles
                 typeName = "NUMBER";
                 class values
                 {
-                    class Enable    {name = "$STR_WMT_Enable"; value = 1;};
+                    class Enable    {name = "$STR_WMT_Enable"; value = 1; default = 1;};
                     class Disable   {name = "$STR_WMT_Disable"; value = 0;};
                 };
             };
@@ -156,7 +156,7 @@ class CfgVehicles
                 typeName = "NUMBER";
                 class values
                 {
-                    class Empty {name = "$STR_WMT_Nobody"; value = 4;};
+                    class Empty {name = "$STR_WMT_Nobody"; value = 4; default = 1;};
                     class East  {name = "$STR_WMT_East"; value = 0;};
                     class West  {name = "$STR_WMT_West"; value = 1;};
                     class Guer  {name = "$STR_WMT_Resistance"; value = 2;};
@@ -244,7 +244,7 @@ class CfgVehicles
                 typeName = "NUMBER";
                 class values
                 {
-                    class All  {name = "$STR_WMT_All"; value = 0;};
+                    class All  {name = "$STR_WMT_All"; value = 0; default = 1;};
                     class East {name = "$STR_WMT_East"; value = 1;};
                     class West {name = "$STR_WMT_West"; value = 2;};
                     class Guer {name = "$STR_WMT_Resistance"; value = 3;};
