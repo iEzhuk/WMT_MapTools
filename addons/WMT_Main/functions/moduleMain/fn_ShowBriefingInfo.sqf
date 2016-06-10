@@ -123,8 +123,8 @@ private _invVehTxt = "";
     };
 } foreach wmt_global_srvBrfData;
 
-["diary",localize "STR_WMT_JournalVehInventory", _invVehTxt] call WMT_fnc_CreateDiaryRecord;
 ["diary",localize "STR_WMT_Squads", _squadTxt] call WMT_fnc_CreateDiaryRecord;
+["diary",localize "STR_WMT_JournalVehInventory", _invVehTxt] call WMT_fnc_CreateDiaryRecord;
 
 if (count _enemyVehs != 0 and (isNil "wmt_param_campaignBriefingMode")) then {
     _enemyVehs = _enemyVehs call BIS_fnc_consolidateArray;
