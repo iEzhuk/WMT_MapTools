@@ -1,10 +1,11 @@
-#define IDD_MENU_MAINMENU       61000
-#define IDC_MENU_OPTION         61001
-#define IDC_MENU_ADMIN          61002
-#define IDC_MENU_CLOSE          61003
-#define IDC_MENU_TEAM_READY        61004
-#define IDC_MENU_TEAM_NOT_READY    61005
-#define IDC_MENU_CONSOLE        61006
+#define IDD_MENU_MAINMENU        61000
+#define IDC_MENU_OPTION          61001
+#define IDC_MENU_ADMIN           61002
+#define IDC_MENU_CLOSE           61003
+#define IDC_MENU_TEAM_READY      61004
+#define IDC_MENU_TEAM_NOT_READY  61005
+#define IDC_MENU_CONSOLE         61006
+#define IDC_MENU_FIX_UNIFORM_BUG 61007
 
 #define IDC_OPTIONS                 171000
 #define IDC_OPTIONS_PRESET_1_SLIDER 171010

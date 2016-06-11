@@ -5,6 +5,7 @@
 #define IDC_MENU_TEAM_READY 61004
 #define IDC_MENU_TEAM_NOT_READY 61005
 #define IDC_MENU_CONSOLE 61006
+#define IDC_MENU_FIX_UNIFORM_BUG 61007
 
 class RscWMTMainMenu {
     idd = IDD_DSIAPLAY_MAINMENU;
@@ -70,7 +71,7 @@ class RscWMTMainMenu {
         };
         class Button_Reequip : RscWMTButtonMenu_ext {
             color[] = {0.65, 0.0, 0.0, 1.0};
-            idc = 1013123;
+            idc = IDC_MENU_FIX_UNIFORM_BUG;
             x = 0.7;
             y = 0.255;
             text = $STR_WMT_FixUniformbug;
