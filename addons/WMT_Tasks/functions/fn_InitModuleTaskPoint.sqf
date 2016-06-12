@@ -31,7 +31,7 @@ if(_activated) then {
                 _markerSize = markerSize _marker;
                 _isRectangle = (markerShape _marker) == "RECTANGLE";
 
-                _trigger = createTrigger ["EmptyDetector", [_markerPos select 0,_markerPos select 1] ];
+                _trigger = createTrigger ["EmptyDetector", [_markerPos select 0,_markerPos select 1], false];
                 _trigger setTriggerArea  [_markerSize select 0,_markerSize select 1,_markerDir,_isRectangle];
                 _trigger setTriggerActivation["ANY","PRESENT",true];
                 _trigger setTriggerStatements ["this", "", ""];
