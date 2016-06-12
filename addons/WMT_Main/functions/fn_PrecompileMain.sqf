@@ -20,6 +20,7 @@ WMT_fnc_Announcement                = compileFinal preprocessFileLineNumbers ("W
 WMT_fnc_ArrayToString               = compileFinal preprocessFileLineNumbers ("WMT_Main\functions\fn_ArrayToString.sqf");
 WMT_fnc_GetVehicles                 = compileFinal preprocessFileLineNumbers ("WMT_Main\functions\fn_GetVehicles.sqf");
 WMT_fnc_BriefingTimer               = compileFinal preprocessFileLineNumbers ("WMT_Main\functions\fn_BriefingTimer.sqf");
+WMT_fnc_BriefingPlayerCount         = compileFinal preprocessFileLineNumbers ("WMT_Main\functions\fn_BriefingPlayerCount.sqf");
 
 
 // Module Main

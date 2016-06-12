@@ -29,6 +29,8 @@ _ctrl ctrlSetText "00:00";
 _ctrl ctrlSetTextColor [0.75, 0.75, 0.75, 1];
 _ctrl ctrlCommit 0;
 _timeStart = diag_ticktime;
+
+// Restrict start game by keyboard
 _eh = _display displayAddEventHandler ["keyDown", "(_this select 1) in [28,57,156];"];
 
 while {time < 0.1} do {

@@ -135,15 +135,15 @@ if(_activated) then {
             #include "keyBinding.sqf"
 
             [] spawn WMT_fnc_BriefingTimer;
+            [] spawn WMT_fnc_BriefingPlayerCount;
 
+            player addEventHandler ["killed", "_this spawn WMT_fnc_PlayerKilled"];
             player addEventHandler [
                 "HandleDamage",
                 {
                     if (alive (_this select 0)) then {WMT_Local_LastDamageSource = effectivecommander (_this select 3);};
                 }
             ];
-
-            player addEventHandler ["killed", "_this spawn WMT_fnc_PlayerKilled"];
 
             // Public variable handlers
             "WMT_Global_Announcement" addPublicVariableEventHandler { (_this select 1) call WMT_fnc_Announcement };
