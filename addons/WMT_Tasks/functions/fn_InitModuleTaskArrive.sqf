@@ -73,7 +73,7 @@ if(_activated) then {
                     private ["_winner", "_obj", "_name", "_text"];
 
                     _winner = (_this select 1) select 0;
-                    _obj     = (_this select 1) select 1;
+                    _obj    = (_this select 1) select 1;
 
                     _name = _obj getVariable ["WMT_DisplayName", getText (configFile >> "CfgVehicles" >> typeOf _obj >> "displayName")];
                     _text = _name + " " + localize "STR_WMT_Arrived";

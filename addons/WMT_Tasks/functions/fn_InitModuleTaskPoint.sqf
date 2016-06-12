@@ -41,11 +41,11 @@ if(_activated) then {
             _func_sideToColor = {
                 switch (_this) do
                 {
-                    case WEST:        {"ColorBlufor"};
-                    case EAST:        {"ColorOpfor"};
-                    case RESISTANCE:{"ColorIndependent"};
-                    case CIVILIAN:    {"ColorCivilian"};
-                    default         {"ColorBlack"}
+                    case WEST:       {"ColorBlufor"};
+                    case EAST:       {"ColorOpfor"};
+                    case RESISTANCE: {"ColorIndependent"};
+                    case CIVILIAN:   {"ColorCivilian"};
+                    default          {"ColorBlack"}
                 };
             };
 
