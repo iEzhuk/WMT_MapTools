@@ -97,15 +97,15 @@ if(_activated) then {
 
             params ["_logic", "_units", "_delay"];
 
-            private _markerStr       = _logic getVariable "Marker";
-            private _owner          = [east,west,resistance,civilian,sideLogic] select (_logic getVariable "Owner");
+            private _markerStr    = _logic getVariable "Marker";
+            private _owner        = [east,west,resistance,civilian,sideLogic] select (_logic getVariable "Owner");
             private _message      = _logic getVariable "Message";
-            private _defCount      = _logic getVariable "DefCount";
-            private _lock          = _logic getVariable "Lock";
-            private _minHeight      = _logic getVariable "MinHeight";
-            private _maxHeight      = _logic getVariable "MaxHeight";
-            private _autoLose       = _logic getVariable "AutoLose";
-            private _timer           = _logic getVariable ["Timer",0];
+            private _defCount     = _logic getVariable "DefCount";
+            private _lock         = _logic getVariable "Lock";
+            private _minHeight    = _logic getVariable "MinHeight";
+            private _maxHeight    = _logic getVariable "MaxHeight";
+            private _autoLose     = _logic getVariable "AutoLose";
+            private _timer        = _logic getVariable ["Timer",0];
             private _captureCount = _logic getVariable "CaptureCount";
             private _easyCapture  = _logic getVariable "EasyCapture";
 
@@ -116,7 +116,7 @@ if(_activated) then {
 
             private _arrMarkers = [_markerStr,","] call Bis_fnc_splitString;
             private _arrTrgs    = [];
-            private _brush         = if(count _arrMarkers == 1)then{"SolidBorder"}else{"Solid"};
+            private _brush      = if(count _arrMarkers == 1)then{"SolidBorder"}else{"Solid"};
 
             // Init point
             for "_i" from 0 to ((count _arrMarkers)-1) do {
@@ -136,7 +136,7 @@ if(_activated) then {
             private _objs   = _units;
             private _locked = false;
             private _timeB  = -1;
-            private _typeB    = 0;
+            private _typeB  = 0;
 
             while {!_locked} do {
                 private _unitCount = [_arrTrgs, _minHeight, _maxHeight] call _getCountUnits;
