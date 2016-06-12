@@ -1,163 +1,163 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Project ID="Arma3">
-	<Package ID="WMT">
-		<Container ID="Tasks">
-			<Key ID="STR_WMT_ObjectCount">
-				<Original>Number of objects</Original>
-				<Russian>Кол-во объектов</Russian>
-			</Key>
-			<Key ID="STR_WMT_ObjectCount_Destroy_Desc">
-				<Original>Number of alive objects for the mission to end</Original>
-				<Russian>Кол-во живых объектов при котором завершаться игра</Russian>
-			</Key>
-			<Key ID="STR_WMT_ObjectCount_Arrive_Desc">
-				<Original>Number of object to reach the destination point for the mission to end</Original>
-				<Russian>Кол-во объектов, достигших зоны назначения, при котором завершаться игра</Russian>
-			</Key>
-			<Key ID="STR_WMT_Notice">
-				<Original>Notifications</Original>
-				<Russian>Объявления</Russian>
-			</Key>
-			<Key ID="STR_WMT_Notice_Destroy_Desc">
-				<Original>Notifications about destroyed objects</Original>
-				<Russian>Объявления об унитожении обеъктов</Russian>
-			</Key>
-			<Key ID="STR_WMT_Notice_Arrive_Desc">
-				<Original>Notifications about object arriving to the destination zone</Original>
-				<Russian>Объявления когда объект достигает зону назначения</Russian>
-			</Key>
-			<Key ID="STR_WMT_Destroyed">
-				<Original>has been destroyed</Original>
-				<Russian>уничтожен</Russian>
-			</Key>
-			<Key ID="STR_WMT_Arrived">
-				<Original>reached the destination point</Original>
-				<Russian>достиг места назначения</Russian>
-			</Key>
-			<Key ID="STR_WMT_Marker">
-				<Original>Marker</Original>
-				<Russian>Маркер</Russian>
-			</Key>
-			<Key ID="STR_WMT_Marker_Arrived_Desc">
-				<Original>Marker that indicates the destination point</Original>
-				<Russian>Маркер обозначающий зону назначений</Russian>
-			</Key>
-			<Key ID="STR_WMT_Marker_Point_Desc">
-				<Original>Marker that indicates the zone</Original>
-				<Russian>Маркер обозначающий зону</Russian>
-			</Key>
-			<Key ID="STR_WMT_Marker_VIP_Desc">
-				<Original>Marker that indicates the vip zone</Original>
-				<Russian>Маркер обозначающий зону для VIP</Russian>
-			</Key>
-			<Key ID="STR_WMT_DefaultSide">
-				<Original>Default side</Original>
-				<Russian>Сторона по умолчанию</Russian>
-			</Key>
-			<Key ID="STR_WMT_DefaultSide_Desc">
-				<Original>Point owner at the mission start</Original>
-				<Russian>Сторона на момент начала мисии</Russian>
-			</Key>
-			<Key ID="STR_WMT_Message_Point_Desc">
-				<Original>Message that is shown after one side captures the point</Original>
-				<Russian>Сообщение которое будет показано когда одна сторона захватит зону</Russian>
-			</Key>
-			<Key ID="STR_WMT_DefCount">
-				<Original>Number for defend</Original>
-				<Russian>Кол-во для защиты</Russian>
-			</Key>
-			<Key ID="STR_WMT_DefCount_desc">
-				<Original>Number of players required to defend the point</Original>
-				<Russian>Кол-во игроков для защиты зоны</Russian>
-			</Key>
-			<Key ID="STR_WMT_CaptureCount">
-				<Original>Number for capture</Original>
-				<Russian>Кол-во для захвата</Russian>
-			</Key>
-			<Key ID="STR_WMT_CaptureCount_Desc">
-				<Original>Number of players required to capture the point</Original>
-				<Russian>Кол-во игроков для захвата зоны</Russian>
-			</Key>
-			<Key ID="STR_WMT_Lock">
-				<Original>Lock</Original>
-				<Russian>Блокировка</Russian>
-			</Key>
-			<Key ID="STR_WMT_Lock_Desc">
-				<Original>Lock the point after first capture</Original>
-				<Russian>Блокировка зоны после первого захвата</Russian>
-			</Key>
-			<Key ID="STR_WMT_EasyCapture">
-				<Original>Easy capture</Original>
-				<Russian>Легкий захват</Russian>
-			</Key>
-			<Key ID="STR_WMT_EasyCapture_Desc">
-				<Original>One player can capture the point if nobody defends</Original>
-				<Russian>Один игрок может захватить зоны если зону никто ее не защищает</Russian>
-			</Key>
-			<Key ID="STR_WMT_MinHeight">
-				<Original>Bottom border</Original>
-				<Russian>Нижняя граница</Russian>
-			</Key>
-			<Key ID="STR_WMT_MaxHeight">
-				<Original>Top border</Original>
-				<Russian>Верхняя граница</Russian>
-			</Key>
-			<Key ID="STR_WMT_AutoLose">
-				<Original>Auto lose point</Original>
-				<Russian>Автоматическая потеря зоны</Russian>
-			</Key>
-			<Key ID="STR_WMT_AutoLose_Desc">
-				<Original>Auto lose the point if nobody denfends</Original>
-				<Russian>Автоматическая потеря зоны если никто ее не защищает</Russian>
-			</Key>
-			<Key ID="STR_WMT_PointCount">
-				<Original>Number of points</Original>
-				<Russian>Кол-во зон</Russian>
-			</Key>
-			<Key ID="STR_WMT_PointCount_Desc">
-				<Original>Number of captured points to win</Original>
-				<Russian>Кол-во захваченных зон для победы</Russian>
-			</Key>
-			<Key ID="STR_WMT_LeaveAllowedArea">
-				<Original>You are leaving the allowed area. You have %1 seconds to return.</Original>
-				<Russian>Вы покидаете разрешенную зону. У вас есть %1 секунд чтобы вернуться.</Russian>
-			</Key>
-			<Key ID="STR_WMT_Eliminated">
-				<Original>eliminated</Original>
-				<Russian>уничтожен</Russian>
-			</Key>
-			<Key ID="STR_WMT_ReturnTime">
-				<Original>Return time</Original>
-				<Russian>Время на возвращения</Russian>
-			</Key>
-			<Key ID="STR_WMT_CountVIP">
-				<Original>Number of VIPs</Original>
-				<Russian>Кол-во VIP'ов</Russian>
-			</Key>
-			<Key ID="STR_WMT_CountVIP_Desc">
-				<Original>Number of alive VIPs when mission ends</Original>
-				<Russian>Кол-во VIP'ов когда завершается миссия</Russian>
-			</Key>
-			<Key ID="STR_WMT_TimerInSec">
-				<Original>Timer (sec)</Original>
-				<Russian>Таймер (сек)</Russian>
-			</Key>
-			<Key ID="STR_WMT_Condition">
-				<Original>Condition</Original>
-				<Russian>Условие</Russian>
-			</Key>
-			<Key ID="STR_WMT_Condition_desc">
-				<Original>Additional condition to complete the task</Original>
-				<Russian>Дополнительное условие для выполнение задачи</Russian>
-			</Key>
-			<Key ID="STR_WMT_ComposeCount">
-				<Original>Number of task</Original>
-				<Russian>Кол-во задач</Russian>
-			</Key>
-			<Key ID="STR_WMT_ComposeCount_Desc">
-				<Original>Number of completed tasks to win</Original>
-				<Russian>Количество выполенных задач для попеды</Russian>
-			</Key>
-		</Container>
-	</Package>
+    <Package ID="WMT">
+        <Container ID="Tasks">
+            <Key ID="STR_WMT_ObjectCount">
+                <Original>Number of objects</Original>
+                <Russian>Кол-во объектов</Russian>
+            </Key>
+            <Key ID="STR_WMT_ObjectCount_Destroy_Desc">
+                <Original>Number of alive objects for the mission to end</Original>
+                <Russian>Кол-во живых объектов при котором завершаться игра</Russian>
+            </Key>
+            <Key ID="STR_WMT_ObjectCount_Arrive_Desc">
+                <Original>Number of object to reach the destination point for the mission to end</Original>
+                <Russian>Кол-во объектов, достигших зоны назначения, при котором завершаться игра</Russian>
+            </Key>
+            <Key ID="STR_WMT_Notice">
+                <Original>Notifications</Original>
+                <Russian>Объявления</Russian>
+            </Key>
+            <Key ID="STR_WMT_Notice_Destroy_Desc">
+                <Original>Notifications about destroyed objects</Original>
+                <Russian>Объявления об унитожении обеъктов</Russian>
+            </Key>
+            <Key ID="STR_WMT_Notice_Arrive_Desc">
+                <Original>Notifications about object arriving to the destination zone</Original>
+                <Russian>Объявления когда объект достигает зону назначения</Russian>
+            </Key>
+            <Key ID="STR_WMT_Destroyed">
+                <Original>has been destroyed</Original>
+                <Russian>уничтожен</Russian>
+            </Key>
+            <Key ID="STR_WMT_Arrived">
+                <Original>reached the destination point</Original>
+                <Russian>достиг места назначения</Russian>
+            </Key>
+            <Key ID="STR_WMT_Marker">
+                <Original>Marker</Original>
+                <Russian>Маркер</Russian>
+            </Key>
+            <Key ID="STR_WMT_Marker_Arrived_Desc">
+                <Original>Marker that indicates the destination point</Original>
+                <Russian>Маркер обозначающий зону назначений</Russian>
+            </Key>
+            <Key ID="STR_WMT_Marker_Point_Desc">
+                <Original>Marker that indicates the zone</Original>
+                <Russian>Маркер обозначающий зону</Russian>
+            </Key>
+            <Key ID="STR_WMT_Marker_VIP_Desc">
+                <Original>Marker that indicates the vip zone</Original>
+                <Russian>Маркер обозначающий зону для VIP</Russian>
+            </Key>
+            <Key ID="STR_WMT_DefaultSide">
+                <Original>Default side</Original>
+                <Russian>Сторона по умолчанию</Russian>
+            </Key>
+            <Key ID="STR_WMT_DefaultSide_Desc">
+                <Original>Point owner at the mission start</Original>
+                <Russian>Сторона на момент начала мисии</Russian>
+            </Key>
+            <Key ID="STR_WMT_Message_Point_Desc">
+                <Original>Message that is shown after one side captures the point</Original>
+                <Russian>Сообщение которое будет показано когда одна сторона захватит зону</Russian>
+            </Key>
+            <Key ID="STR_WMT_DefCount">
+                <Original>Number for defend</Original>
+                <Russian>Кол-во для защиты</Russian>
+            </Key>
+            <Key ID="STR_WMT_DefCount_desc">
+                <Original>Number of players required to defend the point</Original>
+                <Russian>Кол-во игроков для защиты зоны</Russian>
+            </Key>
+            <Key ID="STR_WMT_CaptureCount">
+                <Original>Number for capture</Original>
+                <Russian>Кол-во для захвата</Russian>
+            </Key>
+            <Key ID="STR_WMT_CaptureCount_Desc">
+                <Original>Number of players required to capture the point</Original>
+                <Russian>Кол-во игроков для захвата зоны</Russian>
+            </Key>
+            <Key ID="STR_WMT_Lock">
+                <Original>Lock</Original>
+                <Russian>Блокировка</Russian>
+            </Key>
+            <Key ID="STR_WMT_Lock_Desc">
+                <Original>Lock the point after first capture</Original>
+                <Russian>Блокировка зоны после первого захвата</Russian>
+            </Key>
+            <Key ID="STR_WMT_EasyCapture">
+                <Original>Easy capture</Original>
+                <Russian>Легкий захват</Russian>
+            </Key>
+            <Key ID="STR_WMT_EasyCapture_Desc">
+                <Original>One player can capture the point if nobody defends</Original>
+                <Russian>Один игрок может захватить зоны если зону никто ее не защищает</Russian>
+            </Key>
+            <Key ID="STR_WMT_MinHeight">
+                <Original>Bottom border</Original>
+                <Russian>Нижняя граница</Russian>
+            </Key>
+            <Key ID="STR_WMT_MaxHeight">
+                <Original>Top border</Original>
+                <Russian>Верхняя граница</Russian>
+            </Key>
+            <Key ID="STR_WMT_AutoLose">
+                <Original>Auto lose point</Original>
+                <Russian>Автоматическая потеря зоны</Russian>
+            </Key>
+            <Key ID="STR_WMT_AutoLose_Desc">
+                <Original>Auto lose the point if nobody denfends</Original>
+                <Russian>Автоматическая потеря зоны если никто ее не защищает</Russian>
+            </Key>
+            <Key ID="STR_WMT_PointCount">
+                <Original>Number of points</Original>
+                <Russian>Кол-во зон</Russian>
+            </Key>
+            <Key ID="STR_WMT_PointCount_Desc">
+                <Original>Number of captured points to win</Original>
+                <Russian>Кол-во захваченных зон для победы</Russian>
+            </Key>
+            <Key ID="STR_WMT_LeaveAllowedArea">
+                <Original>You are leaving the allowed area. You have %1 seconds to return.</Original>
+                <Russian>Вы покидаете разрешенную зону. У вас есть %1 секунд чтобы вернуться.</Russian>
+            </Key>
+            <Key ID="STR_WMT_Eliminated">
+                <Original>eliminated</Original>
+                <Russian>уничтожен</Russian>
+            </Key>
+            <Key ID="STR_WMT_ReturnTime">
+                <Original>Return time</Original>
+                <Russian>Время на возвращения</Russian>
+            </Key>
+            <Key ID="STR_WMT_CountVIP">
+                <Original>Number of VIPs</Original>
+                <Russian>Кол-во VIP'ов</Russian>
+            </Key>
+            <Key ID="STR_WMT_CountVIP_Desc">
+                <Original>Number of alive VIPs when mission ends</Original>
+                <Russian>Кол-во VIP'ов когда завершается миссия</Russian>
+            </Key>
+            <Key ID="STR_WMT_TimerInSec">
+                <Original>Timer (sec)</Original>
+                <Russian>Таймер (сек)</Russian>
+            </Key>
+            <Key ID="STR_WMT_Condition">
+                <Original>Condition</Original>
+                <Russian>Условие</Russian>
+            </Key>
+            <Key ID="STR_WMT_Condition_desc">
+                <Original>Additional condition to complete the task</Original>
+                <Russian>Дополнительное условие для выполнение задачи</Russian>
+            </Key>
+            <Key ID="STR_WMT_ComposeCount">
+                <Original>Number of task</Original>
+                <Russian>Кол-во задач</Russian>
+            </Key>
+            <Key ID="STR_WMT_ComposeCount_Desc">
+                <Original>Number of completed tasks to win</Original>
+                <Russian>Количество выполенных задач для попеды</Russian>
+            </Key>
+        </Container>
+    </Package>
 </Project>

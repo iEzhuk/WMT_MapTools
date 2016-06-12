@@ -15,7 +15,7 @@ class CfgPatches
         weapons[] = {};
         requiredVersion = 1.0;
         requiredAddons[] = {"A3_UI_F", "cba_keybinding"};
-        author[] = {"Ezhuk","Zealot"};
+        authors[] = {"Ezhuk","Zealot"};
         authorUrl = "https://github.com/iEzhuk/WMT_MapTools";
         version = 1.5.0;
         versionStr = "1.5.0";
