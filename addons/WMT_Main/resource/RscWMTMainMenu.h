@@ -73,7 +73,7 @@ class RscWMTMainMenu {
             color[] = {0.65, 0.0, 0.0, 1.0};
             idc = IDC_MENU_FIX_UNIFORM_BUG;
             x = 0.7;
-            y = 0.255;
+            y = 0.570;
             text = $STR_WMT_FixUniformbug;
             action = "call WMT_fnc_ReequipStart";
         };
