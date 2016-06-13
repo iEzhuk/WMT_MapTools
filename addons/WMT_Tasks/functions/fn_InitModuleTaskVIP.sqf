@@ -93,7 +93,7 @@ if(_activated) then {
                 _timeCount = 0;
 
                 while {_timeCount < _returnTime} do {
-                    if([player,_marker] call WMT_fnc_IsTheUnitInsideMarker) then {
+                    if(player inArea _marker) then {
                         _timeCount = 0;
                     }else {
                         if(_returnTime > 0) then {

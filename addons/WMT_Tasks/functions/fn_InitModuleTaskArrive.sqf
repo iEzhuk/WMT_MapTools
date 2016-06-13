@@ -35,7 +35,7 @@ if(_activated) then {
             {
                 _tempObjs = _objs;
                 {
-                    if ([_x,_marker] call WMT_fnc_IsTheUnitInsideMarker) then {
+                    if (_x inArea _marker) then {
                         private ["_name", "_text"];
                         _countArrived = _countArrived + 1;
                         _objs = _objs - [_x];
