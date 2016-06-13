@@ -54,10 +54,10 @@ private _boxes = []; // ammoboxes to show in "Vehicle inventory" tab only
     _vehinfo pushback getPos _x;
     _vehinfo pushback typeOf _x;
     // сторона определяется по ближайшему юниту
-    private _allUnits = if (isMultiplayer) then {playableUnits} else {allUnits};
+    private _allGroups = allGroups;
     private _veh = _x;
-    _allUnits = [_allUnits,[],{_veh distance _x},"ASCEND"] call BIS_fnc_sortBy;
-    _side = side (_allUnits select 0);
+    _allGroups = [_allGroups,[],{_veh distance (leader _x)},"ASCEND"] call BIS_fnc_sortBy;
+    _side = _x getVariable ["WMT_Side", side (_allGroups select 0)];
 
     _vehinfo pushback _side;
     _vehinfo pushBack (if (isNil {(weaponCargo _x + magazinecargo _x + itemCargo _x + backpackCargo _x)}) then {[]} else {(weaponCargo _x + magazinecargo _x + itemCargo _x + backpackCargo _x) call BIS_fnc_consolidateArray});
@@ -84,7 +84,6 @@ private _boxes = []; // ammoboxes to show in "Vehicle inventory" tab only
         {
             if (isPlayer _x) then {_playersGr=_playersGr+1;};
         } foreach units _x;
-
 
         _x setVariable ["WMT_BriefingUnitsInfo", _units, true];
 
