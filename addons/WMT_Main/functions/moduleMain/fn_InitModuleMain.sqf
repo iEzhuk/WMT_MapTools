@@ -57,7 +57,10 @@ if(_activated) then {
         wmt_param_Statistic = _logic getVariable "Statistic";
     };
     if (isNil "wmt_param_ExtendedBriefing") then {
-        wmt_param_ExtendedBriefing = _logic getVariable ["ExtendedBriefing",1];
+        wmt_param_ExtendedBriefing = _logic getVariable ["ExtendedBriefing", 1];
+    };
+    if (isNil "wmt_param_EnableChannels") then {
+        wmt_param_EnableChannels = _logic getVariable ["DisableChannels", "0,2,4,6"];
     };
 
     wmt_param_MaxViewDistance  = 10 max wmt_param_MaxViewDistance;
@@ -165,6 +168,11 @@ if(_activated) then {
             if (wmt_param_GenerateFrequencies == 1) then {
                 [] spawn WMT_fnc_DefaultFreqsClient;
             };
+
+            // Disable channels
+            {
+                _x enableChannel [false, false];
+            } foreach (call compile format ["[%1]", wmt_param_EnableChannels]);
 
             [] spawn {
                 waitUntil{sleep 0.36; !(isNull (findDisplay 46))};

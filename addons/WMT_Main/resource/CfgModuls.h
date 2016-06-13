@@ -125,6 +125,13 @@ class CfgVehicles
                     class Disable   {name = "$STR_WMT_Disable"; value = 0;};
                 };
             };
+            class EnableChannels
+            {
+                displayName = "$STR_WMT_DisableChannels";
+                description = "";
+                typeName = "STRING";
+                defaultValue = "0,2,4,6";
+            };
         };
     };
 //=======================================================================================

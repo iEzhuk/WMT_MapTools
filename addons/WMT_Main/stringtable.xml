@@ -554,6 +554,10 @@
                 <Original>Fix unifrom bug</Original>
                 <Russian>Исправить форму</Russian>
             </Key>
+            <Key ID="STR_WMT_DisableChannels">
+                <Original>Disable channels</Original>
+                <Russian>Отключенные каналы</Russian>
+            </Key>
         </Container>
     </Package>
 </Project>
