@@ -66,6 +66,7 @@ if(_activated) then {
 
     if(wmt_param_AI==0) then {
         [] call WMT_fnc_DisableAI;
+        player enableAI "MOVE";
     };
 
 
