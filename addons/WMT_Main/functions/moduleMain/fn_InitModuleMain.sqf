@@ -91,6 +91,8 @@ if(_activated) then {
             if (wmt_param_ExtendedBriefing == 1) then {
                 [] spawn wmt_fnc_preparebriefinginfo;
             };
+            // to handle the wrong jips
+            [] call WMT_fnc_ServerKilled;
         };
     };
 
@@ -100,6 +102,10 @@ if(_activated) then {
     if(!isDedicated) then {
         [] spawn {
             waitUntil{!isNull player};
+
+            if(didJIP) then {
+                [] call WMT_fnc_CheckJIP;
+            };
 
             "WMT_fnc_InitModuleMain started" call Bis_fnc_log;
 
