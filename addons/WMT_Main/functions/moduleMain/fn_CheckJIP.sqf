@@ -1,3 +1,17 @@
+/*
+    Name:
+        WMT_fnc_CheckJIP
+    Author(s):
+        Kurt
+
+    Description:
+		Checks if player was already killed and rejoined
+    Parameters:
+        Nothing
+    Returns:
+        Nothing
+*/
+
 _playersKilled = missionNamespace getVariable ["WMT_UIDKilledList", []];
 _uid = getPlayerUID player;
 

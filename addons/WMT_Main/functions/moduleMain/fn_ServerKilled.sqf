@@ -1,3 +1,17 @@
+/*
+    Name:
+        WMT_fnc_ServerKilled
+    Author(s):
+        Kurt
+
+    Description:
+		Handles MP kills and updates public variable
+    Parameters:
+        Nothing
+    Returns:
+        Nothing
+*/
+
 WMT_UIDKilledList = [];
 publicVariable "WMT_UIDKilledList";
 
