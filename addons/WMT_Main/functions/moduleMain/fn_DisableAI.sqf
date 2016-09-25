@@ -14,17 +14,17 @@
         Nothing
 */
 
+params ["_unit"];
 
-{
-    _x disableAI "AUTOTARGET";
-    _x disableAI "TARGET";
-    _x disableAI "FSM";
-    _x disableAI "MOVE";
-    _x disableAI "PATHPLAN";
-    _x stop true;
-    _x setBehaviour "CARELESS";
-    _x allowFleeing 0;
-    _x disableConversation true;
-    _x setVariable ["BIS_noCoreConversations", false];
-    _x setSpeaker "NoVoice";
-}forEach (if (count playableUnits == 0) then {allUnits} else {playableUnits});
+_unit disableAI "AUTOTARGET";
+_unit disableAI "TARGET";
+_unit disableAI "FSM";
+_unit disableAI "MOVE";
+_unit disableAI "PATHPLAN";
+_unit stop true;
+_unit setBehaviour "CARELESS";
+_unit allowFleeing 0;
+_unit disableConversation true;
+_unit setVariable ["BIS_noCoreConversations", false];
+_unit setSpeaker "NoVoice";
+

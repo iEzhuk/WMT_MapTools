@@ -65,8 +65,7 @@ if(_activated) then {
     wmt_param_HeavyLossesCoeff = 0 max wmt_param_HeavyLossesCoeff;
 
     if(wmt_param_AI==0) then {
-        [] call WMT_fnc_DisableAI;
-        player enableAI "MOVE";
+        [] call WMT_fnc_AIHandler;
     };
 
 
