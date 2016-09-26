@@ -9,7 +9,7 @@
     Parameters:
         0 - Object. must be local
     Returns:
-        Nothing
+        NULL
 */
 
 params ["_unit"];

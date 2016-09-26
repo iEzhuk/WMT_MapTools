@@ -7,10 +7,14 @@
     Description:
 		Handles MP kills and updates public variable
     Parameters:
-        Nothing
+        NULL
     Returns:
-        Nothing
+        NULL
 */
+
+if(!isServer) exitWith {
+    "Error. WMT_fnc_ServerKilled called on client" call BIS_fnc_log;
+};
 
 WMT_UIDKilledList = [];
 publicVariable "WMT_UIDKilledList";

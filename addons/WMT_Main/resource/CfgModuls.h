@@ -125,6 +125,17 @@ class CfgVehicles
                     class Enable    {name = "$STR_WMT_Enable"; value = 1;default = 1;};
                 };
             };
+            class AllowRejoining
+            {
+                displayName = "$STR_WMT_AllowRejoining";
+                description = "$STR_WMT_AllowRejoining_Desc";
+                typeName = "NUMBER";
+                class values
+                {
+                    class Disable   {name = "$STR_WMT_Disable"; value = 0;  default = 0;};
+                    class Enable    {name = "$STR_WMT_Enable"; value = 1;};
+                };
+            };
         };
     };
 //=======================================================================================

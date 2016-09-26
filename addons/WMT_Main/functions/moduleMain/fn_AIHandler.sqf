@@ -1,3 +1,18 @@
+/*
+    Name:
+        WMT_fnc_AIHandler
+    Author(s):
+        Kurt
+
+    Description:
+		Handles units' locality changes and en/disables AI
+    Parameters:
+        NULL
+    Returns:
+        NULL
+*/
+
+
 if (!isServer) exitWith {
 	"Error. WMT_fnc_AIHandler called on client" call BIS_fnc_log;
 };

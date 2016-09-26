@@ -7,9 +7,9 @@
     Description:
 		Checks if player was already killed and rejoined
     Parameters:
-        Nothing
+        NULL
     Returns:
-        Nothing
+        NULL
 */
 
 _playersKilled = missionNamespace getVariable ["WMT_UIDKilledList", []];
