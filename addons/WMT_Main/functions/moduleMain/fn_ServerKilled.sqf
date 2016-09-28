@@ -16,6 +16,10 @@ if(!isServer) exitWith {
     "Error. WMT_fnc_ServerKilled called on client" call BIS_fnc_log;
 };
 
+waitUntil { WMT_pub_frzState >= 3 };
+
+sleep 10 * 60;
+
 WMT_UIDKilledList = [];
 publicVariable "WMT_UIDKilledList";
 

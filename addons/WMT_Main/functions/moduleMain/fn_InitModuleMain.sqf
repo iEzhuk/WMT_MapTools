@@ -51,8 +51,7 @@ if(_activated) then {
     if(isNil "wmt_param_ShowVehiclesBriefing") then {
         wmt_param_ShowVehiclesBriefing = _logic getVariable "ShowVehiclesBriefing";
     };
-    if(isNil "wmt_param_ShowSquadsBriefing") then {
-        wmt_param_ShowSquadsBriefing = _logic getVariable "ShowSquadsBriefing";
+    if(isNil "wmt_param_ShowSquadsBriefing") then {        wmt_param_ShowSquadsBriefing = _logic getVariable "ShowSquadsBriefing";
     };
     if(isNil "wmt_param_Statistic") then {
         wmt_param_Statistic = _logic getVariable "Statistic";
@@ -95,7 +94,7 @@ if(_activated) then {
             };
             // to handle the wrong jips
             if(wmt_param_AllowRejoining == 0) then {
-                [] call WMT_fnc_ServerKilled;
+                [] spawn WMT_fnc_ServerKilled;
             };
             
         };
