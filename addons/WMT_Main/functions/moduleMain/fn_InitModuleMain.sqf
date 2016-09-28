@@ -51,7 +51,8 @@ if(_activated) then {
     if(isNil "wmt_param_ShowVehiclesBriefing") then {
         wmt_param_ShowVehiclesBriefing = _logic getVariable "ShowVehiclesBriefing";
     };
-    if(isNil "wmt_param_ShowSquadsBriefing") then {        wmt_param_ShowSquadsBriefing = _logic getVariable "ShowSquadsBriefing";
+    if(isNil "wmt_param_ShowSquadsBriefing") then {        
+        wmt_param_ShowSquadsBriefing = _logic getVariable "ShowSquadsBriefing";
     };
     if(isNil "wmt_param_Statistic") then {
         wmt_param_Statistic = _logic getVariable "Statistic";
