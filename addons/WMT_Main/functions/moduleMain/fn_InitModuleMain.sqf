@@ -61,7 +61,7 @@ if(_activated) then {
         wmt_param_ExtendedBriefing = _logic getVariable ["ExtendedBriefing",1];
     };
     if(isNil "wmt_param_AllowRejoining") then {
-        wmt_param_AllowRejoining = _logic getVariable ["AllowRejoining", 1];
+        wmt_param_AllowRejoining = _logic getVariable ["AllowRejoining", 0];
     };
 
 
