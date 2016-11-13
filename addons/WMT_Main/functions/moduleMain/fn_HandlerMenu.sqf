@@ -45,7 +45,7 @@ switch (_event) do
         };
 
 	
-        if (!((getPlayerUID player) in (missionNamespace getVariable ["WMT_global_EnableConsole", []])) && !serverCommandAvailable('#kick')) then {
+        if (!(getPlayerUID player in (missionNamespace getVariable ["WMT_global_EnableConsole", []])) && !serverCommandAvailable('#kick')) then {
             (_dialog displayCtrl IDC_MENU_CONSOLE) ctrlShow false;
             (_dialog displayCtrl IDC_MENU_CLOSE) ctrlSetPosition [0.02, 0.465];
             (_dialog displayCtrl IDC_MENU_CLOSE) ctrlCommit 0;
