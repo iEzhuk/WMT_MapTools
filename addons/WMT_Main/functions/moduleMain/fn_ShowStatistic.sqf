@@ -19,8 +19,8 @@ if(isNil "WMT_Local_MissionEnd" && alive player)exitWith{};
 private _text = "";
 
 if(count WMT_Local_Killer > 0) then {
-    private(_killerName) = WMT_Local_Killer select 0;
-    private(_killerSide) = WMT_Local_Killer select 1;
+    private _killerName = WMT_Local_Killer select 0;
+    private _killerSide = WMT_Local_Killer select 1;
 
     _text = _text + format ["<t color='#c7861b'>%1</t>:<br/>",localize "STR_WMT_Killer"];
 
