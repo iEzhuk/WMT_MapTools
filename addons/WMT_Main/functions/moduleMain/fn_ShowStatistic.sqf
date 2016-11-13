@@ -13,16 +13,14 @@
     Returns:
         Nothing
 */
-#define PR(x) private ['x']; x
-
 if(wmt_param_Statistic==0)exitWith{};
 if(isNil "WMT_Local_MissionEnd" && alive player)exitWith{};
 
-PR(_text) = "";
+private _text = "";
 
 if(count WMT_Local_Killer > 0) then {
-    PR(_killerName) = WMT_Local_Killer select 0;
-    PR(_killerSide) = WMT_Local_Killer select 1;
+    private(_killerName) = WMT_Local_Killer select 0;
+    private(_killerSide) = WMT_Local_Killer select 1;
 
     _text = _text + format ["<t color='#c7861b'>%1</t>:<br/>",localize "STR_WMT_Killer"];
 
@@ -39,10 +37,10 @@ if(count WMT_Local_Killer > 0) then {
 if(count WMT_Local_Kills > 0) then {
     _text = _text + format ["<br/><br/><t color='#c7861b'>%1</t>: %2<br/>", localize "STR_WMT_Kills", count WMT_Local_Kills];
 
-    PR(_friendlySides) = ( [playerSide] call BIS_fnc_friendlySides ) - [civilian];
+    private _friendlySides = ( [playerSide] call BIS_fnc_friendlySides ) - [civilian];
     {
-        PR(_name) = _x select 0;
-        PR(_side) = _x select 1;
+        private _name = _x select 0;
+        private _side = _x select 1;
 
         switch (true) do {
             // Killed civilian
@@ -58,6 +56,12 @@ if(count WMT_Local_Kills > 0) then {
             };
         };
     } foreach WMT_Local_Kills;
+};
+
+private _acex_data = (missionNamespace getVariable ["acex_killTracker_outputText",""]);
+
+if !(_acex_data isEqualTo "") then {
+	_text = _text + "<br/>Acex data:<br/>" + _acex_data;
 };
 
 [ (format [ "<t size='0.6'>%1</t>",_text]), 0,0.25*safeZoneH+safeZoneY,10,0,0,35] spawn bis_fnc_dynamicText;
