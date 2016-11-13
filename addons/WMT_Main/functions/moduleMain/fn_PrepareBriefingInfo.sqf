@@ -39,7 +39,7 @@ private _boxes = []; // ammoboxes to show in "Vehicle inventory" tab only
         _vehicles pushBack _x;
     } else {
         if (!(isNil {(weaponCargo _x + magazinecargo _x + itemCargo _x + backpackCargo _x)}) &&
-            {count (weaponCargo _x + magazinecargo _x + itemCargo _x + backpackCargo _x) != 0}) then {
+            {count (weaponCargo _x + magazinecargo _x + itemCargo _x + backpackCargo _x) != 0} && {_x getVariable ["wmt_show", true]}) then {
             _boxes pushBack _x;
         };
     };
