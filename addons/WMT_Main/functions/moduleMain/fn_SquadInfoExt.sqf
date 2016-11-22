@@ -111,7 +111,7 @@ for "_i" from 0 to (count _units - 1) do {
     // Uniform, vest, backpack
     //==============================
     {
-        if (_x select 1 != "") then {
+        if !((_x select 1) isEqualTo "") then {
             _pic = getText(configFile >> _x select 0 >> _x select 1 >> "picture");
             _txt = _txt + format ["<img image='%1' height=46/> ", _pic call _fnc_fixPicName];
         };
