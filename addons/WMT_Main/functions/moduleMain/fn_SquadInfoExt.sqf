@@ -106,6 +106,16 @@ for "_i" from 0 to (count _units - 1) do {
         _pic = getText(configFile >> "CfgWeapons" >> (_x select 0) >> "picture");
         _txt = _txt + format ["<img image='%1' height=24/>x%2 ", _pic call _fnc_fixPicName, _x select 1];
     } foreach ((items _unit) call BIS_fnc_consolidateArray);
+    _txt = _txt + "<br/>";
+    //==============================
+    // Uniform, vest, backpack
+    //==============================
+    {
+        if !((_x select 1) isEqualTo "") then {
+            _pic = getText(configFile >> _x select 0 >> _x select 1 >> "picture");
+            _txt = _txt + format ["<img image='%1' height=46/> ", _pic call _fnc_fixPicName];
+        };
+    } forEach [["CfgWeapons", uniform _unit], ["CfgWeapons", vest _unit], ["CfgVehicles", backpack _unit]];
 
     _txt = _txt + "<br/><br/>";
 };
