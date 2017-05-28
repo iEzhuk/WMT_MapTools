@@ -178,6 +178,8 @@ if(_activated) then {
 
             [] call WMT_fnc_UpdateMainActions;
             player addEventHandler ["Respawn", {[] call WMT_fnc_UpdateMainActions;}];
+
+            0 call WMT_fnc_BriefingMap;
         };
 
     };
