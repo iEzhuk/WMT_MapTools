@@ -124,4 +124,5 @@ wmt_mapadded = false;
 			};
 		}];
 	}];
+};
 
