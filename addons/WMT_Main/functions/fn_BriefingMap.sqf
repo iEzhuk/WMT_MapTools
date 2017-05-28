@@ -23,23 +23,6 @@ if ( not isnil "WMT_fnc_BriefingMap_Running" ) exitWith {
 };
 WMT_fnc_BriefingMap_Running = true;
 
-wmt_mapadded = false;
-
-[] spawn {
-    waituntil {not isNull player};
-    while {time < 0.1} do {
-        uisleep 0.5;
-        if (!("ItemMap" in assignedItems player) && (!wmt_mapadded)) then {
-            wmt_mapadded = true;
-            player linkItem "ItemMapFake_WMT";
-        };
-    };
-    if (wmt_mapadded) then {
-        player unlinkItem "ItemMapFake_WMT";
-        wmt_mapadded = false;
-    };
-};
-
 /*
 				if (wmt_mapadded) then {
 					private _source = missionNamespace getVariable ["wmt_mapsource", ["man", player]];
@@ -55,7 +38,14 @@ wmt_mapadded = false;
 */
 
 0 spawn {
-	sleep 0.5;
+	waituntil {not isNull player};
+	uisleep 0.1;
+	if (!("ItemMap" in assignedItems player)) then {
+		player linkItem "ItemMapFake_WMT";
+		sleep 0.1;
+		player unlinkItem "ItemMapFake_WMT";
+	};
+	sleep 0.1;
 	addMissionEventHandler["Map", {
 		params ["_mapIsOpened","_mapIsForced"];
 		if (_mapIsOpened) then {
