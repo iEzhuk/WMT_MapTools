@@ -9,7 +9,7 @@ class CfgPatches
 		weapons[] = {};
 		requiredVersion = 1.0;
 		requiredAddons[] = {"WMT_Main"};
-		author[] = {"Ezhuk","Zealot"};
+		author = "Ezhuk, Zealot";
 		authorUrl = "https://github.com/iEzhuk/WMT_MapTools";
 		version = 1.5.0;
 		versionStr = "1.5.0";
