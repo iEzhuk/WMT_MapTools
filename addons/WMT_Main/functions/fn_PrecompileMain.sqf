@@ -26,10 +26,14 @@ WMT_fnc_BriefingTimer               = compileFinal preprocessFileLineNumbers  ("
 // Module Main
 WMT_fnc_InitModuleMain              = compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\moduleMain\fn_InitModuleMain.sqf");
 
+WMT_fnc_CheckJIP                    = compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\moduleMain\fn_CheckJIP.sqf");
+WMT_fnc_ServerKilled                = compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\moduleMain\fn_ServerKilled.sqf");
 WMT_fnc_BriefingMissionParameters   = compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\moduleMain\fn_BriefingMissionParameters.sqf");
 WMT_fnc_DefaultFreqsClient          = compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\moduleMain\fn_DefaultFreqsClient.sqf");
 WMT_fnc_DefaultFreqsServer          = compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\moduleMain\fn_DefaultFreqsServer.sqf");
+WMT_fnc_AIHandler                   = compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\moduleMain\fn_AIHandler.sqf"); 
 WMT_fnc_DisableAI                   = compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\moduleMain\fn_DisableAI.sqf");
+WMT_fnc_EnableAI                    = compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\moduleMain\fn_EnableAI.sqf");
 WMT_fnc_DisableTI                   = compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\moduleMain\fn_DisableTI.sqf");
 WMT_fnc_HandlerAdminPanel           = compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\moduleMain\fn_HandlerAdminPanel.sqf");
 WMT_fnc_HandlerFeedback             = compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\moduleMain\fn_HandlerFeedback.sqf");

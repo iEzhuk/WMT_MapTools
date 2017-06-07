@@ -51,7 +51,7 @@ if(_activated) then {
     if(isNil "wmt_param_ShowVehiclesBriefing") then {
         wmt_param_ShowVehiclesBriefing = _logic getVariable "ShowVehiclesBriefing";
     };
-    if(isNil "wmt_param_ShowSquadsBriefing") then {
+    if(isNil "wmt_param_ShowSquadsBriefing") then {        
         wmt_param_ShowSquadsBriefing = _logic getVariable "ShowSquadsBriefing";
     };
     if(isNil "wmt_param_Statistic") then {
@@ -60,16 +60,17 @@ if(_activated) then {
     if(isNil "wmt_param_ExtendedBriefing") then {
         wmt_param_ExtendedBriefing = _logic getVariable ["ExtendedBriefing",1];
     };
+    if(isNil "wmt_param_AllowRejoining") then {
+        wmt_param_AllowRejoining = _logic getVariable ["AllowRejoining", 0];
+    };
+
 
     wmt_param_MaxViewDistance  = 10 max wmt_param_MaxViewDistance;
     wmt_param_HeavyLossesCoeff = 0 max wmt_param_HeavyLossesCoeff;
 
     if(wmt_param_AI==0) then {
-        [] call WMT_fnc_DisableAI;
-        player enableAI "MOVE";
+        [] call WMT_fnc_AIHandler;
     };
-
-
 
     ["itemAdd", ["WmtMainCallEndFreeze", { ["CALL","FreezeEnded",[time, serverTime, diag_tickTime, date]] call wmt_fnc_evh; }, nil, nil, { time > 0 && { ( missionNamespace getVariable ["WMT_pub_frzState",100] ) >= 3} }, {false}, true]] call BIS_fnc_loop;
 
@@ -92,6 +93,11 @@ if(_activated) then {
             if (wmt_param_ExtendedBriefing == 1) then {
                 [] spawn wmt_fnc_preparebriefinginfo;
             };
+            // to handle the wrong jips
+            if(wmt_param_AllowRejoining == 0) then {
+                [] spawn WMT_fnc_ServerKilled;
+            };
+            
         };
     };
 
@@ -101,6 +107,10 @@ if(_activated) then {
     if(!isDedicated) then {
         [] spawn {
             waitUntil{!isNull player};
+
+            if(didJIP) then {
+                [] call WMT_fnc_CheckJIP;
+            };
 
             "WMT_fnc_InitModuleMain started" call Bis_fnc_log;
 

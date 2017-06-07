@@ -14,7 +14,6 @@
         Nothing
 */
 
-
 if(wmt_param_Statistic==0)exitWith{};
 
 closeDialog 0;
@@ -39,3 +38,5 @@ WMT_Local_Killer = [_killerName, _killerSide];
 if (not isnil '_killer' and {not isnull _killer}) then {
     [ [ [WMT_Local_PlayerName,playerSide], { WMT_Local_Kills pushback (_this); } ],"bis_fnc_spawn",_killer] call bis_fnc_mp;
 };
+
+

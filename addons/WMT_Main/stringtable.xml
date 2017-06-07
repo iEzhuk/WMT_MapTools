@@ -298,6 +298,14 @@
                 <Original>Show statistic after death by pressing [end]</Original>
                 <Russian>Показывать статистику после смерти по нажатию на [end]</Russian>
             </Key>
+            <Key ID="STR_WMT_AllowRejoining">
+                <Original>Allow rejoining</Original>
+                <Russian>Разрешить перезаход</Russian>
+            </Key>
+            <Key ID="STR_WMT_AllowRejoining_Desc">
+                <Original>Allow rejoining another slot after death</Original>
+                <Russian>Разрешить перезаход на другой слот после смерти</Russian>
+            </Key>
             <Key ID="STR_WMT_IndetifyTheBody">
                 <Original>Identify bodies</Original>
                 <Russian>Опознание мертвых</Russian>
