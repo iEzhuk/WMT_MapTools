@@ -28,10 +28,8 @@ if ((missionNamespace getVariable ["WMT_pub_frzState",0]) < 3) exitWith {
 
 if(!isNil "WMT_Local_MissionEnd") exitWith {diag_log "WARNING!!! WMT_Local_MissionEnd - multiple call";};
 WMT_Local_MissionEnd = true;
-if (isServer && {!isNil "ocap_fnc_exportData"}) then {    [] call ocap_fnc_exportData;};
 
-_time = time + 40;
-waitUntil{if (!isNil "ocap_capture") then {ocap_capture} or _time < time};
+if (isServer) then {	["WMT_EndMission", _this] call CBA_fnc_serverEvent;	};
 
 switch (true) do {
     case (count _this == 2) : {
