@@ -60,8 +60,6 @@ if(count WMT_Local_Kills > 0) then {
 
 private _acex_data = (missionNamespace getVariable ["acex_killTracker_outputText",""]);
 
-if !(_acex_data isEqualTo "") then {
-	_text = _text + "<br/>Acex data:<br/>" + _acex_data;
-};
+_text = _text + "<br/>(Ace) Killed by: " + WMT_Local_Killer_Ace + "<br/>";
 
 [ (format [ "<t size='0.6'>%1</t>",_text]), 0,0.25*safeZoneH+safeZoneY,10,0,0,35] spawn bis_fnc_dynamicText;
