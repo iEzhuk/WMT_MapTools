@@ -50,7 +50,7 @@ WMT_fnc_BriefingMap_Running = true;
 		params ["_mapIsOpened","_mapIsForced"];
 		if (_mapIsOpened) then {
 			//открыта карта и у игрока нет карты в инвентаре
-			if ({!("ItemMap" in assignedItems player)} && {!("ItemGPS" in assignedItems player)}) then {
+			if (!("ItemMap" in assignedItems player) && !("ItemGPS" in assignedItems player)) then {
 				if (vehicle player == player) then {
 					//человек не в технике
 					private _people = nearestObjects [player, ["Man"], 5];
