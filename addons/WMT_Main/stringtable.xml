@@ -44,7 +44,7 @@
             </Key>
             <Key ID="STR_WMT_EmptyTextField">
                 <Original>Empty text field</Original>
-                <Russian>Пусто текстовое поле</Russian>
+                <Russian>Пустое текстовое поле</Russian>
             </Key>
             <Key ID="STR_WMT_NoAdmin">
                 <Original>Admin is not in game</Original>
@@ -71,16 +71,16 @@
                 <Russian>Тепловизор отключен</Russian>
             </Key>
             <Key ID="STR_WMT_Win">
-                <Original>Victory</Original>
-                <Russian>Победа</Russian>
+                <Original>VICTORY</Original>
+                <Russian>ПОБЕДА</Russian>
             </Key>
             <Key ID="STR_WMT_Lose">
-                <Original>Defeat</Original>
-                <Russian>Поражение</Russian>
+                <Original>DEFEAT</Original>
+                <Russian>ПОРАЖЕНИЕ</Russian>
             </Key>
             <Key ID="STR_WMT_EndMissionByAdmin">
                 <Original>Admin interrupted the mission</Original>
-                <Russian>Адмистратор прервал миссию</Russian>
+                <Russian>Администратор прервал миссию</Russian>
             </Key>
             <Key ID="STR_WMT_ViewDistance">
                 <Original>View distance</Original>
@@ -124,7 +124,7 @@
             </Key>
             <Key ID="STR_WMT_Vehicles">
                 <Original>Vehicles</Original>
-                <Russian>Техника</Russian>
+                <Russian>ТЕХНИКА (союзная)</Russian>
             </Key>
             <Key ID="STR_WMT_Squads">
                 <Original>Squads</Original>
@@ -132,11 +132,11 @@
             </Key>
             <Key ID="STR_WMT_Killer">
                 <Original>Killer</Original>
-                <Russian>Убийца</Russian>
+                <Russian>ВАС УБИЛ</Russian>
             </Key>
             <Key ID="STR_WMT_Kills">
                 <Original>Kills</Original>
-                <Russian>Убиства</Russian>
+                <Russian>ВЫ УБИЛИ</Russian>
             </Key>
             <Key ID="STR_WMT_Unknow">
                 <Original>Unknown</Original>
@@ -224,15 +224,15 @@
             </Key>
             <Key ID="STR_WMT_FreezeVoteStartCaption">
                 <Original>Teams ready: </Original>
-                <Russian>За старт игры: </Russian>
+                <Russian>ЗА СТАРТ ИГРЫ: </Russian>
             </Key>
             <Key ID="STR_WMT_FreezeVoteWaitCaption">
                 <Original>Teams are not ready: </Original>
-                <Russian>За продолжение подготовки: </Russian>
+                <Russian>ОТЛОЖИТЬ СТАРТ: </Russian>
             </Key>
             <Key ID="STR_WMT_FreezeStart">
-                <Original>Start!</Original>
-                <Russian>Старт!</Russian>
+                <Original>! START !</Original>
+                <Russian>! СТАРТ !</Russian>
             </Key>
             <Key ID="STR_WMT_EndTime">
                 <Original>Time is end</Original>
@@ -272,19 +272,19 @@
             </Key>
             <Key ID="STR_WMT_EnemyVehicles">
                 <Original>Enemy vehicles</Original>
-                <Russian>Техника противника</Russian>
+                <Russian>ТЕХНИКА (противника)</Russian>
             </Key>
             <Key ID="STR_WMT_FREQ_LR">
-                <Original>LR %1 MHz (Aux: %2, %3 MHz)</Original>
-                <Russian>ДВ %1 MHz (Резерв: %2, %3 MHz)</Russian>
+                <Original>LR 》 %1【%2】【%3】</Original>
+                <Russian>ДВ 》 %1【%2】【%3】</Russian>
             </Key>
             <Key ID="STR_WMT_FREQ_SR">
-                <Original>%1 MHz (Aux: %2, %3 MHz)</Original>
-                <Russian>%1 MHz (Резерв: %2, %3 MHz)</Russian>
+                <Original>%1〔%2〕〔%3〕</Original>
+                <Russian>%1〔%2〕〔%3〕</Russian>
             </Key>
             <Key ID="STR_WMT_FREQ_HDR">
                 <Original>Frequencies</Original>
-                <Russian>Частоты</Russian>
+                <Russian>ЧАСТОТЫ</Russian>
             </Key>
             <Key ID="STR_WMT_MOD_GENFREQS">
                 <Original>Show frequencies</Original>
@@ -304,7 +304,7 @@
             </Key>
             <Key ID="STR_WMT_IndetifyTheBody_Action">
                 <Original>Identify body</Original>
-                <Russian>Опознать тело</Russian>
+                <Russian>ОПОЗНАТЬ ТЕЛО</Russian>
             </Key>
             <Key ID="STR_WMT_MissionParameters">
                 <Original>Mission parameters</Original>
@@ -324,7 +324,7 @@
             </Key>
             <Key ID="STR_WMT_TimeReduced">
                 <Original>Time mission is reduced by %1 minutes (%2:00)</Original>
-                <Russian>Время на миссию уменьшено на %1 минут (%2:00)</Russian>
+                <Russian>Время миссии уменьшено! Осталось (%2:00) минут</Russian>
             </Key>
             <Key ID="STR_WMT_TimeIncreasedFreeze">
                 <Original>Freezetime is increased by %1 minutes (%2:00)</Original>
@@ -364,11 +364,11 @@
             </Key>
             <Key ID="STR_WMT_MySquad">
                 <Original>My Squad</Original>
-                <Russian>Мой отряд</Russian>
+                <Russian>ВАШ ОТРЯД》</Russian>
             </Key>
             <Key ID="STR_WMT_ExtendedBriefing">
                 <Original>Extended Briefing</Original>
-                <Russian>Расширеный брифинг</Russian>
+                <Russian>Расширенный брифинг</Russian>
             </Key>
             <Key ID="STR_WMT_ExtendedBriefingInfo">
                 <Original>Shows additional info regarding vehicles and squads</Original>
@@ -379,8 +379,8 @@
                 <Russian>Консоль</Russian>
             </Key>
             <Key ID="STR_WMT_DontRemove">
-                <Original>Dont remove bot</Original>
-                <Russian>Не удалять бота</Russian>
+                <Original>DONT REMOVE bot</Original>
+                <Russian>НЕ УДАЛЯТЬ бота</Russian>
             </Key>
             <Key ID="STR_WMT_MapFromAlly">
                 <Original>You use %1 map</Original>
@@ -420,7 +420,7 @@
             </Key>
             <Key ID="STR_WMT_SP_Center">
                 <Original>Center</Original>
-                <Russian>Центер</Russian>
+                <Russian>Центр</Russian>
             </Key>
             <Key ID="STR_WMT_SP_Center_Desc">
                 <Original>Offset of objects relative to the marker used for calculate position of object around slected position</Original>
@@ -444,7 +444,7 @@
             </Key>
             <Key ID="STR_WMT_SP_Time_Desc">
                 <Original>Time for select position in case without freezetime</Original>
-                <Russian>Время на выбор позиции в случая отсутвия времени на подготовку</Russian>
+                <Russian>Время на выбор позиции в случае отсутствия времени на подготовку</Russian>
             </Key>
             <Key ID="STR_WMT_SP_ChosenPosition">
                 <Original>You have chosen the position %1</Original>
@@ -464,7 +464,7 @@
             </Key>
             <Key ID="STR_WMT_FreezeAIINv">
                 <Original>Open AI Inventory</Original>
-                <Russian>Инвентарь бота</Russian>
+                <Russian>ИНВЕНТАРЬ бота</Russian>
             </Key>
             <Key ID="STR_WMT_Preset1">
                 <Original>Preset 1</Original>
@@ -492,7 +492,7 @@
             </Key>
             <Key ID="STR_WMT_RestoredSound">
                 <Original>Restored sound level</Original>
-                <Russian>Уровень звука востановлен</Russian>
+                <Russian>Уровень звука восстановлен</Russian>
             </Key>
             <Key ID="STR_WMT_Terrain">
                 <Original>Terrain</Original>
@@ -516,7 +516,7 @@
             </Key>
             <Key ID="STR_WMT_Tooltip_terrain">
                 <Original>Works only for preset 1</Original>
-                <Russian>Только для перового пресета</Russian>
+                <Russian>Только для первого пресета</Russian>
             </Key>
             <Key ID="STR_WMT_Tooltip_Checkbox_terrain">
                 <Original>Save view terrein distance</Original>
@@ -524,7 +524,7 @@
             </Key>
             <Key ID="STR_WMT_SaveTerrainSettings">
                 <Original>Save terrain settings</Original>
-                <Russian>Сохранять настроки земли</Russian>
+                <Russian>Сохранять настройки земли</Russian>
             </Key>
             <Key ID="STR_WMT_UseWMTOptions">
                 <Original>Use WMT options (default key: HOME)</Original>
@@ -544,10 +544,16 @@
             </Key>
             <Key ID="STR_WMT_JournalVehInventory">
                 <Original>Vehicle Inventory</Original>
-                <Russian>Инвентарь техники</Russian>
+                <Russian>ИНВЕНТАРЬ ТЕХНИКИ</Russian>
             </Key>
-
-
+			<Key ID="STR_MDL_MissWillEndIn">
+                <Original>Mission will end in</Original>
+                <Russian>Конец миссии</Russian>
+            </Key>
+			<Key ID="STR_MDL_ReDesigned">
+                <Original>WMT redesigned by MODUL</Original>
+                <Russian>WMT redesigned by MODUL</Russian>
+            </Key>
         </Container>
     </Package>
 </Project>
