@@ -25,10 +25,12 @@ if(isNil "wmt_global_freqList" ) exitwith {diag_log "WMT_fnc_DefaultFreqsClient:
 
 PR(_sideToColor) = {
     switch(_this select 0) do {
-        case WEST:{"#288cf0"};
-        case EAST:{"#cd2e2e"};
-        case RESISTANCE:{"#2bed2b"};
-        default{"#ececec"};
+//start redesigned by MODUL
+        case WEST:{"#5ba2ea"};
+        case EAST:{"#eb5858"};
+        case RESISTANCE:{"#95ef59"};
+		default{"#ececec"};
+//end
     };
 };
 
@@ -39,14 +41,22 @@ PR(_printFrq) = {
 
     switch ( typename (_str select 0)) do {
         case ("SIDE") : {
-            _txt = "<font>" + format[localize "STR_WMT_FREQ_LR",_arrFrq select 0, _arrFrq select 1,_arrFrq select 2] + "</font><br/><br/>";
+//start redesigned by MODUL
+            _txt = "<font size='18' color='#e4c844'>" + format[localize "STR_WMT_FREQ_LR",_arrFrq select 0, _arrFrq select 1,_arrFrq select 2] + "</font><br/><br/>";
+//end
          };
         case ("GROUP") : {
             PR(_leader) = leader (_str select 0);
             PR(_tcolor) = [side (_str select 0)] call _sideToColor;
-            _txt = format["<font color='%3'>%1 %2</font><br/>", (groupid(_str select 0)) call wmt_fnc_LongGroupNameToShort, if(isPLayer _leader)then{name _leader}else {""}, _tcolor ];
-            _txt = _txt + format[localize "STR_WMT_FREQ_SR", _arrFrq select 0,_arrFrq select 1,_arrFrq select 2] +
-                "<br/><br/>";
+//start author unknown
+			if (_leader == leader player) then { 
+				_tcolor = "#eaac49";
+//end author unknown
+			};
+//start redesigned by MODUL
+            _txt = format["<font size='14' color='%3'>%1  %2</font><br/>", (groupid(_str select 0)) call wmt_fnc_LongGroupNameToShort, if(isPLayer _leader)then{name _leader}else {""}, _tcolor ];
+            _txt = _txt + "<font size='14'>            " + format[localize "STR_WMT_FREQ_SR", _arrFrq select 0,_arrFrq select 1,_arrFrq select 2] + "</font><br/>";
+//end
         };
     };
     _txt;

@@ -1,6 +1,6 @@
 private "_infoStr5";
 if (count WMT_pub_frzVoteWait != 0 or count WMT_pub_frzVoteStart != 0) then {
-    _infoStr5 = format ["<t size='0.4' color='#aaaaaa'>"+localize "STR_WMT_FreezeVoteStartCaption"+" %1<br/>"+localize "STR_WMT_FreezeVoteWaitCaption"+" %2<br/></t>",
+    _infoStr5 = format ["<t size='0.4' color='#b6c975'>"+localize "STR_WMT_FreezeVoteStartCaption"+"</t>"+"<t size='0.4' color='#91ab35'> %1</t><br/>"+"<t size='0.4' color='#c98a75'>"+localize "STR_WMT_FreezeVoteWaitCaption"+"</t>"+"<t size='0.4' color='#bc6042'> %2<br/></t>",
     [WMT_pub_frzVoteStart] call WMT_fnc_ArrayToString, [WMT_pub_frzVoteWait] call WMT_fnc_ArrayToString ];
 } else {
     _infoStr5="";

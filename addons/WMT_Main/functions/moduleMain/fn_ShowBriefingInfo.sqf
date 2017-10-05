@@ -83,10 +83,12 @@ private _invVehTxt = "";
             // маркер на технику
 
             _marker = _pos call _fnc_getVehMarkerName;
-            _marker = [_marker,_pos,_vehname,"ColorYellow","mil_box",[1, 1],"ICON",0,"Solid"] call WMT_fnc_CreateLocalMarker;
+//start redesigned by MODUL
+            _marker = [_marker,_pos,_vehname,"ColorOrange","mil_box",[0.5, 0.5],"ICON",0,"Solid"] call WMT_fnc_CreateLocalMarker;
             _markersPool pushback _marker;
 
-            _invVehTxt = _invVehTxt + format ["<br/><img image='%3' height=24/> <font color='#c7861b'><marker name='%2'>%1</marker></font><br/>",
+            _invVehTxt = _invVehTxt + format ["<br/><img image='%3' height=24/> <font size='16' color='#e5b567'><marker name='%2'>》%1</marker></font><br/>",
+//end
               format ["%1", getText (configFile >> "CfgVehicles" >> _class >> "displayName") ], _pos call _fnc_getVehMarkerName, _pic call _fnc_fixPicName];
 
             if (!isNil "_inv") then {
@@ -148,10 +150,10 @@ if (count _enemyVehs != 0 and getNumber(MissionConfigFile >> "WMT_Param" >> "Cam
     {
         _pic = getText (configFile / "CfgVehicles" / (_x select 0) / "picture");
         _vehname = format ["%1", getText (configFile >> "CfgVehicles" >> (_x select 0) >> "displayName") ];
-
-        _enemyVehTxt = _enemyVehTxt + format ["<img image='%3' height=24/> %1- <font color='#c7861b'>%2</font>",_vehname,_x select 1,_pic call _fnc_fixPicName];
+//start redesigned by MODUL
+        _enemyVehTxt = _enemyVehTxt + format ["<img image='%3' height=26/><font size='16' color='#efb351'> x </font><font face='LCD14' size='18'>%2 </font><font size='16' color='#dad0c2'> %1</font>",_vehname,_x select 1,_pic call _fnc_fixPicName];
         _enemyVehTxt = _enemyVehTxt + "<br/>";
-
+//end
     } foreach _enemyVehs;
 
     ["diary",localize "STR_WMT_EnemyVehicles", _enemyVehTxt] call WMT_fnc_CreateDiaryRecord;
@@ -162,10 +164,10 @@ if (count _friendlyVehs != 0 ) then {
     {
         _pic = getText (configFile / "CfgVehicles" / (_x select 0) / "picture");
         _vehname = format ["%1", getText (configFile >> "CfgVehicles" >> (_x select 0) >> "displayName") ];
-
-        _vehicleTxt = _vehicleTxt + format ["<img image='%3' height=24/> %1- <font color='#c7861b'>%2</font>",_vehname,_x select 1,_pic call _fnc_fixPicName];
+//start redesigned by MODUL
+        _vehicleTxt = _vehicleTxt + format ["<img image='%3' height=26/><font size='16' color='#efb351'> x </font><font face='LCD14' size='18'>%2 </font><font size='16' color='#dad0c2'> %1</font>",_vehname,_x select 1,_pic call _fnc_fixPicName];
         _vehicleTxt = _vehicleTxt + "<br/>";
-
+//end
     } foreach _friendlyVehs;
 
     ["diary",localize "STR_WMT_Vehicles", _vehicleTxt] call WMT_fnc_CreateDiaryRecord;
