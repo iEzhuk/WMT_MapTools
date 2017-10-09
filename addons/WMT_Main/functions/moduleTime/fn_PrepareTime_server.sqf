@@ -13,9 +13,8 @@
     Returns:
         Nothing
 */
-#define PR(x) private ['x']; x
 
-PR(_freeztime) = (_this select 0)*60;
+private _freeztime = (_this select 0)*60;
 
 waituntil {!isnil "bis_fnc_init"};
 
