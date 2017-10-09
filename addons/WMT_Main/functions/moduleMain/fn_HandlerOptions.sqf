@@ -137,11 +137,11 @@ switch (_event) do
         PR(_distterrain) = (wmt_param_MaxViewDistanceTerrain min WMT_Options_ViewDistanceTerrain);
 
         if (WMT_Options_ViewDistance_Preset == 0) then {
-            setObjectViewDistance _dist;
             setViewDistance _distterrain;
-        } else {
             setObjectViewDistance _dist;
+        } else {
             setViewDistance _dist;
+            setObjectViewDistance _dist;
         };
     };
     case "preinit": {
