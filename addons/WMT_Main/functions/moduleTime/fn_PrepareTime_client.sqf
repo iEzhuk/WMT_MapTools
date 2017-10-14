@@ -10,20 +10,18 @@
 	Parameters:
 		0 - time
 		1 - radius of start zone
-		2 - time to remove markers
 
 	Returns:
 		Nothing
 */
-#define PR(x) private ['x']; x
 
-PR(_freeztime) = (_this select 0)*60;
-PR(_distance) = _this select 1;
+params ["_freeztime", "_distance","_deepFreezeTime"];
+_freeztime = _freeztime * 60 + _deepFreezeTime;
 
 waitUntil {not isNull player};
 
 if (isNil "WMT_pub_frzState") then { WMT_pub_frzState = 0; };
-if (isNil "WMT_pub_frzVoteWait") then { WMT_pub_frzVoteWait = []; };
+if (isNil "WMT_pub_frzVoteWait") then { WMT_pub_frzVoteWait = ["(Admin)"]; };
 if (isNil "WMT_pub_frzVoteStart") then { WMT_pub_frzVoteStart = []; };
 if (isNil "WMT_pub_frzTimeLeftForced") then { WMT_pub_frzTimeLeftForced = 30; };
 if (isNil "WMT_pub_frzTimeLeft") then { WMT_pub_frzTimeLeft = _freeztime; };
@@ -38,5 +36,7 @@ if (WMT_pub_frzState == 0 and _freeztime > 0) then {
 
 if (WMT_pub_frzState >= 3) exitWith {};
 
+[_deepFreezeTime] spawn WMT_fnc_deepFreezePlayer;
 [_distance] spawn WMT_fnc_FreezePlayerClient;
 [] spawn WMT_fnc_FreezeUI;
+

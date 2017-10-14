@@ -9,17 +9,19 @@
 
     Parameters:
         0 - time
+        1 - deepFreezeTime
 
     Returns:
         Nothing
 */
 
-private _freeztime = (_this select 0)*60;
+private _deepFreezeTime = (_this select 1);
+private _freeztime = (_this select 0)*60 + _deepFreezeTime;
 
 waituntil {!isnil "bis_fnc_init"};
 
 if (isNil "WMT_pub_frzState") then { WMT_pub_frzState = 0; };
-if (isNil "WMT_pub_frzVoteWait") then { WMT_pub_frzVoteWait = []; };
+if (isNil "WMT_pub_frzVoteWait") then { WMT_pub_frzVoteWait = ["(Admin)"]; };
 if (isNil "WMT_pub_frzVoteStart") then { WMT_pub_frzVoteStart = []; };
 if (isNil "WMT_pub_frzTimeLeftForced") then { WMT_pub_frzTimeLeftForced = 30; };
 if (isNil "WMT_pub_frzTimeLeft") then { WMT_pub_frzTimeLeft = _freeztime; };

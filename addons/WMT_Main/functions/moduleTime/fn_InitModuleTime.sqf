@@ -45,12 +45,20 @@ if(_activated) then {
     wmt_param_PrepareTime = 0 max wmt_param_PrepareTime;
     wmt_param_StartZone = 20 max wmt_param_StartZone;
     wmt_param_RemoveBots = 0 max wmt_param_RemoveBots;
+
+    if (isNil "wmt_param_deepFreezeTime") then {
+        wmt_param_deepFreezeTime = 180;
+        private _playerCount = {isPlayer _x} count playableUnits;
+        if (!isNil "wmt_flg_noDeepFreeze" || !isMultiplayer || _playerCount < 120) then {
+            wmt_param_deepFreezeTime = 0;
+        };
+    };
     //================================================
     //                  SERVER
     //================================================
     if(isServer) then {
         [] spawn {
-            [wmt_param_PrepareTime] call WMT_fnc_PrepareTime_server;
+            [wmt_param_PrepareTime, wmt_param_deepFreezeTime] call WMT_fnc_PrepareTime_server;
             if(wmt_param_MissionTime>0) then {
                 [wmt_param_MissionTime,wmt_param_WinnerByTime,wmt_param_WinnerByTimeText] spawn WMT_fnc_EndMissionByTime;
             };
@@ -72,7 +80,7 @@ if(_activated) then {
 
         [] spawn {
             waitUntil{!isNil {player}};
-            [wmt_param_PrepareTime,wmt_param_StartZone] spawn WMT_fnc_PrepareTime_client;
+            [wmt_param_PrepareTime,wmt_param_StartZone,wmt_param_deepFreezeTime] spawn WMT_fnc_PrepareTime_client;
         };
     };
 };

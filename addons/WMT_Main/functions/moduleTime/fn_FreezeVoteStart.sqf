@@ -23,4 +23,8 @@ if ((name player) in WMT_pub_frzVoteWait) then {
         publicVariable "WMT_pub_frzVoteStart";
     };
 };
+if ((0 call BIS_fnc_admin) != 0 && "(Admin)" in WMT_pub_frzVoteWait) then {
+    WMT_pub_frzVoteWait = WMT_pub_frzVoteWait - "(Admin)";
+    publicVariable "WMT_pub_frzVoteWait";
+};
 0 call WMT_fnc_FreezeVoteInfo;

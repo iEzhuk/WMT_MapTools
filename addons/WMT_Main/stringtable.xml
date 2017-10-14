@@ -546,6 +546,10 @@
                 <Original>Vehicle Inventory</Original>
                 <Russian>Инвентарь техники</Russian>
             </Key>
+            <Key ID="STR_WMT_DeepFreeze">
+                <Original>Please wait for enabling control</Original>
+                <Russian>Пожалуйста ожидайте включения управления</Russian>
+            </Key>
         </Container>
     </Package>
 </Project>
