@@ -547,8 +547,8 @@
                 <Russian>Инвентарь техники</Russian>
             </Key>
             <Key ID="STR_WMT_DeepFreeze">
-                <Original>Please wait for enabling control</Original>
-                <Russian>Пожалуйста ожидайте включения управления</Russian>
+                <Original>Please wait for enabling control %1</Original>
+                <Russian>Пожалуйста ожидайте включения управления %1</Russian>
             </Key>
         </Container>
     </Package>
