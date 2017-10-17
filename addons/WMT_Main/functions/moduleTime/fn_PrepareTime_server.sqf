@@ -51,7 +51,7 @@ while {WMT_pub_frzState < 3} do
     };
     WMT_pub_frzTimeLeft = WMT_pub_frzTimeLeft - 1;
     if (round(WMT_pub_frzTimeLeft) % 30 == 0) then {publicVariable "WMT_pub_frzTimeLeft";};
-    if (round(WMT_pub_frzTimeLeft) % 10 == 0) then {setDate WMT_pub_frzBeginDate;};
+    if (round(WMT_pub_frzTimeLeft) % 30 == 0) then {setDate WMT_pub_frzBeginDate;};
     sleep 1;
 };
 

@@ -46,19 +46,27 @@ if(_activated) then {
     wmt_param_StartZone = 20 max wmt_param_StartZone;
     wmt_param_RemoveBots = 0 max wmt_param_RemoveBots;
 
+    if (isNil "wmt_param_deepFreezeminPlayers") then {
+        wmt_param_deepFreezeminPlayers = [60,120];
+    };
     if (isNil "wmt_param_deepFreezeTime") then {
-        wmt_param_deepFreezeTime = 180;
+        wmt_param_deepFreezeTime = [15,180];
+    };
+    if (isNil "wmt_param_deepFreezeActualTime") then {
+        wmt_param_deepFreezeActualTime = 0;
         private _playerCount = {isPlayer _x} count playableUnits;
-        if (!isNil "wmt_flg_noDeepFreeze" || !isMultiplayer || _playerCount < 120) then {
-            wmt_param_deepFreezeTime = 0;
+        if (isNil "wmt_flg_noDeepFreeze" && isMultiplayer && _playerCount > wmt_param_deepFreezeminPlayers select 0) then {
+            wmt_param_deepFreezeActualTime = linearConversion [wmt_param_deepFreezeminPlayers select 0, wmt_param_deepFreezeminPlayers select 1,
+                _playerCount, wmt_param_deepFreezeTime select 0, wmt_param_deepFreezeTime select 1, true];  
         };
     };
+        
     //================================================
     //                  SERVER
     //================================================
     if(isServer) then {
         [] spawn {
-            [wmt_param_PrepareTime, wmt_param_deepFreezeTime] call WMT_fnc_PrepareTime_server;
+            [wmt_param_PrepareTime, wmt_param_deepFreezeActualTime] call WMT_fnc_PrepareTime_server;
             if(wmt_param_MissionTime>0) then {
                 [wmt_param_MissionTime,wmt_param_WinnerByTime,wmt_param_WinnerByTimeText] spawn WMT_fnc_EndMissionByTime;
             };
@@ -80,7 +88,7 @@ if(_activated) then {
 
         [] spawn {
             waitUntil{!isNil {player}};
-            [wmt_param_PrepareTime,wmt_param_StartZone,wmt_param_deepFreezeTime] spawn WMT_fnc_PrepareTime_client;
+            [wmt_param_PrepareTime,wmt_param_StartZone,wmt_param_deepFreezeActualTime] spawn WMT_fnc_PrepareTime_client;
         };
     };
 };

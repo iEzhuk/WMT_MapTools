@@ -36,7 +36,7 @@ if (WMT_pub_frzState == 0 and _freeztime > 0) then {
 
 if (WMT_pub_frzState >= 3) exitWith {};
 
-[_deepFreezeTime] spawn WMT_fnc_deepFreezePlayer;
+[_deepFreezeTime] spawn WMT_fnc_deepFreeze;
 [_distance] spawn WMT_fnc_FreezePlayerClient;
 [] spawn WMT_fnc_FreezeUI;
 
