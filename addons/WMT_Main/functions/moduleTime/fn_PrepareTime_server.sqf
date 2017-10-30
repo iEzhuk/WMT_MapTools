@@ -35,6 +35,14 @@ if (WMT_pub_frzState == 0 and _freeztime > 0) then {
 
 if (WMT_pub_frzState >= 3) exitWith {};
 
+if (_deepFreezeTime !=0 && isMultiplayer) then {
+    0 spawn {
+        sleep _deepFreezeTime;
+        wmt_deepFreezeRunning = false;
+        publicVariable "wmt_deepFreezeRunning";
+    };
+};
+
 sleep 0.1;
 
 while {WMT_pub_frzState < 3} do

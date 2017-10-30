@@ -1,5 +1,5 @@
 params ["_deepFreezeTime"];
-if (!hasInterface || !isMultiplayer || (WMT_pub_frzState >= 3) || _deepFreezeTime == 0) exitWith {wmt_deepFreezeRunning = false;};
+if (!hasInterface || !isMultiplayer || (WMT_pub_frzState >= 3) || _deepFreezeTime == 0 || !isNil "wmt_deepFreezeRunning") exitWith {};
 wmt_deepFreezeRunning = true;
 player enableSimulation false;
 private _before = time;
