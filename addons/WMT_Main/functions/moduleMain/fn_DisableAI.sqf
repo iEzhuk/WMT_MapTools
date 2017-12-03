@@ -16,15 +16,15 @@
 
 
 {
-    _x disableAI "AUTOTARGET";
-    _x disableAI "TARGET";
-    _x disableAI "FSM";
-    _x disableAI "MOVE";
-    _x disableAI "PATHPLAN";
-    _x stop true;
-    _x setBehaviour "CARELESS";
-    _x allowFleeing 0;
-    _x disableConversation true;
-    _x setVariable ["BIS_noCoreConversations", false];
-    _x setSpeaker "NoVoice";
+    private _unit = _x;
+    {
+        _unit disableAI _x;
+
+    } foreach ["AUTOTARGET","TARGET","FSM","MOVE","PATH","WEAPONAIM","AIMINGERROR","SUPPRESSION","CHECKVISIBLE","COVER","AUTOCOMBAT","MINEDETECTION"];
+    _unit stop true;
+    _unit setBehaviour "CARELESS";
+    _unit allowFleeing 0;
+    _unit disableConversation true;
+    _unit setVariable ["BIS_noCoreConversations", false];
+    _unit setSpeaker "NoVoice";
 }forEach (if (count playableUnits == 0) then {allUnits} else {playableUnits});
