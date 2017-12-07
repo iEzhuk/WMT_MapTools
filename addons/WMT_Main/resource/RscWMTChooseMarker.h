@@ -21,7 +21,6 @@ class RscWMTChooseMarker: RscMap {
             y = -0.1916;
             w = 2.175;
             h = 1.46822;
-            access = 0;
             type = 0;
             style = 48;
             colorBackground[] = {0,0,0,0};
@@ -41,7 +40,6 @@ class RscWMTChooseMarker: RscMap {
             y = 0.7;
             w = 0.194949;
             h = 0.2;
-            access = 0;
             type = 0;
             style = 48;
             colorBackground[] = {0,0,0,0};
@@ -61,7 +59,6 @@ class RscWMTChooseMarker: RscMap {
             y = 0.653604;
             w = 0.2;
             h = 0.2;
-            access = 0;
             type = 0;
             style = 48;
             colorBackground[] = {0,0,0,0};
