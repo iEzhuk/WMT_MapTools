@@ -20,7 +20,7 @@
     {
         _unit disableAI _x;
 
-    } foreach ["AUTOTARGET","TARGET","FSM","MOVE","PATH","AIMINGERROR","SUPPRESSION","CHECKVISIBLE","COVER","AUTOCOMBAT","MINEDETECTION"];
+    } foreach ["AUTOTARGET","TARGET","FSM","MOVE","PATH","AIMINGERROR","SUPPRESSION","COVER","AUTOCOMBAT","MINEDETECTION"];
     _unit stop true;
     _unit setBehaviour "CARELESS";
     _unit allowFleeing 0;
