@@ -7,20 +7,19 @@ class CfgPatches
 		requiredVersion = 0.1;
 		requiredAddons[] = {"A3_Weapons_F","A3_Weapons_F_NATO","A3_Weapons_F_Launchers_Titan","A3_Soft_F","A3_Boat_F_Boat_Armed_01","A3_Boat_F","A3_Structures_F_Civ_Constructions","A3_Data_F","A3_Weapons_F_Explosives"};
 		authorUrl = "https://github.com/iEzhuk/WMT_MapTools";
-		author = "Ezhuk, Zealot";
-		version = 1.5.0;
-		versionStr = "1.5.0";
-		versionAr[] = {1,5,0};
+		author = "Zealot and Ezhuk";
+		version = 1.5.1;
+		versionStr = "1.5.1";
+		versionAr[] = {1,5,1};
 	};
 };
 
+class SensorTemplateLaser;
+
 class CfgMagazines
 {
-	class CA_Magazine;
-	class CA_LauncherMagazine;
 	class Titan_AT;
 	class 5Rnd_GAT_missiles;
-
 	class Titan_AT_Hard : Titan_AT {
         ammo = "M_Titan_AT_Hard";
         displayName = "Titan EP Missile";
@@ -49,17 +48,43 @@ class CfgMagazines
 
 class CfgAmmo
 {
-	class BulletBase;
 	class MissileBase;
-	class ShellBase;
-	class RocketBase;
-	class M_Titan_AT;
 	class M_Titan_AT_static;
-
-
+	class M_Titan_AT: MissileBase {
+		class Components;
+	};
 	class M_Titan_AT_Hard : M_Titan_AT {
-		weaponLockSystem = "2+4+16";
-        irLock = 0;
+	weaponLockSystem = "4+16";
+	class Components: Components
+		{
+			class SensorsManagerComponent
+			{
+				class Components
+				{
+					class LaserSensorComponent: SensorTemplateLaser
+					{
+						class AirTarget
+						{
+							minRange = 4000;
+							maxRange = 4000;
+							objectDistanceLimitCoef = -1;
+							viewDistanceLimitCoef = -1;
+						};
+						class GroundTarget
+						{
+							minRange = 4000;
+							maxRange = 4000;
+							objectDistanceLimitCoef = -1;
+							viewDistanceLimitCoef = -1;
+						};
+						maxTrackableSpeed = 35;
+						angleRangeHorizontal = 7;
+						angleRangeVertical = 4.5;
+						maxTrackableATL = 100;
+					};
+				};
+			};
+		};
     };
 
 	class M_Titan_AT_static_Hard : M_Titan_AT_static {
@@ -67,7 +92,6 @@ class CfgAmmo
 		irLock = 0;
     };
 
-	class Default;
 	class TimeBombCore;
 	class DirectionalBombCore;
 	class DirectionalBombBase: DirectionalBombCore{};
@@ -135,25 +159,19 @@ class CfgAmmo
 
 class CfgWeapons
 {
-	class Default;
-	class Launcher;
-	class Launcher_Base_F: Launcher
-	{
-		class WeaponSlotsInfo;
-	};
 	class launch_Titan_base;
 	class MissileLauncher;
 
 	class missiles_titan: MissileLauncher {
-		magazines[] = {"2Rnd_GAT_missiles", "5Rnd_GAT_missiles", "4Rnd_GAA_missiles", "4Rnd_Titan_long_missiles","2Rnd_GAT_missiles_hard","5Rnd_GAT_missiles_hard"};
+		magazines[] += {"2Rnd_GAT_missiles_hard","5Rnd_GAT_missiles_hard"};
 	};
 
 	class missiles_titan_static : missiles_titan {
-        magazines[] = {"1Rnd_GAT_missiles", "1Rnd_GAA_missiles","1Rnd_GAT_missiles_hard"};
-    };
+                magazines[] += {"1Rnd_GAT_missiles_hard"};
+        };
 
 	class launch_Titan_short_base : launch_Titan_base {
-		magazines[] = {"Titan_AT", "Titan_AP","Titan_AT_Hard"};
+		magazines[] += {"Titan_AT_Hard"};
 	};
 
 };
