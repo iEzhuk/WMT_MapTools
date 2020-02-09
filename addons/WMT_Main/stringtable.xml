@@ -334,6 +334,14 @@
                 <Original>Freezetime is reduced by %1 minutes (%2:00)</Original>
                 <Russian>Время фризтайма уменьшено на %1 минут (%2:00)</Russian>
             </Key>
+            <Key ID="STR_WMT_DFTimeIncreasedFreeze">
+                <Original>DeepFreeze is increased by %1 minutes (%2:00)</Original>
+                <Russian>DeepFreeze увеличен на %1 минут (%2:00)</Russian>
+            </Key>
+            <Key ID="STR_WMT_DFTimeReducedFreeze">
+                <Original>DeepFreeze is reduced by %1 minutes (%2:00)</Original>
+                <Russian>DeepFreeze уменьшен на %1 минут (%2:00)</Russian>
+            </Key>            
             <Key ID="STR_WMT_TimeLeft">
                 <Original>Time left</Original>
                 <Russian>Оставшееся время</Russian>
@@ -361,6 +369,14 @@
             <Key ID="STR_WMT_Sub1Min">
                 <Original>- 1 min</Original>
                 <Russian>- 1 мин</Russian>
+            </Key>
+            <Key ID="STR_WMT_DFSub1Min">
+                <Original>DF: -1 min</Original>
+                <Russian>DF: -1 мин</Russian>
+            </Key>
+              <Key ID="STR_WMT_DFAdd1Min">
+                <Original>DF: +1 min</Original>
+                <Russian>DF: +1 мин</Russian>
             </Key>
             <Key ID="STR_WMT_MySquad">
                 <Original>My Squad</Original>

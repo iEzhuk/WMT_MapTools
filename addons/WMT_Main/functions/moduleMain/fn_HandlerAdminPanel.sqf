@@ -123,9 +123,9 @@ switch (_event) do
                 PR(_text) = "";
 
                 if(_sec<10) then {
-                    _text = format ["%1:   %2:0%3",localize "STR_WMT_TimeLeftFreeze", _min, _sec];
+                    _text = format ["%1:   %2:0%3 DF: %4",localize "STR_WMT_TimeLeftFreeze", _min, _sec, [0 max (WMT_pub_deepFrzTimeLeft),"MM:SS"] call BIS_fnc_secondsToString ];
                 } else {
-                    _text = format ["%1:   %2:%3",localize "STR_WMT_TimeLeftFreeze", _min, _sec];
+                    _text = format ["%1:   %2:%3 DF: %4",localize "STR_WMT_TimeLeftFreeze", _min, _sec, [0 max (WMT_pub_deepFrzTimeLeft),"MM:SS"] call BIS_fnc_secondsToString ];
                 };
 
                 _ctrlTime ctrlSetText _text;
@@ -180,6 +180,21 @@ switch (_event) do
             WMT_Global_Announcement = format [localize "STR_WMT_TimeIncreasedFreeze", _deltaTime, round(WMT_pub_frzTimeLeft/60)];
         } else {
             WMT_Global_Announcement = format [localize "STR_WMT_TimeReducedFreeze", -_deltaTime, 0 max round(WMT_pub_frzTimeLeft/60)];
+        };
+        WMT_Global_Announcement call WMT_fnc_Announcement;
+        publicVariable "WMT_Global_Announcement";
+    };
+
+    case "dffreezeTime" : {
+        if (!wmt_deepFreezeRunning) exitWith {};
+        PR(_deltaTime) = _arg; // minutes
+        WMT_pub_deepFrzTimeLeft = WMT_pub_deepFrzTimeLeft + _deltaTime * 60;
+        publicVariable "WMT_pub_deepFrzTimeLeft";
+
+        if(_deltaTime>0) then {
+            WMT_Global_Announcement = format [localize "STR_WMT_DFTimeIncreasedFreeze", _deltaTime, round(WMT_pub_deepFrzTimeLeft/60)];
+        } else {
+            WMT_Global_Announcement = format [localize "STR_WMT_DFTimeReducedFreeze", -_deltaTime, 0 max round(WMT_pub_deepFrzTimeLeft/60)];
         };
         WMT_Global_Announcement call WMT_fnc_Announcement;
         publicVariable "WMT_Global_Announcement";

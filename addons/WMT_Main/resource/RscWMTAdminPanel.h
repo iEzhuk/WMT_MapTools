@@ -14,6 +14,9 @@
 #define IDD_ADMINPANEL_FREEZESUB    62012
 #define IDD_ADMINPANEL_FREEZEBK     62013
 
+#define IDD_ADMINPANEL_DPFRZADD1    62014
+#define IDD_ADMINPANEL_DPFRZSUB1    62015
+
 class RscWMTAdminPanel {
     movingEnable = 1;
     idd = IDD_ADMINPANEL;
@@ -155,6 +158,22 @@ class RscWMTAdminPanel {
             w = 0.22;
             text = $STR_WMT_Sub1Min;
             action = "['freezeTime',-1] call WMT_fnc_HandlerAdminPanel";
+        };
+        class Button_dpfreezeAdd1: RscWMTButton_ext{
+            idc = IDD_ADMINPANEL_DPFRZADD1;
+            x = 0.24;
+            y = 0.79;
+            w = 0.22;
+            text = $STR_WMT_DFAdd1Min;
+            action = "['dffreezeTime',1] call WMT_fnc_HandlerAdminPanel";
+        };
+        class Button_dpfreezeSubtract1: RscWMTButton_ext{
+            idc = IDD_ADMINPANEL_DPFRZSUB1;
+            x = 0;
+            y = 0.79;
+            w = 0.22;
+            text = $STR_WMT_DFSub1Min;
+            action = "['dffreezeTime',-1] call WMT_fnc_HandlerAdminPanel";
         };
     };
 };

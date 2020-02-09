@@ -1,3 +1,4 @@
+// Removes bots after freezetime ended
 private["_isplayer"];
 {
     _isplayer = _x getVariable ["PlayerName", nil];
