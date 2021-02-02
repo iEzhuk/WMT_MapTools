@@ -9,7 +9,7 @@
 
     Parameters:
         Nothing
-    
+
     Returns:
         Nothing
 */
@@ -19,8 +19,7 @@
     private _unit = _x;
     {
         _unit disableAI _x;
-
-    } foreach ["AUTOTARGET","TARGET","FSM","MOVE","PATH","AIMINGERROR","SUPPRESSION","COVER","AUTOCOMBAT","MINEDETECTION"];
+    } foreach ["AUTOTARGET","TARGET","FSM","MOVE","PATH","AIMINGERROR","SUPPRESSION","COVER","AUTOCOMBAT","MINEDETECTION", "NVG", "LIGHTS", "RADIOPROTOCOL"];
     _unit stop true;
     _unit setBehaviour "CARELESS";
     _unit allowFleeing 0;
