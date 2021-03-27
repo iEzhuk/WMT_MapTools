@@ -92,6 +92,16 @@ if(_activated) then {
             if (wmt_param_ExtendedBriefing == 1) then {
                 [] spawn wmt_fnc_preparebriefinginfo;
             };
+
+            sleep 0.1;
+            addMissionEventHandler ["EntityKilled", {
+                _this call WMT_fnc_EntityKilled;
+            }];
+
+            "WMT_Global_Announcement" addPublicVariableEventHandler { diag_log ["WMT_Global_Announcement", WMT_Global_Announcement]; };
+
+            "WMT_Global_ToAdmin" addPublicVariableEventHandler { diag_log ["WMT_Global_ToAdmin", WMT_Global_ToAdmin]; };
+
         };
     };
 
@@ -145,12 +155,10 @@ if(_activated) then {
                 0 spawn WMT_fnc_BriefingTimer;
             };
 
-            player addEventHandler ["HandleDamage", {if (alive (_this select 0)) then {WMT_Local_LastDamageSource = effectivecommander (_this select 3);};}];
             player addEventHandler ["killed", "_this spawn WMT_fnc_PlayerKilled"];
 
-
             // Public variable handlers
-            "WMT_Global_Announcement" addPublicVariableEventHandler { (_this select 1) call WMT_fnc_Announcement };
+            "WMT_Global_Announcement" addPublicVariableEventHandler { (_this select 1) call WMT_fnc_Announcement; };
 
             "WMT_Global_ToAdmin" addPublicVariableEventHandler {
                 if(serverCommandAvailable("#kick")) then {

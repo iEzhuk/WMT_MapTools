@@ -48,6 +48,7 @@ WMT_fnc_ShowCrew                    = compileFinal preprocessFileLineNumbers  ("
 WMT_fnc_ShowStatistic               = compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\moduleMain\fn_ShowStatistic.sqf");
 WMT_fnc_SquadInfoExt                = compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\moduleMain\fn_SquadInfoExt.sqf");
 WMT_fnc_UpdateMainActions           = compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\moduleMain\fn_UpdateMainActions.sqf");
+WMT_fnc_EntityKilled                = compileFinal preprocessFileLineNumbers  ("WMT_Main\functions\moduleMain\fn_EntityKilled.sqf");
 
 
 // Module Time
