@@ -119,6 +119,11 @@ if(_activated) then {
             if (player getVariable ["PlayerName", ""] != WMT_Local_PlayerName) then {
                 player setVariable ["PlayerName",WMT_Local_PlayerName,true];
             };
+            {
+                if (_x isNotEqualTo player && !isPlayer _x && _x getVariable ["PlayerName", "AI"] isEqualTo WMT_Local_PlayerName) then {
+                    _x setVariable ["PlayerName", "AI", true];
+                };
+            } forEach playableUnits;
 
             if (isNil {player getVariable "PlayerSide"}) then {
                 player setVariable ["PlayerSide",playerSide,true];

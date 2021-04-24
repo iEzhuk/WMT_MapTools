@@ -7,8 +7,8 @@ if !(_victim getvariable ["wmtIsKilled",false]) then {
     _victim setvariable ["wmtIsKilled",true];
 
     [_victim, _killer, _instigator] spawn {
-          params ["_victim", "_killer", "_instigator"];
-          if (_killer == _victim) then {
+        params ["_victim", "_killer", "_instigator"];
+        if (_killer isEqualTo _victim) then {
             private _time = diag_tickTime;
             [_victim, {
                 _this setVariable ["ace_medical_lastDamageSource", (_this getVariable ["ace_medical_lastDamageSource", _this]), 2];
@@ -38,7 +38,7 @@ if !(_victim getvariable ["wmtIsKilled",false]) then {
         };
 
 
-		private _victimName = _victim getVariable ["PlayerName", name _victim];
+		private _victimName = _victim getVariable ["PlayerName", if (_victim isKindOf "AllVehicles") then {getText (configFile >> "CfgVehicles" >> typeOf _victim >> "displayName")} else {name _victim}];
 		private _victimSide = _victim getVariable ["PlayerSide", sideUnknown];
 		if (isNil "_victimName" || _victimName isEqualTo "") exitWith {diag_log ["WMT_EntityKilled victimName is nil or empty", _victim, _killer, _instigator];};
 

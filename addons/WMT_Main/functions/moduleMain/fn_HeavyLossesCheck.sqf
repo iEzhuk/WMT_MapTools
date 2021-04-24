@@ -19,8 +19,12 @@ sleep 60;
 waitUntil { sleep 1.5; time > 60 };
 waitUntil { sleep 1.5; (missionNamespace getvariable ["WMT_pub_frzState",3]) >=3 };
 
-wmt_playerCountInit = [ {side _x == east and isPlayer _x} count playableUnits,  {side _x == west and isPlayer _x} count playableUnits,  {side _x == resistance and isPlayer _x} count playableUnits ];
+private _fnc_count_units_for_side = {
+    params ["_side"];
+    {side _x == _side && (isPlayer _x || player getVariable ["PlayerName", "AI"] isNotEqualTo "AI")} count playableUnits
+};
 
+wmt_playerCountInit = [east call _fnc_count_units_for_side, west call _fnc_count_units_for_side, resistance call _fnc_count_units_for_side];
 
 if (isnil "wmtPlayerCountEmptySides") then { wmtPlayerCountEmptySides = [civilian]; };
 {
@@ -48,15 +52,11 @@ _fnc_checkRatiosForSides = {
 
 
 private ["_enemysides","_ratios","_enemyratio","_enemy"];
-wmt_PlayerCountNow = [{side _x == east and isPlayer _x} count playableUnits,{side _x == west and isPlayer _x} count playableUnits,{side _x == resistance and isPlayer _x} count playableUnits];
+wmt_PlayerCountNow = [east call _fnc_count_units_for_side, west call _fnc_count_units_for_side, resistance call _fnc_count_units_for_side];
 diag_log ["HeavyLosses start", wmt_PlayerCountNow, wmt_playerCountInit, wmtPlayerCountEmptySides, count playableUnits, {isplayer _x} count playableunits];
 while {isNil "wmt_hl_disable"} do {
     if (isNil "wmt_hl_pauseCheck") then {
-        wmt_PlayerCountNow = [
-            {side _x == east and isPlayer _x} count playableUnits,
-            {side _x == west and isPlayer _x} count playableUnits,
-            {side _x == resistance and isPlayer _x} count playableUnits
-        ];
+        wmt_PlayerCountNow = [east call _fnc_count_units_for_side, west call _fnc_count_units_for_side, resistance call _fnc_count_units_for_side];
         {
             _enemysides = ([_x] call bis_fnc_enemysides) - [civilian];
             _ratios = _enemysides call _fnc_checkRatiosForSides;
