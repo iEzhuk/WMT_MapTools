@@ -6,24 +6,27 @@
 
     Description:
         Show frequences
-    
+
     Parameters:
         Nothing
 
     Returns:
         Nothing
 */
-#define PR(x) private ['x']; x
 
 if (not isClass (configFile >> "CfgPatches" >> "task_force_radio_items")) exitwith {diag_log "DefaultFreqClient TF radio not initialized"};
 
 if (playerside == civilian) exitwith {};
 
 waitUntil {uisleep 1; !isNil "wmt_global_freqList" or time > 30};
+if (didJIP) then {
+    sleep 5.2;
+};
+diag_log ["WMT_fnc_DefaultFreqsClient", playerSide, side player, side group player, didJIP, diag_tickTime, time];
 
 if(isNil "wmt_global_freqList" ) exitwith {diag_log "WMT_fnc_DefaultFreqsClient: wmt_global_freqList is null"};
 
-PR(_sideToColor) = {
+private _sideToColor = {
     switch(_this select 0) do {
         case WEST:{"#288cf0"};
         case EAST:{"#cd2e2e"};
@@ -32,18 +35,18 @@ PR(_sideToColor) = {
     };
 };
 
-PR(_printFrq) = {
-    PR(_str) = _this;
-    PR(_txt) = "";
-    PR(_arrFrq) = _str select 1;
+private _printFrq = {
+    private _str = _this;
+    private _txt = "";
+    private _arrFrq = _str select 1;
 
     switch ( typename (_str select 0)) do {
         case ("SIDE") : {
             _txt = "<font>" + format[localize "STR_WMT_FREQ_LR",_arrFrq select 0, _arrFrq select 1,_arrFrq select 2] + "</font><br/><br/>";
          };
         case ("GROUP") : {
-            PR(_leader) = leader (_str select 0);
-            PR(_tcolor) = [side (_str select 0)] call _sideToColor;
+            private _leader = leader (_str select 0);
+            private _tcolor = [side (_str select 0)] call _sideToColor;
             _txt = format["<font color='%3'>%1 %2</font><br/>", (groupid(_str select 0)) call wmt_fnc_LongGroupNameToShort, if(isPLayer _leader)then{name _leader}else {""}, _tcolor ];
             _txt = _txt + format[localize "STR_WMT_FREQ_SR", _arrFrq select 0,_arrFrq select 1,_arrFrq select 2] +
                 "<br/><br/>";
@@ -53,12 +56,12 @@ PR(_printFrq) = {
 };
 
 
-PR(_friends) = ([side player] call BIS_fnc_friendlySides) - [civilian];
-PR(_friendsids) = [];
-PR(_playersideid) = [playerside] call BIS_fnc_sideID;
-PR(_txt) = "";
+private _friends = ([playerside] call BIS_fnc_friendlySides) - [civilian];
+private _friendsids = [];
+private _playersideid = [playerside] call BIS_fnc_sideID;
+private _txt = "";
 
-_txt = (wmt_global_freqList select _playersideid) call _printFrq;
+private _txt = (wmt_global_freqList select _playersideid) call _printFrq;
 
 {
     if ( typename (_x select 0) == typename grpNull and {side (_x select 0) in _friends} and { leader (_x select 0) in allUnits} ) then {

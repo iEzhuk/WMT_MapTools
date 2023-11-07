@@ -19,9 +19,15 @@ sleep 60;
 waitUntil { sleep 1.5; time > 60 };
 waitUntil { sleep 1.5; (missionNamespace getvariable ["WMT_pub_frzState",3]) >=3 };
 
+addMissionEventHandler ["HandleDisconnect", {
+	params ["_unit", "_id", "_uid", "_name"];
+    _unit setVariable ["wmt_disconnected", diag_ticktime];
+	true;
+}];
+
 private _fnc_count_units_for_side = {
     params ["_side"];
-    {side _x == _side && (isPlayer _x || player getVariable ["PlayerName", "AI"] isNotEqualTo "AI")} count playableUnits
+    {side _x == _side && (isPlayer _x || (diag_tickTime - (_x getVariable ["wmt_disconnected", -10000]) < 300 ))} count playableUnits;
 };
 
 wmt_playerCountInit = [east call _fnc_count_units_for_side, west call _fnc_count_units_for_side, resistance call _fnc_count_units_for_side];

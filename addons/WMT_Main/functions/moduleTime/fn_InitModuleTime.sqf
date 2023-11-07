@@ -47,7 +47,7 @@ if(_activated) then {
     wmt_param_RemoveBots = 0 max wmt_param_RemoveBots;
 
     if (isNil "wmt_param_deepFreezeminPlayers") then {
-        wmt_param_deepFreezeminPlayers = [60,120];
+        wmt_param_deepFreezeminPlayers = [100,180];
     };
     if (isNil "wmt_param_deepFreezeTime") then {
         wmt_param_deepFreezeTime = [15,180];

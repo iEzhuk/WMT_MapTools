@@ -38,17 +38,16 @@ _ctrl2 ctrlCommit 0;
 _timeStart = diag_ticktime;
 _eh = _display displayAddEventHandler ["keyDown", "(_this select 1) in [28,57,156];"];
 
-while {time < 0.1} do {
+while {time < 30 || missionNamespace getVariable["WMT_pub_frzState",100] < 3} do {
     _s1 = [diag_ticktime - _timeStart, "MM:SS"] call BIS_fnc_secondsToString;
     _ctrl ctrlSetText _s1;
     _ctrl ctrlCommit 0;
 
-	_justPlayers = allPlayers - entities "HeadlessClient_F";
-	
-	_bluforPlayers={alive _x && side _x == west && isPlayer _x} count allUnits;
-	_opforPlayers={alive _x && side _x == east && isPlayer _x} count allUnits;
-	_resPlayers={alive _x && side _x == resistance && isPlayer _x} count allUnits;
-	_civPlayers={alive _x && side _x == civilian && isPlayer _x} count allUnits;
+
+	_bluforPlayers=  { side _x == west && isPlayer _x} count playableUnits;
+	_opforPlayers= { side _x == east && isPlayer _x} count playableUnits;
+	_resPlayers = { side _x == resistance && isPlayer _x} count playableUnits;
+	_civPlayers = { side _x == civilian && isPlayer _x} count playableUnits;
 	_s2="";
 	if(_bluforPlayers>0) then{_s2=_s2+format["<t color='#004d99' align='left' size='1.3'>%1</t> ",_bluforPlayers];};
 	if(_opforPlayers>0) then{_s2=_s2+format["<t color='#7f0000' align='left' size='1.3'>%1</t> ",_opforPlayers];};
