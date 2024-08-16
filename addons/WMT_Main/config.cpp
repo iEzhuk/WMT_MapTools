@@ -14,12 +14,12 @@ class CfgPatches
         units[] = {};
         weapons[] = {};
         requiredVersion = 1.0;
-        requiredAddons[] = {"A3_UI_F", "cba_keybinding"};
+        requiredAddons[] = {"A3_UI_F", "cba_keybinding", "cba_settings"};
         author = "Ezhuk, Zealot";
         authorUrl = "https://github.com/iEzhuk/WMT_MapTools";
-        version = 1.5.0;
-        versionStr = "1.5.0";
-        versionAr[] = {1,5,0};
+        version = 1.5.5;
+        versionStr = "1.5.5";
+        versionAr[] = {1,5,5};
     };
 };
 

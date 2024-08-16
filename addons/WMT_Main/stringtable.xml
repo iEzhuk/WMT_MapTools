@@ -494,6 +494,13 @@
                 <Original>Preset 3</Original>
                 <Russian>Пресет 3</Russian>
             </Key>
+            <Key ID="STR_WMT_PRESET_SHADOWS">
+                <Original>Shadows</Original>
+                <Russian>Тени</Russian>
+            </Key>
+            <Key ID="STR_WMT_PRESET_PIP">
+                <Original>PIP</Original>
+            </Key>
             <Key ID="STR_WMT_SoundSettings">
                 <Original>Sound settings</Original>
                 <Russian>Настройки звука</Russian>

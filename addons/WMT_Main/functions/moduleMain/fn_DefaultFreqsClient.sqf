@@ -70,4 +70,4 @@ private _txt = (wmt_global_freqList select _playersideid) call _printFrq;
 } foreach wmt_global_freqList;
 
 
-["diary",localize "STR_WMT_FREQ_HDR", _txt] call WMT_fnc_CreateDiaryRecord;
+["diary",localize "STR_WMT_FREQ_HDR", _txt, "\wmt_main\pic\freq.paa"] call WMT_fnc_CreateDiaryRecord;

@@ -18,14 +18,13 @@
 #include "defines_WMT.sqf"
 #include "defines_IDC.sqf"
 
-PR(_event) = _this select 0;
-PR(_arg) = _this select 1;
-PR(_return) = false;
+params ["_event","_arg"];
+private _return = false;
 
 switch (_event) do
 {
     case "init": {
-        PR(_dialog) = _arg select 0;
+        private _dialog = _arg select 0;
         disableSerialization;
         uiNamespace setVariable ["WMT_Dialog_Menu", _dialog];
 
@@ -42,56 +41,56 @@ switch (_event) do
         (_dialog displayCtrl IDC_OPTIONS_MUTING_SLIDER) sliderSetSpeed [0.01,0.01];
         (_dialog displayCtrl IDC_OPTIONS_MUTING_SLIDER) slidersetRange [0.01,0.6];
 
+        (_dialog displayCtrl IDC_OPTIONS_SHADOW_SLIDER) sliderSetSpeed [10,10];
+        (_dialog displayCtrl IDC_OPTIONS_SHADOW_SLIDER) slidersetRange [0,wmt_param_MaxViewDistance];
+
+        (_dialog displayCtrl IDC_OPTIONS_PIP_SLIDER) sliderSetSpeed [0.01,0.01];
+        (_dialog displayCtrl IDC_OPTIONS_PIP_SLIDER) slidersetRange [0,1];
+
         ['update'] call WMT_fnc_HandlerOptions;
     };
     case "close": {
         uiNamespace setVariable ["WMT_Dialog_Menu", nil];
     };
-    case "setDistance": {
-        PR(_slider) = _arg select 0;
-        PR(_index) = _arg select 1;
-        PR(_dist) = _slider select 1;
-        PR(_dialog) = uiNamespace getVariable "WMT_Dialog_Menu";
-        PR(_ctrlVar) = IDC_OPTIONS_PRESET_1_VALUE + _index;
-        PR(_ctrlSlider) = IDC_OPTIONS_PRESET_1_SLIDER + _index;
-
-        _dist = (floor(_dist/100))*100;
-
-        WMT_Options_ViewDistance set [_index, _dist];
-
-        (_dialog displayCtrl _ctrlVar) ctrlSetText str(wmt_param_MaxViewDistance min _dist);
-        (_dialog displayCtrl _ctrlSlider) sliderSetPosition (wmt_param_MaxViewDistance min _dist);
-
-        if (_index == 0) then {
-            (_dialog displayCtrl IDC_OPTIONS_TERRAIN_SLIDER) slidersetRange [_dist,wmt_param_MaxViewDistanceTerrain];
-        };
-
-        profilenamespace setvariable ['WMT_Profile_ViewDistance_Presets', WMT_Options_ViewDistance];
-        ['updateViewDistance'] call WMT_fnc_HandlerOptions;
-    };
-    case "setDistanceTerrain": {
-        PR(_slider) = _arg select 0;
-        PR(_dist) = _slider select 1;
-        PR(_dialog) = uiNamespace getVariable "WMT_Dialog_Menu";
-        PR(_ctrlVar) = IDC_OPTIONS_TERRAIN_VALUE;
-        PR(_ctrlSlider) = IDC_OPTIONS_TERRAIN_SLIDER;
-
-        _dist = (floor(_dist/100))*100;
-
-        WMT_Options_ViewDistanceTerrain = _dist;
-
-        (_dialog displayCtrl _ctrlVar) ctrlSetText str(wmt_param_MaxViewDistanceTerrain min _dist);
-        (_dialog displayCtrl _ctrlSlider) sliderSetPosition (wmt_param_MaxViewDistanceTerrain min _dist);
-
-        profilenamespace setvariable ['WMT_Profile_ViewDistance_Terrain', WMT_Options_ViewDistanceTerrain];
-        ['updateViewDistance'] call WMT_fnc_HandlerOptions;
-    };
+	case "setDistanceEx" : {
+		private _dialog = uiNamespace getVariable "WMT_Dialog_Menu";
+		for "_i" from 0 to 2 do {
+			private _ctrlVar = IDC_OPTIONS_PRESET_1_VALUE + _i;
+			private _ctrlSlider = IDC_OPTIONS_PRESET_1_SLIDER + _i;
+			private _dist = sliderPosition (_dialog displayCtrl _ctrlSlider);
+			_dist = (floor(_dist/100))*100;
+			WMT_Options_ViewDistance set [_i, _dist];
+			(_dialog displayCtrl _ctrlVar) ctrlSetText str(wmt_param_MaxViewDistance min _dist);
+			(_dialog displayCtrl _ctrlSlider) sliderSetPosition (wmt_param_MaxViewDistance min _dist);
+		};
+		private _distTerrain = sliderPosition (_dialog displayCtrl IDC_OPTIONS_TERRAIN_SLIDER); _distTerrain = (floor(_distTerrain/100))*100;
+		private _distShadow =  sliderPosition (_dialog displayCtrl IDC_OPTIONS_SHADOW_SLIDER); _distShadow = (floor(_distShadow/100))*100;
+		private _pip = sliderPosition (_dialog displayCtrl IDC_OPTIONS_PIP_SLIDER); _pip = (floor(_pip * 100)) / 100; 
+		
+		(_dialog displayCtrl IDC_OPTIONS_TERRAIN_VALUE) ctrlSetText str(wmt_param_MaxViewDistanceTerrain min _distTerrain);
+        (_dialog displayCtrl IDC_OPTIONS_TERRAIN_SLIDER) sliderSetPosition (wmt_param_MaxViewDistanceTerrain min _distTerrain);
+		
+		(_dialog displayCtrl IDC_OPTIONS_SHADOW_VALUE) ctrlSetText str(wmt_param_MaxViewDistanceTerrain min _distShadow);
+        (_dialog displayCtrl IDC_OPTIONS_SHADOW_SLIDER) sliderSetPosition (wmt_param_MaxViewDistanceTerrain min _distShadow);
+		
+		(_dialog displayCtrl IDC_OPTIONS_PIP_VALUE) ctrlSetText str(1 min _pip);
+		(_dialog displayCtrl IDC_OPTIONS_PIP_SLIDER) sliderSetPosition (1 min _pip);
+		
+		WMT_Options_ViewDistanceTerrain = _distTerrain;
+		WMT_Options_PIP_Distance = _pip;
+		WMT_Options_Shadow_Distance = _distShadow;
+		
+		profilenamespace setvariable ['WMT_Profile_ViewDistance_Terrain', WMT_Options_ViewDistanceTerrain];
+		profilenamespace setvariable ['WMT_Profile_Shadow_Distance', WMT_Options_Shadow_Distance];
+		profilenamespace setvariable ['WMT_Profile_PIP_Distance', WMT_Options_PIP_Distance];
+		profilenamespace setvariable ['WMT_Profile_ViewDistance_Presets', WMT_Options_ViewDistance];
+		
+		['updateViewDistance'] call WMT_fnc_HandlerOptions;
+	};
     case "setMutingLevel": {
-        private ["_slider","_index"];
-        PR(_slider) = _arg select 0;
-        PR(_index) = _arg select 1;
-        PR(_lvl) = _slider select 1;
-        PR(_dialog) = uiNamespace getVariable "WMT_Dialog_Menu";
+        _arg params ["_slider","_index"];
+        private _lvl = _slider select 1;
+        private _dialog = uiNamespace getVariable "WMT_Dialog_Menu";
 
         _lvl = floor(100*_lvl)/100;
 
@@ -110,7 +109,7 @@ switch (_event) do
         };
     };
     case "update": {
-        PR(_dialog) = uiNamespace getVariable "WMT_Dialog_Menu";
+        private _dialog = uiNamespace getVariable "WMT_Dialog_Menu";
 
         (_dialog displayCtrl IDC_OPTIONS_FOOT_VAR) ctrlSetText str(wmt_param_MaxViewDistance min (WMT_Options_ViewDistance select 0));
         (_dialog displayCtrl IDC_OPTIONS_VEH_VAR) ctrlSetText str(wmt_param_MaxViewDistance min (WMT_Options_ViewDistance select 1));
@@ -119,12 +118,19 @@ switch (_event) do
         (_dialog displayCtrl IDC_OPTIONS_PRESET_1_SLIDER) sliderSetPosition (wmt_param_MaxViewDistance min (WMT_Options_ViewDistance select 0));
         (_dialog displayCtrl IDC_OPTIONS_PRESET_2_SLIDER) sliderSetPosition (wmt_param_MaxViewDistance min (WMT_Options_ViewDistance select 1));
         (_dialog displayCtrl IDC_OPTIONS_PRESET_3_SLIDER) sliderSetPosition (wmt_param_MaxViewDistance min (WMT_Options_ViewDistance select 2));
+		(_dialog displayCtrl IDC_OPTIONS_SHADOW_SLIDER) sliderSetPosition (wmt_param_MaxViewDistance min WMT_Options_Shadow_Distance);
+		(_dialog displayCtrl IDC_OPTIONS_PIP_SLIDER) sliderSetPosition (WMT_Options_PIP_Distance);
+		
         (_dialog displayCtrl IDC_OPTIONS_TERRAIN_SLIDER)  sliderSetPosition (wmt_param_MaxViewDistanceTerrain min WMT_Options_ViewDistanceTerrain);
         (_dialog displayCtrl IDC_OPTIONS_MUTING_SLIDER)   sliderSetPosition (WMT_Options_Muting);
 
         (_dialog displayCtrl IDC_OPTIONS_PRESET_1_VALUE) ctrlSetText str(wmt_param_MaxViewDistance min (WMT_Options_ViewDistance select 0));
         (_dialog displayCtrl IDC_OPTIONS_PRESET_2_VALUE) ctrlSetText str(wmt_param_MaxViewDistance min (WMT_Options_ViewDistance select 1));
         (_dialog displayCtrl IDC_OPTIONS_PRESET_3_VALUE) ctrlSetText str(wmt_param_MaxViewDistance min (WMT_Options_ViewDistance select 2));
+		
+		(_dialog displayCtrl IDC_OPTIONS_SHADOW_VALUE) ctrlSetText str(wmt_param_MaxViewDistance min WMT_Options_Shadow_Distance);
+		(_dialog displayCtrl IDC_OPTIONS_PIP_VALUE) ctrlSetText str(WMT_Options_PIP_Distance);
+				
         (_dialog displayCtrl IDC_OPTIONS_TERRAIN_VALUE)  ctrlSetText str(wmt_param_MaxViewDistanceTerrain min WMT_Options_ViewDistanceTerrain);
         (_dialog displayCtrl IDC_OPTIONS_MUTING_VALUE)   ctrlSetText str(WMT_Options_Muting);
 
@@ -133,15 +139,21 @@ switch (_event) do
         (_dialog displayCtrl IDC_OPTIONS_SAVE_TERRAIN)   cbSetChecked ((profilenamespace getvariable ['WMT_Profile_ViewDistance_TerraineSave', 0]) == 1);
     };
     case "updateViewDistance": {
-        PR(_dist) = wmt_param_MaxViewDistance min (WMT_Options_ViewDistance select WMT_Options_ViewDistance_Preset);
-        PR(_distterrain) = (wmt_param_MaxViewDistanceTerrain min WMT_Options_ViewDistanceTerrain);
+        private _dist = wmt_param_MaxViewDistance min (WMT_Options_ViewDistance select WMT_Options_ViewDistance_Preset);
+        private _distterrain = (wmt_param_MaxViewDistanceTerrain min WMT_Options_ViewDistanceTerrain);
+		private _pipDistance = WMT_Options_PIP_Distance * _dist;
+		private _shadowDistance = WMT_Options_Shadow_Distance min _dist;
+		
+		diag_log ['updateViewDistance',_distterrain, _dist, _shadowDistance, _pipDistance];
 
         if (WMT_Options_ViewDistance_Preset == 0) then {
             setViewDistance _distterrain;
-            setObjectViewDistance _dist;
+            setObjectViewDistance [_dist,_shadowDistance];
+			setPiPViewDistance _pipDistance;
         } else {
             setViewDistance _dist;
-            setObjectViewDistance _dist;
+            setObjectViewDistance [_dist,_shadowDistance];
+			setPiPViewDistance _pipDistance;
         };
     };
     case "preinit": {
@@ -156,6 +168,8 @@ switch (_event) do
         };
 
         WMT_Options_Muting = profilenamespace getvariable ['WMT_Profile_Muting',0.6];
+		WMT_Options_PIP_Distance = profilenamespace getvariable ['WMT_Profile_PIP_Distance',0.2];
+		WMT_Options_Shadow_Distance = profilenamespace getvariable ['WMT_Profile_Shadow_Distance',100];
         WMT_Options_ViewDistance_Preset = 0;
 
         WMT_Options_Muted = false;
@@ -163,6 +177,7 @@ switch (_event) do
 
         // Set max distance in first preset
         WMT_Options_ViewDistance set [0, wmt_param_MaxViewDistance];
+		diag_log ["preinit", WMT_Options_ViewDistanceTerrain, WMT_Options_ViewDistance, WMT_Options_PIP_Distance, WMT_Options_Shadow_Distance];
 
         ["updateViewDistance"] spawn WMT_fnc_handlerOptions;
     };
@@ -170,15 +185,21 @@ switch (_event) do
         WMT_Options_ViewDistance_Preset = _arg;
         hint format ["%1:\n%2", localize"STR_WMT_ViewDistance", wmt_param_MaxViewDistance min (WMT_Options_ViewDistance select WMT_Options_ViewDistance_Preset)];
 
-        _dist = wmt_param_MaxViewDistance min (WMT_Options_ViewDistance select WMT_Options_ViewDistance_Preset);
-        _distterrain = (wmt_param_MaxViewDistanceTerrain min WMT_Options_ViewDistanceTerrain);
+        private _dist = wmt_param_MaxViewDistance min (WMT_Options_ViewDistance select WMT_Options_ViewDistance_Preset);
+        private _distterrain = (wmt_param_MaxViewDistanceTerrain min WMT_Options_ViewDistanceTerrain);
+		private _pipDistance = WMT_Options_PIP_Distance * _dist;
+		private _shadowDistance = WMT_Options_Shadow_Distance min _dist;
+		
+		diag_log ['action_vd_preset',_distterrain, _dist, _shadowDistance, _pipDistance];
 
         if (WMT_Options_ViewDistance_Preset == 0) then {
             setViewDistance _distterrain;
-            setObjectViewDistance _dist;
+            setObjectViewDistance [_dist,_shadowDistance];
+            setPiPViewDistance _pipDistance;
         } else {
            setViewDistance _dist;
-           setObjectViewDistance _dist;
+           setObjectViewDistance [_dist,_shadowDistance];
+           setPiPViewDistance _pipDistance;
         };
     };
     case 'action_muting': {
@@ -203,16 +224,21 @@ switch (_event) do
         // 104 CA_SliderVisibility
         // 308 CA_ValueObjectVisibility
         // 309 CA_SliderObjectVisibility
+		// 311 CA_ValueShadowVisibility
+		// 312 CA_SliderShadowVisibility
+		// 316 CA_ValuePipVisibility
+		// 317 CA_SliderPipVisibility
+
         _display = _arg select 0;
         if ( not isnil "wmt_Main_ModuleRunning" ) then {
             {
                 (_display displayCtrl _x) ctrlEnable false;
                 (_display displayCtrl _x) ctrlSetTooltip localize "STR_WMT_UseWMTOptions"
-            } foreach [104, 309];
+            } foreach [104, 309, 312, 317];
             {
                 (_display displayCtrl _x) ctrlEnable false;
                 (_display displayCtrl _x) ctrlShow false;
-            } foreach [103,308];
+            } foreach [103,308, 311, 316];
         };
     };
 };

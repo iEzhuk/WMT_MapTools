@@ -15,6 +15,10 @@ class CfgFunctions
             class EndMission{};
             class LongGroupNameToShort{};
             class ZoneCaptured{};
+            class settings{postInit=1;};
+            class setTerrainGrid{postInit=1;};
+            class autoCheckUniform{postInit=1;};
+            class checkAndGiveSWRadio{postInit=1;};
         };
     };
 };

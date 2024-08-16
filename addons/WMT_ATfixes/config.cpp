@@ -1,17 +1,16 @@
-
 class CfgPatches
 {
 	class ATFixes
 	{
-		units[] = {"MRAP_01_gmg_base_F","MRAP_03_hmg_base_F","MRAP_02_hmg_base_F","MRAP_03_base_F","Boat_Armed_01_base_F","Land_Pallet_static_F","Land_Pallet_vertical_static_F","O_APC_Tracked_02_cannon_hard_F","I_APC_Wheeled_03_cannon_hard_F","B_LSV_01_AT_hard_F","I_E_Static_AT_hard_F","O_static_AT_hard_F","B_static_AT_hard_F","I_static_AT_hard_F"};
+		units[] = {"MRAP_01_gmg_base_F","MRAP_03_hmg_base_F","MRAP_02_hmg_base_F","MRAP_03_base_F","Boat_Armed_01_base_F","Land_Pallet_static_F","Land_Pallet_vertical_static_F","O_APC_Tracked_02_cannon_hard_F","I_APC_Wheeled_03_cannon_hard_F","B_LSV_01_AT_hard_F","I_E_Static_AT_hard_F","O_static_AT_hard_F","B_static_AT_hard_F","I_static_AT_hard_F","B_APC_Wheeled_03_cannon_hard_F","I_G_APC_Wheeled_03_cannon_hard_F"};
 		weapons[] = {"launch_Titan_short_base","missiles_titan_static","missiles_titan"};
 		requiredVersion = 0.1;
-		requiredAddons[] = {"A3_Weapons_F","A3_Weapons_F_NATO","A3_Weapons_F_Launchers_Titan","A3_Soft_F","A3_Boat_F_Boat_Armed_01","A3_Boat_F","A3_Structures_F_Civ_Constructions","A3_Data_F","A3_Weapons_F_Explosives","A3_Armor_F_Beta_APC_Tracked_02","A3_Armor_F_Gamma_APC_Wheeled_03","A3_Aegis_Soft_F_Aegis","A3_Soft_F_Exp_LSV_01","A3_Static_F_Enoch_AT_01","A3_Static_F"};
+		requiredAddons[] = {"A3_Weapons_F","A3_Weapons_F_NATO","A3_Weapons_F_Launchers_Titan","A3_Soft_F","A3_Boat_F_Boat_Armed_01","A3_Boat_F","A3_Structures_F_Civ_Constructions","A3_Data_F","A3_Weapons_F_Explosives","A3_Armor_F_Beta_APC_Tracked_02","A3_Armor_F_Gamma_APC_Wheeled_03","A3_Aegis_Soft_F_Aegis","A3_Soft_F_Exp_LSV_01","A3_Static_F_Enoch_AT_01","A3_Static_F","A3_Aegis_Armor_F_Aegis","A3_Aegis_Armor_F_Aegis_APC_Wheeled_03","A3_Armor_F_Gamma_APC_Wheeled_03","A3_Armor_F_Gamma","A3_Armor_F_Beta"};
 		authorUrl = "https://github.com/iEzhuk/WMT_MapTools";
 		author = "Zealot,Jason,Ezhuk";
-		version = "1.6.0";
-		versionStr = "1.6.0";
-		versionAr[] = {1,6,0};
+		version = "1.7.0";
+		versionStr = "1.7.0";
+		versionAr[] = {1,7,0};
 		magazines[] = {};
 		ammo[] = {"M_Titan_AT","M_Titan_AT_Hard","M_Titan_AT_static_Hard","DirectionalBombBase","APERSTripMine_Wire_Ammo","APERSMine_Range_Ammo","BoundingMineCore","BoundingMineBase","APERSBoundingMine_Range_Ammo","ATMine_Range_Ammo","SatchelCharge_Remote_Ammo","SLAMDirectionalMine_Wire_Ammo","DemoCharge_Remote_Ammo","ClaymoreDirectionalMine_Remote_Ammo","FlareBase","Flare_82mm_AMOS_White"};
 	};
@@ -186,10 +185,28 @@ class commander_display;
 class CameraView1;
 class CfgVehicles
 {
- 	class MRAP_01_base_F;
+	class MRAP_01_base_F;
 	class MRAP_02_base_F;
 	class Car;
-    class Car_F: Car {class Turrets {class MainTurret;};};
+	class Car_F: Car
+	{
+		class Turrets
+		{
+			class MainTurret;
+		};
+	};
+	class Wheeled_APC_F: Car_F{};
+	class APC_Wheeled_03_base_F: Wheeled_APC_F{};
+	class I_APC_Wheeled_03_base_F: APC_Wheeled_03_base_F{};
+	class LandVehicle;
+	class Tank: LandVehicle{};
+	class Tank_F: Tank
+	{
+		class Turrets
+		{
+			class MainTurret;
+		};
+	};
 	class Boat_F;
 	class NonStrategic;
 	class Land_Pallet_static_F: NonStrategic
@@ -222,103 +239,143 @@ class CfgVehicles
 		cost = 100;
 		class DestructionEffects{};
 	};
-	
-
-    class O_APC_Tracked_02_cannon_F {class Turrets;};
-	class O_APC_Tracked_02_cannon_hard_F: O_APC_Tracked_02_cannon_F {
+	class APC_Tracked_02_base_F: Tank_F{};
+	class O_APC_Tracked_02_base_F: APC_Tracked_02_base_F{};
+	class O_APC_Tracked_02_cannon_F: O_APC_Tracked_02_base_F{};
+	class O_APC_Tracked_02_cannon_hard_F: O_APC_Tracked_02_cannon_F
+	{
 		displayName = "BTR-K Kamysh HARD";
-		class MainTurret;
-		class Turrets : Turrets {
-			class MainTurret : MainTurret {
-						magazines[] = {"140Rnd_30mm_MP_shells_Tracer_Green","140Rnd_30mm_MP_shells_Tracer_Green","60Rnd_30mm_APFSDS_shells_Tracer_Green","60Rnd_30mm_APFSDS_shells_Tracer_Green","200Rnd_762x51_Belt_Green","200Rnd_762x51_Belt_Green","200Rnd_762x51_Belt_Green","200Rnd_762x51_Belt_Green","200Rnd_762x51_Belt_Green","200Rnd_762x51_Belt_Green","200Rnd_762x51_Belt_Green","200Rnd_762x51_Belt_Green","2Rnd_GAT_missiles_hard","2Rnd_GAT_missiles_hard"};
+		class Turrets: Turrets
+		{
+			class MainTurret: MainTurret
+			{
+				magazines[] = {"140Rnd_30mm_MP_shells_Tracer_Green","140Rnd_30mm_MP_shells_Tracer_Green","60Rnd_30mm_APFSDS_shells_Tracer_Green","60Rnd_30mm_APFSDS_shells_Tracer_Green","200Rnd_762x51_Belt_Green","200Rnd_762x51_Belt_Green","200Rnd_762x51_Belt_Green","200Rnd_762x51_Belt_Green","200Rnd_762x51_Belt_Green","200Rnd_762x51_Belt_Green","200Rnd_762x51_Belt_Green","200Rnd_762x51_Belt_Green","2Rnd_GAT_missiles_hard","2Rnd_GAT_missiles_hard"};
 			};
 		};
-    };
-	
-	class I_APC_Wheeled_03_cannon_F {class Turrets;};
-	class I_APC_Wheeled_03_cannon_hard_F:I_APC_Wheeled_03_cannon_F
+	};
+	class I_APC_Wheeled_03_cannon_F: I_APC_Wheeled_03_base_F{};
+	class I_APC_Wheeled_03_cannon_hard_F: I_APC_Wheeled_03_cannon_F
 	{
 		displayName = "AFV-4 Gorgon HARD";
-		class MainTurret;
-		class Turrets : Turrets {
-			class MainTurret : MainTurret {
+		class Turrets: Turrets
+		{
+			class MainTurret: MainTurret
+			{
+				magazines[] = {"140Rnd_30mm_MP_shells_Tracer_Yellow","140Rnd_30mm_MP_shells_Tracer_Yellow","60Rnd_30mm_APFSDS_shells_Tracer_Yellow","60Rnd_30mm_APFSDS_shells_Tracer_Yellow","200Rnd_762x51_Belt_Yellow","200Rnd_762x51_Belt_Yellow","200Rnd_762x51_Belt_Yellow","200Rnd_762x51_Belt_Yellow","200Rnd_762x51_Belt_Yellow","200Rnd_762x51_Belt_Yellow","200Rnd_762x51_Belt_Yellow","200Rnd_762x51_Belt_Yellow","2Rnd_GAT_missiles_hard","2Rnd_GAT_missiles_hard"};
+			};
+		};
+	};
+	class B_APC_Wheeled_03_base_F: APC_Wheeled_03_base_F{};
+	class B_APC_Wheeled_03_cannon_F: B_APC_Wheeled_03_base_F{};
+	class B_APC_Wheeled_03_cannon_hard_F: B_APC_Wheeled_03_cannon_F
+	{
+		displayName = "AFV-4 Gorgon HARD";
+		class Turrets: Turrets
+		{
+			class MainTurret: MainTurret
+			{
+				magazines[] = {"140Rnd_30mm_MP_shells_Tracer_Red","140Rnd_30mm_MP_shells_Tracer_Red","60Rnd_30mm_APFSDS_shells_Tracer_Red","60Rnd_30mm_APFSDS_shells_Tracer_Red","200Rnd_762x51_Belt_Red","200Rnd_762x51_Belt_Red","200Rnd_762x51_Belt_Red","200Rnd_762x51_Belt_Red","200Rnd_762x51_Belt_Red","200Rnd_762x51_Belt_Red","200Rnd_762x51_Belt_Red","200Rnd_762x51_Belt_Red","2Rnd_GAT_missiles_hard","2Rnd_GAT_missiles_hard"};
+			};
+		};
+	};
+	class I_G_APC_Wheeled_03_base_F: APC_Wheeled_03_base_F{};
+	class I_G_APC_Wheeled_03_cannon_F: I_G_APC_Wheeled_03_base_F{};
+	class I_G_APC_Wheeled_03_cannon_hard_F: I_G_APC_Wheeled_03_cannon_F
+	{
+		displayName = "AFV-4 Gorgon HARD";
+		class Turrets: Turrets
+		{
+			class MainTurret: MainTurret
+			{
 				magazines[] = {"140Rnd_30mm_MP_shells_Tracer_Yellow","140Rnd_30mm_MP_shells_Tracer_Yellow","60Rnd_30mm_APFSDS_shells_Tracer_Yellow","60Rnd_30mm_APFSDS_shells_Tracer_Yellow","200Rnd_762x51_Belt_Yellow","200Rnd_762x51_Belt_Yellow","200Rnd_762x51_Belt_Yellow","200Rnd_762x51_Belt_Yellow","200Rnd_762x51_Belt_Yellow","200Rnd_762x51_Belt_Yellow","200Rnd_762x51_Belt_Yellow","200Rnd_762x51_Belt_Yellow","2Rnd_GAT_missiles_hard","2Rnd_GAT_missiles_hard"};
 			};
 		};
 	};
 	
-    class LSV_01_base_F: Car_F {
-        class Turrets: Turrets {};
-    };
-    class LSV_01_AT_base_F: LSV_01_base_F {
+	class LSV_01_base_F: Car_F
+	{
+		class Turrets: Turrets{};
+	};
+	class LSV_01_AT_base_F: LSV_01_base_F
+	{
 		class Turrets: Turrets
 		{
 			class TopTurret: MainTurret{};
 			class CodRiverTurret: MainTurret{};
 		};
 	};
-	
-	class B_LSV_01_AT_F : LSV_01_AT_base_F {};
-	class B_LSV_01_AT_hard_F : B_LSV_01_AT_F{
+	class B_LSV_01_AT_F: LSV_01_AT_base_F{};
+	class B_LSV_01_AT_hard_F: B_LSV_01_AT_F
+	{
 		displayName = "Prowler(AT) HARD";
-		class Turrets : Turrets {
-			class TopTurret : TopTurret {
+		class Turrets: Turrets
+		{
+			class TopTurret: TopTurret
+			{
 				magazines[] = {"1Rnd_GAT_missiles_hard","1Rnd_GAT_missiles_hard","1Rnd_GAT_missiles_hard","1Rnd_GAT_missiles_hard","1Rnd_GAT_missiles_hard","1Rnd_GAT_missiles_hard"};
 			};
 		};
 	};
-	
-	class LandVehicle;
-	class StaticWeapon: LandVehicle {
-        class Turrets;
-    };
-    class StaticMGWeapon: StaticWeapon {
-        class Turrets: Turrets {
-            class MainTurret;
-        };
-    };
-    class AT_01_base_F: StaticMGWeapon {};
-	
-	class B_static_AT_F : AT_01_base_F {};
-	class B_static_AT_hard_F : B_static_AT_F {
+	class StaticWeapon: LandVehicle
+	{
+		class Turrets;
+	};
+	class StaticMGWeapon: StaticWeapon
+	{
+		class Turrets: Turrets
+		{
+			class MainTurret;
+		};
+	};
+	class AT_01_base_F: StaticMGWeapon{};
+	class B_static_AT_F: AT_01_base_F{};
+	class B_static_AT_hard_F: B_static_AT_F
+	{
 		displayName = "Static Titan Launcher (AT)[NATO] HARD";
-		class Turrets : Turrets {
-			class MainTurret : MainTurret {
+		class Turrets: Turrets
+		{
+			class MainTurret: MainTurret
+			{
 				magazines[] = {"1Rnd_GAT_missiles_hard","1Rnd_GAT_missiles_hard","1Rnd_GAT_missiles_hard","1Rnd_GAT_missiles_hard"};
 			};
 		};
 	};
-	class O_static_AT_F : AT_01_base_F {};
-	class O_static_AT_hard_F : O_static_AT_F {
+	class O_static_AT_F: AT_01_base_F{};
+	class O_static_AT_hard_F: O_static_AT_F
+	{
 		displayName = "Static Titan Launcher (AT)[CSAT] HARD";
-		class Turrets : Turrets {
-			class MainTurret : MainTurret {
+		class Turrets: Turrets
+		{
+			class MainTurret: MainTurret
+			{
 				magazines[] = {"1Rnd_GAT_missiles_hard","1Rnd_GAT_missiles_hard","1Rnd_GAT_missiles_hard","1Rnd_GAT_missiles_hard"};
 			};
 		};
 	};
-	class I_static_AT_F : AT_01_base_F {};
-	class I_static_AT_hard_F : I_static_AT_F {
+	class I_static_AT_F: AT_01_base_F{};
+	class I_static_AT_hard_F: I_static_AT_F
+	{
 		displayName = "Static Titan Launcher (AT)[AAF] HARD";
-		class Turrets : Turrets {
-			class MainTurret : MainTurret {
+		class Turrets: Turrets
+		{
+			class MainTurret: MainTurret
+			{
 				magazines[] = {"1Rnd_GAT_missiles_hard","1Rnd_GAT_missiles_hard","1Rnd_GAT_missiles_hard","1Rnd_GAT_missiles_hard"};
 			};
 		};
 	};
-	
-	class I_E_Static_AT_F : I_static_AT_F {};
-	class I_E_Static_AT_hard_F : I_E_Static_AT_F {
+	class I_E_Static_AT_F: I_static_AT_F{};
+	class I_E_Static_AT_hard_F: I_E_Static_AT_F
+	{
 		displayName = "Static Titan Launcher (AT)[LDF] HARD";
-		class Turrets : Turrets {
-			class MainTurret : MainTurret {
+		class Turrets: Turrets
+		{
+			class MainTurret: MainTurret
+			{
 				magazines[] = {"1Rnd_GAT_missiles_hard","1Rnd_GAT_missiles_hard","1Rnd_GAT_missiles_hard","1Rnd_GAT_missiles_hard"};
 			};
 		};
 	};
-	
-
-	
 	class Boat_Armed_01_base_F: Boat_F
 	{
 		class RenderTargets

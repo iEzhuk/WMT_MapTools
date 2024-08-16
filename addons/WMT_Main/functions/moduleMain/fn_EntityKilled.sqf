@@ -3,6 +3,8 @@
 */
 
 params ["_victim", "_killer", "_instigator"];
+if !(_victim isKindOf "CAManBase" || _victim isKindOf "AllVehicles") exitWith {};
+
 if !(_victim getvariable ["wmtIsKilled",false]) then {
     _victim setvariable ["wmtIsKilled",true];
 
@@ -48,11 +50,17 @@ if !(_victim getvariable ["wmtIsKilled",false]) then {
 		private _KillerSide = _instigator getVariable ["PlayerSide", sideUnknown];
 		if (isNil "_killerName" ||  _killerName isEqualTo "") exitWith {diag_log ["WMT_EntityKilled killerName is nil or empty", _victim, _killer, _instigator];};
 
-
+        diag_log ["WMT_EntityKilled: ", _victim, _victimName, _killer, _killerName];
 		// victim
-		[ [ [_killerName,_killerSide], { WMT_Local_Killer = _this; } ],"bis_fnc_spawn",_victim] call bis_fnc_mp;
+        [[_killerName,_killerSide],{ WMT_Local_Killer = _this; }] remoteExec ["call",_victim];
+
 		// killer
-		[ [ [_victimName,_victimSide], { WMT_Local_Kills pushback (_this); } ],"bis_fnc_spawn",_instigator] call bis_fnc_mp;
+        [[_victimName,_victimSide], {
+            private _id = WMT_Local_Kills findIf {(_x select 0) isEqualTo (_this select 0)};
+            if (_id isEqualTo -1) then {
+                WMT_Local_Kills pushback (_this); 
+            };
+        }] remoteExec ["call",_instigator];
 
     };
 

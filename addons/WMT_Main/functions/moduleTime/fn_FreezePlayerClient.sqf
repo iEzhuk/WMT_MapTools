@@ -28,17 +28,29 @@ if (isNil "wmt_freeze_marker") then {
 
 sleep 0.01;
 
-wmt_freezeGrenadeHandler = player addEventHandler ["Fired", { if (WMT_pub_frzState < 3) then { deleteVehicle (_this select 6);};}];
+//wmt_freezeGrenadeHandler = player addEventHandler ["Fired", { if (WMT_pub_frzState < 3) then { deleteVehicle (_this select 6);};}];
+
 
 enableEngineArtillery false;
+wmt_freezeGrenadeHandler = addMissionEventHandler ["ProjectileCreated", {
+	params ["_projectile"];
+		if (WMT_pub_frzState < 3) then {
+			if (!isNil "ace_frag_fnc_addBlackList") then {[_projectile] call ace_frag_fnc_addBlackList;};
+			deleteVehicle _projectile;
+		} else {
+			removeMissionEventHandler ["ProjectileCreated", wmt_freezeGrenadeHandler];
+			wmt_freezeGrenadeHandler = nil;
+		};
+}];
+
 
 wmt_frz_vehs = [];
 {
-    PR(_evh) = _x addEventHandler ["Fired",{if (WMT_pub_frzState < 3) then { deleteVehicle (_this select 6);};}];
-    _x setVariable ["frz_evh", _evh];
+    // private _evh = _x addEventHandler ["Fired",{if (WMT_pub_frzState < 3) then { deleteVehicle (_this select 6);};}];
+    // _x setVariable ["frz_evh", _evh];
     wmt_frz_vehs pushback _x;
 
-    PR(_handler) = _x addEventHandler ["Engine", {
+    private _handler = _x addEventHandler ["Engine", {
         _car = _this select 0;
         _engineon = _this select 1;
         if ( WMT_pub_frzState < 3 and local _car and _engineon) then {
@@ -65,9 +77,13 @@ while {WMT_pub_frzState < 3} do {
         (findDisplay 160) closeDisplay 0;
         ["<t size='0.7' color='#ff2222'>"+localize "STR_WMT_FreezeUAVTerminal"+"</t>", 0, 0.2*safeZoneH+safeZoneY, 3, 0, 0, 273] spawn bis_fnc_dynamicText;
     };
+	//CheckUAVconnection
+	if(!isNull(getConnectedUAV player))then{
+		player connectTerminalToUAV objNull;
+	};
     // check position
     if (!isNil "wmt_freeze_startpos" and {count wmt_freeze_startpos > 0}) then {
-        PR(_dist) = player distance wmt_freeze_startpos;
+        private _dist = player distance wmt_freeze_startpos;
         if ( _dist > wmt_frzdistance and _dist < wmt_frzmaxdistance ) then {
             _msg = "<t size='0.75' color='#ff0000'>"+localize "STR_WMT_FreezeZoneFlee" +"</t>";
             [_msg, 0, 0.25, 3, 0, 0, 27] spawn bis_fnc_dynamicText;
@@ -87,15 +103,15 @@ while {WMT_pub_frzState < 3} do {
 setDate WMT_pub_frzBeginDate;
 enableEngineArtillery true;
 deleteMarkerLocal "WMTPlayerFreeze";
-if !(isNil "wmt_freezeGrenadeHandler") then {
-    player removeEventHandler ["Fired",wmt_freezeGrenadeHandler];
-    wmt_freezeGrenadeHandler = nil;
-};
+// if !(isNil "wmt_freezeGrenadeHandler") then {
+    // player removeEventHandler ["Fired",wmt_freezeGrenadeHandler];
+    // wmt_freezeGrenadeHandler = nil;
+// };
 {
-    PR(_evh) = _x getVariable "frz_evh";
-    if (!isNil "_evh") then {
-        _x removeEventHandler ["Fired", _evh];
-    };
+    // private _evh = _x getVariable "frz_evh";
+    // if (!isNil "_evh") then {
+        // _x removeEventHandler ["Fired", _evh];
+    // };
     _x removeEventHandler ["Engine", (_x getVariable ["wmtfrzEngine",0]) ];
 } foreach wmt_frz_vehs;
 wmt_frz_vehs = nil;

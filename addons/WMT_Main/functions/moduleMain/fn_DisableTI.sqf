@@ -17,16 +17,16 @@
 #include "defines_WMT.sqf"
 #include "defines_IDC.sqf"
 
-PR(_event) = _this select 0;
-PR(_arg) = _this select 1;
-PR(_return) = false;
-PR(_vehicles)= (call WMT_fnc_GetVehicles);
+private _event = _this select 0;
+private _arg = _this select 1;
+private _return = false;
+private _vehicles= (call WMT_fnc_GetVehicles);
 
 
 switch (_event) do
 {
     case "vehicle": {
-        PR(_force) = _arg select 0;
+        private _force = _arg select 0;
         {
             if(_x getVariable ["WMT_DisableTI",false] || _force) then {
                 _x disableTIEquipment true;
@@ -36,11 +36,18 @@ switch (_event) do
     case "full": {
         disableSerialization;
 
-        PR(_dialog) = _arg select 0;
-        PR(_ctrl) = _dialog displayCtrl IDD_DISABLETI_TEXT;
-        PR(_tiOn) = false;
+        private _dialog = _arg select 0;
+        private _ctrl = _dialog displayCtrl IDD_DISABLETI_TEXT;
+        private _tiOn = false;
+		player addEventHandler["VisionModeChanged",{
+			params["_person","_visionMode"];
+			if(_visionMode==2) then {
+				setTIParameter["OutputRangeStart",0];
+				setTIParameter["OutputRangeWidth",0];
+			};
+		}];
 
-        while {true} do {
+        /*while {true} do {
 
             if (alive player) then {
                 if (currentVisionMode player == 2) then {
@@ -59,7 +66,7 @@ switch (_event) do
             };
 
             sleep 0.016;
-        };
+        };*/
     };
 };
 

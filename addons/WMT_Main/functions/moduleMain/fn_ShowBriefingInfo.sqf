@@ -27,6 +27,24 @@ private _markersPool = [];
 private _friendlySides = ( [playerSide] call BIS_fnc_friendlySides ) - [civilian];
 private _enemySides = ( [playerSide] call BIS_fnc_enemySides ) - [civilian];
 
+private _side_To_color = {
+    switch(_this) do {
+        case WEST:{"\wmt_main\pic\vehicles_b.paa"};
+        case EAST:{"\wmt_main\pic\vehicles_r.paa"};
+        case RESISTANCE:{"\wmt_main\pic\vehicles_g.paa"};
+        default{"\wmt_main\pic\vehicles.paa"};
+    };
+};
+
+private _friendlyVehIcon=playerSide call _side_To_color;
+private _enemyVehIcon="\wmt_main\pic\vehicles.paa";
+if(count _enemySides>0) then {
+	private _max_enemy_side=_enemySides select [1,5];
+	private _side_cnt=_max_enemy_side apply {_x countSide allUnits};
+	_max_enemy_side= _max_enemy_side#(_side_cnt find (selectMax _side_cnt)); 
+	_enemyVehIcon=_max_enemy_side call _side_To_color;
+};
+
 private ["_pos","_side","_class","_marker","_vehname","_groupid","_units"];
 
 PR(_friendlyVehs)=[];
@@ -154,7 +172,7 @@ if (count _enemyVehs != 0 and getNumber(MissionConfigFile >> "WMT_Param" >> "Cam
 
     } foreach _enemyVehs;
 
-    ["diary",localize "STR_WMT_EnemyVehicles", _enemyVehTxt] call WMT_fnc_CreateDiaryRecord;
+    ["diary",localize "STR_WMT_EnemyVehicles", _enemyVehTxt, _enemyVehIcon] call WMT_fnc_CreateDiaryRecord;
 };
 
 if (count _friendlyVehs != 0 ) then {
@@ -168,7 +186,7 @@ if (count _friendlyVehs != 0 ) then {
 
     } foreach _friendlyVehs;
 
-    ["diary",localize "STR_WMT_Vehicles", _vehicleTxt] call WMT_fnc_CreateDiaryRecord;
+    ["diary",localize "STR_WMT_Vehicles", _vehicleTxt, _friendlyVehIcon] call WMT_fnc_CreateDiaryRecord;
 };
 
 sleep 0.01;
